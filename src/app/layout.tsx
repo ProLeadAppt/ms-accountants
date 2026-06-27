@@ -1,26 +1,7 @@
 import type { Metadata } from "next";
-import { Fraunces, Hanken_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import { fontVariables } from "@/lib/fonts";
 import { site } from "@/lib/site";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-fraunces",
-  display: "swap",
-});
-
-const hanken = Hanken_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-hanken",
-  display: "swap",
-});
-
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-plex-mono",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -78,7 +59,7 @@ export default function RootLayout({
       lang="en-AU"
       data-scroll-behavior="smooth"
       suppressHydrationWarning
-      className={`${fraunces.variable} ${hanken.variable} ${plexMono.variable}`}
+      className={fontVariables}
     >
       <body className="antialiased" suppressHydrationWarning>
         <script
