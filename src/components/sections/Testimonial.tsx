@@ -15,12 +15,12 @@ export function Testimonial() {
           <Icon name="quote" className="h-10 w-10 text-brand-red" />
           <EyebrowTag className="mt-8">In their words</EyebrowTag>
           <blockquote className="mt-7 font-display text-3xl leading-[1.18] text-clay sm:text-4xl">
-            A client testimonial will sit here — selected with the client once
-            permission is confirmed, to let the people Dr Sridaran has helped do
-            the talking.
+            The right words will sit here soon: honest praise from people Dr
+            Sridaran has actually helped, in their own voice, with their
+            permission.
           </blockquote>
           <p className="mt-8 font-mono text-xs uppercase tracking-[0.18em] text-[var(--muted)]">
-            Testimonial — pending client sign-off
+            Testimonial coming soon
           </p>
         </Reveal>
       </Container>

@@ -7,7 +7,7 @@
 export const site = {
   name: "MS Accountants",
   tagline: "A boutique Sydney tax & accounting firm.",
-  credentialLine: "Led by Dr Maheswaran Sridaran — PhD (Tax) · M.Tax · CA",
+  credentialLine: "Led by Dr Maheswaran Sridaran · PhD (Tax), M.Tax, CA",
   url: "https://msaccountants.com.au",
   cta: "Book a conversation with Dr Sridaran",
   ctaHref: "/contact",

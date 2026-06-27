@@ -9,18 +9,18 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
     default:
-      "MS Accountants — Sydney tax specialists led by Dr Maheswaran Sridaran",
-    template: "%s — MS Accountants",
+      "MS Accountants · Sydney tax specialists led by Dr Maheswaran Sridaran",
+    template: "%s · MS Accountants",
   },
   description:
-    "Your accountant should know capital gains tax. Ours wrote the thesis on it. A boutique Sydney firm where Dr Sridaran — PhD (Tax), M.Tax, CA — personally oversees every engagement.",
+    "Your accountant should know capital gains tax. Ours wrote the thesis on it. A boutique Sydney firm where Dr Sridaran (PhD Tax, M.Tax, CA) reviews every engagement himself.",
   openGraph: {
     type: "website",
     siteName: "MS Accountants",
     locale: "en_AU",
     url: site.url,
     title:
-      "MS Accountants — Sydney tax specialists led by Dr Maheswaran Sridaran",
+      "MS Accountants · Sydney tax specialists led by Dr Maheswaran Sridaran",
     description:
       "Your accountant should know capital gains tax. Ours wrote the thesis on it.",
   },
@@ -71,6 +71,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <div className="grain-overlay" aria-hidden="true" />
       </body>
     </html>
   );

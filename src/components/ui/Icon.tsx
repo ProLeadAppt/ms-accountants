@@ -65,15 +65,20 @@ const PATHS: Record<IconName, React.ReactNode> = {
   ),
 };
 
+/** Size via the numeric `size` prop (px). `className` is for colour/transforms only. */
 export function Icon({
   name,
   className,
+  size = 22,
 }: {
   name: IconName;
   className?: string;
+  size?: number;
 }) {
   return (
     <svg
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -81,7 +86,7 @@ export function Icon({
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      className={cn("h-6 w-6", className)}
+      className={cn("shrink-0", className)}
     >
       {PATHS[name]}
     </svg>

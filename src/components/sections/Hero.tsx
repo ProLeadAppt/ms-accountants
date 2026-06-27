@@ -35,8 +35,8 @@ export function Hero() {
             className="mt-9 max-w-xl text-lg leading-relaxed text-[var(--muted)]"
           >
             Dr Maheswaran Sridaran holds a PhD in Australian capital gains tax, a
-            Master of Taxation, and 30 years advising businesses across the
-            world&rsquo;s top firms — and he personally oversees every engagement.
+            Master of Taxation, and thirty years inside the world&rsquo;s top
+            firms. He reviews every engagement himself.
           </p>
           <div data-hero="rise" className="mt-11 flex flex-wrap items-center gap-4">
             <Button href={site.ctaHref}>{site.cta}</Button>
@@ -45,6 +45,19 @@ export function Hero() {
             </Button>
           </div>
         </Container>
+
+        <div data-hero="rise" className="absolute inset-x-0 bottom-8">
+          <Container>
+            <div className="flex items-center justify-between border-t border-cream/15 pt-5">
+              <span className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-cream/55">
+                Scroll
+              </span>
+              <span className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-cream/55">
+                Sydney, Australia
+              </span>
+            </div>
+          </Container>
+        </div>
       </HeroTimeline>
     </section>
   );

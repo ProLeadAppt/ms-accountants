@@ -10,7 +10,7 @@ export function CredentialGrid() {
     <section className="scheme-espresso py-24 lg:py-32">
       <Container>
         <Reveal className="max-w-2xl">
-          <EyebrowTag>Why it matters</EyebrowTag>
+          <EyebrowTag>04 / Why it matters</EyebrowTag>
           <h2 className="mt-7 font-serif text-4xl leading-[1.06] text-cream sm:text-5xl">
             Credentials only matter if they change your outcome.
           </h2>

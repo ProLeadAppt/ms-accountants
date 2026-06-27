@@ -5,24 +5,39 @@ import { Icon } from "./Icon";
 type Variant = "primary" | "secondary";
 
 const BASE =
-  "group inline-flex items-center justify-center gap-2.5 rounded-full font-sans text-[0.95rem] font-medium leading-none transition-colors duration-300 px-7 py-4";
+  "group relative inline-flex items-center justify-center overflow-hidden rounded-full px-7 py-4 font-sans text-[0.95rem] font-medium leading-none transition-[box-shadow,color] duration-300";
 
 const VARIANTS: Record<Variant, string> = {
-  primary: "bg-brand-red text-cream hover:bg-red-bright",
-  secondary:
-    "ring-1 ring-current/25 text-current hover:ring-current/55 hover:bg-current/[0.04]",
+  primary: "bg-brand-red text-cream",
+  secondary: "text-current ring-1 ring-current/25 hover:ring-current/55",
 };
 
-/** Sliding-arrow that marches right on hover (Quinn-grade micro). */
+const WIPE: Record<Variant, string> = {
+  primary: "bg-red-bright",
+  secondary: "bg-current/[0.07]",
+};
+
+const EASE = "ease-[cubic-bezier(0.16,1,0.3,1)]";
+
+/** Two-arrow marquee: the resting arrow slides out right, a fresh one enters from the left. */
 function ArrowSlide() {
   return (
-    <span
-      aria-hidden="true"
-      className="relative inline-flex h-3.5 w-3.5 overflow-hidden"
-    >
-      <span className="absolute inset-0 flex w-[200%] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-x-1/2">
-        <Icon name="arrow" className="h-3.5 w-1/2 shrink-0" />
-        <Icon name="arrow" className="h-3.5 w-1/2 shrink-0" />
+    <span aria-hidden="true" className="relative inline-flex h-4 w-4 overflow-hidden">
+      <span
+        className={cn(
+          "absolute inset-0 flex items-center justify-center transition-transform duration-500 group-hover:translate-x-4",
+          EASE,
+        )}
+      >
+        <Icon name="arrow" size={16} />
+      </span>
+      <span
+        className={cn(
+          "absolute inset-0 flex -translate-x-4 items-center justify-center transition-transform duration-500 group-hover:translate-x-0",
+          EASE,
+        )}
+      >
+        <Icon name="arrow" size={16} />
       </span>
     </span>
   );
@@ -45,14 +60,25 @@ export function Button({
   arrow = true,
   onClick,
 }: Props) {
-  const external = href.startsWith("http") || href.startsWith("tel:") || href.startsWith("mailto:");
+  const external =
+    href.startsWith("http") || href.startsWith("tel:") || href.startsWith("mailto:");
+  const classes = cn(BASE, VARIANTS[variant], className);
   const content = (
     <>
-      <span>{children}</span>
-      {arrow && <ArrowSlide />}
+      <span
+        aria-hidden="true"
+        className={cn(
+          "absolute inset-0 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100",
+          EASE,
+          WIPE[variant],
+        )}
+      />
+      <span className="relative z-10 inline-flex items-center gap-2.5">
+        <span>{children}</span>
+        {arrow && <ArrowSlide />}
+      </span>
     </>
   );
-  const classes = cn(BASE, VARIANTS[variant], className);
 
   if (external) {
     return (
@@ -89,7 +115,8 @@ export function TextLink({
       <span className="link-underline">{children}</span>
       <Icon
         name="arrow"
-        className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1"
+        size={14}
+        className="transition-transform duration-300 group-hover:translate-x-1"
       />
     </Link>
   );

@@ -20,19 +20,18 @@ export function AboutTeaser() {
           </StickyPin>
 
           <Reveal className="flex flex-col items-start justify-center">
-            <EyebrowTag>The principal does the work</EyebrowTag>
+            <EyebrowTag>03 / The principal</EyebrowTag>
             <h2 className="mt-7 font-serif text-4xl leading-[1.06] sm:text-5xl">
               Why a tax academic chose to run a small firm.
             </h2>
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-[var(--muted)]">
-              Most people with Dr Sridaran&rsquo;s background don&rsquo;t end up
-              here — running a boutique where the principal does the work. The
-              reason explains how MS Accountants works: the person whose name is
+              Most people with his background don&rsquo;t end up running a small
+              firm. He chose to, for one reason. Here, the person whose name is
               on the door is the person on your file.
             </p>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-[var(--muted)]">
-              The technical depth of a global firm, with the access of one
-              adviser who knows your business.
+              You get the technical depth of a global firm and the access of one
+              adviser who knows your business by name.
             </p>
             <div className="mt-10">
               <Button href="/about" variant="secondary">
