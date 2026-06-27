@@ -4,6 +4,7 @@ import { fontVariables } from "@/lib/fonts";
 import { site } from "@/lib/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { CustomCursor } from "@/components/motion/CustomCursor";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -72,6 +73,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <div className="grain-overlay" aria-hidden="true" />
+        <CustomCursor />
       </body>
     </html>
   );

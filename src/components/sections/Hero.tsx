@@ -2,6 +2,7 @@ import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { HeroTimeline } from "@/components/motion/HeroTimeline";
+import { MaskHeadline } from "@/components/motion/MaskHeadline";
 import { site } from "@/lib/site";
 
 export function Hero() {
@@ -10,7 +11,7 @@ export function Hero() {
       {/* Background — IMAGE SLOT: replace with next/image hero.jpg (Phase 12) */}
       <div
         data-hero="bg"
-        className="absolute inset-0 -z-10 bg-[radial-gradient(120%_120%_at_15%_0%,#3a2419_0%,#241c18_55%,#1a130f_100%)]"
+        className="absolute inset-x-0 -top-[8%] -z-10 h-[118%] bg-[radial-gradient(120%_120%_at_15%_0%,#3a2419_0%,#241c18_55%,#1a130f_100%)]"
         aria-hidden="true"
       >
         <div className="absolute inset-0 opacity-[0.05] [background-image:radial-gradient(circle_at_1px_1px,#fff_1px,transparent_0)] [background-size:22px_22px]" />
@@ -22,14 +23,15 @@ export function Hero() {
           <div data-hero="rise">
             <EyebrowTag>Boutique Sydney tax &amp; advisory</EyebrowTag>
           </div>
-          <h1
-            data-hero="rise"
+          <MaskHeadline
             className="mt-8 max-w-[18ch] font-serif text-[2.7rem] leading-[0.98] text-cream sm:text-6xl lg:text-[5.5rem]"
-          >
-            Your accountant should know capital gains tax. Ours{" "}
-            <em className="headline-em text-red-bright">wrote the thesis</em> on
-            it.
-          </h1>
+            emClassName="headline-em text-red-bright"
+            segments={[
+              { text: "Your accountant should know capital gains tax. Ours" },
+              { text: "wrote the thesis", em: true },
+              { text: "on it." },
+            ]}
+          />
           <p
             data-hero="rise"
             className="mt-9 max-w-xl text-lg leading-relaxed text-[var(--muted)]"

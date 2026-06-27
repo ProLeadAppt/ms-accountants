@@ -43,6 +43,20 @@ export function HeroTimeline({
           { autoAlpha: 1, y: 0, duration: 0.7, stagger: 0.12 },
           "-=0.45",
         );
+
+      // Scroll parallax — background drifts slower than the content.
+      if (bg.length) {
+        gsap.to(bg, {
+          yPercent: 16,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ref.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      }
     },
     { scope: ref, dependencies: [reduced] },
   );
