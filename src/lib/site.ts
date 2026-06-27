@@ -17,9 +17,10 @@ export const site = {
     // Phone is published on the current msaccountants.com.au site.
     phone: "02 9739 4837",
     phoneHref: "tel:+61297394837",
-    email: "[[EMAIL — confirm]]",
+    // NOTE (spec §9): email + address pending client confirmation.
+    email: "hello@msaccountants.com.au",
     emailHref: "mailto:hello@msaccountants.com.au",
-    address: "[[OFFICE ADDRESS]], Sydney NSW",
+    address: "Sydney, NSW, Australia",
   },
 } as const;
 
