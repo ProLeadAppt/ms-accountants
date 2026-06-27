@@ -1,0 +1,57 @@
+import Link from "next/link";
+import { Container } from "./Container";
+import { Logo } from "@/components/ui/Logo";
+import { site, nav } from "@/lib/site";
+
+export function Footer() {
+  const year = new Date().getFullYear();
+  return (
+    <footer id="footer" className="scheme-espresso">
+      <Container className="py-16 lg:py-20">
+        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
+          <div>
+            <Logo className="text-2xl text-cream" />
+            <p className="mt-6 max-w-sm text-sm leading-relaxed text-[var(--muted)]">
+              {site.footerTrust}
+            </p>
+          </div>
+
+          <div>
+            <p className="eyebrow mb-5">Explore</p>
+            <ul className="space-y-3 text-sm">
+              {nav.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="link-underline">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="eyebrow mb-5">Contact</p>
+            <ul className="space-y-3 text-sm text-[var(--muted)]">
+              <li>
+                <a href={site.contact.phoneHref} className="link-underline">
+                  {site.contact.phone}
+                </a>
+              </li>
+              <li>
+                <a href={site.contact.emailHref} className="link-underline">
+                  {site.contact.email}
+                </a>
+              </li>
+              <li>{site.contact.address}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-14 flex flex-col gap-3 border-t border-[var(--hairline)] pt-7 text-xs text-[var(--muted)] sm:flex-row sm:justify-between">
+          <span>© {year} MS Accountants. All rights reserved.</span>
+          <span>{site.credentialLine}</span>
+        </div>
+      </Container>
+    </footer>
+  );
+}
