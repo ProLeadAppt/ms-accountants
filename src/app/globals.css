@@ -1,26 +1,188 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================================
+   MS ACCOUNTANTS — DESIGN SYSTEM  ·  "The Strategist's Dossier"
+   Built on the client's real brand: deep crimson #960000 (logo), warm cream,
+   chess-amber #A76101 (his strategy motif). Structural intelligence borrowed
+   from the Quinn reference; identity is entirely MS Accountants.
+============================================================================ */
+@theme {
+  /* Brand — crimson (sampled from logo) */
+  --color-crimson: #960000;
+  --color-crimson-deep: #6b0000;
+  --color-crimson-bright: #ba1414; /* for accents on dark grounds */
+
+  /* Accent — chess amber / brass (sampled from his chess imagery) */
+  --color-amber: #a76101;
+  --color-amber-2: #c98a2e;
+
+  /* Neutrals — warm */
+  --color-ink: #1a1410; /* primary text, near-black warm */
+  --color-ink-2: #5b4f44; /* secondary text */
+  --color-ink-3: #8c7d6c; /* captions */
+  --color-espresso: #211712; /* dark section ground */
+  --color-espresso-2: #2d211a;
+  --color-cream: #f4ede1; /* primary light ground — parchment */
+  --color-cream-2: #eae0cf; /* muted band */
+  --color-paper: #fbf7f0; /* lightest surface / cards */
+  --color-line: #ddd0bb; /* warm taupe hairline */
+  --color-line-dark: #463528;
+
+  /* Fonts (wired in layout.tsx) */
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  --tracking-eyebrow: 0.2em;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ----------------------------------------------------------------------------
+   Base
+---------------------------------------------------------------------------- */
+* {
+  border-color: var(--color-line);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  background-color: var(--color-espresso);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--color-crimson);
+  color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+/* Literary first-line indent — borrowed editorial touch */
+.text-indent {
+  text-indent: 2.4rem;
+}
+
+/* Warm paper grain */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+}
+
+/* ----------------------------------------------------------------------------
+   Eyebrow / detail label  (knight-dot marker — chess motif)
+---------------------------------------------------------------------------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  line-height: 1;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-crimson);
+}
+.eyebrow--light {
+  color: var(--color-amber-2);
+}
+.eyebrow__dot {
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+/* ----------------------------------------------------------------------------
+   Links — wipe underline
+---------------------------------------------------------------------------- */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* ----------------------------------------------------------------------------
+   GSAP progressive-enhancement: hide animated bits only once JS is ready
+---------------------------------------------------------------------------- */
+.gsap-ready [data-anim="rise"],
+.gsap-ready [data-anim="fade"],
+.gsap-ready [data-anim="stagger"] > * {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .gsap-ready [data-anim],
+  .gsap-ready [data-anim] > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   Branded arrow button (triple-arrow slide on hover) — Quinn-grade micro
+---------------------------------------------------------------------------- */
+.btn-arrow {
+  overflow: hidden;
+  position: relative;
+}
+.btn-arrow__track {
+  display: inline-flex;
+  width: 1rem;
+  overflow: hidden;
+}
+.btn-arrow__glyphs {
+  display: inline-flex;
+  gap: 0.5rem;
+  transform: translateX(-1.5rem);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-arrow:hover .btn-arrow__glyphs {
+  transform: translateX(0);
+}
+
+/* ----------------------------------------------------------------------------
+   Decorative rules / lines
+---------------------------------------------------------------------------- */
+.value-line {
+  transform: scaleY(0);
+  transform-origin: top;
 }
