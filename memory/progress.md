@@ -1,9 +1,42 @@
 # Progress — MS Accountants Website v2
 
-## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-28]
+## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-28b]
 
-**State: full site built, deployed to GitHub + Vercel. One owner action left to make
-it public (disable Vercel Auth). Detail below.**
+**State: full site built + real contact/testimonials/team + photoreal service
+imagery. Committed + pushed (commit 2cbd060). PROD REDEPLOY PENDING (auto-mode
+blocks `vercel --prod`; user must run it). Vercel Auth still ON. Detail below.**
+
+### THIS SESSION (2026-06-28b) — DONE, committed+pushed, NOT yet redeployed
+- **Real contact details** scraped from live msaccountants.com.au → `site.ts`
+  `contact`: phone 02 9739 4837, mobile 0410 588 536, fax 02 8078 6640,
+  email m.sridaran@msaccountants.com.au, office "Suite 70, WOTSO WorkSpace,
+  9 George Street, North Strathfield NSW 2137", postal "P O Box 2194, Hornsby
+  Westfield Post Office, Hornsby NSW 1635". Wired into Contact page + Footer
+  (Footer hardcodes "North Strathfield NSW 2137"; old `contact.address` REMOVED).
+- **Testimonials** (5 real, from /what-our-clients-say.html) → `site.ts`
+  `testimonials[]`. Homepage `Testimonial.tsx` rebuilt: featured (Ambi Thind) +
+  4-card grid. Verified in browser.
+- **Team** → `site.ts` `team[]`: Dr Sridaran + Niroshi Rathnayakage ONLY
+  (Samantha Mullins removed per client). About page gained an "Our people"
+  section (avatar gradient placeholders; "Portrait to follow" on Dr S).
+- **Service imagery** (GPT Image 2 = `openai/gpt-image-2`, NOT "Chacha Beauty"
+  which doesn't exist on fal): 21:9 editorial band added to each service detail
+  page via new `Service.image` field. LIVE picks in `public/generated/`:
+  tax-advisory-2 (library chambers), tax-disputes-1 (CBD desk), tax-compliance-1
+  (coloured folders), cfo-advisory-1 (blue-hour Sydney boardroom — best of set),
+  smsf-2 (wax seal + coins). 5 rejected options deleted. All people-free/text-free
+  per the AI-tell rules. Generated directly via fal MCP submit_job (no script).
+- Build/lint/tsc/vitest(7) ALL GREEN.
+
+### ⏭ IMMEDIATE NEXT STEP
+Run the production redeploy (blocked in auto mode this session):
+  `npx vercel --prod --yes`  (from repo root; CLI authed as munyal)
+Then the new contact/testimonials/team/imagery go live at ms-accountants.vercel.app.
+
+---
+
+**Prior state (still true): full site built, deployed to GitHub + Vercel. One owner
+action left to make it public (disable Vercel Auth). Detail below.**
 
 **Branch:** `redesign-v2` (default branch on GitHub too; NOT merged to local `master`).
 **Repo:** https://github.com/ProLeadAppt/ms-accountants (PUBLIC — consider private).
@@ -48,11 +81,15 @@ pinned via `vercel.json {"framework":"nextjs"}`; redeploy confirmed the app rend
   diagnostic JS ready (measure elements crossing viewport edge).
 
 ### NEXT (after protection toggle)
-1. Confirm the two UX fixes on the real public URL at the user's width.
-2. Client-supplied, NOT AI: Dr Sridaran's **real portrait** (About slot is a
-   placeholder), confirm **email/address** (`site.ts` §9 placeholders), optional
-   voice-match copy to his AFR/SMH/book samples.
-3. Optional: make GitHub repo private; merge `redesign-v2`→`master` if desired.
+1. **PROD REDEPLOY** `npx vercel --prod --yes` (this session's work not yet live).
+2. Confirm the two UX fixes on the real public URL at the user's width.
+3. Client-supplied, NOT AI: Dr Sridaran's **real portrait** (About "Our people"
+   + AboutTeaser + about-origin slots all still gradient placeholders). Email/
+   address now CONFIRMED from live site (done). Optional voice-match copy.
+4. **World-class copy pass** (user explicitly wants this next): deep-research elite
+   tax/law firm copy → `copywriting` skill → voice-match to Dr Sridaran (AFR/SMH/
+   book samples — ask client). Replace base copy in `src/lib/site.ts`.
+5. Optional: make GitHub repo private; merge `redesign-v2`→`master` if desired.
 
 ### Done (Phases 0–6 + elevation 6.5)
 - Teardown of v1; scaffold kept.
