@@ -103,6 +103,23 @@ restart — stale-CSS bit us once).
 
 ---
 
+## DEPLOY (2026-06-28)
+- **GitHub:** https://github.com/ProLeadAppt/ms-accountants (default branch
+  `redesign-v2`; repo is PUBLIC — consider making private). Remote `origin` set.
+- **Vercel:** project `ms-accountants` (scope munyal-projects). Production deploy
+  READY. Permanent URL: **https://ms-accountants.vercel.app**
+  (deploy URL: ms-accountants-mstyfwmfm-munyal-projects.vercel.app).
+- **BLOCKER for public access:** Vercel **Deployment Protection (Vercel
+  Authentication)** is ON -> non-logged-in visitors get 302->SSO then 404.
+  FIX (dashboard, ~10s): Vercel -> project ms-accountants -> Settings ->
+  Deployment Protection -> Vercel Authentication -> Off (or "Only Preview") ->
+  Save. Then the URL is public. No CLI/MCP tool exists to toggle this.
+- Redeploy after code changes: `npx vercel --prod` from repo root (CLI authed as
+  munyal). No runtime env vars needed (fal is build-time only; contact API just logs).
+- Inner pages (about/services/[slug]/contact/404) built this session; build+lint+
+  tests all green. Copy em-dashes purged. Outstanding for client: real portrait
+  photo (About slot), email/address confirmation (site.ts §9), final voice-match.
+
 ## Log
 - 2026-06-27: brainstormed + spec + plan; built Phases 0–6 (design system → homepage).
 - 2026-06-28: elevation pass (marquee, grain, cinematic headline, custom cursor,
