@@ -67,6 +67,8 @@ html {
   -webkit-text-size-adjust: 100%;
   background-color: var(--color-espresso);
   scrollbar-color: var(--color-brand-red) var(--color-sand);
+  /* Stop overscroll bounce/chaining from "pushing" the page past the footer. */
+  overscroll-behavior-y: none;
 }
 
 body {
@@ -76,6 +78,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  /* Guard against any horizontal overflow without breaking position: sticky
+     (clip does not create a scroll container the way overflow:hidden does). */
+  overflow-x: clip;
 }
 
 h1,
