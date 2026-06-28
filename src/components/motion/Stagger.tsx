@@ -28,17 +28,22 @@ export function Stagger({
 
   useGSAP(
     () => {
-      if (reduced || !ref.current) return;
-      registerGsap();
+      if (!ref.current) return;
       const items = gsap.utils.toArray<HTMLElement>(ref.current.children);
       if (!items.length) return;
-      gsap.set(items, { autoAlpha: 0, y });
+      if (reduced) {
+        ref.current.classList.add("is-visible");
+        gsap.set(items, { clearProps: "all" });
+        return;
+      }
+      registerGsap();
+      gsap.set(items, { y });
       gsap.to(items, {
-        autoAlpha: 1,
         y: 0,
         duration: 0.7,
         ease: "power3.out",
         stagger: each,
+        onComplete: () => ref.current?.classList.add("is-visible"),
         scrollTrigger: { trigger: ref.current, start, once: true },
       });
     },

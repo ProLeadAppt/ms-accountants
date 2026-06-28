@@ -34,7 +34,7 @@
 .scheme-cream {
   --bg: var(--color-cream);
   --fg: var(--color-espresso);
-  --muted: color-mix(in srgb, var(--color-espresso) 62%, var(--color-cream));
+  --muted: color-mix(in srgb, var(--color-espresso) 74%, var(--color-cream));
   --accent: var(--color-brand-red);
   --hairline: var(--color-lines);
   background-color: var(--bg);
@@ -43,7 +43,7 @@
 .scheme-sand {
   --bg: var(--color-sand);
   --fg: var(--color-espresso);
-  --muted: color-mix(in srgb, var(--color-espresso) 60%, var(--color-sand));
+  --muted: color-mix(in srgb, var(--color-espresso) 72%, var(--color-sand));
   --accent: var(--color-brand-red);
   --hairline: color-mix(in srgb, var(--color-espresso) 12%, var(--color-sand));
   background-color: var(--bg);
@@ -52,7 +52,7 @@
 .scheme-espresso {
   --bg: var(--color-espresso);
   --fg: var(--color-cream);
-  --muted: color-mix(in srgb, var(--color-cream) 64%, var(--color-espresso));
+  --muted: color-mix(in srgb, var(--color-cream) 76%, var(--color-espresso));
   --accent: var(--color-red-bright);
   --hairline: color-mix(in srgb, var(--color-cream) 14%, var(--color-espresso));
   background-color: var(--bg);
@@ -75,6 +75,8 @@ body {
   background-color: var(--color-cream);
   color: var(--color-espresso);
   font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.62;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -173,6 +175,50 @@ h4 {
 }
 .link-underline:hover::after {
   transform: scaleX(1);
+}
+
+/* ----------------------------------------------------------------------------
+   Readability guardrails — older clients should not have to fight the type.
+---------------------------------------------------------------------------- */
+main p,
+main li,
+footer p,
+footer li {
+  line-height: 1.65;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  font-size: max(1rem, 1em);
+}
+
+input,
+select,
+textarea {
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   No-JS / reduced-motion visibility fallback.
+   Content starts readable. JS-enhanced GSAP may animate it, but if scripting or
+   motion is unavailable, review sections never stay hidden.
+---------------------------------------------------------------------------- */
+.no-js [data-anim],
+.no-js [data-anim] > *,
+[data-anim].is-visible,
+[data-anim].is-visible > * {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
 }
 
 /* ----------------------------------------------------------------------------

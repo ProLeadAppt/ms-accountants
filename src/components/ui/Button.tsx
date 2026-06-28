@@ -50,6 +50,9 @@ type Props = {
   className?: string;
   arrow?: boolean;
   onClick?: () => void;
+  trackEvent?: string;
+  trackCategory?: string;
+  trackLabel?: string;
 };
 
 export function Button({
@@ -59,9 +62,13 @@ export function Button({
   className,
   arrow = true,
   onClick,
+  trackEvent,
+  trackCategory,
+  trackLabel,
 }: Props) {
   const external =
     href.startsWith("http") || href.startsWith("tel:") || href.startsWith("mailto:");
+  const defaultTrackEvent = href === "/contact" ? "cta_click" : external ? "contact_link_click" : undefined;
   const classes = cn(BASE, VARIANTS[variant], className);
   const content = (
     <>
@@ -82,13 +89,27 @@ export function Button({
 
   if (external) {
     return (
-      <a href={href} className={classes} onClick={onClick}>
+      <a
+        href={href}
+        className={classes}
+        onClick={onClick}
+        data-track-event={trackEvent ?? defaultTrackEvent}
+        data-track-category={trackCategory ?? "conversion"}
+        data-track-label={trackLabel ?? (typeof children === "string" ? children : href)}
+      >
         {content}
       </a>
     );
   }
   return (
-    <Link href={href} className={classes} onClick={onClick}>
+    <Link
+      href={href}
+      className={classes}
+      onClick={onClick}
+      data-track-event={trackEvent ?? defaultTrackEvent}
+      data-track-category={trackCategory ?? "conversion"}
+      data-track-label={trackLabel ?? (typeof children === "string" ? children : href)}
+    >
       {content}
     </Link>
   );

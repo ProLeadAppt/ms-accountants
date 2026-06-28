@@ -33,6 +33,12 @@ describe("content library", () => {
     expect(getService("nope")).toBeUndefined();
   });
 
+  it("has working click-to-call and click-to-email contact links", () => {
+    expect(site.contact.phoneHref).toBe("tel:+61297394837");
+    expect(site.contact.mobileHref).toBe("tel:+61410588536");
+    expect(site.contact.emailHref).toBe("mailto:m.sridaran@msaccountants.com.au");
+  });
+
   it("has no unresolved placeholders in user-facing site fields", () => {
     const blob = JSON.stringify({ site, nav, valueStats, credentialCards, authorityItems });
     expect(blob).not.toContain("[[");

@@ -5,6 +5,10 @@ import { site } from "@/lib/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CustomCursor } from "@/components/motion/CustomCursor";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { ConversionTracking } from "@/components/analytics/ConversionTracking";
+
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -25,6 +29,9 @@ export const metadata: Metadata = {
     description:
       "Your accountant should know capital gains tax. Ours wrote the thesis on it.",
   },
+  verification: googleSiteVerification
+    ? { google: googleSiteVerification }
+    : undefined,
   alternates: { canonical: "/" },
 };
 
@@ -62,9 +69,17 @@ export default function RootLayout({
       lang="en-AU"
       data-scroll-behavior="smooth"
       suppressHydrationWarning
-      className={fontVariables}
+      className={`${fontVariables} no-js`}
     >
       <body className="antialiased" suppressHydrationWarning>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');",
+          }}
+        />
+        <GoogleAnalytics />
+        <ConversionTracking />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}

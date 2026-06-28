@@ -38,7 +38,7 @@ export function MaskHeadline({
       registerGsap();
       const inners = ref.current.querySelectorAll<HTMLElement>("[data-word-inner]");
       gsap.timeline().from(inners, {
-        yPercent: 118,
+        yPercent: 24,
         duration: 0.9,
         ease: FOLDER_EASE,
         stagger: 0.05,

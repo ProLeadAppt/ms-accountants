@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Icon } from "@/components/ui/Icon";
 import { services } from "@/lib/services";
+import { trackConversion } from "@/lib/analytics";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -35,6 +36,10 @@ export function ContactForm() {
           | null;
         throw new Error(body?.error ?? "Something went wrong. Please try again.");
       }
+      trackConversion("contact_form_submit", {
+        event_category: "conversion",
+        event_label: typeof data.topic === "string" && data.topic ? data.topic : "General enquiry",
+      });
       setStatus("success");
       form.reset();
     } catch (err) {

@@ -58,7 +58,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="link-underline font-sans text-sm font-medium"
+              className="link-underline font-sans text-base font-medium"
             >
               {item.label}
             </Link>
@@ -70,7 +70,7 @@ export function Header() {
             href={site.ctaHref}
             variant={scrolled ? "primary" : "secondary"}
             arrow={false}
-            className="px-5 py-3 text-sm"
+            className="px-5 py-3 text-base"
           >
             {site.cta}
           </Button>

@@ -11,14 +11,14 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
           <div>
             <Logo className="text-2xl text-cream" />
-            <p className="mt-6 max-w-sm text-sm leading-relaxed text-[var(--muted)]">
+            <p className="mt-6 max-w-sm text-base leading-relaxed text-[var(--muted)]">
               {site.footerTrust}
             </p>
           </div>
 
           <div>
             <p className="eyebrow mb-5">Explore</p>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-3 text-base">
               {nav.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="link-underline">
@@ -31,14 +31,37 @@ export function Footer() {
 
           <div>
             <p className="eyebrow mb-5">Contact</p>
-            <ul className="space-y-3 text-sm text-[var(--muted)]">
+            <ul className="space-y-3 text-base text-[var(--muted)]">
               <li>
-                <a href={site.contact.phoneHref} className="link-underline">
+                <a
+                  href={site.contact.phoneHref}
+                  className="link-underline"
+                  data-track-event="contact_link_click"
+                  data-track-category="conversion"
+                  data-track-label="Footer phone"
+                >
                   {site.contact.phone}
                 </a>
               </li>
               <li>
-                <a href={site.contact.emailHref} className="link-underline">
+                <a
+                  href={site.contact.mobileHref}
+                  className="link-underline"
+                  data-track-event="contact_link_click"
+                  data-track-category="conversion"
+                  data-track-label="Footer mobile"
+                >
+                  {site.contact.mobile}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={site.contact.emailHref}
+                  className="link-underline"
+                  data-track-event="contact_link_click"
+                  data-track-category="conversion"
+                  data-track-label="Footer email"
+                >
                   {site.contact.email}
                 </a>
               </li>

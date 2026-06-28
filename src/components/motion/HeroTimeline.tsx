@@ -31,16 +31,16 @@ export function HeroTimeline({
       const bg = q("[data-hero='bg']");
       const rise = q("[data-hero='rise']");
 
-      if (bg.length) gsap.set(bg, { autoAlpha: 0, scale: 1.08 });
-      if (rise.length) gsap.set(rise, { autoAlpha: 0, y: 18 });
+      if (bg.length) gsap.set(bg, { scale: 1.08 });
+      if (rise.length) gsap.set(rise, { y: 18 });
 
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
       if (bg.length)
-        tl.to(bg, { autoAlpha: 1, scale: 1, duration: 0.9, ease: FOLDER_EASE }, 0);
+        tl.to(bg, { scale: 1, duration: 0.9, ease: FOLDER_EASE }, 0);
       if (rise.length)
         tl.to(
           rise,
-          { autoAlpha: 1, y: 0, duration: 0.7, stagger: 0.12 },
+          { y: 0, duration: 0.7, stagger: 0.12 },
           "-=0.45",
         );
 

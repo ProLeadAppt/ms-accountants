@@ -23,14 +23,20 @@ export function WordReveal({ text, className }: Props) {
 
   useGSAP(
     () => {
-      if (reduced || !ref.current) return;
-      registerGsap();
+      if (!ref.current) return;
       const spans = ref.current.querySelectorAll<HTMLElement>("[data-word]");
-      gsap.set(spans, { opacity: 0.12 });
+      if (reduced) {
+        ref.current.classList.add("is-visible");
+        gsap.set(spans, { clearProps: "all" });
+        return;
+      }
+      registerGsap();
+      gsap.set(spans, { opacity: 0.42 });
       gsap.to(spans, {
         opacity: 1,
         ease: "none",
         stagger: 0.08,
+        onComplete: () => ref.current?.classList.add("is-visible"),
         scrollTrigger: {
           trigger: ref.current,
           start: "top 80%",

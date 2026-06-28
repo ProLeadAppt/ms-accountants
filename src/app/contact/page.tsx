@@ -77,6 +77,9 @@ function ContactItem({
         <a
           href={href}
           className="mt-1 inline-block font-serif text-xl text-espresso transition-colors duration-200 hover:text-brand-red"
+          data-track-event={href.startsWith("tel:") || href.startsWith("mailto:") ? "contact_link_click" : undefined}
+          data-track-category="conversion"
+          data-track-label={`Contact page ${label}`}
         >
           {value}
         </a>

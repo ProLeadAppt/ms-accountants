@@ -29,16 +29,21 @@ export function Reveal({
 
   useGSAP(
     () => {
-      if (reduced || !ref.current) return;
-      registerGsap();
+      if (!ref.current) return;
       const el = ref.current;
-      gsap.set(el, { autoAlpha: 0, y });
+      if (reduced) {
+        el.classList.add("is-visible");
+        gsap.set(el, { clearProps: "all" });
+        return;
+      }
+      registerGsap();
+      gsap.set(el, { y });
       gsap.to(el, {
-        autoAlpha: 1,
         y: 0,
         duration: 0.85,
         delay,
         ease: "power3.out",
+        onComplete: () => el.classList.add("is-visible"),
         scrollTrigger: { trigger: el, start, toggleActions: "play none none none", once: true },
       });
     },
