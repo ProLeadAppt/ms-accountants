@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# project ephemera (CLAUDE.md A.N.T. workbench)
+/.tmp/
+
+# large legacy source video (not part of the built site)
+/src/Old MS Accountants website.mp4

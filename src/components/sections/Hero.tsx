@@ -1,6 +1,7 @@
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { EyebrowTag } from "@/components/ui/EyebrowTag";
+import { HeroBackground } from "@/components/motion/HeroBackground";
 import { HeroTimeline } from "@/components/motion/HeroTimeline";
 import { MaskHeadline } from "@/components/motion/MaskHeadline";
 import { site } from "@/lib/site";
@@ -8,12 +9,19 @@ import { site } from "@/lib/site";
 export function Hero() {
   return (
     <section className="scheme-espresso relative min-h-[100svh] overflow-hidden">
-      {/* Background — IMAGE SLOT: replace with next/image hero.jpg (Phase 12) */}
+      {/* Background — golden-hour Sydney sandstone (fal.ai Flux 1.1 Ultra). */}
       <div
         data-hero="bg"
-        className="absolute inset-x-0 -top-[8%] -z-10 h-[118%] bg-[radial-gradient(120%_120%_at_15%_0%,#3a2419_0%,#241c18_55%,#1a130f_100%)]"
+        className="absolute inset-x-0 -top-[8%] z-0 h-[118%] bg-[#1a130f]"
         aria-hidden="true"
       >
+        <HeroBackground />
+        {/* Top fade so the cream nav stays legible over the bright facade. */}
+        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#160f0b]/85 to-transparent" />
+        {/* Left-to-right espresso scrim: headline legibility, right third left to glow. */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#160f0b] from-10% via-[#160f0b]/62 via-58% to-transparent to-96%" />
+        <div className="absolute inset-0 bg-[#1a130f]/10 mix-blend-multiply" />
+        {/* Fine dot grain (kept from v1). */}
         <div className="absolute inset-0 opacity-[0.05] [background-image:radial-gradient(circle_at_1px_1px,#fff_1px,transparent_0)] [background-size:22px_22px]" />
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#1a130f] to-transparent" />
       </div>

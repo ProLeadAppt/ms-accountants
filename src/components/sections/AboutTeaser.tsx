@@ -14,7 +14,7 @@ export function AboutTeaser() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[linear-gradient(150deg,#7b3d2c,#3a2419)]">
               <div className="absolute inset-0 opacity-[0.06] [background-image:radial-gradient(circle_at_1px_1px,#fff_1px,transparent_0)] [background-size:20px_20px]" />
               <span className="absolute bottom-5 left-5 font-mono text-[0.65rem] uppercase tracking-[0.18em] text-cream/70">
-                Dr Maheswaran Sridaran — portrait to follow
+                Dr Maheswaran Sridaran &middot; portrait to follow
               </span>
             </div>
           </StickyPin>

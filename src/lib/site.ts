@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------------------
-// MS Accountants — site configuration & content
+// MS Accountants, site configuration & content
 // Source of truth: WEBSITE-COPY-AND-BUILD-SPEC.md (§3–§10).
 // [[PLACEHOLDER]] = real-world fact to be supplied by the client (spec §9).
 // ---------------------------------------------------------------------------
@@ -24,7 +24,7 @@ export const site = {
   },
 } as const;
 
-// Quantified credential stats (spec §1) — Quinn-style "value" band.
+// Quantified credential stats (spec §1), Quinn-style "value" band.
 export const valueStats = [
   { figure: "PhD", unit: "in CGT", label: "Doctoral research into Australian capital gains tax" },
   { figure: "30", unit: "years", label: "At the senior end of PwC, EY & WHK Horwath" },
@@ -52,15 +52,15 @@ export const authorityItems = [
 export const credentialCards = [
   {
     title: "A doctorate in Australian capital gains tax.",
-    body: "When your business sells, restructures, or passes to the next generation, the CGT questions are the expensive ones. They're also the ones Dr Sridaran studied to doctoral level — so the ATO's hardest positions are familiar ground, not new research.",
+    body: "When your business sells, restructures, or passes to the next generation, the CGT questions are the expensive ones. They're also the ones Dr Sridaran studied to doctoral level, so the ATO's hardest positions are familiar ground, not new research.",
   },
   {
     title: "30 years across PwC, EY and Horwath.",
-    body: "You get top-tier technical firepower — the kind usually reserved for big-end-of-town clients — without big-firm overhead, handoffs, or a rotating cast of account managers.",
+    body: "You get top-tier technical firepower, the kind usually reserved for big-end-of-town clients, without big-firm overhead, handoffs, or a rotating cast of account managers.",
   },
   {
     title: "Practised across five countries.",
-    body: "Cross-border income, expat tax, foreign assets — none of it gets outsourced or guessed at. It's lived experience, handled in-house.",
+    body: "Cross-border income, expat tax, foreign assets: none of it gets outsourced or guessed at. It's lived experience, handled in-house.",
   },
   {
     title: "Taught tax law. Published in the AFR and SMH. Wrote the book.",
@@ -96,8 +96,8 @@ export const services: Service[] = [
     title: "Tax Advisory & Planning",
     tagline: "The expensive questions deserve the deepest expertise.",
     intro: [
-      "Selling a business. Restructuring. Passing assets to the next generation. These are the moments where the tax bill is largest — and where a generalist working it out as they go can cost you more than they save.",
-      "This is the work Dr Maheswaran Sridaran built his career on. His PhD examined Australian capital gains tax; his book asked whether those gains are even taxed fairly. So when a capital gains question lands on your desk, you're not getting a best guess. You're getting the person who studied it to doctoral level — and who reviews your file personally.",
+      "Selling a business. Restructuring. Passing assets to the next generation. These are the moments where the tax bill is largest, and where a generalist working it out as they go can cost you more than they save.",
+      "This is the work Dr Maheswaran Sridaran built his career on. His PhD examined Australian capital gains tax; his book asked whether those gains are even taxed fairly. So when a capital gains question lands on your desk, you're not getting a best guess. You're getting the person who studied it to doctoral level, and who reviews your file personally.",
     ],
     helpHeading: "What we help with",
     help: [
@@ -133,7 +133,7 @@ export const services: Service[] = [
     title: "Tax Disputes & ATO Matters",
     tagline: "When the ATO comes knocking, expertise is your best defence.",
     intro: [
-      "An audit. A disputed assessment. A position you need the tax office to confirm before you act. These are the moments where it pays to have someone who knows the law cold — and can argue your case with genuine authority.",
+      "An audit. A disputed assessment. A position you need the tax office to confirm before you act. These are the moments where it pays to have someone who knows the law cold, and can argue your case with genuine authority.",
       "Dr Maheswaran Sridaran taught tax law at university and led a national tax practice before founding MS Accountants. He doesn't just know the rules; he understands the reasoning behind them. That's what it takes to push back on an assessment and be taken seriously.",
     ],
     helpHeading: "What we help with",
@@ -151,7 +151,7 @@ export const services: Service[] = [
         desc: "getting certainty from the ATO before you commit to a transaction, so you act with confidence rather than hope.",
       },
     ],
-    why: "Arguing a tax position is part technical, part advocacy. Few accountants have taught the law, published on it, and run the disputes — Dr Sridaran has done all three. You want that in your corner before you respond to the ATO, not after.",
+    why: "Arguing a tax position is part technical, part advocacy. Few accountants have taught the law, published on it, and run the disputes. Dr Sridaran has done all three. You want that in your corner before you respond to the ATO, not after.",
   },
   {
     slug: "tax-compliance-returns",
@@ -161,7 +161,7 @@ export const services: Service[] = [
     title: "Tax Compliance & Returns",
     tagline: "Every obligation, handled accurately and on time.",
     intro: [
-      "Compliance is the part no one thanks you for — until it goes wrong. Late lodgements, missed obligations and small errors carry real cost. The job is to make all of it quiet, accurate and predictable, so you can stop thinking about it.",
+      "Compliance is the part no one thanks you for, until it goes wrong. Late lodgements, missed obligations and small errors carry real cost. The job is to make all of it quiet, accurate and predictable, so you can stop thinking about it.",
       "At MS Accountants, routine work still passes under the eye of a Chartered Accountant and registered tax agent who has spent 30 years getting it right at the highest level. Even your compliance benefits from that standard.",
     ],
     helpHeading: "What we help with",
@@ -175,8 +175,8 @@ export const services: Service[] = [
       "Land tax returns",
       "Workers' compensation insurance declarations",
     ],
-    note: "More than ticking boxes: even clients who come to us only for compliance receive at least an hour of senior time each year on strategic issues — at no charge. Because the point of doing the returns is to spot the opportunities hiding in them.",
-    why: "Accuracy is the floor, not the ceiling. With Dr Sridaran reviewing quality across the practice, your compliance is done properly — and used as a starting point to find what you could be doing better.",
+    note: "More than ticking boxes: even clients who come to us only for compliance receive at least an hour of senior time each year on strategic issues, at no charge. Because the point of doing the returns is to spot the opportunities hiding in them.",
+    why: "Accuracy is the floor, not the ceiling. With Dr Sridaran reviewing quality across the practice, your compliance is done properly, and used as a starting point to find what you could be doing better.",
   },
   {
     slug: "business-cfo-advisory",
@@ -187,7 +187,7 @@ export const services: Service[] = [
     title: "Business & CFO Advisory",
     tagline: "The financial brain of a big company, without the headcount.",
     intro: [
-      "Growing businesses hit a point where they need senior financial thinking — someone to weigh a major decision, scrutinise an acquisition, or raise finance — but aren't ready to carry a full-time chief financial officer.",
+      "Growing businesses hit a point where they need senior financial thinking, someone to weigh a major decision, scrutinise an acquisition, or raise finance, but aren't ready to carry a full-time chief financial officer.",
       "That's the gap MS Accountants fills. To corporate clients, we offer the assistance an in-house CFO would: strategic, hands-on, and grounded in 30 years across some of the world's leading firms.",
     ],
     helpHeading: "What we help with",
@@ -213,7 +213,7 @@ export const services: Service[] = [
         desc: "getting the technical accounting right on the decisions that matter.",
       },
     ],
-    why: "Dr Sridaran has sat at the senior end of global firms and advised property conglomerates, listed companies and financial services licensees. You get that calibre of judgement applied to your business — at boutique scale, with direct access to the principal.",
+    why: "Dr Sridaran has sat at the senior end of global firms and advised property conglomerates, listed companies and financial services licensees. You get that calibre of judgement applied to your business, at boutique scale, with direct access to the principal.",
   },
   {
     slug: "self-managed-super",
@@ -223,7 +223,7 @@ export const services: Service[] = [
     title: "Self-Managed Superannuation",
     tagline: "Your SMSF audit, done properly.",
     intro: [
-      "A self-managed super fund gives you control — and a set of obligations that have to be met precisely. The annual audit isn't a formality; it's what keeps your fund compliant and your retirement savings protected.",
+      "A self-managed super fund gives you control, and a set of obligations that have to be met precisely. The annual audit isn't a formality; it's what keeps your fund compliant and your retirement savings protected.",
       "MS Accountants conducts SMSF audits to the standard you'd expect from a firm led by a Chartered Accountant with three decades of audit and tax experience at the highest level.",
     ],
     helpHeading: "What we help with",
@@ -233,7 +233,7 @@ export const services: Service[] = [
         desc: "thorough, compliant, and handled by people who understand both the audit standards and the tax consequences behind them.",
       },
     ],
-    why: "An SMSF audit sits where superannuation, tax and audit meet — three areas Dr Sridaran has worked across his entire career. Your fund is reviewed by a firm that understands all three, not just one.",
+    why: "An SMSF audit sits where superannuation, tax and audit meet, three areas Dr Sridaran has worked across his entire career. Your fund is reviewed by a firm that understands all three, not just one.",
   },
 ];
 
