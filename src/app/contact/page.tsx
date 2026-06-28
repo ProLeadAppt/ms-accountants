@@ -36,8 +36,11 @@ export default function ContactPage() {
                 <EyebrowTag>Direct line</EyebrowTag>
                 <div className="mt-6 space-y-5">
                   <ContactItem label="Phone" value={site.contact.phone} href={site.contact.phoneHref} />
+                  <ContactItem label="Mobile" value={site.contact.mobile} href={site.contact.mobileHref} />
+                  <ContactItem label="Fax" value={site.contact.fax} />
                   <ContactItem label="Email" value={site.contact.email} href={site.contact.emailHref} />
-                  <ContactItem label="Location" value={site.contact.address} />
+                  <ContactItem label="Office" value={site.contact.officeAddress} />
+                  <ContactItem label="Postal" value={site.contact.postalAddress} />
                 </div>
               </div>
               <p className="max-w-sm text-[var(--muted)]">

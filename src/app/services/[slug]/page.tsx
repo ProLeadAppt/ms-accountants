@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layout/Container";
@@ -50,6 +51,28 @@ export default async function ServiceDetailPage({
         title={service.title}
         lede={service.tagline}
       />
+
+      {/* Editorial image band */}
+      {service.image && (
+        <section className="scheme-cream pt-16 lg:pt-20">
+          <Container>
+            <Reveal>
+              <figure className="relative aspect-[21/9] overflow-hidden rounded-2xl">
+                <Image
+                  src={service.image}
+                  alt={`${service.title} at MS Accountants.`}
+                  fill
+                  priority
+                  sizes="(min-width: 1280px) 1152px, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-espresso/10" />
+                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-[linear-gradient(to_top,rgba(26,19,15,0.45),transparent)]" />
+              </figure>
+            </Reveal>
+          </Container>
+        </section>
+      )}
 
       {/* Intro */}
       <section className="scheme-cream py-20 lg:py-28">

@@ -42,7 +42,7 @@ export function Footer() {
                   {site.contact.email}
                 </a>
               </li>
-              <li>{site.contact.address}</li>
+              <li>North Strathfield NSW 2137</li>
             </ul>
           </div>
         </div>

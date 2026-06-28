@@ -14,13 +14,15 @@ export const site = {
   footerTrust:
     "A boutique Sydney firm where the principal does the work. PhD-level tax expertise, personally applied to your business.",
   contact: {
-    // Phone is published on the current msaccountants.com.au site.
     phone: "02 9739 4837",
     phoneHref: "tel:+61297394837",
-    // NOTE (spec §9): email + address pending client confirmation.
-    email: "hello@msaccountants.com.au",
-    emailHref: "mailto:hello@msaccountants.com.au",
-    address: "Sydney, NSW, Australia",
+    mobile: "0410 588 536",
+    mobileHref: "tel:+61410588536",
+    fax: "02 8078 6640",
+    email: "m.sridaran@msaccountants.com.au",
+    emailHref: "mailto:m.sridaran@msaccountants.com.au",
+    officeAddress: "Suite 70, WOTSO WorkSpace, 9 George Street, North Strathfield NSW 2137",
+    postalAddress: "P O Box 2194, Hornsby Westfield Post Office, Hornsby NSW 1635",
   },
 } as const;
 
@@ -83,6 +85,7 @@ export type Service = {
   help: HelpItem[];
   note?: string;
   why: string;
+  image?: string;
 };
 
 export const services: Service[] = [
@@ -123,6 +126,7 @@ export const services: Service[] = [
       },
     ],
     why: "Most accountants apply the capital gains rules. Dr Sridaran studied them to doctoral level and has written publicly on whether they're fair. When the question is hard enough to matter, that depth is the difference between a defensible position and an expensive guess.",
+    image: "/generated/tax-advisory-2.jpg",
   },
   {
     slug: "tax-disputes-ato",
@@ -152,6 +156,7 @@ export const services: Service[] = [
       },
     ],
     why: "Arguing a tax position is part technical, part advocacy. Few accountants have taught the law, published on it, and run the disputes. Dr Sridaran has done all three. You want that in your corner before you respond to the ATO, not after.",
+    image: "/generated/tax-disputes-1.jpg",
   },
   {
     slug: "tax-compliance-returns",
@@ -177,6 +182,7 @@ export const services: Service[] = [
     ],
     note: "More than ticking boxes: even clients who come to us only for compliance receive at least an hour of senior time each year on strategic issues, at no charge. Because the point of doing the returns is to spot the opportunities hiding in them.",
     why: "Accuracy is the floor, not the ceiling. With Dr Sridaran reviewing quality across the practice, your compliance is done properly, and used as a starting point to find what you could be doing better.",
+    image: "/generated/tax-compliance-1.jpg",
   },
   {
     slug: "business-cfo-advisory",
@@ -214,6 +220,7 @@ export const services: Service[] = [
       },
     ],
     why: "Dr Sridaran has sat at the senior end of global firms and advised property conglomerates, listed companies and financial services licensees. You get that calibre of judgement applied to your business, at boutique scale, with direct access to the principal.",
+    image: "/generated/cfo-advisory-1.jpg",
   },
   {
     slug: "self-managed-super",
@@ -234,9 +241,80 @@ export const services: Service[] = [
       },
     ],
     why: "An SMSF audit sits where superannuation, tax and audit meet, three areas Dr Sridaran has worked across his entire career. Your fund is reviewed by a firm that understands all three, not just one.",
+    image: "/generated/smsf-2.jpg",
   },
 ];
 
 export function getService(slug: string): Service | undefined {
   return services.find((s) => s.slug === slug);
 }
+
+// ---------------------------------------------------------------------------
+// Team
+// ---------------------------------------------------------------------------
+
+export type TeamMember = {
+  name: string;
+  role: string;
+  credentials: readonly string[];
+  bio: string;
+};
+
+export const team: readonly TeamMember[] = [
+  {
+    name: "Dr Maheswaran Sridaran",
+    role: "Principal",
+    credentials: ["PhD, Macquarie University", "CA", "M.Tax, UNSW"],
+    bio: "A chartered accountant and registered tax agent with thirty years across PwC, EY, WHK Horwath and Macquarie University. His doctoral thesis examined Australian capital gains tax; his first book asked whether capital gains are taxed equitably in Australia. He is the chief quality controller of the practice: every engagement is reviewed personally by him.",
+  },
+  {
+    name: "Ms Niroshi Rathnayakage",
+    role: "Senior Accountant",
+    credentials: ["CPA (Australia)", "ACA, Sri Lanka", "BSc Management"],
+    bio: "Senior accountant of the firm and member of CPA Australia. Niroshi brings extensive Australian tax experience gained across several firms, and nearly a decade as an accountant in Sri Lanka, including early career auditing at Ernst & Young. She holds a bachelor's degree in management from the University of Sri Jayewardenapura.",
+  },
+] as const;
+
+// ---------------------------------------------------------------------------
+// Testimonials
+// ---------------------------------------------------------------------------
+
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    quote: "Sri has, in the first half of 2010, assisted our group in a number of complex areas: tax (federal, as well as state), strategic management, financing, rationalisation of leases, and formulation of internal audit arrangements. In all that work, Sri has impressed us as a professional who has complete mastery over the theoretical aspects of his work who, at the same time, does not neglect properly addressing all practical tasks required to accomplish sound outcomes for us. We are convinced that his approach for serving us always had foremost regard for what was in the best interest of our group. We highly commend his reliability and his unfailing professional courtesy with which he has engaged with all our staff and other stakeholders he has worked with.",
+    name: "Mr Ambi Thind",
+    role: "Group CEO, Managing Director",
+    company: "The Education Group Pty Ltd",
+  },
+  {
+    quote: "Sridaran has assisted me with the accounting and tax affairs of my company, Visa Investments Portfolio Pty Ltd, ever since the company was incorporated. His assistance to me has always been most conscientious and patient. He has, on occasion, had to devote a lot of time to provide me that assistance. I have total confidence in Sridaran's professional competence, integrity and reliability.",
+    name: "Ms Araliya De Silva",
+    role: "Director",
+    company: "Visa Investments Portfolio Pty Ltd",
+  },
+  {
+    quote: "Sri has taken care of the tax work for our company, Quikstar Pty Ltd, for several years. He has always generously given us his time to address any concerns and has always advised us of what we should do; mindful of what is best for us. We have always had complete confidence of his professional competence and reliability and would highly recommend his services to any company.",
+    name: "Ms Anne Truong",
+    role: "",
+    company: "Quikstar Pty Ltd",
+  },
+  {
+    quote: "I have been a client of Maheswaran Sridaran for over seven years uninterrupted. I regard Sridaran as a completely reliable and competent professional, with a good mastery of all taxes that I, as a health care professional and property-company owner, am exposed to: income tax, Medicare levy, GST, and land tax. I highly commend the promptness, maturity, patience, and professional courtesy that have been consistent features of my professional relationship with Maheswaran Sridaran.",
+    name: "Ms Manya Scheftsik",
+    role: "Registered Psychologist",
+    company: "",
+  },
+  {
+    quote: "Sri assisted us to manage our dealings with the Australian Taxation Office and NSW Office of State Revenue in relation to audits they had initiated of our two colleges. Sri most competently oversaw the work required, providing comprehensive, appropriate and timely responses to both authorities. He also ensured that work was carried out in a manner that was cost-effective to us.",
+    name: "Ms Neda Morris",
+    role: "Principal Executive Officer, Director",
+    company: "Caprock International Pty Ltd",
+  },
+];
