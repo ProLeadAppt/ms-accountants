@@ -2,9 +2,10 @@
 
 ## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-28b]
 
-**State: full site built + real contact/testimonials/team + photoreal service
-imagery. Committed + pushed (commit 2cbd060). PROD REDEPLOY PENDING (auto-mode
-blocks `vercel --prod`; user must run it). Vercel Auth still ON. Detail below.**
+**State: LIVE & PUBLIC. Full site + real contact/testimonials/team + photoreal
+service imagery deployed to prod (commit 2cbd060). Vercel Authentication now
+OFF (user disabled it) → ms-accountants.vercel.app returns 200 publicly,
+verified new contact email in live HTML. Detail below.**
 
 ### THIS SESSION (2026-06-28b) — DONE, committed+pushed, NOT yet redeployed
 - **Real contact details** scraped from live msaccountants.com.au → `site.ts`

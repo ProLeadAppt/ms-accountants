@@ -100,7 +100,7 @@ export const services: Service[] = [
     tagline: "The expensive questions deserve the deepest expertise.",
     intro: [
       "Selling a business. Restructuring. Passing assets to the next generation. These are the moments where the tax bill is largest, and where a generalist working it out as they go can cost you more than they save.",
-      "This is the work Dr Maheswaran Sridaran built his career on. His PhD examined Australian capital gains tax; his book asked whether those gains are even taxed fairly. So when a capital gains question lands on your desk, you're not getting a best guess. You're getting the person who studied it to doctoral level, and who reviews your file personally.",
+      "This is the work Dr Maheswaran Sridaran built his career on. His doctoral thesis examined how Australia taxes capital gains; his book asked the harder question still, whether it taxes them fairly. Most advisers apply the rules as written. He has spent a career asking whether the rules, as written, produce the right answer. That is the difference when your position is the one being tested.",
     ],
     helpHeading: "What we help with",
     help: [
@@ -125,7 +125,7 @@ export const services: Service[] = [
         desc: "defensible valuations for transactions, disputes and succession.",
       },
     ],
-    why: "Most accountants apply the capital gains rules. Dr Sridaran studied them to doctoral level and has written publicly on whether they're fair. When the question is hard enough to matter, that depth is the difference between a defensible position and an expensive guess.",
+    why: "Most accountants apply the capital gains rules. Dr Sridaran studied them to doctoral level, then published on whether they are even fair. When a question is hard enough to matter, that is the difference between a position you can defend and an expensive guess.",
     image: "/generated/tax-advisory-2.jpg",
   },
   {
@@ -138,7 +138,7 @@ export const services: Service[] = [
     tagline: "When the ATO comes knocking, expertise is your best defence.",
     intro: [
       "An audit. A disputed assessment. A position you need the tax office to confirm before you act. These are the moments where it pays to have someone who knows the law cold, and can argue your case with genuine authority.",
-      "Dr Maheswaran Sridaran taught tax law at university and led a national tax practice before founding MS Accountants. He doesn't just know the rules; he understands the reasoning behind them. That's what it takes to push back on an assessment and be taken seriously.",
+      "Dr Maheswaran Sridaran taught tax law at university and led a national tax practice before founding MS Accountants. He does not just know the rules. He understands the reasoning behind them, and where that reasoning is weaker than it looks. That is what it takes to push back on an assessment and be taken seriously.",
     ],
     helpHeading: "What we help with",
     help: [
@@ -155,7 +155,7 @@ export const services: Service[] = [
         desc: "getting certainty from the ATO before you commit to a transaction, so you act with confidence rather than hope.",
       },
     ],
-    why: "Arguing a tax position is part technical, part advocacy. Few accountants have taught the law, published on it, and run the disputes. Dr Sridaran has done all three. You want that in your corner before you respond to the ATO, not after.",
+    why: "Arguing a tax position is part technical, part advocacy. Few accountants have taught the law, published on it, and argued the disputes. Dr Sridaran has done all three. The ATO's position is not the last word; it is an argument, and arguments can be answered. You want someone who works that way before you respond, not after.",
     image: "/generated/tax-disputes-1.jpg",
   },
   {
@@ -181,7 +181,7 @@ export const services: Service[] = [
       "Workers' compensation insurance declarations",
     ],
     note: "More than ticking boxes: even clients who come to us only for compliance receive at least an hour of senior time each year on strategic issues, at no charge. Because the point of doing the returns is to spot the opportunities hiding in them.",
-    why: "Accuracy is the floor, not the ceiling. With Dr Sridaran reviewing quality across the practice, your compliance is done properly, and used as a starting point to find what you could be doing better.",
+    why: "Accuracy is the floor, not the ceiling. Most firms treat compliance as the whole job; here it is the starting point. With Dr Sridaran reviewing quality across the practice, your obligations are met precisely, then read for the opportunities most people file away without noticing.",
     image: "/generated/tax-compliance-1.jpg",
   },
   {
@@ -219,7 +219,7 @@ export const services: Service[] = [
         desc: "getting the technical accounting right on the decisions that matter.",
       },
     ],
-    why: "Dr Sridaran has sat at the senior end of global firms and advised property conglomerates, listed companies and financial services licensees. You get that calibre of judgement applied to your business, at boutique scale, with direct access to the principal.",
+    why: "Most growing businesses assume that calibre of financial judgement comes only with a full-time hire. It does not. Dr Sridaran has sat at the senior end of global firms and advised property conglomerates, listed companies and financial services licensees. You get that judgement applied to your business, at boutique scale, with direct access to the principal.",
     image: "/generated/cfo-advisory-1.jpg",
   },
   {
@@ -240,7 +240,7 @@ export const services: Service[] = [
         desc: "thorough, compliant, and handled by people who understand both the audit standards and the tax consequences behind them.",
       },
     ],
-    why: "An SMSF audit sits where superannuation, tax and audit meet, three areas Dr Sridaran has worked across his entire career. Your fund is reviewed by a firm that understands all three, not just one.",
+    why: "An SMSF audit is easy to treat as a formality, which is exactly why it is where funds get exposed. It sits where superannuation, tax and audit meet, three areas Dr Sridaran has worked across his entire career. Your fund is reviewed by someone who understands all three, not just one.",
     image: "/generated/smsf-2.jpg",
   },
 ];
