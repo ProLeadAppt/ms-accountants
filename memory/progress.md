@@ -2,10 +2,32 @@
 
 ## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-28b]
 
-**State: LIVE & PUBLIC. Full site + real contact/testimonials/team + photoreal
-service imagery deployed to prod (commit 2cbd060). Vercel Authentication now
-OFF (user disabled it) → ms-accountants.vercel.app returns 200 publicly,
-verified new contact email in live HTML. Detail below.**
+**State: LIVE & PUBLIC review build. Full site + real contact/testimonials/team +
+photoreal imagery + VOICE-MATCHED COPY deployed to prod (commit 77f65b6). Vercel
+Authentication OFF → ms-accountants.vercel.app returns 200 publicly. Detail below.**
+
+### VOICE-MATCH COPY PASS (2026-06-28c) — DONE, deployed
+Researched Dr Sridaran's published writing (book + academic papers; AFR/SMH op-eds
+NOT accessible — paywalled/403; see `memory/findings.md` for the full voice profile).
+His signature = name the conventional view then set himself against it ("an
+alternative view"), pose the hard question, concede honestly, quiet authority.
+Threaded through: homepage Statement, all 5 service intros + why paragraphs.
+Credential cards + About origin already in-voice, left as-is. No em-dashes.
+tsc+tests(7)+build green.
+⚠️ NOTHING IS CLIENT-APPROVED YET — incl. the HERO headline (the older "client
+liked hero" note was the USER's read, NOT Dr S's sign-off). Everything is open to
+change once he responds. Brief expanded 2026-06-28c: copy must (a) sound exactly
+like him, (b) be instantly clear to his ICP (established business owners /
+property & company owners / HNW individuals with complex tax — see testimonials),
+(c) make identity unmistakable to warm AND cold visitors, (d) explain what he does
+all-in-one. Hero rework options put to user (A: refined "wrote the thesis" hook
+broadened from CGT→tax; B: principal-led clarity; C: hard-question signature).
+STILL PENDING for true voice lock: client's 1-2 AFR/SMH clippings or book excerpt.
+
+### CLIENT REVIEW EMAIL drafted (not sent — user sends it). Asks Dr S for:
+(1) real portrait photo, (2) AFR/SMH writing samples for voice, (3) confirm
+contact details + testimonials. Framed as review build; portrait + final copy
+flagged as the two intentionally-unfinished items.
 
 ### THIS SESSION (2026-06-28b) — DONE, committed+pushed, NOT yet redeployed
 - **Real contact details** scraped from live msaccountants.com.au → `site.ts`

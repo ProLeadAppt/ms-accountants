@@ -29,13 +29,13 @@ export function Hero() {
       <HeroTimeline className="relative z-10 flex min-h-[100svh] flex-col justify-center pt-28 pb-20">
         <Container>
           <div data-hero="rise">
-            <EyebrowTag>Boutique Sydney tax &amp; advisory</EyebrowTag>
+            <EyebrowTag>Boutique Sydney tax, accounting &amp; advisory</EyebrowTag>
           </div>
           <MaskHeadline
             className="mt-8 max-w-[18ch] font-serif text-[2.7rem] leading-[0.98] text-cream sm:text-6xl lg:text-[5.5rem]"
             emClassName="headline-em text-red-bright"
             segments={[
-              { text: "Your accountant should know capital gains tax. Ours" },
+              { text: "Your accountant should know tax. Ours" },
               { text: "wrote the thesis", em: true },
               { text: "on it." },
             ]}
@@ -44,9 +44,11 @@ export function Hero() {
             data-hero="rise"
             className="mt-9 max-w-xl text-lg leading-relaxed text-[var(--muted)]"
           >
-            Dr Maheswaran Sridaran holds a PhD in Australian capital gains tax, a
-            Master of Taxation, and thirty years inside the world&rsquo;s top
-            firms. He reviews every engagement himself.
+            MS Accountants is a boutique Sydney firm led by Dr Maheswaran
+            Sridaran: a PhD in Australian tax, a Master of Taxation, and thirty
+            years inside the world&rsquo;s leading firms. From the hardest
+            capital gains question to your annual return, he reviews every
+            engagement himself.
           </p>
           <div data-hero="rise" className="mt-11 flex flex-wrap items-center gap-4">
             <Button href={site.ctaHref}>{site.cta}</Button>
