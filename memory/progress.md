@@ -1,15 +1,58 @@
 # Progress — MS Accountants Website v2
 
-## HANDOFF — READ FIRST (next session starts here)
+## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-28]
 
-**Branch:** `redesign-v2` (all work committed here; not merged to main).
-**Dev server:** `npm run dev` → http://localhost:3000 (a background one may still be
-running from the prior session; if styles look stale, kill node + `rm -rf .next` +
-restart — stale-CSS bit us once).
-**Build:** `npm run build` (green). **Tests:** `npm test` / `npx vitest run` (passing).
+**State: full site built, deployed to GitHub + Vercel. One owner action left to make
+it public (disable Vercel Auth). Detail below.**
+
+**Branch:** `redesign-v2` (default branch on GitHub too; NOT merged to local `master`).
+**Repo:** https://github.com/ProLeadAppt/ms-accountants (PUBLIC — consider private).
+  Remote `origin` set; `git push origin redesign-v2`. gh authed as ProLeadAppt.
+**Vercel:** project `ms-accountants`, team/org `team_DRSFPnWB50EsXwRlV0ucTrlo`,
+  projectId `prj_C99H17YmzXsmDDiXz0QUA8Nz3ge2`. CLI authed as `munyal`.
+  Redeploy: `npx vercel --prod --yes` from repo root. No runtime env vars needed.
+  Permanent URL: **https://ms-accountants.vercel.app**
+**Dev server:** `npm run dev` → http://localhost:3000. **Build/lint/tests all green**
+  (`npm run build`, `npm run lint`, `npx vitest run` = 7/7).
+
+### ⚠️ THE ONE OPEN ITEM — Vercel Deployment Protection
+The site is live and renders correctly, but **Vercel Authentication (Deployment
+Protection)** gates logged-out visitors (anon -> 302 SSO / 404). The OWNER (logged
+into Vercel) CAN see it now. To make it public:
+  Vercel dashboard → project ms-accountants → Settings → Deployment Protection →
+  **Vercel Authentication → Off** (or "Only Preview") → Save.
+No CLI/MCP tool can toggle this (MCP Vercel is read-only; reading the CLI token is
+sandbox-blocked). Either the user toggles it, or provides a token / sets
+`VERCEL_TOKEN` and we PATCH `v9/projects/{id}` `{ssoProtection:null}`.
+FIXED already: `framework:null` was causing a real root 404 even for the owner →
+pinned via `vercel.json {"framework":"nextjs"}`; redeploy confirmed the app renders.
 
 **Spec:** `docs/superpowers/specs/2026-06-27-ms-accountants-redesign-design.md`
 **Plan:** `docs/superpowers/plans/2026-06-27-ms-accountants-redesign.md` (13 phases)
+
+### What's DONE (this + prior sessions)
+- Homepage (Phases 0–6 + elevation) — see below.
+- **Inner pages built**: About, Services index, 5 service detail (SSG), Contact
+  (+working form, verified), branded 404. Reusable `PageHero`,
+  `CredentialTranslation` sections. Per-page metadata; sitemap/robots done.
+- **AI imagery (fal.ai)**: hero = animated library video `public/generated/lib2-1.{jpg,mp4}`
+  (Flux 1.1 Ultra still + Kling i2v; dust motes; reduced-motion still fallback).
+  Promise section chess = `public/generated/chess4-1.jpg` (GPT Image 1.5, photoreal
+  hand of Indian descent — client is Indian). Generator: `execution/fal-generate.mjs`
+  (cmds: verify|hero|concepts|refine|chess3|chess4|animate). SOP: `architecture/imagery-pipeline.md`.
+  Kept `public/generated/heroB-study-2.jpg` (book spines) for About origin image.
+- Copy em-dashes purged from `src/lib/site.ts`. `useReducedMotion`→`useSyncExternalStore`.
+- **UX fixes**: `body{overflow-x:clip}` (kills horizontal overflow, sticky-safe) +
+  `html{overscroll-behavior-y:none}` (stops footer "push-down"). NOTE: could NOT
+  reproduce at automation width (locked 2545px) — user should confirm at their width;
+  diagnostic JS ready (measure elements crossing viewport edge).
+
+### NEXT (after protection toggle)
+1. Confirm the two UX fixes on the real public URL at the user's width.
+2. Client-supplied, NOT AI: Dr Sridaran's **real portrait** (About slot is a
+   placeholder), confirm **email/address** (`site.ts` §9 placeholders), optional
+   voice-match copy to his AFR/SMH/book samples.
+3. Optional: make GitHub repo private; merge `redesign-v2`→`master` if desired.
 
 ### Done (Phases 0–6 + elevation 6.5)
 - Teardown of v1; scaffold kept.
