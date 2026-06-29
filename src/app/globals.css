@@ -221,43 +221,6 @@ textarea {
   transform: none !important;
 }
 
-/* ----------------------------------------------------------------------------
-   Custom cursor (pointer:fine only; JS adds .has-custom-cursor)
----------------------------------------------------------------------------- */
-.has-custom-cursor,
-.has-custom-cursor * {
-  cursor: none !important;
-}
-.cursor-dot,
-.cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 10000;
-  border-radius: 50%;
-}
-.cursor-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--color-brand-red);
-}
-.cursor-ring {
-  width: 36px;
-  height: 36px;
-  border: 1.5px solid color-mix(in srgb, var(--color-brand-red) 55%, transparent);
-  transition:
-    width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.3s ease,
-    border-color 0.3s ease;
-}
-.cursor-ring.is-active {
-  width: 58px;
-  height: 58px;
-  background: color-mix(in srgb, var(--color-brand-red) 12%, transparent);
-  border-color: var(--color-brand-red);
-}
 
 /* ----------------------------------------------------------------------------
    Atmosphere — warm film grain over the whole page for depth
