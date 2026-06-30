@@ -5,6 +5,7 @@ import { site } from "@/lib/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { Preloader } from "@/components/motion/Preloader";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { ConversionTracking } from "@/components/analytics/ConversionTracking";
 
@@ -87,6 +88,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
         />
+        <Preloader heroSrc="/generated/lib2-1.jpg" />
         <Header />
         <div className="grain-overlay" aria-hidden="true" />
         <SmoothScroll>
