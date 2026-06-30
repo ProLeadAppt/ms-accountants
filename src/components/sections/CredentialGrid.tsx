@@ -3,6 +3,7 @@ import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger } from "@/components/motion/Stagger";
 import { LineDraw } from "@/components/motion/LineDraw";
+import { CountUp } from "@/components/motion/CountUp";
 import { valueStats } from "@/lib/site";
 
 export function CredentialGrid() {
@@ -22,7 +23,7 @@ export function CredentialGrid() {
               <LineDraw className="w-px shrink-0 bg-brand-red" />
               <div>
                 <div className="font-serif text-5xl leading-none text-cream sm:text-6xl">
-                  {stat.figure}
+                  <CountUp figure={stat.figure} />
                 </div>
                 <div className="mt-2 font-mono text-xs uppercase tracking-[0.16em] text-red-bright">
                   {stat.unit}
