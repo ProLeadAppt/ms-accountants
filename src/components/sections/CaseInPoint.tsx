@@ -2,6 +2,7 @@ import { Container } from "@/components/layout/Container";
 import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/motion/Reveal";
+import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { getTestimonial, type Testimonial } from "@/lib/site";
 
 /**
@@ -19,7 +20,7 @@ export function CaseInPoint({
   scheme = "cream",
 }: {
   testimonial?: Testimonial;
-  frame?: React.ReactNode;
+  frame?: string;
   scheme?: "cream" | "sand" | "espresso";
 }) {
   if (!testimonial) return null;
@@ -32,9 +33,11 @@ export function CaseInPoint({
       <Container size="narrow">
         <Reveal className="flex flex-col items-start">
           <EyebrowTag>A case in point</EyebrowTag>
-          <p className="mt-7 font-serif text-3xl leading-[1.12] text-[var(--fg)] sm:text-4xl">
-            {frame}
-          </p>
+          <SplitHeadline
+            as="h2"
+            className="mt-7 font-serif text-3xl leading-[1.12] text-[var(--fg)] sm:text-4xl"
+            segments={[{ text: frame }]}
+          />
 
           <figure className="mt-11 border-l-2 border-brand-red pl-6 sm:pl-8">
             <Icon name="quote" size={22} className="text-brand-red" />

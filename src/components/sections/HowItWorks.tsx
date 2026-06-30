@@ -3,6 +3,7 @@ import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger } from "@/components/motion/Stagger";
 import { LineDraw } from "@/components/motion/LineDraw";
+import { SplitHeadline } from "@/components/motion/SplitHeadline";
 
 /**
  * Makes the boutique, principal-led promise concrete: three steps describing how
@@ -42,9 +43,11 @@ export function HowItWorks({
       <Container>
         <Reveal className="max-w-2xl">
           <EyebrowTag>How it works</EyebrowTag>
-          <h2 className="mt-7 font-serif text-4xl leading-[1.06] sm:text-5xl">
-            One principal. On your file, start to finish.
-          </h2>
+          <SplitHeadline
+            as="h2"
+            className="mt-7 font-serif text-4xl leading-[1.06] sm:text-5xl"
+            segments={[{ text: "One principal. On your file, start to finish." }]}
+          />
           <p className="mt-6 text-lg leading-relaxed text-[var(--muted)]">
             No handoffs, no rotating account managers. Here is what working with
             the firm actually looks like.
