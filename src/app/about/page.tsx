@@ -15,7 +15,7 @@ import { site, team } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Dr Maheswaran Sridaran",
   description:
-    "A doctorate in Australian capital gains tax, a Master of Taxation, and thirty years across PwC, EY and WHK Horwath. Why he chose to run a boutique Sydney firm.",
+    "A chartered accountant and lawyer with a doctorate in Australian tax law and over 45 years across more than five countries. The complete complement of skills for any tax problem, at every level. Why he chose to run a boutique Sydney firm.",
   alternates: { canonical: "/about" },
 };
 
@@ -26,7 +26,7 @@ export default function AboutPage() {
         eyebrow="The principal"
         title={
           <>
-            A tax academic who chose to{" "}
+            An accountant and lawyer who chose to{" "}
             <em className="headline-em text-red-bright">run a small firm</em>.
           </>
         }
@@ -61,10 +61,11 @@ export default function AboutPage() {
               <div className="mt-8 space-y-5 text-lg leading-relaxed text-[var(--muted)]">
                 <p>
                   Most people with Dr Sridaran&rsquo;s background do not end up
-                  running a boutique firm. After a doctorate in Australian
-                  capital gains tax and thirty years at the senior end of PwC,
-                  Ernst &amp; Young and WHK Horwath, the expected path was a
-                  corner office at a global firm.
+                  running a boutique firm. He is a chartered accountant and a
+                  lawyer, with a doctorate in Australian tax law and over 45
+                  years across more than five countries, for the most part with
+                  two of the Big Four, the last 25 in Australia. The expected
+                  path was a corner office at a global firm.
                 </p>
                 <p>
                   He chose the opposite. A practice small enough that the person
@@ -73,11 +74,15 @@ export default function AboutPage() {
                   business by name.
                 </p>
                 <p>
-                  He has taught tax law at university, published in the
-                  Australian Financial Review and the Sydney Morning Herald, and
-                  written a book asking whether capital gains are taxed fairly at
-                  all. That is the standard of thinking he now applies to a
-                  deliberately small number of clients.
+                  Being both an accountant and a lawyer, he holds the complete
+                  complement of skills to deal with any tax problem, at every
+                  level, from the day-to-day advice through to complex
+                  tax-authority investigations and litigation. He has taught tax
+                  law at university, published in the Australian Financial Review
+                  and the Sydney Morning Herald, and written a book asking
+                  whether capital gains are taxed fairly at all. That is the
+                  standard of thinking he now applies to a deliberately small
+                  number of clients.
                 </p>
               </div>
             </Reveal>

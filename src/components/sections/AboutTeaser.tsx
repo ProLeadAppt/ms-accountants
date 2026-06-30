@@ -22,7 +22,7 @@ export function AboutTeaser() {
           <Reveal className="flex flex-col items-start justify-center">
             <EyebrowTag>03 / The principal</EyebrowTag>
             <h2 className="mt-7 font-serif text-4xl leading-[1.06] sm:text-5xl">
-              Why a tax academic chose to run a small firm.
+              Why an accountant and lawyer chose to run a small firm.
             </h2>
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-[var(--muted)]">
               Most people with his background don&rsquo;t end up running a small

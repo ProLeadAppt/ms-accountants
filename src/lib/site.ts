@@ -7,12 +7,12 @@
 export const site = {
   name: "MS Accountants",
   tagline: "A boutique Sydney tax & accounting firm.",
-  credentialLine: "Led by Dr Maheswaran Sridaran · PhD (Tax), M.Tax, CA",
+  credentialLine: "Led by Dr Maheswaran Sridaran · Chartered Accountant · Lawyer · PhD in Australian tax law",
   url: "https://msaccountants.com.au",
   cta: "Book a conversation with Dr Sridaran",
   ctaHref: "/contact",
   footerTrust:
-    "A boutique Sydney firm where the principal does the work. PhD-level tax expertise, personally applied to your business.",
+    "A boutique Sydney firm where the principal does the work. A chartered accountant and lawyer with the complete complement of skills for any tax problem, at every level, personally applied to your business.",
   contact: {
     phone: "02 9739 4837",
     phoneHref: "tel:+61297394837",
@@ -28,9 +28,9 @@ export const site = {
 
 // Quantified credential stats (spec §1), Quinn-style "value" band.
 export const valueStats = [
-  { figure: "PhD", unit: "in CGT", label: "Doctoral research into Australian capital gains tax" },
-  { figure: "30", unit: "years", label: "At the senior end of PwC, EY & WHK Horwath" },
-  { figure: "5", unit: "countries", label: "Cross-border experience, handled in-house" },
+  { figure: "PhD", unit: "in tax law", label: "Doctoral-level expertise in Australian tax law" },
+  { figure: "CA", unit: "+ lawyer", label: "A chartered accountant who is also a lawyer" },
+  { figure: "45+", unit: "years", label: "Across more than five countries, the last 25 in Australia" },
   { figure: "1", unit: "principal", label: "Dr Sridaran reviews every engagement personally" },
 ] as const;
 
@@ -53,20 +53,20 @@ export const authorityItems = [
 // Credential-translation grid (spec §3)
 export const credentialCards = [
   {
-    title: "A doctorate in Australian capital gains tax.",
-    body: "When your business sells, restructures, or passes to the next generation, the CGT questions are the expensive ones. They're also the ones Dr Sridaran studied to doctoral level, so the ATO's hardest positions are familiar ground, not new research.",
+    title: "A doctorate in Australian tax law.",
+    body: "His doctoral thesis examined how Australia taxes capital gains, the expensive questions when a business sells, restructures, or passes to the next generation. The ATO's hardest positions are familiar ground, not new research.",
   },
   {
-    title: "30 years across PwC, EY and Horwath.",
-    body: "You get top-tier technical firepower, the kind usually reserved for big-end-of-town clients, without big-firm overhead, handoffs, or a rotating cast of account managers.",
+    title: "A chartered accountant who is also a lawyer.",
+    body: "Most accountants stop where the law begins. Dr Sridaran does not. He holds the complete complement of skills to handle any tax problem at every level, from the day-to-day advice through to complex tax-authority investigations and litigation.",
   },
   {
-    title: "Practised across five countries.",
-    body: "Cross-border income, expat tax, foreign assets: none of it gets outsourced or guessed at. It's lived experience, handled in-house.",
+    title: "Over 45 years across the world's leading firms.",
+    body: "More than five countries, for the most part with two of the Big Four, the last 25 in Australia. You get top-tier technical firepower without big-firm overhead, handoffs, or a rotating cast of account managers.",
   },
   {
     title: "Taught tax law. Published in the AFR and SMH. Wrote the book.",
-    body: "If your accountant can explain tax clearly enough to teach it and write about it nationally, they can explain your position clearly enough for you to act with confidence.",
+    body: "If your accountant can teach the law, publish on it nationally, and argue it when it is tested, they can explain your position clearly enough for you to act, and defend it when it counts.",
   },
 ] as const;
 
@@ -100,7 +100,7 @@ export const services: Service[] = [
     tagline: "The expensive questions deserve the deepest expertise.",
     intro: [
       "Selling a business. Restructuring. Passing assets to the next generation. These are the moments where the tax bill is largest, and where a generalist working it out as they go can cost you more than they save.",
-      "This is the work Dr Maheswaran Sridaran built his career on. His doctoral thesis examined how Australia taxes capital gains; his book asked the harder question still, whether it taxes them fairly. Most advisers apply the rules as written. He has spent a career asking whether the rules, as written, produce the right answer. That is the difference when your position is the one being tested.",
+      "This is the work Dr Maheswaran Sridaran built his career on. His doctoral thesis examined how Australia taxes capital gains; his book asked the harder question still, whether it taxes them fairly. As both a chartered accountant and a lawyer, he reads the rules the way the courts do, not just the way the form does. Most advisers apply the rules as written. He has spent a career asking whether the rules, as written, produce the right answer. That is the difference when your position is the one being tested.",
     ],
     helpHeading: "What we help with",
     help: [
@@ -130,15 +130,15 @@ export const services: Service[] = [
   },
   {
     slug: "tax-disputes-ato",
-    navTitle: "Tax Disputes & ATO Matters",
-    teaserTitle: "Tax Disputes & ATO Matters",
+    navTitle: "Tax Disputes, Investigations & Litigation",
+    teaserTitle: "Tax Disputes, Investigations & Litigation",
     teaserBlurb:
-      "Audits, assessments, private rulings. The expertise to argue your position with authority.",
-    title: "Tax Disputes & ATO Matters",
-    tagline: "When the ATO comes knocking, expertise is your best defence.",
+      "Audits, complex investigations, litigation. Your accountant is also a lawyer, so your case is argued by someone qualified to run it all the way.",
+    title: "Tax Disputes, Investigations & Litigation",
+    tagline: "When the tax authorities come knocking, your accountant being a lawyer is your best defence.",
     intro: [
-      "An audit. A disputed assessment. A position you need the tax office to confirm before you act. These are the moments where it pays to have someone who knows the law cold, and can argue your case with genuine authority.",
-      "Dr Maheswaran Sridaran taught tax law at university and led a national tax practice before founding MS Accountants. He does not just know the rules. He understands the reasoning behind them, and where that reasoning is weaker than it looks. That is what it takes to push back on an assessment and be taken seriously.",
+      "An audit. A complex investigation. A disputed assessment you need to fight, and may have to litigate. These are the moments where it pays to have someone who knows the law cold and is qualified to argue your case all the way, not hand you off to a barrister at the first sign of a courtroom.",
+      "Dr Maheswaran Sridaran is a chartered accountant and a lawyer. He taught tax law at university and led a national tax practice before founding MS Accountants. He does not just know the rules; he understands the reasoning behind them, and where that reasoning is weaker than it looks. He holds the complete complement of skills to handle a tax problem at every level, from the first audit query through to litigation. That is what it takes to push back on the tax authorities and be taken seriously.",
     ],
     helpHeading: "What we help with",
     help: [
@@ -147,15 +147,23 @@ export const services: Service[] = [
         desc: "guiding you through the process, managing the correspondence, and protecting your position from start to finish.",
       },
       {
+        term: "Complex tax-authority investigations",
+        desc: "handling the hard, high-stakes investigations the tax authorities reserve for the cases that matter, with a lawyer's eye on every step.",
+      },
+      {
         term: "Challenging assessments",
-        desc: "building and arguing the case when the tax office gets it wrong.",
+        desc: "building and arguing the case, through objections and appeals, when the tax office gets it wrong.",
+      },
+      {
+        term: "Tax litigation",
+        desc: "running the dispute through to the tribunals and the courts when it has to go that far, argued by someone qualified to do it.",
       },
       {
         term: "Private ruling applications",
         desc: "getting certainty from the ATO before you commit to a transaction, so you act with confidence rather than hope.",
       },
     ],
-    why: "Arguing a tax position is part technical, part advocacy. Few accountants have taught the law, published on it, and argued the disputes. Dr Sridaran has done all three. The ATO's position is not the last word; it is an argument, and arguments can be answered. You want someone who works that way before you respond, not after.",
+    why: "Arguing a tax position is part technical, part advocacy. Few accountants have taught the law, published on it, and argued the disputes; fewer still are also lawyers, qualified to take a matter all the way to litigation. Dr Sridaran is. The tax authority's position is not the last word; it is an argument, and arguments can be answered, and if necessary, litigated. You want someone who works that way before you respond, not after.",
     image: "/generated/tax-disputes-1.jpg",
   },
   {
@@ -167,7 +175,7 @@ export const services: Service[] = [
     tagline: "Every obligation, handled accurately and on time.",
     intro: [
       "Compliance is the part no one thanks you for, until it goes wrong. Late lodgements, missed obligations and small errors carry real cost. The job is to make all of it quiet, accurate and predictable, so you can stop thinking about it.",
-      "At MS Accountants, routine work still passes under the eye of a Chartered Accountant and registered tax agent who has spent 30 years getting it right at the highest level. Even your compliance benefits from that standard.",
+      "At MS Accountants, routine work still passes under the eye of a chartered accountant, lawyer and registered tax agent who has spent decades getting it right at the highest level. Even your compliance benefits from that standard.",
     ],
     helpHeading: "What we help with",
     help: [
@@ -194,7 +202,7 @@ export const services: Service[] = [
     tagline: "The financial brain of a big company, without the headcount.",
     intro: [
       "Growing businesses hit a point where they need senior financial thinking, someone to weigh a major decision, scrutinise an acquisition, or raise finance, but aren't ready to carry a full-time chief financial officer.",
-      "That's the gap MS Accountants fills. To corporate clients, we offer the assistance an in-house CFO would: strategic, hands-on, and grounded in 30 years across some of the world's leading firms.",
+      "That's the gap MS Accountants fills. To corporate clients, we offer the assistance an in-house CFO would: strategic, hands-on, and grounded in over 45 years across some of the world's leading firms.",
     ],
     helpHeading: "What we help with",
     help: [
@@ -231,7 +239,7 @@ export const services: Service[] = [
     tagline: "Your SMSF audit, done properly.",
     intro: [
       "A self-managed super fund gives you control, and a set of obligations that have to be met precisely. The annual audit isn't a formality; it's what keeps your fund compliant and your retirement savings protected.",
-      "MS Accountants conducts SMSF audits to the standard you'd expect from a firm led by a Chartered Accountant with three decades of audit and tax experience at the highest level.",
+      "MS Accountants conducts SMSF audits to the standard you'd expect from a firm led by a chartered accountant and lawyer with decades of audit and tax experience at the highest level.",
     ],
     helpHeading: "What we help with",
     help: [
@@ -264,8 +272,8 @@ export const team: readonly TeamMember[] = [
   {
     name: "Dr Maheswaran Sridaran",
     role: "Principal",
-    credentials: ["PhD, Macquarie University", "CA", "M.Tax, UNSW"],
-    bio: "A chartered accountant and registered tax agent with thirty years across PwC, EY, WHK Horwath and Macquarie University. His doctoral thesis examined Australian capital gains tax; his first book asked whether capital gains are taxed equitably in Australia. He is the chief quality controller of the practice: every engagement is reviewed personally by him.",
+    credentials: ["PhD (Tax), Macquarie University", "LLB, Macquarie University", "Master of Taxation, UNSW", "Chartered Accountant", "Lawyer", "Registered Tax Agent"],
+    bio: "A chartered accountant, lawyer and registered tax agent with over 45 years across more than five countries, for the most part with two of the Big Four, the last 25 in Australia. His doctoral thesis examined Australian capital gains tax; his first book asked whether capital gains are taxed equitably in Australia. As both an accountant and a lawyer, he holds the complete complement of skills to handle any tax problem at every level, from advisory through to complex tax-authority investigations and litigation. He is the chief quality controller of the practice: every engagement is reviewed personally by him.",
   },
   {
     name: "Ms Niroshi Rathnayakage",

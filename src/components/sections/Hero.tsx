@@ -37,7 +37,9 @@ export function Hero() {
             segments={[
               { text: "Your accountant should know tax. Ours" },
               { text: "wrote the thesis", em: true },
-              { text: "on it." },
+              { text: "on it, and is a" },
+              { text: "lawyer", em: true },
+              { text: "too." },
             ]}
           />
           <p
@@ -45,10 +47,11 @@ export function Hero() {
             className="mt-9 max-w-xl text-lg leading-relaxed text-[var(--muted)]"
           >
             MS Accountants is a boutique Sydney firm led by Dr Maheswaran
-            Sridaran: a PhD in Australian tax, a Master of Taxation, and thirty
-            years inside the world&rsquo;s leading firms. From the hardest
-            capital gains question to your annual return, he reviews every
-            engagement himself.
+            Sridaran: a chartered accountant, a lawyer, and a PhD in Australian
+            tax law. Over 45 years across more than five countries, for the most
+            part with two of the Big Four. From a complex ATO investigation or
+            tax litigation to your annual return, he reviews every engagement
+            himself.
           </p>
           <div data-hero="rise" className="mt-11 flex flex-wrap items-center gap-4">
             <Button href={site.ctaHref}>{site.cta}</Button>

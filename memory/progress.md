@@ -1,6 +1,40 @@
 # Progress — MS Accountants Website v2
 
-## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-28b]
+## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-30]
+
+### "ALSO A LAWYER" REPOSITIONING (2026-06-30) — DONE locally, NOT redeployed
+Dr Sridaran replied to the review build (29 Jun email) with one big point: the site
+shows him only as a chartered accountant + PhD in tax, but he is **also a lawyer**
+(LLB Macquarie) with the complete complement of skills for any tax problem at every
+level, incl. complex tax-authority investigations + litigation. He redrafted the
+opening paragraph and asked the *entire* site reflect it. User chose: **Rebalance**
+(lawyer + complete capability equal billing, CGT stays a proof point) · keep & extend
+the "wrote the thesis" hero hook · **enhance+rename** the disputes service (not a 6th
+page) · use his stated facts (over 45y, 5+ countries, last 25 in AU, two Big Four),
+soften the old "30 years at PwC/EY/Horwath".
+
+Changed: `src/lib/site.ts` (credentialLine, footerTrust, valueStats, credentialCards,
+team[0] credentials+bio, `tax-disputes-ato` → "Tax Disputes, Investigations &
+Litigation" with new help items incl. complex investigations + tax litigation,
+softened 30y in compliance/CFO/SMSF, lawyer angle in flagship intro) · `Hero.tsx`
+(headline "…on it, and is a lawyer too" + new sub-para) · `layout.tsx` (meta + OG +
+schema.org founder: LLB/Lawyer, 45y, 5+ countries, knowsAbout += investigations/
+litigation) · `about/page.tsx` (hero title + origin story + meta) · `services/page.tsx`
+(lede + meta) · `AboutTeaser.tsx` h2. Disputes **slug kept** (`tax-disputes-ato`) so
+the SSG route + links don't break. tsc + lint + vitest(8) + `next build`(16 pages)
+ALL GREEN. Verified in browser (hero + disputes page screenshots).
+**No em-dashes** used (honoured the standing house rule even though the approved hero
+preview showed them — set to colon/comma instead).
+
+⚠️ TWO CLIENT-CONFIRMATIONS still open before publishing (do NOT guess):
+  (a) admitting jurisdiction / whether to say "admitted lawyer" vs "lawyer";
+  (b) whether to name litigation forums (AAT, Federal Court) or keep it general.
+⚠️ Still NOT redeployed — run `npx vercel --prod --yes` only after user sign-off.
+Also still open from before: Dr S's REAL portrait photo (placeholder gradients).
+
+---
+
+## HANDOFF (prior) [updated 2026-06-28b]
 
 **State: LIVE & PUBLIC review build. Full site + real contact/testimonials/team +
 photoreal imagery + VOICE-MATCHED COPY deployed to prod (commit 77f65b6). Vercel

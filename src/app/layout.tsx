@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s · MS Accountants",
   },
   description:
-    "Your accountant should know capital gains tax. Ours wrote the thesis on it. A boutique Sydney firm where Dr Sridaran (PhD Tax, M.Tax, CA) reviews every engagement himself.",
+    "Your accountant should know tax. Ours wrote the thesis on it, and is a lawyer too. A boutique Sydney firm where Dr Sridaran (chartered accountant, lawyer, PhD in Australian tax law) handles any tax problem at every level, from advice to investigations and litigation.",
   openGraph: {
     type: "website",
     siteName: "MS Accountants",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title:
       "MS Accountants · Sydney tax specialists led by Dr Maheswaran Sridaran",
     description:
-      "Your accountant should know capital gains tax. Ours wrote the thesis on it.",
+      "Your accountant should know tax. Ours wrote the thesis on it, and is a lawyer too.",
   },
   verification: googleSiteVerification
     ? { google: googleSiteVerification }
@@ -39,13 +39,16 @@ const orgLd = {
   "@type": "AccountingService",
   name: "MS Accountants",
   description:
-    "Boutique Sydney tax and accounting firm led by Dr Maheswaran Sridaran, PhD in Australian capital gains tax.",
+    "Boutique Sydney tax and accounting firm led by Dr Maheswaran Sridaran, a chartered accountant and lawyer with a PhD in Australian tax law.",
   url: site.url,
   areaServed: "Sydney, Australia",
   knowsAbout: [
+    "Tax law",
     "Capital gains tax",
     "Tax planning",
     "Tax disputes",
+    "Tax-authority investigations",
+    "Tax litigation",
     "ATO audits",
     "Business advisory",
     "Self-managed superannuation",
@@ -55,7 +58,7 @@ const orgLd = {
     name: "Dr Maheswaran Sridaran",
     jobTitle: "Principal",
     description:
-      "PhD in Australian capital gains tax (Macquarie University), Master of Taxation (UNSW), Chartered Accountant. 30 years across PwC, Ernst & Young and WHK Horwath in five countries.",
+      "Chartered accountant, lawyer and registered tax agent. PhD in Australian tax law (Macquarie University), LLB (Macquarie University), Master of Taxation (UNSW). Over 45 years across more than five countries, for the most part with two of the Big Four, the last 25 in Australia.",
     alumniOf: ["Macquarie University", "UNSW"],
   },
 };

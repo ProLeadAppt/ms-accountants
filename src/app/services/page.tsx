@@ -12,7 +12,7 @@ import { services } from "@/lib/services";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Tax advisory and planning, ATO disputes, compliance, CFO advisory and SMSF audits. Five disciplines, with Dr Sridaran reviewing every engagement personally.",
+    "Tax advisory and planning; disputes, investigations and litigation; compliance; CFO advisory; and SMSF audits. Five disciplines, led by a chartered accountant who is also a lawyer, with Dr Sridaran reviewing every engagement personally.",
   alternates: { canonical: "/services" },
 };
 
@@ -36,7 +36,7 @@ export default function ServicesPage() {
             file.
           </>
         }
-        lede="The work spans planning, disputes, compliance, advisory and audit. What does not change is who reviews it. Every engagement passes under Dr Sridaran personally."
+        lede="The work spans planning; disputes, investigations and litigation; compliance; advisory; and audit. What does not change is who reviews it. Every engagement passes under Dr Sridaran personally, a chartered accountant who is also a lawyer."
       />
 
       <section className="scheme-cream py-20 lg:py-28">
