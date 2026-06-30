@@ -54,7 +54,7 @@ export const authorityItems = [
 export const credentialCards = [
   {
     title: "A doctorate in Australian tax law.",
-    body: "His doctoral thesis examined how Australia taxes capital gains, the expensive questions when a business sells, restructures, or passes to the next generation. The ATO's hardest positions are familiar ground, not new research.",
+    body: "His doctorate looked past how Australia taxes capital gains to whether it taxes them fairly, or whether the rules quietly treat equals unequally. The same expensive questions arise when a business sells, restructures, or passes to the next generation, and the ATO's hardest positions on them are familiar ground here, not new research.",
   },
   {
     title: "A chartered accountant who is also a lawyer.",
