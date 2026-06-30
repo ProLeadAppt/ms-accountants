@@ -1,6 +1,47 @@
 # Progress — MS Accountants Website v2
 
-## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-30g]
+## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-30h]
+
+### PASS 7 — PREMIUM MOTION PASS (2026-06-30h) — PLANNED, READY TO BUILD (handed off mid-flow, context full)
+Operator wants a premium upgrade now that GSAP is fully free (Webflow). CONFIRMED:
+`gsap@3.15.0` is installed and the ENTIRE formerly-paid plugin suite is ALREADY
+bundled in `node_modules/gsap` (ScrollSmoother, SplitText, DrawSVGPlugin,
+MorphSVGPlugin, Flip, InertiaPlugin, MotionPathPlugin, Observer). Nothing to
+install. The site currently uses only ScrollTrigger + CustomEase.
+
+Brainstorm DONE (via visual companion). APPROVED decisions:
+- **Preloader:** dark, number-forward (mock C×A blend) — MS monogram settles, a
+  hairline draws, a big Fraunces % ticks 0→100 (real asset readiness, 4s hard
+  cap), then lifts. First-load only (sessionStorage). Reduced-motion → none.
+- **Hero:** LAYERED PARALLAX STILLS (retire the soft video). New hi-res fal.ai
+  still; depth via ScrollSmoother `data-speed` (still slowest, dust/light layer
+  faster, content fastest); SplitText headline keeping the red-italic emphasis.
+- **Smooth scroll:** site-wide ScrollSmoother (the big premium lever).
+- **Extras (ALL approved):** stats count-up, page-enter transitions, a DrawSVG
+  self-drawing underline, SplitText on major section headings.
+
+ARTIFACTS (committed to `redesign-v2`):
+- Spec: `docs/superpowers/specs/2026-06-30-premium-hero-preloader-design.md` (commit 9e37caa)
+- Plan: `docs/superpowers/plans/2026-06-30-premium-motion-pass.md` (commit 770f49e) —
+  9 tasks, complete code, TDD for the pure-logic bits (parseFigure, preloader guard).
+
+CRITICAL ARCHITECTURE NOTE baked into the plan: ScrollSmoother transforms
+`#smooth-content`, which BREAKS `position:fixed` descendants — so the Preloader,
+the grain overlay, and the fixed Header MUST live OUTSIDE the `<SmoothScroll>`
+wrapper in `layout.tsx`. This is Task 2 and the #1 integration risk.
+
+➡️ NEXT SESSION: execute the plan. Use **superpowers:subagent-driven-development**
+(fresh subagent per task, review between) or **superpowers:executing-plans**
+(inline with checkpoints). Start at Task 1 (register plugins in
+`src/lib/motion/eases.ts`). Task 5 needs a fal.ai high-res still
+(`public/generated/hero-study-hires.jpg`, people-free library study, verify by
+zoom — no AI tells). Nothing implemented yet; tree is clean apart from this note.
+
+VERIFY-IN-BROWSER LIMITATION (still applies): the claude-in-chrome automation tab
+FREEZES requestAnimationFrame, so GSAP motion + video decode cannot be
+frame-captured here — eyeball all motion on a REAL desktop.
+
+---
 
 ### PASS 6 — HERO BACKGROUND ANIMATION FIX (2026-06-30g) — SHIPPED
 Operator: "the hero animated in the background needs to be finalised."
