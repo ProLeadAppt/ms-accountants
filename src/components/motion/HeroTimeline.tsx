@@ -31,18 +31,17 @@ export function HeroTimeline({
       const bg = q("[data-hero='bg']");
       const rise = q("[data-hero='rise']");
 
-      if (bg.length) gsap.set(bg, { scale: 1.08 });
-      if (rise.length) gsap.set(rise, { y: 18 });
-
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      // from() with immediateRender:false keeps the *rest* state the natural CSS
+      // (scale 1, content in place). The zoom/rise are applied only once the
+      // ticker runs, so a throttled or stalled rAF degrades to a correct static
+      // hero instead of a background stranded mid-zoom.
+      const tl = gsap.timeline({
+        defaults: { ease: "power3.out", immediateRender: false },
+      });
       if (bg.length)
-        tl.to(bg, { scale: 1, duration: 0.9, ease: FOLDER_EASE }, 0);
+        tl.from(bg, { scale: 1.08, duration: 1.0, ease: FOLDER_EASE }, 0);
       if (rise.length)
-        tl.to(
-          rise,
-          { y: 0, duration: 0.7, stagger: 0.12 },
-          "-=0.45",
-        );
+        tl.from(rise, { y: 18, duration: 0.7, stagger: 0.12 }, "-=0.5");
 
       // Scroll parallax — background drifts slower than the content.
       if (bg.length) {
