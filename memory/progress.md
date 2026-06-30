@@ -1,6 +1,37 @@
 # Progress — MS Accountants Website v2
 
-## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-30f]
+## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-30g]
+
+### PASS 6 — HERO BACKGROUND ANIMATION FIX (2026-06-30g) — SHIPPED
+Operator: "the hero animated in the background needs to be finalised."
+ROOT BUG found: in `Hero.tsx` the `data-hero="bg"` background div was a SIBLING
+of `<HeroTimeline>`, but HeroTimeline selects `[data-hero='bg']` only within its
+own ref scope (`gsap.utils.selector(ref)`) — so the load scale-in AND the scroll
+parallax NEVER ran; the background was static (only the video loop, where the
+browser played it).
+FIX: moved the bg div INSIDE `<HeroTimeline>` (kept z-0 bg / z-10 content split so
+media stays behind the headline). Proven: GSAP now targets bg (it applied the
+transform). HARDENED `HeroTimeline.tsx`: switched `gsap.set(...)+to(...)` to
+`from(...)` with `immediateRender:false`, so the REST state is the natural CSS
+(scale 1, content in place) — a throttled/stalled rAF now degrades to a correct
+static hero instead of a background stranded mid-zoom.
+VIDEO: `public/generated/lib2-1.mp4` codec is browser-valid (H.264 / yuv420p,
+1464x628, 5s loop); poster `lib2-1.jpg` is the guaranteed first paint. Serves 200
+(video/mp4) on prod.
+⚠️ VERIFY LIMITATION: the claude-in-chrome automation tab FREEZES requestAnimation-
+Frame (confirmed: rAF never fired in 45s; also blocks video decode → readyState 0).
+So the MOTION itself could not be frame-captured here — only the composition
+(verified clean: bg behind content, scrims, legible headline, dust motes). The
+scale-in + parallax + video playback must be eyeballed on a REAL desktop. Same
+limitation the imagery passes flagged ("CONFIRM PLAYBACK ON REAL DESKTOP").
+OPTIONAL future enhance: hero video is modest res (1464x628) → slightly soft when
+upscaled on large displays; could regenerate higher-res via fal.ai Kling i2v
+(light/dust only, never people/vehicles — see imagery LESSONs below).
+Committed `4e9cfe6` on `redesign-v2` (pushed) → `npx vercel --prod --yes` →
+deploy `ms-accountants-6xy2k49wx` READY, aliased to https://ms-accountants.vercel.app
+(home 200, hero mp4+poster 200). Local `npm start` server stopped after.
+
+---
 
 ### PASS 5 — "SHOW, DON'T TELL" UI/UX STRUCTURE PASS (2026-06-30f) — DONE locally, verified, NOT yet committed/redeployed
 Operator brief: beyond the copy, what UI/UX structure + feel adds to authority +
@@ -42,9 +73,12 @@ Accountants — home", an accessibility label, out of scope). Visual screenshots
 captured on localhost:3000 (prod `npm start`) for VoicePullQuote, HowItWorks,
 CaseInPoint, and the CFO ServiceTestimonial — all read clean in quiet-authority.
 
-⚠️ NOT committed, NOT redeployed — awaiting operator sign-off on the LOOK. When
-approved: commit to `redesign-v2`, `npx vercel --prod --yes`, re-verify live URL.
-Still open (unchanged): Dr S's REAL portrait photo (placeholder gradients).
+➡️ SIGNED OFF + SHIPPED. Committed `22f622d` on `redesign-v2` (pushed), then
+`npx vercel --prod --yes` → deploy `dpl_GMMFiKXcTgbKF6EUztjzFCkYoXzf` READY,
+aliased to https://ms-accountants.vercel.app. Live public re-verified (HTTP 200 +
+grep): homepage CaseInPoint/HowItWorks/VoicePullQuote, disputes CaseInPoint, CFO
+ServiceTestimonial all present. Still open (unchanged): Dr S's REAL portrait photo
+(placeholder gradients on hero/About — do NOT AI-generate his face).
 
 ---
 

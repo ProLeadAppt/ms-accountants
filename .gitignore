@@ -53,3 +53,6 @@ next-env.d.ts
 .~lock.*#
 
 .vercel
+
+# Brainstorm visual-companion mockups
+.superpowers/
