@@ -21,7 +21,7 @@ export const site = {
     fax: "02 8078 6640",
     email: "m.sridaran@msaccountants.com.au",
     emailHref: "mailto:m.sridaran@msaccountants.com.au",
-    officeAddress: "Suite 70, WOTSO WorkSpace, 9 George Street, North Strathfield NSW 2137",
+    officeAddress: "Suite 70, WOTSO WorkSpace, 5 George Street, North Strathfield NSW 2137",
     postalAddress: "P O Box 2194, Hornsby Westfield Post Office, Hornsby NSW 1635",
   },
 } as const;
@@ -62,7 +62,7 @@ export const credentialCards = [
   },
   {
     title: "Over 45 years across the world's leading firms.",
-    body: "More than five countries, for the most part with two of the Big Four, the last 25 in Australia. You get top-tier technical firepower without big-firm overhead, handoffs, or a rotating cast of account managers.",
+    body: "More than five countries, the early years with two of the Big Four, the last 25 in Australia. You get top-tier technical firepower without big-firm overhead, handoffs, or a rotating cast of account managers.",
   },
   {
     title: "Taught tax law. Published in the AFR and SMH. Wrote the book.",
@@ -138,7 +138,7 @@ export const services: Service[] = [
     tagline: "When the tax authorities come knocking, your accountant being a lawyer is your best defence.",
     intro: [
       "An audit. A complex investigation. A disputed assessment you need to fight, and may have to litigate. These are the moments where it pays to have someone who knows the law cold and is qualified to argue your case all the way, not hand you off to a barrister at the first sign of a courtroom.",
-      "Dr Maheswaran Sridaran is a chartered accountant and a lawyer. He taught tax law at university and led a national tax practice before founding MS Accountants. He does not just know the rules; he understands the reasoning behind them, and where that reasoning is weaker than it looks. He holds the complete complement of skills to handle a tax problem at every level, from the first audit query through to litigation. That is what it takes to push back on the tax authorities and be taken seriously.",
+      "Dr Maheswaran Sridaran is a chartered accountant and a lawyer. He taught tax law at university and led a national tax practice before founding MS Accountants. He does not just know the rules; he understands the reasoning behind them, and where that reasoning is weaker than it looks. He holds the complete complement of skills to handle a tax problem at every level, from the first audit query through to litigation. He has represented clients in tax disputes before the Administrative Appeals Tribunal and, with leave, the New South Wales District Court. That is what it takes to push back on the tax authorities and be taken seriously.",
     ],
     helpHeading: "What we help with",
     help: [
@@ -272,8 +272,8 @@ export const team: readonly TeamMember[] = [
   {
     name: "Dr Maheswaran Sridaran",
     role: "Principal",
-    credentials: ["PhD (Tax), Macquarie University", "LLB, Macquarie University", "Master of Taxation, UNSW", "Chartered Accountant", "Lawyer", "Registered Tax Agent"],
-    bio: "A chartered accountant, lawyer and registered tax agent with over 45 years across more than five countries, for the most part with two of the Big Four, the last 25 in Australia. His doctoral thesis examined Australian capital gains tax; his first book asked whether capital gains are taxed equitably in Australia. As both an accountant and a lawyer, he holds the complete complement of skills to handle any tax problem at every level, from advisory through to complex tax-authority investigations and litigation. He is the chief quality controller of the practice: every engagement is reviewed personally by him.",
+    credentials: ["PhD (Tax), Macquarie University", "LLB, Macquarie University", "Master of Taxation, UNSW", "Chartered Accountant", "Lawyer (admitted in NSW)", "Registered Tax Agent"],
+    bio: "A chartered accountant, lawyer and registered tax agent with over 45 years across more than five countries, the early years with two of the Big Four, the last 25 in Australia. His doctoral thesis examined Australian capital gains tax; his first book asked whether capital gains are taxed equitably in Australia. As both an accountant and a lawyer, he holds the complete complement of skills to handle any tax problem at every level, from advisory through to complex tax-authority investigations and litigation. He is the chief quality controller of the practice: every engagement is reviewed personally by him.",
   },
   {
     name: "Ms Niroshi Rathnayakage",

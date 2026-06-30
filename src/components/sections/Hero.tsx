@@ -48,8 +48,8 @@ export function Hero() {
           >
             MS Accountants is a boutique Sydney firm led by Dr Maheswaran
             Sridaran: a chartered accountant, a lawyer, and a PhD in Australian
-            tax law. Over 45 years across more than five countries, for the most
-            part with two of the Big Four. From a complex ATO investigation or
+            tax law. Over 45 years across more than five countries, the early
+            years with two of the Big Four. From a complex ATO investigation or
             tax litigation to your annual return, he reviews every engagement
             himself.
           </p>

@@ -47,4 +47,9 @@ next-env.d.ts
 # large legacy source video (not part of the built site)
 /src/Old MS Accountants website.mp4
 
+# client private source documents (PII — never upload; used for copy alignment only)
+/docs/*.doc
+/docs/*.docx
+.~lock.*#
+
 .vercel

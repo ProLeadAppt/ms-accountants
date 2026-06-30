@@ -1,6 +1,41 @@
 # Progress — MS Accountants Website v2
 
-## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-30]
+## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-30b]
+
+### RESUME-ALIGNMENT + VOICE PASS (2026-06-30b) — DONE locally, NOT redeployed
+Used Dr Sridaran's own resume (`docs\Maheswaran Sridaran_Resume_29 May 2026.doc`) as the
+authoritative fact + voice source (NOT uploaded anywhere; alignment only, per brief). It
+VERIFIES the "also a lawyer / 45y / two Big Four" repositioning and RESOLVES the two open
+client-confirmations:
+  (a) ADMITTED lawyer, admitted in NSW, Aug 2023 (Supreme Court oath; Member, Law Society
+      of NSW) → team credentials now read "Lawyer (admitted in NSW)".
+  (b) real forums = Commonwealth AAT, NSW Administrative Decisions Tribunal, NSW District
+      Court (with leave) vs ATO → named AAT + NSW District Court in the disputes intro.
+User picks for this pass: **Surgical polish · Curated enrichment · address = resume (5 George St)**.
+Edited:
+  - `site.ts`: office address 9→**5 George Street** (resume; the live-site scrape was stale);
+    "for the most part with two of the Big Four" → "the early years with two of the Big Four"
+    (×2, credential card + team bio) — Big Four was the EARLY INTERNATIONAL career (~1980-98:
+    Coopers & Lybrand→PwC + EY); the AU decades were boutique / academia / own-firm, so "for
+    the most part" overstated; team credentials += "(admitted in NSW)"; disputes intro += AAT
+    + NSW District Court sentence.
+  - `Hero.tsx`, `about/page.tsx` (para 1), `layout.tsx` (schema founder): same Big Four reframe.
+  - `about/page.tsx` origin para: added Macquarie teaching award ("most knowledgeable teacher
+    in their field", Faculty of Law, 2007), NAMED the book *Are Capital Gains Equitably Taxed
+    in Australia?* (italic <em>), + textbook citation (*Australian Taxation Law*, Woellner/CCH).
+  - `Statement.tsx`: sharpened to his question-led / parallel-verdict cadence ("That is the
+    question that matters most. Most accountants answer it last. We answer it first.").
+Voice finding: his published ARTICLE TITLES (now SAMPLED, not inferred) confirm the
+findings.md profile — question-led ("Who pays the lion's share…?", "Was the Full Federal
+Court right?"), contrarian ("an alternative view", "deeply flawed"), plain confident
+verdicts ("High Court gets it right", "best and fairest"). Current copy already leans this
+way; only light sharpening applied. Flagship Tax Advisory intro left AS-IS (already his voice).
+**No em-dashes.** lint + vitest(8) + `next build`(16 pages) ALL GREEN; About paragraph spacing
+verified in the prerendered HTML.
+⚠️ NOT redeployed — all copy still subject to Dr S sign-off; `npx vercel --prod --yes` only
+after sign-off. Still open from before: Dr S's REAL portrait photo (placeholder gradients).
+
+---
 
 ### "ALSO A LAWYER" REPOSITIONING (2026-06-30) — DONE locally, NOT redeployed
 Dr Sridaran replied to the review build (29 Jun email) with one big point: the site
@@ -26,9 +61,10 @@ ALL GREEN. Verified in browser (hero + disputes page screenshots).
 **No em-dashes** used (honoured the standing house rule even though the approved hero
 preview showed them — set to colon/comma instead).
 
-⚠️ TWO CLIENT-CONFIRMATIONS still open before publishing (do NOT guess):
-  (a) admitting jurisdiction / whether to say "admitted lawyer" vs "lawyer";
-  (b) whether to name litigation forums (AAT, Federal Court) or keep it general.
+⚠️ TWO CLIENT-CONFIRMATIONS — now RESOLVED by the resume-alignment pass (2026-06-30b):
+  (a) admitted lawyer, NSW, Aug 2023 → credentials say "Lawyer (admitted in NSW)";
+  (b) forums named: AAT + NSW District Court (resume-backed, not Federal Court).
+  Both still ride on Dr S's final sign-off before publishing.
 ⚠️ Still NOT redeployed — run `npx vercel --prod --yes` only after user sign-off.
 Also still open from before: Dr S's REAL portrait photo (placeholder gradients).
 

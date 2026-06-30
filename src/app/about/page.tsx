@@ -63,7 +63,7 @@ export default function AboutPage() {
                   Most people with Dr Sridaran&rsquo;s background do not end up
                   running a boutique firm. He is a chartered accountant and a
                   lawyer, with a doctorate in Australian tax law and over 45
-                  years across more than five countries, for the most part with
+                  years across more than five countries, the early years with
                   two of the Big Four, the last 25 in Australia. The expected
                   path was a corner office at a global firm.
                 </p>
@@ -77,12 +77,16 @@ export default function AboutPage() {
                   Being both an accountant and a lawyer, he holds the complete
                   complement of skills to deal with any tax problem, at every
                   level, from the day-to-day advice through to complex
-                  tax-authority investigations and litigation. He has taught tax
-                  law at university, published in the Australian Financial Review
-                  and the Sydney Morning Herald, and written a book asking
-                  whether capital gains are taxed fairly at all. That is the
-                  standard of thinking he now applies to a deliberately small
-                  number of clients.
+                  tax-authority investigations and litigation. He taught tax law
+                  at Macquarie University, where the Faculty of Law named him its
+                  most knowledgeable teacher in his field, and has published in
+                  the Australian Financial Review and the Sydney Morning Herald.
+                  His first book asked whether the rules are even fair:{" "}
+                  <em>Are Capital Gains Equitably Taxed in Australia?</em>{" "}
+                  His work is cited in the standard Australian university text,{" "}
+                  <em>Australian Taxation Law</em>. That is the standard of
+                  thinking he now applies to a deliberately small number of
+                  clients.
                 </p>
               </div>
             </Reveal>

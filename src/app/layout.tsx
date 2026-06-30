@@ -58,7 +58,7 @@ const orgLd = {
     name: "Dr Maheswaran Sridaran",
     jobTitle: "Principal",
     description:
-      "Chartered accountant, lawyer and registered tax agent. PhD in Australian tax law (Macquarie University), LLB (Macquarie University), Master of Taxation (UNSW). Over 45 years across more than five countries, for the most part with two of the Big Four, the last 25 in Australia.",
+      "Chartered accountant, lawyer and registered tax agent. PhD in Australian tax law (Macquarie University), LLB (Macquarie University), Master of Taxation (UNSW). Over 45 years across more than five countries, the early years with two of the Big Four, the last 25 in Australia.",
     alumniOf: ["Macquarie University", "UNSW"],
   },
 };

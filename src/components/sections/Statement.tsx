@@ -8,7 +8,7 @@ export function Statement() {
       <Container>
         <EyebrowTag>01 / What we do</EyebrowTag>
         <WordReveal
-          text="Any firm can file a return. Far fewer can tell you, before you sign, what a sale, a restructure, or passing the business to your children will really cost you. That is the question that matters most, and the one most accountants answer last. We answer it first."
+          text="Any firm can file a return. Far fewer can tell you, before you sign, what a sale, a restructure, or passing the business to your children will really cost you. That is the question that matters most. Most accountants answer it last. We answer it first."
           className="mt-10 max-w-[20ch] font-display text-4xl leading-[1.08] text-clay sm:max-w-[24ch] sm:text-6xl lg:text-7xl"
         />
       </Container>
