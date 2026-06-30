@@ -81,11 +81,15 @@ F. **Interrogative instinct stops at the flagship** — most "why" sections asse
 1. **Fairness + challenger identity** — DONE (pass 2, commit 90ed525).
 2. **"Published thinking" strip** — DONE (pass 3, 2026-06-30d): `PublishedThinking.tsx` on the
    homepage, 5 verbatim real AFR/SMH titles + the book, fairness-first ordering (fixes Gap C).
-3. **De-cliché + precision + warmth** — PARTIALLY done (pass 3): de-cliché (Gap D, commit
-   5c1a0ea) + one light Gap F interrogative on the CFO why. STILL OPEN: the broader WARMTH
-   pass (patience / generosity with time / fairness-to-the-person, drawn from the
-   testimonials' "unfailing professional courtesy", "patient", "generously given us his
-   time") is not yet threaded through the copy.
+3. **De-cliché + precision + warmth** — DONE (passes 3 + 4): de-cliché (Gap D, commit
+   5c1a0ea) + one Gap F interrogative (CFO why). WARMTH threaded in pass 4 (2026-06-30e):
+   a closing paragraph on the About origin story names the manner his clients consistently
+   describe (patient, generous with his time, unfailingly courteous) and ties it to his
+   fairness principle ("the fairness he argues for in print is the fairness he extends to
+   the person across the table") — grounded in the real testimonial language, not invented.
+   Plus a homepage testimonial framing headline ("Brought in for the hard problems. Kept on
+   for years.") to make the competency-and-loyalty point land instantly. ALL THREE AUDIT
+   WORKSTREAMS NOW COMPLETE.
 
 ### PASS 2 — "Fairness + challenger identity" (workstream 1) — 3 edits, IMPLEMENTED
 1. `site.ts` credentialCards[0].body — recast the doctorate around *fairness* ("whether

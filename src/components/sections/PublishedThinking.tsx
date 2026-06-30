@@ -8,10 +8,17 @@ import { publications, book } from "@/lib/site";
  * Published-thinking strip. The authority marquee shows where he is cited;
  * this shows what he actually wrote. The titles carry his voice: fairness,
  * and a willingness to question the received view.
+ *
+ * `scheme` lets the strip sit cleanly in different page rhythms (sand on the
+ * homepage between cream and espresso; cream on About after a sand section).
  */
-export function PublishedThinking() {
+export function PublishedThinking({
+  scheme = "sand",
+}: {
+  scheme?: "sand" | "cream";
+}) {
   return (
-    <section className="scheme-sand py-24 lg:py-32">
+    <section className={`scheme-${scheme} py-24 lg:py-32`}>
       <Container>
         <Reveal className="max-w-2xl">
           <EyebrowTag>In his own words</EyebrowTag>

@@ -1,8 +1,40 @@
 # Progress — MS Accountants Website v2
 
-## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-30d]
+## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-30e]
 
-### PASS 3 — DE-CLICHE + PUBLISHED-THINKING STRIP + GAP F (2026-06-30d) — committed+pushed to redesign-v2, NOT redeployed
+### PASS 4 — "MAKE IT EXCEPTIONAL": WARMTH + ABOUT STRIP + REDEPLOY (2026-06-30e)
+Dr Sridaran gave his nod THROUGH the operator (Tyson) — sign-off is granted, redeploy
+AUTHORISED. Operator brief: "10x everything, prove it, position him as the authority but
+with warmth and competency, easily understood from the landing page inward."
+
+Implemented (all grounded in real facts/testimonial language, no inventions):
+1. **WARMTH (the last missing through-line).** Added a closing paragraph to the About
+   origin story: "The rigour comes with a manner his clients describe in consistent terms:
+   patient, generous with his time, and unfailingly courteous, even when the matter is
+   hard. The fairness he argues for in print is the fairness he extends to the person
+   across the table." Sourced from the real testimonials ("unfailing professional
+   courtesy", "patient", "generously given us his time") and tied to his fairness
+   principle. SHOWN, not self-claimed.
+2. **Homepage testimonial framing headline** ("Brought in for the hard problems. Kept on
+   for years.") added to `Testimonial.tsx` between the eyebrow and the featured quote, so
+   the competency + long-tenure point lands instantly (grounded: clients of 7+ years,
+   "since incorporation").
+3. **Published-thinking strip now on the ABOUT page too.** Added a `scheme` prop to
+   `PublishedThinking` (default "sand"); placed `<PublishedThinking scheme="cream" />` on
+   About after `CredentialTranslation`, before `PromiseBlock` (sand→cream→red rhythm).
+   Homepage strip unchanged (sand).
+
+Verify gate: lint clean, vitest 8/8, build 16 pages. Rendered HTML confirmed: About warmth
+para + cream strip present; homepage testimonial headline present. ALL THREE AUDIT
+WORKSTREAMS (fairness/challenger · published-thinking · de-cliché+warmth) NOW COMPLETE.
+
+➡️ REDEPLOYED to production this pass (`npx vercel --prod --yes`) — see the DEPLOY note
+below for the result. Still open: Dr S's REAL portrait photo (placeholder gradients on
+hero/About — do NOT AI-generate his face).
+
+---
+
+### PASS 3 — DE-CLICHE + PUBLISHED-THINKING STRIP + GAP F (2026-06-30d) — committed+pushed to redesign-v2
 Operator (Tyson) approved committing pass 2, then greenlit all three follow-ups:
 de-cliche commit · build the "Published thinking" strip · light Gap F interrogative.
 

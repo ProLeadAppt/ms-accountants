@@ -8,6 +8,7 @@ import { StickyPin } from "@/components/motion/StickyPin";
 import { PageHero } from "@/components/sections/PageHero";
 import { AuthorityMarquee } from "@/components/sections/AuthorityMarquee";
 import { CredentialTranslation } from "@/components/sections/CredentialTranslation";
+import { PublishedThinking } from "@/components/sections/PublishedThinking";
 import { PromiseBlock } from "@/components/sections/PromiseBlock";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { site, team } from "@/lib/site";
@@ -93,6 +94,13 @@ export default function AboutPage() {
                   That is the standard of thinking he now applies to a
                   deliberately small number of clients.
                 </p>
+                <p>
+                  The rigour comes with a manner his clients describe in
+                  consistent terms: patient, generous with his time, and
+                  unfailingly courteous, even when the matter is hard. The
+                  fairness he argues for in print is the fairness he extends to
+                  the person across the table.
+                </p>
               </div>
             </Reveal>
           </div>
@@ -140,6 +148,7 @@ export default function AboutPage() {
 
       <AuthorityMarquee />
       <CredentialTranslation />
+      <PublishedThinking scheme="cream" />
       <PromiseBlock />
       <FinalCTA />
     </>

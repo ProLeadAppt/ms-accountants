@@ -15,7 +15,10 @@ export function Testimonial() {
         <Reveal className="flex flex-col items-center text-center">
           <Icon name="quote" className="h-8 w-8 text-brand-red" />
           <EyebrowTag className="mt-8">In their words</EyebrowTag>
-          <blockquote className="mt-8 max-w-4xl font-display text-2xl leading-[1.24] text-clay sm:text-3xl lg:text-[1.85rem]">
+          <h2 className="mt-7 max-w-[20ch] font-serif text-3xl leading-[1.08] text-espresso sm:text-4xl lg:text-5xl">
+            Brought in for the hard problems. Kept on for years.
+          </h2>
+          <blockquote className="mt-10 max-w-4xl font-display text-2xl leading-[1.24] text-clay sm:text-3xl lg:text-[1.85rem]">
             &ldquo;{featured.quote}&rdquo;
           </blockquote>
           <footer className="mt-8">
