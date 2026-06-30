@@ -39,6 +39,17 @@ WHAT SHIPPED (local, committed):
   kept identical so layout is unchanged.
 - **Task 8** (`5ea5676`): `src/app/template.tsx` — restrained enter-only page transition
   (fade + 16px lift), reduced-motion gated.
+- **POST-PLAN (`39de016`): hero ambient video re-added** at operator request after
+  review — the still alone read "dead" between loads. Generated a 5s ambient loop from
+  `hero-study-hires.jpg` via fal.ai Kling 2.1 i2v (standard), drifting dust/light only,
+  room locked still (verified first/last frames: no warp, no people). Saved
+  `public/generated/hero-study-hires.mp4` (H.264/yuv420p, 1464×628). `HeroBackground.tsx`
+  back to video+poster (poster=HERO_STILL; reduced-motion still shows the still);
+  `heroAsset.ts` adds `HERO_VIDEO`. The plan's "retire the video" decision is thus
+  PARTLY REVERSED for the hero (operator preference); everything else from the plan stands.
+  Operator also confirmed: keep the OTHER motion effects RESTRAINED (no amplification).
+  NOTE for review: the preloader is once-per-session (sessionStorage `ms-preloaded`), so
+  to see it again open a FRESH/Incognito window — verified working (not a bug).
 
 EVERY motion path is gated by `usePrefersReducedMotion()` and degrades to a correct
 static result. Page count still 16. No copy/business-logic changes beyond the new hero.
