@@ -1,45 +1,62 @@
 # Progress — MS Accountants Website v2
 
-## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-30h]
+## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-30i]
 
-### PASS 7 — PREMIUM MOTION PASS (2026-06-30h) — PLANNED, READY TO BUILD (handed off mid-flow, context full)
-Operator wants a premium upgrade now that GSAP is fully free (Webflow). CONFIRMED:
-`gsap@3.15.0` is installed and the ENTIRE formerly-paid plugin suite is ALREADY
-bundled in `node_modules/gsap` (ScrollSmoother, SplitText, DrawSVGPlugin,
-MorphSVGPlugin, Flip, InertiaPlugin, MotionPathPlugin, Observer). Nothing to
-install. The site currently uses only ScrollTrigger + CustomEase.
+### PASS 7 — PREMIUM MOTION PASS (2026-06-30i) — DONE locally, NOT yet redeployed (deploy held for Dr S sign-off)
+Executed the full plan (`docs/superpowers/plans/2026-06-30-premium-motion-pass.md`,
+9 tasks) on `redesign-v2` via superpowers:executing-plans. Tasks 1–8 implemented and
+committed one-per-task; Task 9 verification done; the production deploy (Step 5) is
+DELIBERATELY HELD pending sign-off (the standing rule: redesign-v2 awaits Dr S).
 
-Brainstorm DONE (via visual companion). APPROVED decisions:
-- **Preloader:** dark, number-forward (mock C×A blend) — MS monogram settles, a
-  hairline draws, a big Fraunces % ticks 0→100 (real asset readiness, 4s hard
-  cap), then lifts. First-load only (sessionStorage). Reduced-motion → none.
-- **Hero:** LAYERED PARALLAX STILLS (retire the soft video). New hi-res fal.ai
-  still; depth via ScrollSmoother `data-speed` (still slowest, dust/light layer
-  faster, content fastest); SplitText headline keeping the red-italic emphasis.
-- **Smooth scroll:** site-wide ScrollSmoother (the big premium lever).
-- **Extras (ALL approved):** stats count-up, page-enter transitions, a DrawSVG
-  self-drawing underline, SplitText on major section headings.
+WHAT SHIPPED (local, committed):
+- **Task 1** (`98433d6`): `registerGsap()` now registers ScrollSmoother, SplitText,
+  DrawSVGPlugin alongside ScrollTrigger + CustomEase. `src/lib/motion/eases.ts`.
+- **Task 2** (`b33744d`): site-wide ScrollSmoother. New `SmoothScroll.tsx`
+  (`#smooth-wrapper > #smooth-content`, smooth 1.2, effects, normalizeScroll).
+  `layout.tsx` restructured so Header + grain (+ Preloader) sit OUTSIDE the smoother
+  and main+Footer inside — the fixed-element fix from the plan's #1 risk.
+- **Task 3** (`<see log>`): stats count-up. `figure.ts` (`parseFigure`, TDD, 3 tests)
+  + `CountUp.tsx`, wired into `CredentialGrid.tsx`. Non-numeric figures (PhD/CA) render
+  unchanged.
+- **Task 4**: branded first-load preloader. `preloader.ts` (session guard, TDD) +
+  `Preloader.tsx` (live % to real readiness, 4s cap, lift). Mounted OUTSIDE SmoothScroll.
+  NOTE: one targeted `eslint-disable react-hooks/set-state-in-effect` on the client-only
+  mount decision (reads sessionStorage + reduced-motion post-mount; SSR must stay false).
+- **Task 5** (`ab4fb1a`): new hi-res hero still `public/generated/hero-study-hires.jpg`
+  (fal.ai flux-pro v1.1-ultra, 3136×1344 21:9, library study, god rays, people/text-free;
+  chose candidate 2 of 3 with operator sign-off). `heroAsset.ts` = single source of truth.
+  `HeroBackground.tsx` is now still-only (video retired; `lib2-1.{jpg,mp4}` left on disk,
+  unreferenced).
+- **Task 6** (`0bb1b32`): `SplitHeadline.tsx` + `DrawUnderline.tsx`. Hero headline →
+  SplitHeadline (`splitType="lines"`); hero bg gets ScrollSmoother `data-speed="0.85"`
+  + a faster `1.12` dust/light layer for depth; old scrub-parallax removed from
+  `HeroTimeline.tsx`. DrawSVG underline applied to the **About PageHero "run a small
+  firm" phrase** (the plan's sanctioned fallback — avoids colliding with the hero's
+  line-masked SplitText; `CaseInPoint.frame` prop narrowed React.ReactNode→string,
+  safe: both callers use the default string).
+- **Task 7** (`f06133b`): SplitText on the three largest section headings
+  (`Statement` display sentence, `CaseInPoint` frame line, `HowItWorks` h2), classes
+  kept identical so layout is unchanged.
+- **Task 8** (`5ea5676`): `src/app/template.tsx` — restrained enter-only page transition
+  (fade + 16px lift), reduced-motion gated.
 
-ARTIFACTS (committed to `redesign-v2`):
-- Spec: `docs/superpowers/specs/2026-06-30-premium-hero-preloader-design.md` (commit 9e37caa)
-- Plan: `docs/superpowers/plans/2026-06-30-premium-motion-pass.md` (commit 770f49e) —
-  9 tasks, complete code, TDD for the pure-logic bits (parseFigure, preloader guard).
+EVERY motion path is gated by `usePrefersReducedMotion()` and degrades to a correct
+static result. Page count still 16. No copy/business-logic changes beyond the new hero.
 
-CRITICAL ARCHITECTURE NOTE baked into the plan: ScrollSmoother transforms
-`#smooth-content`, which BREAKS `position:fixed` descendants — so the Preloader,
-the grain overlay, and the fixed Header MUST live OUTSIDE the `<SmoothScroll>`
-wrapper in `layout.tsx`. This is Task 2 and the #1 integration risk.
+VERIFICATION (Task 9): lint clean · `vitest run` 16/16 green · `next build` 16 pages ·
+prerendered-HTML guard PASS (hero-study-hires referenced; only em-dash is the
+pre-existing Header `aria-label="MS Accountants — home"`).
 
-➡️ NEXT SESSION: execute the plan. Use **superpowers:subagent-driven-development**
-(fresh subagent per task, review between) or **superpowers:executing-plans**
-(inline with checkpoints). Start at Task 1 (register plugins in
-`src/lib/motion/eases.ts`). Task 5 needs a fal.ai high-res still
-(`public/generated/hero-study-hires.jpg`, people-free library study, verify by
-zoom — no AI tells). Nothing implemented yet; tree is clean apart from this note.
-
-VERIFY-IN-BROWSER LIMITATION (still applies): the claude-in-chrome automation tab
-FREEZES requestAnimationFrame, so GSAP motion + video decode cannot be
-frame-captured here — eyeball all motion on a REAL desktop.
+➡️ STILL OPEN before deploy:
+1. REAL-DESKTOP eyeball (the claude-in-chrome tab freezes rAF, so motion can't be
+   frame-captured here): preloader counts+lifts → smooth scroll → hero parallax depth →
+   SplitText headline + heading reveals → DrawSVG underline (About page) → stats count-up
+   → page-enter transition; then emulate `prefers-reduced-motion: reduce` and confirm
+   every effect degrades to static + native scrolling. `npm run start` → localhost:3000.
+2. Lighthouse on the homepage (watch LCP/CLS vs the preloader+smoother; retiring the 4MB
+   video offsets the added JS).
+3. DEPLOY (held): `git push origin redesign-v2 && npx vercel --prod --yes`, then re-verify
+   live home + `/generated/hero-study-hires.jpg` are 200. Do this ONLY after Dr S sign-off.
 
 ---
 
