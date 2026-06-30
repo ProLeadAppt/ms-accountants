@@ -78,10 +78,14 @@ E. **Thesis described generically** vs its real fairness / horizontal-equity ang
 F. **Interrogative instinct stops at the flagship** — most "why" sections assert; he asks.
 
 ### THREE RECOMMENDED WORKSTREAMS
-1. **Fairness + challenger identity** — SELECTED by user; implemented in pass 2 (below).
-2. **"Published thinking" strip** — show 4-5 real AFR/SMH titles + the book (fixes Gap C).
-   NOT selected this pass.
-3. **De-cliché + precision + warmth** — fixes Gaps D/F + the warmth note. NOT selected.
+1. **Fairness + challenger identity** — DONE (pass 2, commit 90ed525).
+2. **"Published thinking" strip** — DONE (pass 3, 2026-06-30d): `PublishedThinking.tsx` on the
+   homepage, 5 verbatim real AFR/SMH titles + the book, fairness-first ordering (fixes Gap C).
+3. **De-cliché + precision + warmth** — PARTIALLY done (pass 3): de-cliché (Gap D, commit
+   5c1a0ea) + one light Gap F interrogative on the CFO why. STILL OPEN: the broader WARMTH
+   pass (patience / generosity with time / fairness-to-the-person, drawn from the
+   testimonials' "unfailing professional courtesy", "patient", "generously given us his
+   time") is not yet threaded through the copy.
 
 ### PASS 2 — "Fairness + challenger identity" (workstream 1) — 3 edits, IMPLEMENTED
 1. `site.ts` credentialCards[0].body — recast the doctorate around *fairness* ("whether

@@ -1,8 +1,51 @@
 # Progress — MS Accountants Website v2
 
-## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-30c]
+## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-30d]
 
-### PASS 2 — "FAIRNESS + CHALLENGER IDENTITY" (2026-06-30c) — DONE locally, NOT redeployed, NOT committed
+### PASS 3 — DE-CLICHE + PUBLISHED-THINKING STRIP + GAP F (2026-06-30d) — committed+pushed to redesign-v2, NOT redeployed
+Operator (Tyson) approved committing pass 2, then greenlit all three follow-ups:
+de-cliche commit · build the "Published thinking" strip · light Gap F interrogative.
+
+1. **DE-CLICHE / de-overstate (committed 5c1a0ea).** Removed generic premium-speak that
+   also overstated the career (bio already had the accurate framing):
+   - `site.ts` credentialCards[2]: title "Over 45 years across the world's leading firms"
+     → "Over 45 years, across more than five countries"; body dropped "top-tier technical
+     firepower" → "that seniority applied to your file directly".
+   - `site.ts` CFO tagline "The financial brain of a big company" → "An in-house CFO's
+     judgement"; CFO intro "across some of the world's leading firms" → "at the senior end
+     of accounting and finance".
+   Reason: "world's leading firms" implied the whole 45y was Big Four; only the early years
+   were. Honours the no-buzzword + honesty house rules. See decisions #19.
+
+2. **"PUBLISHED THINKING" strip (workstream 2, previously parked) — BUILT.** New section
+   shows what he WROTE, not just where he is cited (fixes Gap C: authority told-not-shown).
+   - `site.ts`: added `publications` (5 verbatim real AFR/SMH titles, ordered fairness-first)
+     + `book` ("Are Capital Gains Equitably Taxed in Australia?", "His first book, published
+     in 2012.").
+   - New `src/components/sections/PublishedThinking.tsx` (Container/EyebrowTag/Reveal/Stagger
+     pattern, scheme-sand). Eyebrow "In his own words"; heading "Not just advice. A public
+     case for fairness."; titles as serif headlines with `outlet · year` (middots, NOT
+     em-dashes); book as a bordered capstone card.
+   - Wired into `src/app/page.tsx` between `<AboutTeaser/>` (cream) and `<CredentialGrid/>`
+     (espresso) → cream→sand→espresso rhythm. Non-numeric eyebrow so no section renumbering.
+   - ⚠️ It QUOTES his real published titles publicly → get Dr S's nod before redeploy.
+   - Verified in prerendered index.html: all 5 titles + book render, smart quotes, clean
+     `outlet · year`. Only on the HOMEPAGE for now (About strip is an open option).
+
+3. **GAP F — light interrogative (1 line).** `site.ts` business-cfo-advisory .why opening
+   "Most growing businesses assume that calibre…" → "Does that calibre of financial
+   judgement only come with a full-time hire? Most growing businesses assume so. It does
+   not." Kept to ONE why to avoid an over-questioning tic (brief said restrained).
+
+Verify gate (pass 3): `npm run lint` clean, `npx vitest run` 8/8, `npm run build` 16 pages.
+Tests still 8 (deliberately did not add a publications integrity test, to match the gate).
+⚠️ NOT redeployed — `npx vercel --prod --yes` only after Dr S sign-off. Still open: his REAL
+portrait photo (placeholder gradients). Deferred audit workstream still NOT done: #3
+(de-cliché was partially done here; the warmth-pass remainder is open).
+
+---
+
+### PASS 2 — "FAIRNESS + CHALLENGER IDENTITY" (2026-06-30c) — DONE, committed 90ed525, NOT redeployed
 Voice re-audit (findings.md, now SAMPLED from resume + his real AFR/SMH titles, not
 inferred) surfaced six through-lines and six gaps. Top finding: his #1 lever, FAIRNESS,
 was nearly invisible on the site, and his contrarian "challenger" trait was muted /

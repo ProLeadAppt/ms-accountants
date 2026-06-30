@@ -50,6 +50,22 @@ export const authorityItems = [
   "Chifley Research Centre",
 ] as const;
 
+// Published-thinking strip: show what he has written, not only where he is
+// cited. Titles are verbatim and real (AFR/SMH op-eds + the book); ordered to
+// lead with fairness and the willingness to question the received view.
+export const publications = [
+  { title: "Tax reform for the best and fairest", outlet: "Australian Financial Review", year: "2008" },
+  { title: "High Court gets it right on GST", outlet: "Australian Financial Review", year: "2008" },
+  { title: "There's a different way to view takeover concerns", outlet: "Australian Financial Review", year: "2007" },
+  { title: "Tax agents deserve a better deal", outlet: "Australian Financial Review", year: "2007" },
+  { title: "Top universities serve students first", outlet: "The Sydney Morning Herald", year: "2008" },
+] as const;
+
+export const book = {
+  title: "Are Capital Gains Equitably Taxed in Australia?",
+  detail: "His first book, published in 2012.",
+} as const;
+
 // Credential-translation grid (spec §3)
 export const credentialCards = [
   {
@@ -227,7 +243,7 @@ export const services: Service[] = [
         desc: "getting the technical accounting right on the decisions that matter.",
       },
     ],
-    why: "Most growing businesses assume that calibre of financial judgement comes only with a full-time hire. It does not. Dr Sridaran has sat at the senior end of global firms and advised property conglomerates, listed companies and financial services licensees. You get that judgement applied to your business, at boutique scale, with direct access to the principal.",
+    why: "Does that calibre of financial judgement only come with a full-time hire? Most growing businesses assume so. It does not. Dr Sridaran has sat at the senior end of global firms and advised property conglomerates, listed companies and financial services licensees. You get that judgement applied to your business, at boutique scale, with direct access to the principal.",
     image: "/generated/cfo-advisory-1.jpg",
   },
   {
