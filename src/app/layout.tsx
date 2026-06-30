@@ -4,6 +4,7 @@ import { fontVariables } from "@/lib/fonts";
 import { site } from "@/lib/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { ConversionTracking } from "@/components/analytics/ConversionTracking";
 
@@ -87,9 +88,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
         />
         <Header />
-        <main>{children}</main>
-        <Footer />
         <div className="grain-overlay" aria-hidden="true" />
+        <SmoothScroll>
+          <main>{children}</main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );
