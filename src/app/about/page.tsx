@@ -8,6 +8,7 @@ import { StickyPin } from "@/components/motion/StickyPin";
 import { PageHero } from "@/components/sections/PageHero";
 import { AuthorityMarquee } from "@/components/sections/AuthorityMarquee";
 import { CredentialTranslation } from "@/components/sections/CredentialTranslation";
+import { HowItWorks } from "@/components/sections/HowItWorks";
 import { PublishedThinking } from "@/components/sections/PublishedThinking";
 import { PromiseBlock } from "@/components/sections/PromiseBlock";
 import { FinalCTA } from "@/components/sections/FinalCTA";
@@ -146,6 +147,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      <HowItWorks scheme="espresso" />
       <AuthorityMarquee />
       <CredentialTranslation />
       <PublishedThinking scheme="cream" />

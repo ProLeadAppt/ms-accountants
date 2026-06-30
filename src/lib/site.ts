@@ -342,3 +342,28 @@ export const testimonials: Testimonial[] = [
     company: "Caprock International Pty Ltd",
   },
 ];
+
+export function getTestimonial(name: string): Testimonial | undefined {
+  return testimonials.find((t) => t.name === name);
+}
+
+// ---------------------------------------------------------------------------
+// Service to testimonial mapping
+// One relevant, real testimonial surfaced on each service detail page, chosen
+// by genuine relevance. Honest by design:
+//  - tax-disputes-ato is intentionally absent: that page carries the Neda Morris
+//    "case in point" band, so a second quote from her would be redundant.
+//  - self-managed-super maps to a general competence/reliability quote that makes
+//    no SMSF-specific claim (no testimonial mentions SMSF; nothing is invented).
+// ---------------------------------------------------------------------------
+export const relatedTestimonial: Record<string, string> = {
+  "tax-advisory-planning": "Ms Manya Scheftsik",
+  "tax-compliance-returns": "Ms Araliya De Silva",
+  "business-cfo-advisory": "Mr Ambi Thind",
+  "self-managed-super": "Ms Anne Truong",
+};
+
+export function getTestimonialForService(slug: string): Testimonial | undefined {
+  const name = relatedTestimonial[slug];
+  return name ? getTestimonial(name) : undefined;
+}

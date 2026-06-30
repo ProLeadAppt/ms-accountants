@@ -9,6 +9,8 @@ import { TextLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger } from "@/components/motion/Stagger";
 import { PageHero } from "@/components/sections/PageHero";
+import { CaseInPoint } from "@/components/sections/CaseInPoint";
+import { ServiceTestimonial } from "@/components/sections/ServiceTestimonial";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { services, getService } from "@/lib/services";
 
@@ -137,6 +139,11 @@ export default async function ServiceDetailPage({
           </Reveal>
         </Container>
       </section>
+
+      {/* Decision-point proof: courage shown on Disputes, a relevant client
+          voice on the rest. Both render in the same slot; never both at once. */}
+      {service.slug === "tax-disputes-ato" && <CaseInPoint scheme="sand" />}
+      <ServiceTestimonial slug={service.slug} />
 
       {/* Other services */}
       <section className="scheme-cream py-20 lg:py-28">

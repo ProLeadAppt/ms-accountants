@@ -1,6 +1,52 @@
 # Progress — MS Accountants Website v2
 
-## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-30e]
+## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-30f]
+
+### PASS 5 — "SHOW, DON'T TELL" UI/UX STRUCTURE PASS (2026-06-30f) — DONE locally, verified, NOT yet committed/redeployed
+Operator brief: beyond the copy, what UI/UX structure + feel adds to authority +
+warmth + courage (standing against the ATO on the hard cases)? Plan approved:
+ALL FOUR moves, feel = "quiet authority". Plan file:
+`C:\Users\domin\.claude\plans\foamy-soaring-snowflake.md`.
+
+Four NEW section components (reuse existing design system; no new fonts/tokens/routes):
+1. **CaseInPoint** (`src/components/sections/CaseInPoint.tsx`) — promotes the real
+   Neda Morris testimonial (ATO + NSW Office of State Revenue audited her two
+   colleges, defended cost-effectively) into a proof band. Courage SHOWN. Default
+   scheme cream; reusable. On HOMEPAGE (scheme sand, between PublishedThinking and
+   CredentialGrid) + TAX DISPUTES page (scheme sand, after "Why us").
+2. **HowItWorks** (`HowItWorks.tsx`) — 3 principal-led steps (LineDraw+Stagger) +
+   restrained boutique-vs-big-firm contrast (no SaaS table). Cells use --fg tints
+   so it works on any scheme. HOMEPAGE (sand, after AboutTeaser) + ABOUT
+   (scheme espresso, after Team).
+3. **VoicePullQuote** (`VoicePullQuote.tsx`) — oversized Instrument Serif divider;
+   uses a VERBATIM real title (book: "Are Capital Gains Equitably Taxed in
+   Australia?") not a fabricated quote. HOMEPAGE espresso, between Statement and
+   ServiceList.
+4. **ServiceTestimonial** (`ServiceTestimonial.tsx`) — one un-truncated relevant
+   testimonial per service page via `getTestimonialForService(slug)`. Map in
+   `site.ts` (`relatedTestimonial`): advisory→Manya Scheftsik, compliance→Araliya
+   De Silva, cfo→Ambi Thind, super→Anne Truong; DISPUTES intentionally omitted
+   (carries CaseInPoint instead); SMSF uses a general reliability quote (no SMSF
+   claim invented).
+
+Also: homepage `PublishedThinking` switched to scheme="cream" for clean
+alternation. Scheme rhythm re-checked end to end (no two identical adjacent in the
+new inserts; espresso kept as punctuation).
+
+Verify gate ALL GREEN: `npm run lint` clean; `npx vitest run` **12/12** (8 + 4 new
+mapping-integrity tests in `content.test.ts`); `npm run build` **16 pages**;
+prerendered HTML grep confirmed every new band + correct conditional logic
+(disputes shows CaseInPoint and suppresses ServiceTestimonial); zero NEW em-dashes
+(the lone em-dash sitewide is the pre-existing Header logo aria-label "MS
+Accountants — home", an accessibility label, out of scope). Visual screenshots
+captured on localhost:3000 (prod `npm start`) for VoicePullQuote, HowItWorks,
+CaseInPoint, and the CFO ServiceTestimonial — all read clean in quiet-authority.
+
+⚠️ NOT committed, NOT redeployed — awaiting operator sign-off on the LOOK. When
+approved: commit to `redesign-v2`, `npx vercel --prod --yes`, re-verify live URL.
+Still open (unchanged): Dr S's REAL portrait photo (placeholder gradients).
+
+---
 
 ### PASS 4 — "MAKE IT EXCEPTIONAL": WARMTH + ABOUT STRIP + REDEPLOY (2026-06-30e)
 Dr Sridaran gave his nod THROUGH the operator (Tyson) — sign-off is granted, redeploy

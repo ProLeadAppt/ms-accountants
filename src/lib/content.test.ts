@@ -1,5 +1,14 @@
 import { describe, it, expect } from "vitest";
-import { site, nav, valueStats, credentialCards, authorityItems } from "./site";
+import {
+  site,
+  nav,
+  valueStats,
+  credentialCards,
+  authorityItems,
+  testimonials,
+  relatedTestimonial,
+  getTestimonialForService,
+} from "./site";
 import { services, getService } from "./services";
 
 describe("content library", () => {
@@ -42,5 +51,34 @@ describe("content library", () => {
   it("has no unresolved placeholders in user-facing site fields", () => {
     const blob = JSON.stringify({ site, nav, valueStats, credentialCards, authorityItems });
     expect(blob).not.toContain("[[");
+  });
+});
+
+describe("service to testimonial mapping", () => {
+  const slugs = new Set(services.map((s) => s.slug));
+  const names = new Set(testimonials.map((t) => t.name));
+
+  it("every mapping key is a real service slug", () => {
+    for (const slug of Object.keys(relatedTestimonial)) {
+      expect(slugs.has(slug)).toBe(true);
+    }
+  });
+
+  it("every mapping value resolves to a real testimonial", () => {
+    for (const name of Object.values(relatedTestimonial)) {
+      expect(names.has(name)).toBe(true);
+      expect(getTestimonialForService(
+        Object.keys(relatedTestimonial).find((k) => relatedTestimonial[k] === name)!,
+      )?.name).toBe(name);
+    }
+  });
+
+  it("deliberately omits Tax Disputes (it carries the CaseInPoint band instead)", () => {
+    expect(relatedTestimonial["tax-disputes-ato"]).toBeUndefined();
+    expect(getTestimonialForService("tax-disputes-ato")).toBeUndefined();
+  });
+
+  it("returns undefined for unknown slugs", () => {
+    expect(getTestimonialForService("nope")).toBeUndefined();
   });
 });
