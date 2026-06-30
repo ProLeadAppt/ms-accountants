@@ -61,8 +61,8 @@ export const credentialCards = [
     body: "Most accountants stop where the law begins. Dr Sridaran does not. He holds the complete complement of skills to handle any tax problem at every level, from the day-to-day advice through to complex tax-authority investigations and litigation.",
   },
   {
-    title: "Over 45 years across the world's leading firms.",
-    body: "More than five countries, the early years with two of the Big Four, the last 25 in Australia. You get top-tier technical firepower without big-firm overhead, handoffs, or a rotating cast of account managers.",
+    title: "Over 45 years, across more than five countries.",
+    body: "The early years with two of the Big Four, the last 25 in Australia. You get that seniority applied to your file directly, without big-firm overhead, handoffs, or a rotating cast of account managers.",
   },
   {
     title: "Taught tax law. Published in the AFR and SMH. Wrote the book.",
@@ -199,10 +199,10 @@ export const services: Service[] = [
     teaserBlurb:
       "The strategic financial support of an in-house CFO, without the headcount.",
     title: "Business & CFO Advisory",
-    tagline: "The financial brain of a big company, without the headcount.",
+    tagline: "An in-house CFO's judgement, without the headcount.",
     intro: [
       "Growing businesses hit a point where they need senior financial thinking, someone to weigh a major decision, scrutinise an acquisition, or raise finance, but aren't ready to carry a full-time chief financial officer.",
-      "That's the gap MS Accountants fills. To corporate clients, we offer the assistance an in-house CFO would: strategic, hands-on, and grounded in over 45 years across some of the world's leading firms.",
+      "That's the gap MS Accountants fills. To corporate clients, we offer the assistance an in-house CFO would: strategic, hands-on, and grounded in over 45 years at the senior end of accounting and finance.",
     ],
     helpHeading: "What we help with",
     help: [
