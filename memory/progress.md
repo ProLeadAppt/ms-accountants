@@ -1,6 +1,39 @@
 # Progress — MS Accountants Website v2
 
-## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-30b]
+## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-30c]
+
+### PASS 2 — "FAIRNESS + CHALLENGER IDENTITY" (2026-06-30c) — DONE locally, NOT redeployed, NOT committed
+Voice re-audit (findings.md, now SAMPLED from resume + his real AFR/SMH titles, not
+inferred) surfaced six through-lines and six gaps. Top finding: his #1 lever, FAIRNESS,
+was nearly invisible on the site, and his contrarian "challenger" trait was muted /
+told-not-shown. Three recommended workstreams; **user approved ONLY workstream 1
+(fairness + challenger identity)** — #2 ("published thinking" strip) and #3 (de-cliché/
+precision/warmth) deliberately NOT done.
+
+Three surgical edits (all no-em-dash, no-buzzword, active voice, AU spelling):
+  1. `src/lib/site.ts` credentialCards[0].body — recast the doctorate around FAIRNESS /
+     horizontal equity ("whether it taxes them fairly, or whether the rules quietly
+     treat equals unequally") + ATO's hardest positions = familiar ground here.
+  2. `src/lib/site.ts` services[1] (slug tax-disputes-ato) .why — added that he "has
+     questioned in print whether the High Court, the Full Federal Court and the
+     Commissioner got it right" (shows the challenger trait, doesn't just claim it).
+  3. `src/app/about/page.tsx` origin para — SPLIT into two <p>; first ends at the
+     *Australian Taxation Law* citation, second is a fairness+challenger capstone
+     ("whether the tax system is fair to the people who pay it, and whether the received
+     answer, even from the High Court or the Commissioner, is the right one. That is the
+     standard of thinking he now applies…").
+NOTE: the handoff's EDIT 3 "WITH" block accidentally duplicated the line "the Australian
+Financial Review and the Sydney Morning Herald." — dropped the dupe (would have rendered
+a broken run-on); applied the intended split only. See decisions.md #18.
+
+Verify gate ALL GREEN: `npm run lint` clean, `npx vitest run` 8/8, `npm run build` 16
+pages. Prerendered `about.html` confirmed: correct spacing around both <em> titles
+(`fair: <em>…</em> His work`, `text, <em>…</em>.`), clean `</p><p>` split, no run-ons.
+⚠️ NOT committed (pass 2 awaits Dr S sign-off before commit/push to redesign-v2) and NOT
+redeployed. EDIT 1 of this pass was already in the working tree from the prior session.
+Still open: Dr S's REAL portrait photo (placeholder gradients).
+
+---
 
 ### RESUME-ALIGNMENT + VOICE PASS (2026-06-30b) — DONE locally, NOT redeployed
 Used Dr Sridaran's own resume (`docs\Maheswaran Sridaran_Resume_29 May 2026.doc`) as the

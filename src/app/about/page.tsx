@@ -84,9 +84,14 @@ export default function AboutPage() {
                   His first book asked whether the rules are even fair:{" "}
                   <em>Are Capital Gains Equitably Taxed in Australia?</em>{" "}
                   His work is cited in the standard Australian university text,{" "}
-                  <em>Australian Taxation Law</em>. That is the standard of
-                  thinking he now applies to a deliberately small number of
-                  clients.
+                  <em>Australian Taxation Law</em>.
+                </p>
+                <p>
+                  One question runs through all of it: whether the tax system is
+                  fair to the people who pay it, and whether the received answer,
+                  even from the High Court or the Commissioner, is the right one.
+                  That is the standard of thinking he now applies to a
+                  deliberately small number of clients.
                 </p>
               </div>
             </Reveal>

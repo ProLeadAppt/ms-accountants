@@ -40,3 +40,57 @@
   researcher portal (403), the LAP book interior. His *journalistic* (accessible)
   voice is therefore inferred, not sampled. → ASK CLIENT for 1-2 AFR/SMH clippings or
   a book excerpt to nail the popular register before finalising copy.
+
+## VOICE + GAP RE-AUDIT (2026-06-30b) — now SAMPLED from his resume + published titles
+Source: Dr S's 29 May 2026 resume (PII, gitignored, alignment-only) + his real
+published article/book titles. This SUPERSEDES the inferred profile above where they
+differ — the through-lines below are sampled, not guessed.
+
+### His real AFR/SMH titles (verbatim — usable as proof if "Published thinking" is later approved)
+- "There's a different way to view takeover concerns" (AFR, 2007)
+- "Tax agents deserve a better deal" (AFR, 2007)
+- "Tax reform for the best and fairest" (AFR, 2008)
+- "High Court gets it right on GST" (AFR, 2008)
+- "Top universities serve students first" (SMH, 2008)
+- Book: *Are Capital Gains Equitably Taxed in Australia?* (2012)
+
+### SIX VOICE THROUGH-LINES (sampled)
+1. **Fairness is his obsession** — PhD on "widespread violation of horizontal equity";
+   book "Are Capital Gains Equitably Taxed in Australia?"; AFR "Tax reform for the best
+   and fairest", "Tax agents deserve a better deal". This is his top lever.
+2. **Challenges authority courteously but fearlessly** — "Is the Commissioner right…?",
+   "Was the Full Federal Court right?", "deeply flawed", "misguided" — yet clients cite
+   his "unfailing professional courtesy". Courteous and fearless, not one or the other.
+3. **Signature move = "an alternative view"** — re-examine the received position.
+4. **Concedes honestly** — believable, not hyped; names the counterpoint before answering.
+5. **Precise/concrete to a fault** — named cases (Hart, Reliance Carpet, Murdoch), firms,
+   dates.
+6. **Warmth = patience + generosity with time + fairness to the person.**
+
+### SIX GAPS (site vs him)
+A. **Fairness nearly invisible** on the site — his top lever, barely present.
+B. **"Challenger" trait muted** — the contrarian re-examiner is understated.
+C. **Authority TOLD not SHOWN** — the marquee lists mastheads but shows nothing he
+   actually wrote.
+D. **A few premium-generic lines** — "technical firepower", "financial brain of a big
+   company", "the world's leading firms".
+E. **Thesis described generically** vs its real fairness / horizontal-equity angle.
+F. **Interrogative instinct stops at the flagship** — most "why" sections assert; he asks.
+
+### THREE RECOMMENDED WORKSTREAMS
+1. **Fairness + challenger identity** — SELECTED by user; implemented in pass 2 (below).
+2. **"Published thinking" strip** — show 4-5 real AFR/SMH titles + the book (fixes Gap C).
+   NOT selected this pass.
+3. **De-cliché + precision + warmth** — fixes Gaps D/F + the warmth note. NOT selected.
+
+### PASS 2 — "Fairness + challenger identity" (workstream 1) — 3 edits, IMPLEMENTED
+1. `site.ts` credentialCards[0].body — recast the doctorate around *fairness* ("whether
+   it taxes them fairly, or whether the rules quietly treat equals unequally") and the
+   ATO's hardest positions being familiar ground (Gaps A, E).
+2. `site.ts` services[1] (tax-disputes-ato) .why — added that he "has questioned in print
+   whether the High Court, the Full Federal Court and the Commissioner got it right"
+   (Gap B, the challenger trait, shown not just claimed).
+3. `about/page.tsx` origin para — split into two; added a fairness+challenger capstone
+   ("whether the tax system is fair to the people who pay it, and whether the received
+   answer, even from the High Court or the Commissioner, is the right one") (Gaps A, B, F).
+All no-em-dash, no-buzzword, active voice, AU spelling. Awaiting Dr S sign-off; not redeployed.

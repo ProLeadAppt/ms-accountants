@@ -163,7 +163,7 @@ export const services: Service[] = [
         desc: "getting certainty from the ATO before you commit to a transaction, so you act with confidence rather than hope.",
       },
     ],
-    why: "Arguing a tax position is part technical, part advocacy. Few accountants have taught the law, published on it, and argued the disputes; fewer still are also lawyers, qualified to take a matter all the way to litigation. Dr Sridaran is. The tax authority's position is not the last word; it is an argument, and arguments can be answered, and if necessary, litigated. You want someone who works that way before you respond, not after.",
+    why: "Arguing a tax position is part technical, part advocacy. Few accountants have taught the law, published on it, and argued the disputes; fewer still are also lawyers, qualified to take a matter all the way to litigation. Dr Sridaran is, and he has questioned in print whether the High Court, the Full Federal Court and the Commissioner got it right. The tax authority's position is not the last word; it is an argument, and arguments can be answered, and if necessary, litigated. You want someone who works that way before you respond, not after.",
     image: "/generated/tax-disputes-1.jpg",
   },
   {
