@@ -6,6 +6,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Stagger } from "@/components/motion/Stagger";
 import { StickyPin } from "@/components/motion/StickyPin";
 import { PageHero } from "@/components/sections/PageHero";
+import { DrawUnderline } from "@/components/motion/DrawUnderline";
 import { AuthorityMarquee } from "@/components/sections/AuthorityMarquee";
 import { CredentialTranslation } from "@/components/sections/CredentialTranslation";
 import { HowItWorks } from "@/components/sections/HowItWorks";
@@ -29,7 +30,10 @@ export default function AboutPage() {
         title={
           <>
             An accountant and lawyer who chose to{" "}
-            <em className="headline-em text-red-bright">run a small firm</em>.
+            <em className="headline-em text-red-bright">
+              <DrawUnderline>run a small firm</DrawUnderline>
+            </em>
+            .
           </>
         }
         lede={site.credentialLine}

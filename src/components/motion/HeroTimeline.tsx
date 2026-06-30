@@ -43,19 +43,8 @@ export function HeroTimeline({
       if (rise.length)
         tl.from(rise, { y: 18, duration: 0.7, stagger: 0.12 }, "-=0.5");
 
-      // Scroll parallax — background drifts slower than the content.
-      if (bg.length) {
-        gsap.to(bg, {
-          yPercent: 16,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ref.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
-      }
+      // Scroll parallax is now owned by ScrollSmoother via the hero bg's
+      // data-speed attribute; the old scrub tween here would double up.
     },
     { scope: ref, dependencies: [reduced] },
   );

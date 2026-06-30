@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/Button";
 import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { HeroBackground } from "@/components/motion/HeroBackground";
 import { HeroTimeline } from "@/components/motion/HeroTimeline";
-import { MaskHeadline } from "@/components/motion/MaskHeadline";
+import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { site } from "@/lib/site";
 
 export function Hero() {
@@ -16,10 +16,16 @@ export function Hero() {
         {/* Background — library study, drifting dust motes (fal.ai Kling i2v). */}
         <div
           data-hero="bg"
+          data-speed="0.85"
           className="absolute inset-x-0 -top-[8%] z-0 h-[118%] bg-[#1a130f] will-change-transform"
           aria-hidden="true"
         >
           <HeroBackground />
+          {/* Dust + light layer, drifts faster than the still for depth. */}
+          <div
+            data-speed="1.12"
+            className="absolute inset-0 opacity-[0.5] mix-blend-screen [background-image:radial-gradient(circle,rgba(255,224,170,0.5)_1px,transparent_0)] [background-size:64px_64px]"
+          />
           {/* Top fade so the cream nav stays legible over the bright facade. */}
           <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#160f0b]/85 to-transparent" />
           {/* Left-to-right espresso scrim: headline legibility, right third left to glow. */}
@@ -36,7 +42,9 @@ export function Hero() {
             <div data-hero="rise">
               <EyebrowTag>Boutique Sydney tax, accounting &amp; advisory</EyebrowTag>
             </div>
-            <MaskHeadline
+            <SplitHeadline
+              as="h1"
+              splitType="lines"
               className="mt-8 max-w-[18ch] font-serif text-[2.7rem] leading-[0.98] text-cream sm:text-6xl lg:text-[5.5rem]"
               emClassName="headline-em text-red-bright"
               segments={[
