@@ -24,7 +24,7 @@ export function ServiceList() {
       <Container>
         <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <EyebrowTag>02 / Services</EyebrowTag>
+            <EyebrowTag>Services</EyebrowTag>
             <h2 className="mt-6 max-w-[16ch] font-serif text-4xl leading-[1.05] sm:text-5xl">
               Five disciplines, one principal on every file.
             </h2>

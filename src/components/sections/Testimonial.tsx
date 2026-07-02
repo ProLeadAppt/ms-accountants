@@ -9,7 +9,7 @@ export function Testimonial() {
   const [featured, ...rest] = testimonials;
 
   return (
-    <section className="scheme-sand py-24 lg:py-32">
+    <section className="scheme-cream py-24 lg:py-32">
       <Container>
         {/* Featured */}
         <Reveal className="flex flex-col items-center text-center">

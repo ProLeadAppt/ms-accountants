@@ -20,7 +20,7 @@ export function AboutTeaser() {
           </StickyPin>
 
           <Reveal className="flex flex-col items-start justify-center">
-            <EyebrowTag>03 / The principal</EyebrowTag>
+            <EyebrowTag>The principal</EyebrowTag>
             <h2 className="mt-7 font-serif text-4xl leading-[1.06] sm:text-5xl">
               Why an accountant and lawyer chose to run a small firm.
             </h2>

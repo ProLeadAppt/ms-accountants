@@ -6,7 +6,7 @@ export function Statement() {
   return (
     <section className="scheme-cream py-28 lg:py-40">
       <Container>
-        <EyebrowTag>01 / What we do</EyebrowTag>
+        <EyebrowTag>What we do</EyebrowTag>
         <SplitHeadline
           as="h2"
           splitType="lines,words"
