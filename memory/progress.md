@@ -555,3 +555,14 @@ pinned via `vercel.json {"framework":"nextjs"}`; redeploy confirmed the app rend
 - 2026-06-28: elevation pass (marquee, grain, cinematic headline, custom cursor,
   parallax, micro-interaction fixes, em-dash purge). Wired fal.ai key into `.env`.
   Handover at user request (~50% context).
+
+## 2026-07-02 — HANDOFF: Team expansion + premium 10X overhaul (phases 0-6, 8, 9 DONE; phase 7 awaits font pick)
+- team[] 2→6 in src/lib/site.ts (resume-grounded, honesty flags applied: Niroshi ACA former, Eshani KPMG=Jamaica only, Senaviratne CPA associate). New TeamMember fields: slug/shortName/credentialShort/lineage/joined/initials/reportsTo/photo/featured. teamCollective = bench-strip hooks.
+- New components: src/components/ui/Monogram.tsx (photo-ready typographic stand-in), sections/TeamRoster.tsx (About, id="team", Niroshi spans 2 cols), sections/BenchStrip.tsx (home, after AboutTeaser).
+- De-AI copy pass done (kill-list executed; grep-verified 1 instance each of "complete complement", "name is on the door", "the way the courts do"; Most-anaphora kept only in Statement + credentialCards[1]). Review claim now varies everywhere + team-aware twice. Positioning reframed: team builds, he reviews.
+- Homepage IA restructured (see git log); CredentialGrid deleted (stats absorbed into CredentialTranslation); Testimonial → cream, moved after CaseInPoint; eyebrow numbers dropped.
+- docs/photo-brief.md written for Sri. Sign-off packet: .tmp/signoff-packet-2026-07-02.md.
+- Type candidates for the font swap (phase 7, BLOCKED on Tyson's pick): .tmp/type-candidates/{a-broadsheet,b-law-review,c-chambers}.html (Newsreader / Source Serif 4+Libre Caslon / Libre Caslon+Hanken). After pick: edit src/lib/fonts.ts + globals.css @theme lines 22-26, verify SplitText waits on document.fonts.ready, re-screenshot.
+- Verification: lint clean, vitest 23/23, build 16/16, DOM-verified section order + scheme alternation, no-JS fallback renders whole page. Playwright fullPage capture is BROKEN on this site (100svh hero + capture resize) — use viewport/tall-viewport captures instead.
+- Vitest 23 includes an em-dash regression test over the whole content library.
+- Deploy HELD for Tyson's explicit go (he holds sign-off authority on Sri's behalf).
