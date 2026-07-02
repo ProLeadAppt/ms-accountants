@@ -25,9 +25,9 @@ export function AboutTeaser() {
               Why an accountant and lawyer chose to run a small firm.
             </h2>
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-[var(--muted)]">
-              Most people with his background don&rsquo;t end up running a small
-              firm. He chose to, for one reason. Here, the person whose name is
-              on the door is the person on your file.
+              People with his background usually end up in a corner office at a
+              global firm. He built the opposite: a practice small enough that
+              his own eyes pass over every piece of work that leaves it.
             </p>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-[var(--muted)]">
               You get the technical depth of a global firm and the access of one

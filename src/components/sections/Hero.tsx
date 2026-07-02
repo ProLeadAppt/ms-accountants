@@ -63,8 +63,8 @@ export function Hero() {
               Sridaran: a chartered accountant, a lawyer, and a PhD in Australian
               tax law. Over 45 years across more than five countries, the early
               years with two of the Big Four. From a complex ATO investigation or
-              tax litigation to your annual return, he reviews every engagement
-              himself.
+              tax litigation to your annual return, nothing leaves the firm
+              without passing under his eye.
             </p>
             <div data-hero="rise" className="mt-11 flex flex-wrap items-center gap-4">
               <Button href={site.ctaHref}>{site.cta}</Button>

@@ -12,7 +12,7 @@ export const site = {
   cta: "Book a conversation with Dr Sridaran",
   ctaHref: "/contact",
   footerTrust:
-    "A boutique Sydney firm where the principal does the work. A chartered accountant and lawyer with the complete complement of skills for any tax problem, at every level, personally applied to your business.",
+    "A boutique Sydney firm led by a chartered accountant and lawyer who has spent his career on the hardest tax questions. His team builds every file. He reviews every one.",
   contact: {
     phone: "02 9739 4837",
     phoneHref: "tel:+61297394837",
@@ -31,7 +31,7 @@ export const valueStats = [
   { figure: "PhD", unit: "in tax law", label: "Doctoral-level expertise in Australian tax law" },
   { figure: "CA", unit: "+ lawyer", label: "A chartered accountant who is also a lawyer" },
   { figure: "45+", unit: "years", label: "Across more than five countries, the last 25 in Australia" },
-  { figure: "1", unit: "principal", label: "Dr Sridaran reviews every engagement personally" },
+  { figure: "1", unit: "principal", label: "Every file that leaves the firm passes across Dr Sridaran's desk" },
 ] as const;
 
 export const nav = [
@@ -116,7 +116,7 @@ export const services: Service[] = [
     tagline: "The expensive questions deserve the deepest expertise.",
     intro: [
       "Selling a business. Restructuring. Passing assets to the next generation. These are the moments where the tax bill is largest, and where a generalist working it out as they go can cost you more than they save.",
-      "This is the work Dr Maheswaran Sridaran built his career on. His doctoral thesis examined how Australia taxes capital gains; his book asked the harder question still, whether it taxes them fairly. As both a chartered accountant and a lawyer, he reads the rules the way the courts do, not just the way the form does. Most advisers apply the rules as written. He has spent a career asking whether the rules, as written, produce the right answer. That is the difference when your position is the one being tested.",
+      "This is the work Dr Maheswaran Sridaran built his career on. His doctoral thesis examined how Australia taxes capital gains; his book asked the harder question still, whether it taxes them fairly. As both a chartered accountant and a lawyer, he reads the rules the way the courts do, not just the way the form does, and he has spent a career asking whether the rules, as written, produce the right answer. You feel that difference when your position is the one being tested.",
     ],
     helpHeading: "What we help with",
     help: [
@@ -141,7 +141,7 @@ export const services: Service[] = [
         desc: "defensible valuations for transactions, disputes and succession.",
       },
     ],
-    why: "Most accountants apply the capital gains rules. Dr Sridaran studied them to doctoral level, then published on whether they are even fair. When a question is hard enough to matter, that is the difference between a position you can defend and an expensive guess.",
+    why: "Dr Sridaran did not stop at applying the capital gains rules. He studied them to doctoral level, then published on whether they are even fair. When a question is hard enough to matter, that is the difference between a position you can defend and an expensive guess.",
     image: "/generated/tax-advisory-2.jpg",
   },
   {
@@ -154,7 +154,7 @@ export const services: Service[] = [
     tagline: "When the tax authorities come knocking, your accountant being a lawyer is your best defence.",
     intro: [
       "An audit. A complex investigation. A disputed assessment you need to fight, and may have to litigate. These are the moments where it pays to have someone who knows the law cold and is qualified to argue your case all the way, not hand you off to a barrister at the first sign of a courtroom.",
-      "Dr Maheswaran Sridaran is a chartered accountant and a lawyer. He taught tax law at university and led a national tax practice before founding MS Accountants. He does not just know the rules; he understands the reasoning behind them, and where that reasoning is weaker than it looks. He holds the complete complement of skills to handle a tax problem at every level, from the first audit query through to litigation. He has represented clients in tax disputes before the Administrative Appeals Tribunal and, with leave, the New South Wales District Court. That is what it takes to push back on the tax authorities and be taken seriously.",
+      "Dr Maheswaran Sridaran is a chartered accountant and a lawyer. He taught tax law at university and led a national tax practice before founding MS Accountants. He does not just know the rules; he understands the reasoning behind them, and where that reasoning is weaker than it looks. Because he is qualified on both sides, your matter can go from the first audit query to the courtroom in the same hands. He has represented clients in tax disputes before the Administrative Appeals Tribunal and, with leave, the New South Wales District Court. That is what it takes to push back on the tax authorities and be taken seriously.",
     ],
     helpHeading: "What we help with",
     help: [
@@ -190,7 +190,7 @@ export const services: Service[] = [
     title: "Tax Compliance & Returns",
     tagline: "Every obligation, handled accurately and on time.",
     intro: [
-      "Compliance is the part no one thanks you for, until it goes wrong. Late lodgements, missed obligations and small errors carry real cost. The job is to make all of it quiet, accurate and predictable, so you can stop thinking about it.",
+      "Compliance is the part no one thanks you for, until it goes wrong. Late lodgements, missed obligations and small errors carry real cost. The job is to make all of it quiet and predictable, so you can stop thinking about it.",
       "At MS Accountants, routine work still passes under the eye of a chartered accountant, lawyer and registered tax agent who has spent decades getting it right at the highest level. Even your compliance benefits from that standard.",
     ],
     helpHeading: "What we help with",
@@ -205,7 +205,7 @@ export const services: Service[] = [
       "Workers' compensation insurance declarations",
     ],
     note: "More than ticking boxes: even clients who come to us only for compliance receive at least an hour of senior time each year on strategic issues, at no charge. Because the point of doing the returns is to spot the opportunities hiding in them.",
-    why: "Accuracy is the floor, not the ceiling. Most firms treat compliance as the whole job; here it is the starting point. With Dr Sridaran reviewing quality across the practice, your obligations are met precisely, then read for the opportunities most people file away without noticing.",
+    why: "Accuracy is the floor, not the ceiling. Compliance here is the starting point, not the whole job. Your returns are prepared by a supervised, credentialled team, reviewed by Dr Sridaran, then read for the opportunities most people file away without noticing.",
     image: "/generated/tax-compliance-1.jpg",
   },
   {
@@ -218,7 +218,7 @@ export const services: Service[] = [
     tagline: "An in-house CFO's judgement, without the headcount.",
     intro: [
       "Growing businesses hit a point where they need senior financial thinking, someone to weigh a major decision, scrutinise an acquisition, or raise finance, but aren't ready to carry a full-time chief financial officer.",
-      "That's the gap MS Accountants fills. To corporate clients, we offer the assistance an in-house CFO would: strategic, hands-on, and grounded in over 45 years at the senior end of accounting and finance.",
+      "That's the gap MS Accountants fills. To corporate clients, we offer the assistance an in-house CFO would, grounded in over 45 years at the senior end of accounting and finance.",
     ],
     helpHeading: "What we help with",
     help: [
@@ -243,7 +243,7 @@ export const services: Service[] = [
         desc: "getting the technical accounting right on the decisions that matter.",
       },
     ],
-    why: "Does that calibre of financial judgement only come with a full-time hire? Most growing businesses assume so. It does not. Dr Sridaran has sat at the senior end of global firms and advised property conglomerates, listed companies and financial services licensees. You get that judgement applied to your business, at boutique scale, with direct access to the principal.",
+    why: "Does that calibre of financial judgement only come with a full-time hire? It does not. Dr Sridaran has sat at the senior end of global firms and advised property conglomerates, listed companies and financial services licensees. You get that judgement applied to your business, at boutique scale, with direct access to the principal.",
     image: "/generated/cfo-advisory-1.jpg",
   },
   {
@@ -261,7 +261,7 @@ export const services: Service[] = [
     help: [
       {
         term: "SMSF audits",
-        desc: "thorough, compliant, and handled by people who understand both the audit standards and the tax consequences behind them.",
+        desc: "handled by people who understand both the audit standards and the tax consequences behind them.",
       },
     ],
     why: "An SMSF audit is easy to treat as a formality, which is exactly why it is where funds get exposed. It sits where superannuation, tax and audit meet, three areas Dr Sridaran has worked across his entire career. Your fund is reviewed by someone who understands all three, not just one.",

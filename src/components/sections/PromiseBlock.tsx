@@ -19,7 +19,7 @@ export function PromiseBlock() {
               <em className="headline-em">get</em> the expert.
             </h2>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-cream/85">
-              At most firms, a partner wins the work and a junior does it. Here, Dr
+              Elsewhere, a partner wins the work and a junior does it. Here, Dr
               Sridaran reviews the quality on every engagement himself. That is the
               whole point of a boutique. The person whose name is on the door is
               the person on your file.

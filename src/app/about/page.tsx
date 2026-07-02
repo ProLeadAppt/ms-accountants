@@ -65,24 +65,23 @@ export default function AboutPage() {
               </h2>
               <div className="mt-8 space-y-5 text-lg leading-relaxed text-[var(--muted)]">
                 <p>
-                  Most people with Dr Sridaran&rsquo;s background do not end up
-                  running a boutique firm. He is a chartered accountant and a
+                  Few people with Dr Sridaran&rsquo;s background end up running
+                  a boutique firm. He is a chartered accountant and a
                   lawyer, with a doctorate in Australian tax law and over 45
                   years across more than five countries, the early years with
                   two of the Big Four, the last 25 in Australia. The expected
                   path was a corner office at a global firm.
                 </p>
                 <p>
-                  He chose the opposite. A practice small enough that the person
-                  whose name is on the door is the person on your file, where the
-                  technical depth of a big firm meets an adviser who knows your
-                  business by name.
+                  He chose the opposite. A practice deliberately kept small,
+                  where the technical depth of a big firm meets an adviser who
+                  knows your business by name.
                 </p>
                 <p>
-                  Being both an accountant and a lawyer, he holds the complete
-                  complement of skills to deal with any tax problem, at every
-                  level, from the day-to-day advice through to complex
-                  tax-authority investigations and litigation. He taught tax law
+                  Being both an accountant and a lawyer, he can carry a tax
+                  problem the whole distance, from day-to-day advice through to
+                  a tax-authority investigation and, where it must go that far,
+                  litigation. He taught tax law
                   at Macquarie University, where the Faculty of Law named him its
                   most knowledgeable teacher in his field, and has published in
                   the Australian Financial Review and the Sydney Morning Herald.

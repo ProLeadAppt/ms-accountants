@@ -15,22 +15,22 @@ import { SplitHeadline } from "@/components/motion/SplitHeadline";
 const steps = [
   {
     title: "You speak with the principal.",
-    body: "Not an account manager, and not a rotating cast. The name on the door is the person on your file.",
+    body: "Not an account manager, and not a rotating cast. From the first conversation, you deal with Dr Sridaran.",
   },
   {
     title: "The position is modelled before you commit.",
-    body: "He reads the law the way the courts do, not just the way the form does, so a sale or restructure is worked out in advance, with no surprises after you sign.",
+    body: "The tax consequences of a sale or restructure are worked out in advance, as the courts would read them, with no surprises after you sign.",
   },
   {
     title: "He stays on the file.",
-    body: "Every engagement is reviewed by him personally. Even compliance-only clients receive senior time on the strategic issues each year.",
+    body: "The team prepares the work; he signs off on all of it. Even compliance-only clients receive senior time on the strategic issues each year.",
   },
 ];
 
 const contrast = [
-  { firm: "Your file is passed down to juniors and across account managers.", here: "The principal does the work, and reviews every engagement himself." },
+  { firm: "Your file is passed down to juniors and across account managers.", here: "A supervised, credentialled team does the work. The principal reviews all of it." },
   { firm: "Big-firm overhead and handoffs, billed back to you.", here: "Boutique scale, senior time, direct access to the principal." },
-  { firm: "Generalists applying the rules as written.", here: "Doctoral-level depth, reading the law the way the courts do." },
+  { firm: "Generalists applying the rules as written.", here: "Doctoral-level depth on the questions that cost the most." },
 ];
 
 export function HowItWorks({
