@@ -30,16 +30,31 @@ export function SplitHeadline({
     () => {
       if (reduced || !ref.current) return;
       registerGsap();
-      const split = SplitText.create(ref.current, { type: splitType, mask: "lines" });
-      const targets = splitType === "lines" ? split.lines : split.words;
-      gsap.from(targets, {
-        yPercent: 110,
-        duration: 0.9,
-        ease: FOLDER_EASE,
-        stagger: 0.045,
-        immediateRender: false,
-      });
-      return () => split.revert();
+      let split: SplitText | undefined;
+      let cancelled = false;
+      // Split only after webfonts resolve: line boundaries computed against
+      // fallback metrics break once the real serif swaps in.
+      const run = () => {
+        if (cancelled || !ref.current) return;
+        split = SplitText.create(ref.current, { type: splitType, mask: "lines" });
+        const targets = splitType === "lines" ? split.lines : split.words;
+        gsap.from(targets, {
+          yPercent: 110,
+          duration: 0.9,
+          ease: FOLDER_EASE,
+          stagger: 0.045,
+          immediateRender: false,
+        });
+      };
+      if (typeof document !== "undefined" && document.fonts?.status !== "loaded") {
+        document.fonts.ready.then(run);
+      } else {
+        run();
+      }
+      return () => {
+        cancelled = true;
+        split?.revert();
+      };
     },
     { scope: ref, dependencies: [reduced] },
   );

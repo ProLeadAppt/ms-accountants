@@ -3,7 +3,7 @@
 /* ============================================================================
    MS ACCOUNTANTS — DESIGN SYSTEM (v2)
    Warm editorial. Cream/espresso base, restrained brick-red lead.
-   Hybrid type: Fraunces · Instrument Serif · Schibsted Grotesk · Space Mono.
+   Hybrid type: Newsreader (headings + display) · Schibsted Grotesk · Space Mono.
    Inspiration: Quinn (motion craft), Adveris/Maxima (editorial authority).
 ============================================================================ */
 @theme {
@@ -20,8 +20,8 @@
 
   /* Type families (next/font vars set in layout) */
   --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
-  --font-display: var(--font-instrument), Georgia, serif;
+  --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-display: var(--font-newsreader), Georgia, serif;
   --font-mono: var(--font-space-mono), ui-monospace, monospace;
   --font-logo: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
 
@@ -119,8 +119,11 @@ h4 {
 /* ----------------------------------------------------------------------------
    Editorial helpers
 ---------------------------------------------------------------------------- */
+/* Display serif: Newsreader's high-opsz italic carries the oversized
+   statement and quote moments (the role Instrument Serif used to play). */
 .font-display {
   font-family: var(--font-display);
+  font-style: italic;
 }
 .font-logo {
   font-family: var(--font-logo);

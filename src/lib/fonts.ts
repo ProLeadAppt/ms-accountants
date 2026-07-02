@@ -1,28 +1,20 @@
 import {
-  Fraunces,
-  Instrument_Serif,
+  Newsreader,
   Schibsted_Grotesk,
   Space_Mono,
   Archivo,
 } from "next/font/google";
 
-// Headlines — warm literary serif with optical sizing + italic for the
-// signature emphasis device ("Ours *wrote the thesis* on it").
-export const fraunces = Fraunces({
+// Headlines AND display — one editorial newspaper serif with a wide optical
+// size axis (6..72) plus true italics for the signature emphasis device
+// ("Ours *wrote the thesis* on it"). High-opsz cuts carry the oversized
+// statement moments that Instrument Serif used to.
+export const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-newsreader",
   display: "swap",
   style: ["normal", "italic"],
   axes: ["opsz"],
-});
-
-// Signature display — reserved for a few oversized statement moments.
-export const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-instrument",
-  display: "swap",
 });
 
 // Body / UI — distinctive editorial grotesque (NOT Inter/Manrope).
@@ -48,8 +40,7 @@ export const archivo = Archivo({
 });
 
 export const fontVariables = [
-  fraunces.variable,
-  instrumentSerif.variable,
+  newsreader.variable,
   schibsted.variable,
   spaceMono.variable,
   archivo.variable,
