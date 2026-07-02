@@ -4,6 +4,7 @@ import { Statement } from "@/components/sections/Statement";
 import { VoicePullQuote } from "@/components/sections/VoicePullQuote";
 import { ServiceList } from "@/components/sections/ServiceList";
 import { AboutTeaser } from "@/components/sections/AboutTeaser";
+import { BenchStrip } from "@/components/sections/BenchStrip";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { PublishedThinking } from "@/components/sections/PublishedThinking";
 import { CaseInPoint } from "@/components/sections/CaseInPoint";
@@ -24,6 +25,7 @@ export default function HomePage() {
       <VoicePullQuote />
       <ServiceList />
       <AboutTeaser />
+      <BenchStrip />
       <HowItWorks />
       <PublishedThinking scheme="cream" />
       <CaseInPoint scheme="sand" />
