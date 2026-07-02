@@ -28,3 +28,6 @@
 ## Next step
 Verify `FAL_KEY`, generate the hero still (Flux), then animate to cinematic video hero.
 Full resume guide in `progress.md` -> HANDOFF.
+
+## 2026-07-02 — Team expansion + premium 10X overhaul (approved plan)
+Phases: 0 baseline (DONE: lint+vitest 16+build 16 green; Playwright before-shots in session scratchpad /baseline — NOTE ScrollSmoother breaks fullPage capture below the fold, compare like-for-like) → 1 team data model+bios → 2 Monogram+TeamRoster (About) → 3 BenchStrip (home) → 4 type mockups (Tyson picks; blocks 7) → 5 de-AI copy pass → 6 homepage IA restructure → 7 font swap → 8 photo brief → 9 verify + packet. Full plan in the user plans dir ("i-ve-just-uploaded-into-precious-lobster.md"). Deploy only on Tyson's explicit go.

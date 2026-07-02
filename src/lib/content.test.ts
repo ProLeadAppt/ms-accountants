@@ -8,6 +8,11 @@ import {
   testimonials,
   relatedTestimonial,
   getTestimonialForService,
+  team,
+  getTeamMember,
+  teamCollective,
+  publications,
+  book,
 } from "./site";
 import { services, getService } from "./services";
 
@@ -49,8 +54,61 @@ describe("content library", () => {
   });
 
   it("has no unresolved placeholders in user-facing site fields", () => {
-    const blob = JSON.stringify({ site, nav, valueStats, credentialCards, authorityItems });
+    const blob = JSON.stringify({ site, nav, valueStats, credentialCards, authorityItems, team, teamCollective });
     expect(blob).not.toContain("[[");
+  });
+
+  it("contains no em-dashes anywhere in the content library (house rule)", () => {
+    const blob = JSON.stringify({
+      site, nav, valueStats, credentialCards, authorityItems,
+      team, teamCollective, services, testimonials, publications, book,
+    });
+    expect(blob).not.toContain("—");
+  });
+});
+
+describe("team", () => {
+  it("has all six members with unique slugs and names", () => {
+    expect(team).toHaveLength(6);
+    expect(new Set(team.map((m) => m.slug)).size).toBe(6);
+    expect(new Set(team.map((m) => m.name)).size).toBe(6);
+  });
+
+  it("every member has the fields the roster and bench strip render", () => {
+    for (const m of team) {
+      expect(m.name).toBeTruthy();
+      expect(m.shortName).toBeTruthy();
+      expect(m.role).toBeTruthy();
+      expect(m.credentials.length).toBeGreaterThan(0);
+      expect(m.credentialShort).toBeTruthy();
+      expect(m.bio.length).toBeGreaterThan(80);
+      expect(m.initials).toMatch(/^[A-Z]{2}$/);
+    }
+  });
+
+  it("features exactly one member (the principal)", () => {
+    const featured = team.filter((m) => m.featured);
+    expect(featured).toHaveLength(1);
+    expect(featured[0].slug).toBe("maheswaran-sridaran");
+  });
+
+  it("every reportsTo resolves to a real member", () => {
+    for (const m of team) {
+      if (m.reportsTo) {
+        expect(getTeamMember(m.reportsTo)).toBeDefined();
+      }
+    }
+  });
+
+  it("getTeamMember resolves slugs and rejects unknowns", () => {
+    expect(getTeamMember("niroshi-rathnayakage")?.role).toBe("Senior Accountant");
+    expect(getTeamMember("nope")).toBeUndefined();
+  });
+
+  it("bench strip content is complete", () => {
+    expect(teamCollective.heading).toBeTruthy();
+    expect(teamCollective.hooks.length).toBeGreaterThan(0);
+    expect(teamCollective.ctaHref).toBe("/about#team");
   });
 });
 
