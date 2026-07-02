@@ -566,3 +566,6 @@ pinned via `vercel.json {"framework":"nextjs"}`; redeploy confirmed the app rend
 - Verification: lint clean, vitest 23/23, build 16/16, DOM-verified section order + scheme alternation, no-JS fallback renders whole page. Playwright fullPage capture is BROKEN on this site (100svh hero + capture resize) — use viewport/tall-viewport captures instead.
 - Vitest 23 includes an em-dash regression test over the whole content library.
 - Deploy HELD for Tyson's explicit go (he holds sign-off authority on Sri's behalf).
+
+## 2026-07-02b — DEPLOYED TO PRODUCTION
+Tyson gave the explicit go (twice: "let's push it" + "YES" for the prod deploy). Pushed redesign-v2 (a44c1c7) to GitHub; `npx vercel --prod --yes` → deployment ms-accountants-9vf8tem2l, Ready in 23s. Live at https://ms-accountants.vercel.app (HTTP 200; verified serving the BenchStrip heading, all 6 team members, Newsreader font, and the reframed footerTrust). This deploy includes Pass 7 motion + team expansion + de-AI copy + IA restructure + Broadsheet type. OUTSTANDING: real headshots (Tyson is running the photo shoot per docs/photo-brief.md); drop files into team[].photo when they arrive.
