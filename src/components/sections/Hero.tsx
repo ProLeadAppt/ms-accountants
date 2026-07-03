@@ -17,7 +17,7 @@ export function Hero() {
         <div
           data-hero="bg"
           data-speed="0.85"
-          className="absolute inset-x-0 -top-[8%] z-0 h-[118%] bg-[#1a130f] will-change-transform"
+          className="absolute inset-x-0 -top-[8%] z-0 h-[118%] bg-espresso-soft will-change-transform"
           aria-hidden="true"
         >
           <HeroBackground />
@@ -27,10 +27,10 @@ export function Hero() {
             className="absolute inset-0 opacity-[0.5] mix-blend-screen [background-image:radial-gradient(circle,rgba(255,224,170,0.5)_1px,transparent_0)] [background-size:64px_64px]"
           />
           {/* Top fade so the cream nav stays legible over the bright facade. */}
-          <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-[#160f0b]/85 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-espresso-deep/85 to-transparent" />
           {/* Left-to-right espresso scrim: headline legibility, right third left to glow. */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#160f0b] from-10% via-[#160f0b]/62 via-58% to-transparent to-96%" />
-          <div className="absolute inset-0 bg-[#1a130f]/10 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-r from-espresso-deep from-10% via-espresso-deep/62 via-58% to-transparent to-96%" />
+          <div className="absolute inset-0 bg-espresso-soft/10 mix-blend-multiply" />
           {/* Fine dot grain (kept from v1). */}
           <div className="absolute inset-0 opacity-[0.05] [background-image:radial-gradient(circle_at_1px_1px,#fff_1px,transparent_0)] [background-size:22px_22px]" />
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#1a130f] to-transparent" />

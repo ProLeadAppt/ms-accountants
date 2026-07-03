@@ -14,7 +14,8 @@
   --color-red-bright: #b5231c; /* hover / interactive */
   --color-clay: #7b3d2c; /* warm brown headings / sections */
   --color-espresso: #241c18; /* body text / dark sections */
-  --color-sage: #8fa398; /* sparing cool secondary */
+  --color-espresso-deep: #160f0b; /* hero scrims / darkest atmosphere */
+  --color-espresso-soft: #1a130f; /* hero bg plate / soft dark washes */
   --color-lines: #e0d7cc; /* hairlines / dividers */
   --color-white: #ffffff;
 
@@ -49,6 +50,15 @@
   background-color: var(--bg);
   color: var(--fg);
 }
+.scheme-paper {
+  --bg: var(--color-white);
+  --fg: var(--color-espresso);
+  --muted: color-mix(in srgb, var(--color-espresso) 70%, var(--color-white));
+  --accent: var(--color-brand-red);
+  --hairline: #eee6d8;
+  background-color: var(--bg);
+  color: var(--fg);
+}
 .scheme-espresso {
   --bg: var(--color-espresso);
   --fg: var(--color-cream);
@@ -57,6 +67,36 @@
   --hairline: color-mix(in srgb, var(--color-cream) 14%, var(--color-espresso));
   background-color: var(--bg);
   color: var(--fg);
+}
+.scheme-red {
+  --bg: var(--color-brand-red);
+  --fg: var(--color-cream);
+  --muted: color-mix(in srgb, var(--color-cream) 85%, var(--color-brand-red));
+  --accent: var(--color-cream);
+  --hairline: color-mix(in srgb, var(--color-cream) 22%, var(--color-brand-red));
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+/* ----------------------------------------------------------------------------
+   Section spacing scale — two rhythms only.
+   .section       → workhorse band (was py-24 lg:py-32)
+   .section-major → display moments: thesis, voice chapter, final CTA
+                    (was py-28 lg:py-40)
+---------------------------------------------------------------------------- */
+.section {
+  padding-block: 6rem;
+}
+.section-major {
+  padding-block: 7rem;
+}
+@media (min-width: 64rem) {
+  .section {
+    padding-block: 8rem;
+  }
+  .section-major {
+    padding-block: 10rem;
+  }
 }
 
 /* ----------------------------------------------------------------------------
