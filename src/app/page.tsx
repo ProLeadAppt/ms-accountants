@@ -1,5 +1,4 @@
 import { Hero } from "@/components/sections/Hero";
-import { AuthorityMarquee } from "@/components/sections/AuthorityMarquee";
 import { Statement } from "@/components/sections/Statement";
 import { VoicePullQuote } from "@/components/sections/VoicePullQuote";
 import { ServiceList } from "@/components/sections/ServiceList";
@@ -19,7 +18,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <AuthorityMarquee />
       <Statement />
       <ServiceList />
       <AboutTeaser />

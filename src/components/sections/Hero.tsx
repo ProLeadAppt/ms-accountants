@@ -4,7 +4,7 @@ import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { HeroBackground } from "@/components/motion/HeroBackground";
 import { HeroTimeline } from "@/components/motion/HeroTimeline";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
-import { site } from "@/lib/site";
+import { site, authorityItems } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -33,54 +33,86 @@ export function Hero() {
           <div className="absolute inset-0 bg-espresso-soft/10 mix-blend-multiply" />
           {/* Fine dot grain (kept from v1). */}
           <div className="absolute inset-0 opacity-[0.05] [background-image:radial-gradient(circle_at_1px_1px,#fff_1px,transparent_0)] [background-size:22px_22px]" />
-          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#1a130f] to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-espresso-soft to-transparent" />
         </div>
 
-        {/* Content */}
-        <div className="relative z-10 flex min-h-[100svh] flex-col justify-center pt-28 pb-20">
+        {/* Content — Quiet-Luxury split: claim left, credentials panel right. */}
+        <div className="relative z-10 flex min-h-[100svh] flex-col justify-center pt-28 pb-28">
           <Container>
-            <div data-hero="rise">
-              <EyebrowTag>Boutique Sydney tax, accounting &amp; advisory</EyebrowTag>
-            </div>
-            <SplitHeadline
-              as="h1"
-              splitType="lines"
-              className="mt-8 max-w-[18ch] font-serif text-[2.7rem] leading-[0.98] text-cream sm:text-6xl lg:text-[5.5rem]"
-              emClassName="headline-em text-red-bright"
-              segments={[
-                { text: "Your accountant should know tax. Ours" },
-                { text: "wrote the thesis", em: true },
-                { text: "on it, and is a" },
-                { text: "lawyer", em: true },
-                { text: "too." },
-              ]}
-            />
-            <p
-              data-hero="rise"
-              className="mt-9 max-w-xl text-lg leading-relaxed text-[var(--muted)]"
-            >
-              MS Accountants is a boutique Sydney firm led by Dr Maheswaran
-              Sridaran: a chartered accountant, a lawyer, and a PhD in Australian
-              tax law. Over 45 years across more than five countries, the early
-              years with two of the Big Four. From a complex ATO investigation or
-              tax litigation to your annual return, nothing leaves the firm
-              without passing under his eye.
-            </p>
-            <div data-hero="rise" className="mt-11 flex flex-wrap items-center gap-4">
-              <Button href={site.ctaHref}>{site.cta}</Button>
-              <Button href="/about" variant="secondary">
-                See how we think about tax
-              </Button>
+            <div className="grid items-center gap-12 lg:grid-cols-[1.55fr_0.95fr] lg:gap-16">
+              <div>
+                <div data-hero="rise">
+                  <EyebrowTag>Tax &middot; Advisory &middot; Disputes</EyebrowTag>
+                </div>
+                <SplitHeadline
+                  as="h1"
+                  splitType="lines"
+                  className="mt-8 max-w-[18ch] font-serif text-[2.7rem] leading-[0.98] text-cream sm:text-6xl lg:text-[5.5rem]"
+                  emClassName="headline-em text-red-bright"
+                  segments={[
+                    { text: "Your accountant should know tax. Ours" },
+                    { text: "wrote the thesis", em: true },
+                    { text: "on it, and is a lawyer too." },
+                  ]}
+                />
+                <div data-hero="rise" className="mt-11">
+                  <Button href={site.ctaHref}>{site.cta}</Button>
+                </div>
+              </div>
+
+              {/* Credentials hairline panel — fades in after the claim. */}
+              <div
+                data-hero="rise"
+                className="hidden flex-col gap-7 border-l border-cream/15 pl-8 lg:flex"
+              >
+                <div>
+                  <div className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-cream/45">
+                    Principal
+                  </div>
+                  <p className="mt-2 text-base leading-relaxed text-cream/85">
+                    Dr Maheswaran Sridaran
+                    <br />
+                    PhD (tax law) &middot; Chartered Accountant &middot; Lawyer
+                  </p>
+                </div>
+                <div>
+                  <div className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-cream/45">
+                    The practice
+                  </div>
+                  <p className="mt-2 text-base leading-relaxed text-cream/85">
+                    Over 45 years across more than five countries, the early
+                    years with two of the Big Four. Nothing leaves the firm
+                    without passing under his eye.
+                  </p>
+                </div>
+                <div>
+                  <div className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-cream/45">
+                    Based
+                  </div>
+                  <p className="mt-2 text-base leading-relaxed text-cream/85">
+                    Sydney, servicing nationally
+                  </p>
+                </div>
+              </div>
             </div>
           </Container>
 
-          <div data-hero="rise" className="absolute inset-x-0 bottom-8">
+          {/* Authority strip — replaces the AuthorityMarquee section. */}
+          <div data-hero="rise" className="absolute inset-x-0 bottom-0">
             <Container>
-              <div className="flex items-center justify-between border-t border-cream/15 pt-5">
-                <span className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-cream/55">
-                  Scroll
+              <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-2 border-t border-cream/15 py-5">
+                <span className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-cream/45">
+                  As cited in
                 </span>
-                <span className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-cream/55">
+                {authorityItems.slice(0, 3).map((item) => (
+                  <span
+                    key={item}
+                    className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-cream/55"
+                  >
+                    {item}
+                  </span>
+                ))}
+                <span className="hidden font-mono text-[0.62rem] uppercase tracking-[0.22em] text-cream/45 sm:inline">
                   Sydney, Australia
                 </span>
               </div>
