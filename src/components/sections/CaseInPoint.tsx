@@ -3,7 +3,7 @@ import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
-import { getTestimonial, type Testimonial } from "@/lib/site";
+import { getTestimonial, caseFrame, type Testimonial } from "@/lib/site";
 
 /**
  * A single, quiet proof band: courage shown rather than claimed.
@@ -16,7 +16,7 @@ import { getTestimonial, type Testimonial } from "@/lib/site";
  */
 export function CaseInPoint({
   testimonial = getTestimonial("Ms Neda Morris"),
-  frame = "When the ATO and the Office of State Revenue both opened audits, the response had to be comprehensive, correct, and cost-effective.",
+  frame = caseFrame,
   scheme = "cream",
 }: {
   testimonial?: Testimonial;

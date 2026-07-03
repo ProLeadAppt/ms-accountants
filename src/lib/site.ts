@@ -454,6 +454,13 @@ export function getTestimonial(name: string): Testimonial | undefined {
   return testimonials.find((t) => t.name === name);
 }
 
+// Act V case-in-point frame, single source of truth. Rendered by ProofAct
+// (homepage) and reused verbatim as CaseInPoint's default frame prop (inner
+// pages). Drawn strictly from Ms Neda Morris's own testimonial wording;
+// nothing is invented.
+export const caseFrame =
+  "When the ATO and the Office of State Revenue both opened audits, the response had to be comprehensive, correct, and cost-effective.";
+
 // ---------------------------------------------------------------------------
 // Service to testimonial mapping
 // One relevant, real testimonial surfaced on each service detail page, chosen
