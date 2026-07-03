@@ -66,6 +66,14 @@ export const book = {
   detail: "His first book, published in 2012.",
 } as const;
 
+// His published voice, single source of truth. Rendered as the Act II thesis's
+// single red emphasis (Statement.tsx) and reused verbatim by VoicePullQuote on
+// inner pages.
+export const voiceQuote = {
+  text: "Are Capital Gains Equitably Taxed in Australia?",
+  attribution: "Dr Maheswaran Sridaran · his first book, 2012",
+} as const;
+
 // Credential-translation grid (spec §3)
 export const credentialCards = [
   {

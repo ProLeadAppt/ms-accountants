@@ -1,10 +1,12 @@
 import { Container } from "@/components/layout/Container";
 import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
+import { Reveal } from "@/components/motion/Reveal";
+import { voiceQuote } from "@/lib/site";
 
 export function Statement() {
   return (
-    <section className="scheme-cream py-28 lg:py-40">
+    <section className="scheme-cream section-major">
       <Container>
         <EyebrowTag>What we do</EyebrowTag>
         <SplitHeadline
@@ -17,6 +19,15 @@ export function Statement() {
             },
           ]}
         />
+        {/* His published voice: the act's single red emphasis. */}
+        <Reveal className="mt-14 border-l-2 border-brand-red pl-6 sm:pl-8">
+          <p className="max-w-[26ch] font-display text-2xl italic leading-[1.2] text-brand-red sm:text-3xl">
+            &ldquo;{voiceQuote.text}&rdquo;
+          </p>
+          <p className="mt-4 font-mono text-xs uppercase tracking-[0.22em] text-[var(--muted)]">
+            {voiceQuote.attribution}
+          </p>
+        </Reveal>
       </Container>
     </section>
   );

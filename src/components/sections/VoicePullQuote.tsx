@@ -1,6 +1,7 @@
 import { Container } from "@/components/layout/Container";
 import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { WordReveal } from "@/components/motion/WordReveal";
+import { voiceQuote } from "@/lib/site";
 
 /**
  * A single oversized display moment that lets his published voice carry the
@@ -8,12 +9,15 @@ import { WordReveal } from "@/components/motion/WordReveal";
  * literally a question about fairness, the spine of his whole positioning), not
  * a fabricated quotation. Attribution names the source.
  *
+ * Defaults read from voiceQuote (src/lib/site.ts), the single source of truth
+ * shared with the Act II thesis (Statement.tsx). Retained for inner pages.
+ *
  * scheme-espresso is applied to the section itself (no separate bg wrapper), so
  * the -z-10 background gotcha does not apply here.
  */
 export function VoicePullQuote({
-  text = "Are Capital Gains Equitably Taxed in Australia?",
-  attribution = "Dr Maheswaran Sridaran · his first book, 2012",
+  text = voiceQuote.text,
+  attribution = voiceQuote.attribution,
   scheme = "espresso",
 }: {
   text?: string;
