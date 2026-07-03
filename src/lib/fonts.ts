@@ -9,6 +9,7 @@ export const zodiak = localFont({
     { path: "../fonts/Zodiak-VariableItalic.woff2", style: "italic" },
   ],
   variable: "--font-zodiak",
+  weight: "300 700",
   display: "swap",
 });
 
@@ -19,6 +20,7 @@ export const generalSans = localFont({
     { path: "../fonts/GeneralSans-VariableItalic.woff2", style: "italic" },
   ],
   variable: "--font-general-sans",
+  weight: "200 700",
   display: "swap",
 });
 
