@@ -67,12 +67,12 @@ export function Header() {
 
         <div className="hidden md:block">
           <Button
-            href={site.ctaHref}
+            href={site.contact.mobileHref}
             variant={scrolled ? "primary" : "secondary"}
             arrow={false}
             className="px-5 py-3 text-base"
           >
-            {site.cta}
+            Call {site.contact.mobile}
           </Button>
         </div>
 
@@ -105,8 +105,13 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Button href={site.ctaHref} className="mt-6 self-start" onClick={() => setOpen(false)}>
-              {site.cta}
+            <Button
+              href={site.contact.mobileHref}
+              arrow={false}
+              className="mt-6 self-start"
+              onClick={() => setOpen(false)}
+            >
+              Call {site.contact.mobile}
             </Button>
           </nav>
         </div>
