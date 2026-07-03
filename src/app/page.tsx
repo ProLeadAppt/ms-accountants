@@ -2,13 +2,12 @@ import { Hero } from "@/components/sections/Hero";
 import { Statement } from "@/components/sections/Statement";
 import { ServiceList } from "@/components/sections/ServiceList";
 import { PeopleAct } from "@/components/sections/PeopleAct";
-import { HowRail } from "@/components/sections/HowRail";
 import { ProofAct } from "@/components/sections/ProofAct";
-import { PromiseBlock } from "@/components/sections/PromiseBlock";
-import { FinalCTA } from "@/components/sections/FinalCTA";
+import { HowRail } from "@/components/sections/HowRail";
+import { ConversationAct } from "@/components/sections/ConversationAct";
 
-// Story order: hook → proof flash → thesis (+ his voice) → what → who →
-// why the credentials matter + who else → how → evidence → promise → act.
+// Seven acts: hook → thesis → the work → the people → proof → how → act.
+// Scheme rhythm: dark → cream → paper → cream → dark → paper → red.
 export default function HomePage() {
   return (
     <>
@@ -16,10 +15,9 @@ export default function HomePage() {
       <Statement />
       <ServiceList />
       <PeopleAct />
-      <HowRail />
       <ProofAct />
-      <PromiseBlock />
-      <FinalCTA />
+      <HowRail />
+      <ConversationAct />
     </>
   );
 }

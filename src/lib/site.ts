@@ -461,6 +461,15 @@ export function getTestimonial(name: string): Testimonial | undefined {
 export const caseFrame =
   "When the ATO and the Office of State Revenue both opened audits, the response had to be comprehensive, correct, and cost-effective.";
 
+// Act VII promise headline + body, single source of truth. Rendered by
+// ConversationAct (homepage, red crescendo) and PromiseBlock (inner pages).
+export const promiseCopy = {
+  headlineLead: "You hired the expert. You should",
+  headlineEm: "get",
+  headlineTail: "the expert",
+  body: "Elsewhere, a partner wins the work and a junior does it. Here, Dr Sridaran reviews the quality on every engagement himself. That is the whole point of a boutique. The person whose name is on the door is the person on your file.",
+} as const;
+
 // Act VI "How it works" steps, single source of truth. Rendered by HowRail
 // (homepage, compressed to one rail) and HowItWorks (inner pages, full detail).
 export const howItWorksSteps = [

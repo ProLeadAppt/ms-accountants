@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
-import { site } from "@/lib/site";
+import { promiseCopy, site } from "@/lib/site";
 
 export function PromiseBlock() {
   return (
@@ -15,14 +15,12 @@ export function PromiseBlock() {
               The promise
             </span>
             <h2 className="mt-7 font-serif text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">
-              You hired the expert. You should{" "}
-              <em className="headline-em">get</em> the expert.
+              {promiseCopy.headlineLead}{" "}
+              <em className="headline-em">{promiseCopy.headlineEm}</em>{" "}
+              {promiseCopy.headlineTail}.
             </h2>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-cream/85">
-              Elsewhere, a partner wins the work and a junior does it. Here, Dr
-              Sridaran reviews the quality on every engagement himself. That is the
-              whole point of a boutique. The person whose name is on the door is
-              the person on your file.
+              {promiseCopy.body}
             </p>
             <div className="mt-11">
               <Button
