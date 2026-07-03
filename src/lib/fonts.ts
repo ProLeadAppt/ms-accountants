@@ -1,30 +1,28 @@
-import {
-  Newsreader,
-  Schibsted_Grotesk,
-  Space_Mono,
-  Archivo,
-} from "next/font/google";
+import localFont from "next/font/local";
+import { Space_Mono, Archivo } from "next/font/google";
 
-// Headlines AND display — one editorial newspaper serif with a wide optical
-// size axis (6..72) plus true italics for the signature emphasis device
-// ("Ours *wrote the thesis* on it"). High-opsz cuts carry the oversized
-// statement moments that Instrument Serif used to.
-export const newsreader = Newsreader({
-  subsets: ["latin"],
-  variable: "--font-newsreader",
-  display: "swap",
-  style: ["normal", "italic"],
-  axes: ["opsz"],
-});
-
-// Body / UI — distinctive editorial grotesque (NOT Inter/Manrope).
-export const schibsted = Schibsted_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-schibsted",
+// Display + headline serif — Zodiak (Indian Type Foundry via Fontshare).
+// Sharp, high-contrast; the barrister's serif. Variable weight + true italic.
+export const zodiak = localFont({
+  src: [
+    { path: "../fonts/Zodiak-Variable.woff2", style: "normal" },
+    { path: "../fonts/Zodiak-VariableItalic.woff2", style: "italic" },
+  ],
+  variable: "--font-zodiak",
   display: "swap",
 });
 
-// Eyebrows / mono labels — editorial micro-detail.
+// UI grotesk — General Sans. Nav, labels, body, buttons.
+export const generalSans = localFont({
+  src: [
+    { path: "../fonts/GeneralSans-Variable.woff2", style: "normal" },
+    { path: "../fonts/GeneralSans-VariableItalic.woff2", style: "italic" },
+  ],
+  variable: "--font-general-sans",
+  display: "swap",
+});
+
+// Eyebrows / mono labels — kept for tabular/footnote figures only.
 export const spaceMono = Space_Mono({
   subsets: ["latin"],
   weight: ["400", "700"],
@@ -32,7 +30,7 @@ export const spaceMono = Space_Mono({
   display: "swap",
 });
 
-// Logo wordmark — heavy grotesque, intentional contrast with the serif.
+// Logo wordmark — heavy grotesque (unchanged).
 export const archivo = Archivo({
   subsets: ["latin"],
   variable: "--font-archivo",
@@ -40,8 +38,8 @@ export const archivo = Archivo({
 });
 
 export const fontVariables = [
-  newsreader.variable,
-  schibsted.variable,
+  zodiak.variable,
+  generalSans.variable,
   spaceMono.variable,
   archivo.variable,
 ].join(" ");

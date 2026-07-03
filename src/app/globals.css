@@ -3,7 +3,7 @@
 /* ============================================================================
    MS ACCOUNTANTS — DESIGN SYSTEM (v2)
    Warm editorial. Cream/espresso base, restrained brick-red lead.
-   Hybrid type: Newsreader (headings + display) · Schibsted Grotesk · Space Mono.
+   Hybrid type: Zodiak (headings + display) · General Sans · Space Mono.
    Inspiration: Quinn (motion craft), Adveris/Maxima (editorial authority).
 ============================================================================ */
 @theme {
@@ -20,9 +20,9 @@
   --color-white: #ffffff;
 
   /* Type families (next/font vars set in layout) */
-  --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
-  --font-display: var(--font-newsreader), Georgia, serif;
+  --font-sans: var(--font-general-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-zodiak), Georgia, "Times New Roman", serif;
+  --font-display: var(--font-zodiak), Georgia, serif;
   --font-mono: var(--font-space-mono), ui-monospace, monospace;
   --font-logo: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
 
@@ -130,10 +130,9 @@ h2,
 h3,
 h4 {
   font-family: var(--font-serif);
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: -0.015em;
   text-wrap: balance;
-  font-optical-sizing: auto;
 }
 
 ::selection {
@@ -159,7 +158,7 @@ h4 {
 /* ----------------------------------------------------------------------------
    Editorial helpers
 ---------------------------------------------------------------------------- */
-/* Display serif: Newsreader's high-opsz italic carries the oversized
+/* Display serif: Zodiak's italic carries the oversized
    statement and quote moments (the role Instrument Serif used to play). */
 .font-display {
   font-family: var(--font-display);
