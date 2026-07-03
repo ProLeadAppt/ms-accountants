@@ -2,7 +2,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Statement } from "@/components/sections/Statement";
 import { ServiceList } from "@/components/sections/ServiceList";
 import { PeopleAct } from "@/components/sections/PeopleAct";
-import { HowItWorks } from "@/components/sections/HowItWorks";
+import { HowRail } from "@/components/sections/HowRail";
 import { ProofAct } from "@/components/sections/ProofAct";
 import { PromiseBlock } from "@/components/sections/PromiseBlock";
 import { FinalCTA } from "@/components/sections/FinalCTA";
@@ -16,7 +16,7 @@ export default function HomePage() {
       <Statement />
       <ServiceList />
       <PeopleAct />
-      <HowItWorks />
+      <HowRail />
       <ProofAct />
       <PromiseBlock />
       <FinalCTA />

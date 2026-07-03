@@ -461,6 +461,23 @@ export function getTestimonial(name: string): Testimonial | undefined {
 export const caseFrame =
   "When the ATO and the Office of State Revenue both opened audits, the response had to be comprehensive, correct, and cost-effective.";
 
+// Act VI "How it works" steps, single source of truth. Rendered by HowRail
+// (homepage, compressed to one rail) and HowItWorks (inner pages, full detail).
+export const howItWorksSteps = [
+  {
+    title: "You speak with the principal.",
+    body: "Not an account manager, and not a rotating cast. From the first conversation, you deal with Dr Sridaran.",
+  },
+  {
+    title: "The position is modelled before you commit.",
+    body: "The tax consequences of a sale or restructure are worked out in advance, as the courts would read them, with no surprises after you sign.",
+  },
+  {
+    title: "He stays on the file.",
+    body: "The team prepares the work; he signs off on all of it. Even compliance-only clients receive senior time on the strategic issues each year.",
+  },
+] as const;
+
 // ---------------------------------------------------------------------------
 // Service to testimonial mapping
 // One relevant, real testimonial surfaced on each service detail page, chosen

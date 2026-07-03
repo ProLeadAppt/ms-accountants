@@ -4,6 +4,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Stagger } from "@/components/motion/Stagger";
 import { LineDraw } from "@/components/motion/LineDraw";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
+import { howItWorksSteps } from "@/lib/site";
 
 /**
  * Makes the boutique, principal-led promise concrete: three steps describing how
@@ -11,21 +12,6 @@ import { SplitHeadline } from "@/components/motion/SplitHeadline";
  * Every line paraphrases claims already on the site (no new claims). Cells use
  * --fg-derived tints so the section reads cleanly on any scheme.
  */
-
-const steps = [
-  {
-    title: "You speak with the principal.",
-    body: "Not an account manager, and not a rotating cast. From the first conversation, you deal with Dr Sridaran.",
-  },
-  {
-    title: "The position is modelled before you commit.",
-    body: "The tax consequences of a sale or restructure are worked out in advance, as the courts would read them, with no surprises after you sign.",
-  },
-  {
-    title: "He stays on the file.",
-    body: "The team prepares the work; he signs off on all of it. Even compliance-only clients receive senior time on the strategic issues each year.",
-  },
-];
 
 const contrast = [
   { firm: "Your file is passed down to juniors and across account managers.", here: "A supervised, credentialled team does the work. The principal reviews all of it." },
@@ -55,7 +41,7 @@ export function HowItWorks({
         </Reveal>
 
         <Stagger className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-[var(--hairline)] sm:grid-cols-3">
-          {steps.map((s, i) => (
+          {howItWorksSteps.map((s, i) => (
             <div
               key={s.title}
               className="bg-[color-mix(in_srgb,var(--fg)_4%,transparent)] p-8 lg:p-10"
