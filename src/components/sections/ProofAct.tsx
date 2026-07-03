@@ -15,7 +15,7 @@ export function ProofAct() {
   const counter = testimonials.find((t) => t.name !== "Ms Neda Morris");
 
   return (
-    <section className="scheme-espresso section-major bg-espresso-deep">
+    <section className="scheme-espresso-deep section-major">
       <Container size="narrow">
         <Reveal className="flex flex-col items-start">
           <EyebrowTag>A case in point</EyebrowTag>

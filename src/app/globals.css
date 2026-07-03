@@ -68,6 +68,15 @@
   background-color: var(--bg);
   color: var(--fg);
 }
+.scheme-espresso-deep {
+  --bg: var(--color-espresso-deep);
+  --fg: var(--color-cream);
+  --muted: color-mix(in srgb, var(--color-cream) 76%, var(--color-espresso-deep));
+  --accent: var(--color-red-bright);
+  --hairline: color-mix(in srgb, var(--color-cream) 14%, var(--color-espresso-deep));
+  background-color: var(--bg);
+  color: var(--fg);
+}
 .scheme-red {
   --bg: var(--color-brand-red);
   --fg: var(--color-cream);
