@@ -288,6 +288,8 @@ git commit -m "Act I: quiet-luxury hero split + authority strip; retire marquee 
 - Consumes: existing `SplitHeadline`, `EyebrowTag`, `Container`.
 - Produces: `Statement` = Act II, `.section-major`, cream; contains the italic red voice line + attribution.
 
+**PRE-FLIGHT DECISION (governs over the code below):** Do not hardcode the voice quote. Add `export const voiceQuote = { text: "Are Capital Gains Equitably Taxed in Australia?", attribution: "Dr Maheswaran Sridaran · his first book, 2012" };` to `src/lib/site.ts` (follow the file's existing export style; read it first). Import `voiceQuote` in `Statement.tsx` and render `voiceQuote.text` / `voiceQuote.attribution`. Also update `src/components/sections/VoicePullQuote.tsx` so its `text`/`attribution` prop defaults reference `voiceQuote.text`/`voiceQuote.attribution` (single source of truth; VoicePullQuote is retained for inner pages). Commit both files together with Statement.
+
 - [ ] **Step 1: Rewrite `Statement.tsx`:**
 
 ```tsx
@@ -553,6 +555,8 @@ git commit -m "Act IV: PeopleAct merges principal, credentials, and bench"
 - Consumes: `getTestimonial`, `testimonials`, `publications` from `@/lib/site`; `Icon`, `EyebrowTag`, `Reveal`, `SplitHeadline`, `Container`.
 - Produces: `export function ProofAct(): JSX.Element` — Act V, `.scheme-espresso .section-major` with espresso-deep background override.
 
+**PRE-FLIGHT DECISION (governs over the code below):** Do not hardcode the case `frame` sentence. Add `export const caseFrame = "When the ATO and the Office of State Revenue both opened audits, the response had to be comprehensive, correct, and cost-effective.";` to `src/lib/site.ts` (follow existing export style). Import `caseFrame` in `ProofAct.tsx` and pass it into the `SplitHeadline` segment. Also update `src/components/sections/CaseInPoint.tsx` so its `frame` prop default references `caseFrame` (single source of truth; CaseInPoint is retained for inner pages). Commit both files together with ProofAct.
+
 - [ ] **Step 1: Create `src/components/sections/ProofAct.tsx`:**
 
 ```tsx
@@ -673,6 +677,8 @@ git commit -m "Act V: ProofAct merges case, testimonial, and published record"
 - Consumes: `EyebrowTag`, `Reveal`, `Stagger`, `LineDraw`, `Container`. Steps copy is duplicated verbatim from `HowItWorks.tsx` (that component keeps its own copy for inner pages).
 - Produces: `export function HowRail(): JSX.Element` — Act VI, `.scheme-paper .section`, ~10s read: three steps on one hairline rail, contrast table dropped from the homepage.
 
+**PRE-FLIGHT DECISION (governs over the code below):** Do not duplicate the `steps` array. Add `export const howItWorksSteps = [ ...the three {title, body} objects... ];` to `src/lib/site.ts` (move the exact array from `HowItWorks.tsx`, follow existing export style). Import `howItWorksSteps` in BOTH `HowRail.tsx` (this task) and `HowItWorks.tsx` (replace its local `const steps` with the import; leave its `contrast` array local). This is the single source of truth for the step copy. Commit `HowItWorks.tsx` + `site.ts` together with `HowRail.tsx`.
+
 - [ ] **Step 1: Create `src/components/sections/HowRail.tsx`:**
 
 ```tsx
@@ -757,6 +763,8 @@ git commit -m "Act VI: HowRail, three steps on one hairline rail"
 - Produces: `ConversationAct` — Act VII, `.scheme-red .section-major`, the page's single red band and single DrawSVG flourish. `PromiseUnderline` wraps a phrase and draws an SVG underline on scroll-enter.
 
 - [ ] **Step 1: Create `src/components/motion/PromiseUnderline.tsx`** — model it directly on the existing `DrawUnderline.tsx` (read `src/components/motion/DrawUnderline.tsx` first; if it already accepts children + a color prop, SKIP this file and reuse `DrawUnderline` with a cream stroke). Only if `DrawUnderline` is hard-wired to brand-red, create this cream-stroke variant as a copy of that file with the stroke color changed to `var(--color-cream)` and the export renamed `PromiseUnderline`. No other behavior changes — same ScrollTrigger config, same reduced-motion gate.
+
+**PRE-FLIGHT DECISION (governs over the code below):** Do not hardcode the promise headline/body. Add `export const promiseCopy = { headlineLead: "You hired the expert. You should", headlineEm: "get", headlineTail: "the expert", body: "Elsewhere, a partner wins the work and a junior does it. Here, Dr Sridaran reviews the quality on every engagement himself. That is the whole point of a boutique. The person whose name is on the door is the person on your file." };` to `src/lib/site.ts` (follow existing export style). Import `promiseCopy` in `ConversationAct.tsx` and render the headline as `{promiseCopy.headlineLead} <DrawUnderline><em ...>{promiseCopy.headlineEm}</em> {promiseCopy.headlineTail}</DrawUnderline>.` and the paragraph as `{promiseCopy.body}`. Also update `src/components/sections/PromiseBlock.tsx` to render the same `promiseCopy` values (single source of truth; PromiseBlock is retained for inner pages). Commit `PromiseBlock.tsx` + `site.ts` together with ConversationAct.
 
 - [ ] **Step 2: Create `src/components/sections/ConversationAct.tsx`:**
 
