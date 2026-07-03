@@ -878,7 +878,7 @@ git commit -m "Act VII: ConversationAct crescendo; seven-act homepage assembled"
 
 - [x] **Step 4: Full gate** — `npm run lint && npx vitest run && npx next build`. Expected: clean / green / 16 pages.
 
-- [ ] **Step 5: Screenshots** — viewport captures (NOT fullPage — broken on this site) of each act at 1440×900 and 390×844 into `.tmp/premium-10x/`, for the sign-off packet. (SKIPPED this pass — controller handles visual verification separately.)
+- [ ] **Step 5: Screenshots** — viewport captures (NOT fullPage — broken on this site) of each act at 1440×900 and 390×844 into `.tmp/premium-10x/`, for the sign-off packet. (SKIPPED this pass; controller handles visual verification separately.)
 
 - [x] **Step 6: Update memory + commit**
 
