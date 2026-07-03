@@ -281,8 +281,11 @@ textarea {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.5;
-  mix-blend-mode: multiply;
+  /* Was mix-blend-mode: multiply over the whole viewport, which forced the
+     browser to re-blend the entire (scroll-transformed) page every frame — the
+     dominant scroll-jank source. Dropped the blend so this fixed texture is a
+     cheap single composite; opacity tuned so a subtle filmic grain remains. */
+  opacity: 0.28;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
 }
 
