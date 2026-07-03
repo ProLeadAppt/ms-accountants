@@ -31,3 +31,21 @@ Full resume guide in `progress.md` -> HANDOFF.
 
 ## 2026-07-02 — Team expansion + premium 10X overhaul (approved plan)
 Phases: 0 baseline (DONE: lint+vitest 16+build 16 green; Playwright before-shots in session scratchpad /baseline — NOTE ScrollSmoother breaks fullPage capture below the fold, compare like-for-like) → 1 team data model+bios → 2 Monogram+TeamRoster (About) → 3 BenchStrip (home) → 4 type mockups (Tyson picks; blocks 7) → 5 de-AI copy pass → 6 homepage IA restructure → 7 font swap → 8 photo brief → 9 verify + packet. Full plan in the user plans dir ("i-ve-just-uploaded-into-precious-lobster.md"). Deploy only on Tyson's explicit go.
+
+## 2026-07-03 - Premium homepage 10x (seven-act rebuild, T1-T10)
+Plan: `docs/superpowers/plans/2026-07-03-premium-homepage-10x.md`. Subagent-driven build, tracked task by task in `.superpowers/sdd/progress.md`.
+- [x] **T1** Design tokens (+ `.scheme-paper`) committed.
+- [x] **T2** Type swap: Zodiak + General Sans, self-hosted, weight ranges declared.
+- [x] **T3** Act I Hero (Quiet-Luxury split + authority strip).
+- [x] **T4** Act II Statement (thesis + voice quote, shared `voiceQuote` copy).
+- [x] **T5** Act III ServiceList (numbered editorial index).
+- [x] **T6** Act IV PeopleAct (principal + credentials + bench merge).
+- [x] **T7** Act V ProofAct (case-in-point + testimonial + published record merge, shared `caseFrame`).
+- [x] **T8** Act VI HowRail (3-step rail, shared `howItWorksSteps`).
+- [x] **T9** Act VII ConversationAct (red crescendo close, shared `promiseCopy`).
+- [x] **T10** Verification pass: kill-list sweep clean, reveal audit clean (no nested Stagger),
+  em-dash/placeholder guard coverage closed for `voiceQuote`/`caseFrame`/`howItWorksSteps`/`promiseCopy`,
+  reduced-motion/no-JS static HTML confirmed, full gate green (lint/vitest/build).
+  Screenshots (T10 step 5) intentionally skipped this pass; controller verifies visually.
+- Result: all seven acts assembled on `redesign-v2` (`src/app/page.tsx`), full gate green.
+  **Deploy remains HELD pending Tyson's sign-off.**

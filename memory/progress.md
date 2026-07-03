@@ -567,5 +567,46 @@ pinned via `vercel.json {"framework":"nextjs"}`; redeploy confirmed the app rend
 - Vitest 23 includes an em-dash regression test over the whole content library.
 - Deploy HELD for Tyson's explicit go (he holds sign-off authority on Sri's behalf).
 
+## 2026-07-03 - HANDOFF: Premium homepage 10x, seven-act rebuild verified (deploy HELD)
+Shipped this pass, on `redesign-v2`, local only:
+- Full seven-act premium homepage rebuild in the Quiet-Luxury register. Zodiak (display/serif)
+  and General Sans (sans) self-hosted with variable weight ranges declared and verified in the
+  built CSS. Espresso color tokens added alongside scheme-red/paper and a new unlayered
+  `.scheme-espresso-deep` class.
+- The seven acts and what each merges: Hero (Act I, Quiet-Luxury split + authority strip) ·
+  Statement (Act II, thesis + voice quote) · ServiceList (Act III, numbered editorial index) ·
+  PeopleAct (Act IV, merges AboutTeaser + CredentialTranslation + BenchStrip) · ProofAct (Act V,
+  merges CaseInPoint + Testimonial + PublishedThinking) · HowRail (Act VI, compressed HowItWorks) ·
+  ConversationAct (Act VII, merges PromiseBlock + FinalCTA, red crescendo close). `src/app/page.tsx`
+  now wires exactly these seven; the retired section components stay on disk for inner pages.
+- Shared copy consolidated into `src/lib/site.ts`: `voiceQuote`, `caseFrame`, `howItWorksSteps`,
+  `promiseCopy`, each a single source of truth reused by the matching homepage act and its inner-page
+  counterpart.
+- `DrawUnderline` flourish reused as-is for the Act VII headline (no changes to the component or its
+  on-mount timing; that stays with the controller's visual pass).
+
+Verification (this pass, T10):
+- Kill-list sweep clean: `CountUp` only in the retired `CredentialTranslation.tsx` (not imported by
+  `page.tsx`); `data-speed` only in `Hero.tsx`. No fix needed.
+- Reveal audit clean across all seven acts: each act uses a single coherent `Reveal`/`SplitHeadline`
+  entrance group; `Stagger` (where present) wraps only a flat list of repeated items, never nested
+  inside another `Stagger`. No fix needed.
+- Closed the em-dash/placeholder guard coverage gap: `src/lib/content.test.ts` now imports
+  `voiceQuote`, `caseFrame`, `howItWorksSteps`, `promiseCopy` from `./site` and includes all four in
+  both the em-dash guard blob and the placeholder guard blob. `npx vitest run` passes 23/23 with the
+  guards now exercising the new exports (confirmed em-dash-free and placeholder-free).
+- Reduced-motion/no-JS: built (`next build`) and served (`next start`) the app; fetched the static
+  homepage HTML. All seven act headline phrases are present in the pre-rendered markup ("wrote the
+  thesis", "answer it first", "Five disciplines", "run a small firm", "comprehensive, correct",
+  "One principal", "You hired the expert" all matched with count greater than zero). `data-anim`
+  present 18 times (progressive-enhancement hooks intact). Exactly one em-dash found in the built
+  HTML: the pre-existing Header logo `aria-label` text (it names the site then "home"), matching
+  the expected baseline.
+- Full gate: `npm run lint` clean, `npx vitest run` 23/23 green, `npx next build` produced the
+  expected 16 routes (11 HTML pages including 5 service slugs, favicon.ico, icon.svg, robots.txt,
+  sitemap.xml, plus the dynamic `/api/contact` route).
+- Deploy remains HELD. No `vercel` command was run. Awaiting Tyson's sign-off (the controller
+  handles screenshots and the underline-timing visual check separately).
+
 ## 2026-07-02b — DEPLOYED TO PRODUCTION
 Tyson gave the explicit go (twice: "let's push it" + "YES" for the prod deploy). Pushed redesign-v2 (a44c1c7) to GitHub; `npx vercel --prod --yes` → deployment ms-accountants-9vf8tem2l, Ready in 23s. Live at https://ms-accountants.vercel.app (HTTP 200; verified serving the BenchStrip heading, all 6 team members, Newsreader font, and the reframed footerTrust). This deploy includes Pass 7 motion + team expansion + de-AI copy + IA restructure + Broadsheet type. OUTSTANDING: real headshots (Tyson is running the photo shoot per docs/photo-brief.md); drop files into team[].photo when they arrive.

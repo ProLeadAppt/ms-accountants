@@ -870,17 +870,17 @@ git commit -m "Act VII: ConversationAct crescendo; seven-act homepage assembled"
 - Consumes: everything above.
 - Produces: verified homepage; screenshots for the sign-off packet.
 
-- [ ] **Step 1: Kill-list sweep** — `grep -rn "CountUp\|data-speed" src/components/sections src/app/page.tsx`. Expected: `CountUp` unused by any homepage act (only `CredentialTranslation.tsx`, which the homepage no longer imports); `data-speed` only inside `Hero.tsx`. Fix any stragglers.
+- [x] **Step 1: Kill-list sweep** — `grep -rn "CountUp\|data-speed" src/components/sections src/app/page.tsx`. Expected: `CountUp` unused by any homepage act (only `CredentialTranslation.tsx`, which the homepage no longer imports); `data-speed` only inside `Hero.tsx`. Fix any stragglers.
 
-- [ ] **Step 2: Reveal audit (one reveal per act)** — confirm each act uses a single `Reveal`/`SplitHeadline` group entrance; no nested `Stagger` inside `Stagger`. Adjust if any act double-animates.
+- [x] **Step 2: Reveal audit (one reveal per act)** — confirm each act uses a single `Reveal`/`SplitHeadline` group entrance; no nested `Stagger` inside `Stagger`. Adjust if any act double-animates.
 
-- [ ] **Step 3: Reduced-motion + no-JS** — `npx next build && npx next start`, then check the prerendered HTML: `curl -s http://localhost:3000 | grep -c "data-anim"` returns > 0 and the page content (all seven act headlines) is present in the HTML source. Also grep the built HTML for em-dashes: expect only the pre-existing Header `aria-label`.
+- [x] **Step 3: Reduced-motion + no-JS** — `npx next build && npx next start`, then check the prerendered HTML: `curl -s http://localhost:3000 | grep -c "data-anim"` returns > 0 and the page content (all seven act headlines) is present in the HTML source. Also grep the built HTML for em-dashes: expect only the pre-existing Header `aria-label`.
 
-- [ ] **Step 4: Full gate** — `npm run lint && npx vitest run && npx next build`. Expected: clean / green / 16 pages.
+- [x] **Step 4: Full gate** — `npm run lint && npx vitest run && npx next build`. Expected: clean / green / 16 pages.
 
-- [ ] **Step 5: Screenshots** — viewport captures (NOT fullPage — broken on this site) of each act at 1440×900 and 390×844 into `.tmp/premium-10x/`, for the sign-off packet.
+- [ ] **Step 5: Screenshots** — viewport captures (NOT fullPage — broken on this site) of each act at 1440×900 and 390×844 into `.tmp/premium-10x/`, for the sign-off packet. (SKIPPED this pass — controller handles visual verification separately.)
 
-- [ ] **Step 6: Update memory + commit**
+- [x] **Step 6: Update memory + commit**
 
 Append to `memory/progress.md` a dated HANDOFF entry (what shipped, verification results, deploy still HELD) and tick `task_plan.md`.
 

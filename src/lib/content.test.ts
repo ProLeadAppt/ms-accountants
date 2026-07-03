@@ -13,6 +13,10 @@ import {
   teamCollective,
   publications,
   book,
+  voiceQuote,
+  caseFrame,
+  howItWorksSteps,
+  promiseCopy,
 } from "./site";
 import { services, getService } from "./services";
 
@@ -54,7 +58,10 @@ describe("content library", () => {
   });
 
   it("has no unresolved placeholders in user-facing site fields", () => {
-    const blob = JSON.stringify({ site, nav, valueStats, credentialCards, authorityItems, team, teamCollective });
+    const blob = JSON.stringify({
+      site, nav, valueStats, credentialCards, authorityItems, team, teamCollective,
+      voiceQuote, caseFrame, howItWorksSteps, promiseCopy,
+    });
     expect(blob).not.toContain("[[");
   });
 
@@ -62,6 +69,7 @@ describe("content library", () => {
     const blob = JSON.stringify({
       site, nav, valueStats, credentialCards, authorityItems,
       team, teamCollective, services, testimonials, publications, book,
+      voiceQuote, caseFrame, howItWorksSteps, promiseCopy,
     });
     expect(blob).not.toContain("—");
   });
