@@ -55,7 +55,7 @@
   --fg: var(--color-espresso);
   --muted: color-mix(in srgb, var(--color-espresso) 70%, var(--color-white));
   --accent: var(--color-brand-red);
-  --hairline: #eee6d8;
+  --hairline: color-mix(in srgb, var(--color-espresso) 8%, var(--color-white));
   background-color: var(--bg);
   color: var(--fg);
 }

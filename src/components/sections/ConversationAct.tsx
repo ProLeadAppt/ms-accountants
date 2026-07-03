@@ -2,7 +2,7 @@ import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { Reveal } from "@/components/motion/Reveal";
-import { DrawUnderline } from "@/components/motion/DrawUnderline";
+import { DrawUnderlineOnScroll } from "@/components/motion/DrawUnderlineOnScroll";
 import { promiseCopy, site } from "@/lib/site";
 
 /**
@@ -20,10 +20,10 @@ export function ConversationAct() {
           <EyebrowTag>The promise</EyebrowTag>
           <h2 className="mt-7 max-w-[16ch] font-serif text-5xl leading-[1.02] text-cream sm:text-6xl lg:text-7xl">
             {promiseCopy.headlineLead}{" "}
-            <DrawUnderline>
+            <DrawUnderlineOnScroll>
               <em className="headline-em">{promiseCopy.headlineEm}</em>{" "}
               {promiseCopy.headlineTail}
-            </DrawUnderline>
+            </DrawUnderlineOnScroll>
             .
           </h2>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-cream/85">

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { EyebrowTag } from "@/components/ui/EyebrowTag";
@@ -70,11 +71,19 @@ export function PeopleAct() {
         </div>
 
         {/* The bench — the five people behind the files he reviews. */}
-        <Reveal className="mt-24 max-w-3xl">
-          <EyebrowTag>{teamCollective.eyebrow}</EyebrowTag>
-          <h3 className="mt-6 font-serif text-3xl leading-[1.08] sm:text-4xl">
-            {teamCollective.heading}
-          </h3>
+        <Reveal className="mt-24 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-3xl">
+            <EyebrowTag>{teamCollective.eyebrow}</EyebrowTag>
+            <h3 className="mt-6 font-serif text-3xl leading-[1.08] sm:text-4xl">
+              {teamCollective.heading}
+            </h3>
+          </div>
+          <Link
+            href={teamCollective.ctaHref}
+            className="link-underline shrink-0 font-sans text-base font-medium"
+          >
+            {teamCollective.cta}
+          </Link>
         </Reveal>
         <Stagger className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
           {bench.map((member) => (

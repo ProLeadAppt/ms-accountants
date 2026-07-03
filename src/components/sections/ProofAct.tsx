@@ -12,7 +12,9 @@ import { getTestimonial, testimonials, publications, caseFrame } from "@/lib/sit
  */
 export function ProofAct() {
   const caseTestimonial = getTestimonial("Ms Neda Morris");
-  const counter = testimonials.find((t) => t.name !== "Ms Neda Morris");
+  const counter =
+    testimonials.find((t) => t.name === "Ms Anne Truong") ??
+    testimonials.find((t) => t.name !== "Ms Neda Morris");
 
   return (
     <section className="scheme-espresso-deep section-major">
