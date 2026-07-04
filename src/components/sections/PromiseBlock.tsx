@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
+import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { promiseCopy, site } from "@/lib/site";
 
 export function PromiseBlock() {
@@ -14,11 +15,16 @@ export function PromiseBlock() {
               <span className="eyebrow__dot" aria-hidden="true" />
               The promise
             </span>
-            <h2 className="mt-7 font-serif text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">
-              {promiseCopy.headlineLead}{" "}
-              <em className="headline-em">{promiseCopy.headlineEm}</em>{" "}
-              {promiseCopy.headlineTail}.
-            </h2>
+            <SplitHeadline
+              as="h2"
+              className="mt-7 font-serif text-4xl leading-[1.05] sm:text-5xl lg:text-6xl"
+              emClassName="headline-em"
+              segments={[
+                { text: promiseCopy.headlineLead },
+                { text: promiseCopy.headlineEm, em: true },
+                { text: `${promiseCopy.headlineTail}.` },
+              ]}
+            />
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-cream/85">
               {promiseCopy.body}
             </p>

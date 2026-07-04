@@ -4,6 +4,7 @@ import { Container } from "@/components/layout/Container";
 import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { Reveal } from "@/components/motion/Reveal";
 import { StickyPin } from "@/components/motion/StickyPin";
+import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { PageHero } from "@/components/sections/PageHero";
 import { AuthorityMarquee } from "@/components/sections/AuthorityMarquee";
 import { HowItWorks } from "@/components/sections/HowItWorks";
@@ -55,9 +56,11 @@ export default function AboutPage() {
 
             <Reveal className="flex flex-col items-start justify-center">
               <EyebrowTag>The story</EyebrowTag>
-              <h2 className="mt-7 font-serif text-4xl leading-[1.06] sm:text-5xl">
-                Why he chose the harder, smaller path.
-              </h2>
+              <SplitHeadline
+                as="h2"
+                className="mt-7 font-serif text-4xl leading-[1.06] sm:text-5xl"
+                segments={[{ text: "Why he chose the harder, smaller path." }]}
+              />
               <div className="mt-8 space-y-5 text-lg leading-relaxed text-[var(--muted)]">
                 <p>
                   Few people with Dr Sridaran&rsquo;s background end up running

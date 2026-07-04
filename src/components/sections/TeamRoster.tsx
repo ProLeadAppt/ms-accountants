@@ -4,6 +4,7 @@ import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { Monogram } from "@/components/ui/Monogram";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger } from "@/components/motion/Stagger";
+import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { team } from "@/lib/site";
 
 /**
@@ -20,9 +21,11 @@ export function TeamRoster() {
       <Container>
         <Reveal>
           <EyebrowTag>Our people</EyebrowTag>
-          <h2 className="mt-7 max-w-3xl font-serif text-4xl leading-[1.06] sm:text-5xl">
-            The people on your file.
-          </h2>
+          <SplitHeadline
+            as="h2"
+            className="mt-7 max-w-3xl font-serif text-4xl leading-[1.06] sm:text-5xl"
+            segments={[{ text: "The people on your file." }]}
+          />
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--muted)]">
             Everything the firm sends out is built by the people on this page,
             and reviewed by the one at the top.

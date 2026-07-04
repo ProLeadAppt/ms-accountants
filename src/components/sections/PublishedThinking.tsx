@@ -2,6 +2,7 @@ import { Container } from "@/components/layout/Container";
 import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger } from "@/components/motion/Stagger";
+import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { publications, book } from "@/lib/site";
 
 /**
@@ -22,9 +23,11 @@ export function PublishedThinking({
       <Container>
         <Reveal className="max-w-2xl">
           <EyebrowTag>In his own words</EyebrowTag>
-          <h2 className="mt-7 font-serif text-4xl leading-[1.06] sm:text-5xl">
-            Not just advice. A public case for fairness.
-          </h2>
+          <SplitHeadline
+            as="h2"
+            className="mt-7 font-serif text-4xl leading-[1.06] sm:text-5xl"
+            segments={[{ text: "Not just advice. A public case for fairness." }]}
+          />
           <p className="mt-6 text-lg leading-relaxed text-[var(--muted)]">
             Dr Sridaran has argued in the national press that the tax system
             should be fairer, and that the received answer, even from the High
