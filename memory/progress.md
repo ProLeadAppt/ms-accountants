@@ -1,5 +1,55 @@
 # Progress — MS Accountants Website v2
 
+## HANDOFF — READ FIRST  [updated 2026-07-04c — preloader first-paint fix + About imagery]
+
+Two operator-reported fixes after the inner-page-elevation work, both committed
+on redesign-v2, NOT deployed (deploy still operator-gated).
+
+### PRELOADER FIRST-PAINT — FIXED (`e570c09`)
+Symptom Tyson hit: opening the site painted the HOME PAGE first, THEN the 0→100%
+loader dropped over it (page-first, loader-second). Root cause: `Preloader`
+started at `useState(false)` and returned null, so the overlay was absent from
+the SSR HTML and the first client paint; a post-mount `useEffect` then set
+`show=true`, so the loader only appeared AFTER hydration/paint. Fix (flash-free,
+SSR-safe, uses the existing `no-js`/`js` inline-script pattern):
+- `Preloader` now defaults to `show=true`, so the overlay (`#ms-preloader`) is
+  server-rendered and covers the page from the first paint. Server + first client
+  render both = true, so no hydration mismatch. A mount effect REMOVES it when it
+  should not run (reduced motion, or already shown this session).
+- The body-top inline script in `layout.tsx` decides BEFORE paint: adds
+  `.preloader-done` on `<html>` when `sessionStorage['ms-preloaded']==='1'` OR
+  reduced-motion, so the skip case never flashes the loader.
+- `globals.css` (unlayered): `.no-js #ms-preloader, .preloader-done #ms-preloader
+  { display:none !important }`. `.no-js` guarantees no-JS visitors never get a
+  permanent block.
+- Verified: overlay now in built SSR HTML on every page (`z-[10000]`/`id="ms-preloader"`
+  was 0, now 1) + served by live dev :3000; lint · vitest 27 · build 16 green.
+
+### ABOUT PAGE IMAGERY — now matches the homepage (`d45589e`)
+Tyson: the About "Our people" roster still used Monogram initials stand-ins (and
+"Portrait to follow") for the principal + 5 bench, while the homepage PeopleAct
+already shows the conceptual craft still-lifes instead of headshots. Extracted the
+imagery to `src/lib/craftImagery.ts` (`PRINCIPAL_STUDY_IMAGE`, `PRINCIPAL_STUDY_ALT`,
+`CRAFT_TILES`, `craftTileFor(i)`); both PeopleAct and TeamRoster now import it, so a
+given person maps to the SAME tile on both pages (bench derived from
+`team.filter(!featured)` in the same order on both). TeamRoster principal →
+`principal-study.jpg` (aspect-4/5), each bench card gets an aspect-4/3 craft tile
+(decorative alt; name/role/bio below). Removed the two "portrait to follow"
+promises (roster + origin figcaption) — the firm uses conceptual imagery, not
+headshots. `Monogram` still imported by the orphaned BenchStrip, so nothing broke;
+`team[].photo` data left intact but unused on rendered pages. Verified /about serves
+principal-study + all 5 craft tiles, no "Portrait to follow"; gates green.
+
+➡️ **Both await Tyson's real-desktop visual pass at http://localhost:3000** (dev
+server PID 14108 already live, serving current code): open in a NEW TAB and confirm
+the LOADER shows first then lifts to reveal the home page (not the reverse); refresh
+in the same tab and confirm the loader does NOT re-show; then open /about and confirm
+the roster shows the craft tiles + principal study (no initials placeholders). HEAD
+`d45589e` on redesign-v2, pushed through `68228b7` only (the two fixes are local-only,
+NOT pushed, NOT deployed). Deploy still on Tyson's explicit go.
+
+---
+
 ## HANDOFF — READ FIRST  [updated 2026-07-04 — INNER-PAGE ELEVATION complete]
 
 ### INNER-PAGE ELEVATION — ALL 6 TASKS DONE locally on redesign-v2, deploy HELD, verified on live localhost
