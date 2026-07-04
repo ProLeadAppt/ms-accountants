@@ -5,6 +5,7 @@ import { site } from "@/lib/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { ScrollReset } from "@/components/motion/ScrollReset";
 import { Preloader } from "@/components/motion/Preloader";
 import { HERO_STILL } from "@/lib/heroAsset";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
@@ -90,6 +91,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
         />
         <Preloader heroSrc={HERO_STILL} />
+        <ScrollReset />
         <Header />
         <div className="grain-overlay" aria-hidden="true" />
         <SmoothScroll>
