@@ -7,14 +7,19 @@ import { site } from "@/lib/site";
 
 export function FinalCTA() {
   return (
-    <section className="scheme-espresso py-28 lg:py-40">
+    <section className="scheme-espresso-deep py-28 lg:py-40">
       <Container>
         <Reveal className="flex flex-col items-start">
           <EyebrowTag>Book a conversation</EyebrowTag>
           <SplitHeadline
             as="h2"
+            underline
             className="mt-7 max-w-[16ch] font-serif text-5xl leading-[1.02] text-cream sm:text-6xl lg:text-7xl"
-            segments={[{ text: "When the tax question is hard, who do you call?" }]}
+            emClassName="headline-em"
+            segments={[
+              { text: "When the tax question is hard," },
+              { text: "who do you call?", em: true },
+            ]}
           />
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-[var(--muted)]">
             {site.footerTrust}
