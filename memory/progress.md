@@ -1,5 +1,32 @@
 # Progress — MS Accountants Website v2
 
+## HANDOFF — READ FIRST  [updated 2026-07-04 — INNER-PAGE ELEVATION complete]
+
+### INNER-PAGE ELEVATION — ALL 6 TASKS DONE locally on redesign-v2, deploy HELD, verified on live localhost
+Goal was Tyson's: "make every other page match the homepage's quality." A small kit of
+premium moves applied per page, reusing the homepage's components (SplitHeadline,
+WordReveal, ScrollSmoother `data-speed`, `.scheme-espresso-deep`). No new copy, no
+structure changes beyond retiring stale bits. Plan+spec:
+`docs/superpowers/{plans,specs}/2026-07-04-inner-page-elevation*`.
+
+- **T1** `d31ea8f` — FinalCTA elevated to the crescendo close (deep drama band + drawn underline); inherited by every page that closes on it.
+- **T2** `d49b3c2` — About: retired AuthorityMarquee + the duplicate PromiseBlock close; HowItWorks scheme union widened to accept `espresso-deep`; About now closes cream → espresso-deep drama band → cream → FinalCTA.
+- **T3** `d9716b7` — Service detail: `scheme-espresso` → `scheme-espresso-deep` "Why us" band, 21:9 editorial image gets `data-speed="0.9"` parallax drift (oversized wrapper so no hard edge), and the "why" statement runs through WordReveal.
+- **T4** `6bd4607` — Services index: each card gets the sliding `arrow` icon (`group-hover:translate-x-1`) for hover parity with the detail-page cards.
+- **T5** `a18cf3a` — ScrollReset now scrolls to in-page anchors under ScrollSmoother (fixes `/about#team`, which previously early-returned and did nothing); the smoother intercepts native anchor scroll, so we resolve the target on rAF after `ScrollTrigger.refresh()`. Non-hash navs still reset to top.
+- **T6** verification (no code): lint · vitest 27/27 · next build 16 routes; site-wide em-dash guard = 1/page (Header aria-label); About marquee markup = 0, single FinalCTA; service-detail `scheme-espresso-deep` >= 1; services-index arrow markup present. Confirmed on the **live dev server (PID 14108, http://localhost:3000, HTTP 200)** serving current code for all five changes.
+
+➡️ **STILL OPEN before deploy:** Tyson's real-desktop visual pass at http://localhost:3000.
+Watch: crescendo close on each inner page (about/services/service-detail) · the two new
+drama bands · the 21:9 parallax drift on a service page · `/about#team` scrolling to the
+team roster · scroll-to-top when clicking into a service · then emulate
+`prefers-reduced-motion` and confirm every heading degrades to static + native scroll.
+HEAD `a18cf3a` on redesign-v2, NOT pushed, NOT deployed. Deploy only on Tyson's explicit
+go. NOTE: this session's env still throttles rAF, so the *motion feel* is Tyson's to
+confirm; structure/scheme/markup are grep-verified above.
+
+---
+
 ## HANDOFF — READ FIRST  [updated 2026-07-04 — Ink reveal language + scroll fix]
 
 ### INK REVEAL LANGUAGE (site-wide text-reveal) — DONE locally on redesign-v2, deploy HELD, NOT visually verified
