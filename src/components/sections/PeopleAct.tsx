@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger } from "@/components/motion/Stagger";
+import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { team, teamCollective, credentialCards } from "@/lib/site";
 
 const CREDENTIAL_LABELS = ["Doctorate", "CA + Lawyer", "45+ years"] as const;
@@ -55,9 +56,13 @@ export function PeopleAct() {
 
           <Reveal className="flex flex-col items-start justify-center">
             <EyebrowTag>The principal</EyebrowTag>
-            <h2 className="mt-7 font-serif text-4xl leading-[1.06] sm:text-5xl">
-              Why an accountant and lawyer chose to run a small firm.
-            </h2>
+            <SplitHeadline
+              as="h2"
+              className="mt-7 font-serif text-4xl leading-[1.06] sm:text-5xl"
+              segments={[
+                { text: "Why an accountant and lawyer chose to run a small firm." },
+              ]}
+            />
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-[var(--muted)]">
               People with his background usually end up in a corner office at a
               global firm. He built the opposite: a practice small enough that
@@ -92,9 +97,11 @@ export function PeopleAct() {
         <Reveal className="mt-24 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <EyebrowTag>{teamCollective.eyebrow}</EyebrowTag>
-            <h3 className="mt-6 font-serif text-3xl leading-[1.08] sm:text-4xl">
-              {teamCollective.heading}
-            </h3>
+            <SplitHeadline
+              as="h3"
+              className="mt-6 font-serif text-3xl leading-[1.08] sm:text-4xl"
+              segments={[{ text: teamCollective.heading }]}
+            />
           </div>
           <Link
             href={teamCollective.ctaHref}

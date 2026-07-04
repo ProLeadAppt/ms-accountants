@@ -3,6 +3,7 @@ import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger } from "@/components/motion/Stagger";
 import { LineDraw } from "@/components/motion/LineDraw";
+import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { howItWorksSteps } from "@/lib/site";
 
 /**
@@ -17,9 +18,16 @@ export function HowRail() {
       <Container>
         <Reveal>
           <EyebrowTag>How it works</EyebrowTag>
-          <h2 className="mt-7 max-w-[22ch] font-serif text-4xl leading-[1.06] sm:text-5xl">
-            One principal. On your file, start to finish.
-          </h2>
+          <SplitHeadline
+            as="h2"
+            className="mt-7 max-w-[22ch] font-serif text-4xl leading-[1.06] sm:text-5xl"
+            emClassName="text-brand-red"
+            segments={[
+              { text: "One" },
+              { text: "principal.", em: true },
+              { text: "On your file, start to finish." },
+            ]}
+          />
         </Reveal>
 
         <Stagger className="mt-14 grid gap-10 border-t border-[var(--hairline)] pt-10 sm:grid-cols-3">

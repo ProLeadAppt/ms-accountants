@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger } from "@/components/motion/Stagger";
+import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { services } from "@/lib/services";
 
 export function ServiceList() {
@@ -13,9 +14,16 @@ export function ServiceList() {
         <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <EyebrowTag>Services</EyebrowTag>
-            <h2 className="mt-6 max-w-[16ch] font-serif text-4xl leading-[1.05] sm:text-5xl">
-              Five disciplines, one principal on every file.
-            </h2>
+            <SplitHeadline
+              as="h2"
+              className="mt-6 max-w-[16ch] font-serif text-4xl leading-[1.05] sm:text-5xl"
+              emClassName="text-brand-red"
+              segments={[
+                { text: "Five disciplines, one" },
+                { text: "principal", em: true },
+                { text: "on every file." },
+              ]}
+            />
           </div>
           <Button href="/services" variant="secondary" className="shrink-0">
             Explore all services
