@@ -1,16 +1,19 @@
 import { Container } from "@/components/layout/Container";
 import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { Reveal } from "@/components/motion/Reveal";
+import { SplitHeadline, type Segment } from "@/components/motion/SplitHeadline";
 
 type Props = {
   eyebrow: string;
-  title: React.ReactNode;
+  titleSegments: Segment[];
+  /** Draw the underline under the held-back em phrase (about page hero). */
+  underline?: boolean;
   lede?: React.ReactNode;
   children?: React.ReactNode;
 };
 
 /** Compact inner-page hero. Espresso scheme, clears the fixed header. */
-export function PageHero({ eyebrow, title, lede, children }: Props) {
+export function PageHero({ eyebrow, titleSegments, underline, lede, children }: Props) {
   return (
     <section className="scheme-espresso relative overflow-hidden pt-40 pb-20 lg:pt-48 lg:pb-28">
       {/* Warm radial wash to echo the homepage hero, no imagery. */}
@@ -23,9 +26,14 @@ export function PageHero({ eyebrow, title, lede, children }: Props) {
       <Container className="relative z-10">
         <Reveal className="flex flex-col items-start">
           <EyebrowTag>{eyebrow}</EyebrowTag>
-          <h1 className="mt-7 max-w-[20ch] font-serif text-[2.6rem] leading-[1.02] text-cream sm:text-6xl lg:text-7xl">
-            {title}
-          </h1>
+          <SplitHeadline
+            as="h1"
+            reveal="hero"
+            underline={underline}
+            className="mt-7 max-w-[20ch] font-serif text-[2.6rem] leading-[1.02] text-cream sm:text-6xl lg:text-7xl"
+            emClassName="headline-em text-red-bright"
+            segments={titleSegments}
+          />
           {lede && (
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--muted)]">
               {lede}

@@ -29,13 +29,11 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="Services"
-        title={
-          <>
-            Five disciplines, one{" "}
-            <em className="headline-em text-red-bright">principal</em> on every
-            file.
-          </>
-        }
+        titleSegments={[
+          { text: "Five disciplines, one" },
+          { text: "principal", em: true },
+          { text: "on every file." },
+        ]}
         lede="The work spans planning; disputes, investigations and litigation; compliance; advisory; and audit. What does not change is who reviews it. Every engagement passes under Dr Sridaran personally, a chartered accountant who is also a lawyer."
       />
 

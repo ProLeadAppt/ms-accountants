@@ -18,12 +18,10 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Book a conversation"
-        title={
-          <>
-            When the tax question is hard,{" "}
-            <em className="headline-em text-red-bright">start here</em>.
-          </>
-        }
+        titleSegments={[
+          { text: "When the tax question is hard," },
+          { text: "start here.", em: true },
+        ]}
         lede="Tell us what you are weighing up. You will be speaking with the principal, not a call centre."
       />
 

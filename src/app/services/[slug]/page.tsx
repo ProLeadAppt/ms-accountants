@@ -50,7 +50,7 @@ export default async function ServiceDetailPage({
     <>
       <PageHero
         eyebrow={service.flagship ? "Flagship service" : "Service"}
-        title={service.title}
+        titleSegments={[{ text: service.title }]}
         lede={service.tagline}
       />
 

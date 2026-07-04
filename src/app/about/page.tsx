@@ -5,7 +5,6 @@ import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { Reveal } from "@/components/motion/Reveal";
 import { StickyPin } from "@/components/motion/StickyPin";
 import { PageHero } from "@/components/sections/PageHero";
-import { DrawUnderline } from "@/components/motion/DrawUnderline";
 import { AuthorityMarquee } from "@/components/sections/AuthorityMarquee";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { PublishedThinking } from "@/components/sections/PublishedThinking";
@@ -26,15 +25,11 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="The principal"
-        title={
-          <>
-            An accountant and lawyer who chose to{" "}
-            <em className="headline-em text-red-bright">
-              <DrawUnderline>run a small firm</DrawUnderline>
-            </em>
-            .
-          </>
-        }
+        underline
+        titleSegments={[
+          { text: "An accountant and lawyer who chose to" },
+          { text: "run a small firm.", em: true },
+        ]}
         lede={site.credentialLine}
       />
 
