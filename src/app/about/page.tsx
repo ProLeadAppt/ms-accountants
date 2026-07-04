@@ -6,10 +6,8 @@ import { Reveal } from "@/components/motion/Reveal";
 import { StickyPin } from "@/components/motion/StickyPin";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { PageHero } from "@/components/sections/PageHero";
-import { AuthorityMarquee } from "@/components/sections/AuthorityMarquee";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { PublishedThinking } from "@/components/sections/PublishedThinking";
-import { PromiseBlock } from "@/components/sections/PromiseBlock";
 import { TeamRoster } from "@/components/sections/TeamRoster";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { site } from "@/lib/site";
@@ -110,10 +108,8 @@ export default function AboutPage() {
 
       <TeamRoster />
 
-      <HowItWorks scheme="espresso" />
+      <HowItWorks scheme="espresso-deep" />
       <PublishedThinking scheme="cream" />
-      <AuthorityMarquee />
-      <PromiseBlock />
       <FinalCTA />
     </>
   );

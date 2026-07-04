@@ -22,7 +22,7 @@ const contrast = [
 export function HowItWorks({
   scheme = "sand",
 }: {
-  scheme?: "cream" | "sand" | "espresso";
+  scheme?: "cream" | "sand" | "espresso" | "espresso-deep";
 }) {
   return (
     <section className={`scheme-${scheme} py-24 lg:py-32`}>
