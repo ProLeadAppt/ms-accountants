@@ -7,23 +7,13 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Stagger } from "@/components/motion/Stagger";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { team, teamCollective, credentialCards } from "@/lib/site";
+import {
+  PRINCIPAL_STUDY_IMAGE,
+  PRINCIPAL_STUDY_ALT,
+  craftTileFor,
+} from "@/lib/craftImagery";
 
 const CREDENTIAL_LABELS = ["Doctorate", "CA + Lawyer", "45+ years"] as const;
-
-/**
- * Conceptual "craft" tiles for the bench. The firm does not use headshots, so
- * rather than fabricate faces (which would misrepresent real people) each
- * member is paired with a warm still-life that evokes the work. The images are
- * atmospheric, not portraits, so their alt text is empty (decorative) and the
- * name/role text below carries the actual meaning.
- */
-const CRAFT_TILES = [
-  "/generated/craft-pen.jpg",
-  "/generated/craft-magnifier.jpg",
-  "/generated/craft-folio.jpg",
-  "/generated/craft-glasses.jpg",
-  "/generated/craft-clock.jpg",
-] as const;
 
 /**
  * Act IV — The People. One act, one message: the team builds, he reviews.
@@ -45,8 +35,8 @@ export function PeopleAct() {
           <Reveal>
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl ring-1 ring-inset ring-[var(--hairline)]">
               <Image
-                src="/generated/principal-study.jpg"
-                alt="A quiet study at dusk: a brass desk lamp, leather-bound law reports and soft Sydney light through a tall window."
+                src={PRINCIPAL_STUDY_IMAGE}
+                alt={PRINCIPAL_STUDY_ALT}
                 fill
                 sizes="(min-width: 1024px) 44vw, 100vw"
                 className="object-cover"
@@ -115,7 +105,7 @@ export function PeopleAct() {
             <div key={member.slug}>
               <div className="relative aspect-square overflow-hidden rounded-2xl ring-1 ring-inset ring-[var(--hairline)]">
                 <Image
-                  src={CRAFT_TILES[i % CRAFT_TILES.length]}
+                  src={craftTileFor(i)}
                   alt=""
                   fill
                   sizes="(min-width: 1024px) 18vw, 45vw"

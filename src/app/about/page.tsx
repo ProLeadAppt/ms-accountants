@@ -47,7 +47,7 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-espresso/10" />
                 <figcaption className="absolute bottom-5 left-5 font-mono text-[0.62rem] uppercase tracking-[0.18em] text-cream/80">
-                  Dr Maheswaran Sridaran &middot; portrait to follow
+                  Dr Maheswaran Sridaran
                 </figcaption>
               </figure>
             </StickyPin>

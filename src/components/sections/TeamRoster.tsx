@@ -1,11 +1,16 @@
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 import { Container } from "@/components/layout/Container";
 import { EyebrowTag } from "@/components/ui/EyebrowTag";
-import { Monogram } from "@/components/ui/Monogram";
 import { Reveal } from "@/components/motion/Reveal";
 import { Stagger } from "@/components/motion/Stagger";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { team } from "@/lib/site";
+import {
+  PRINCIPAL_STUDY_IMAGE,
+  PRINCIPAL_STUDY_ALT,
+  craftTileFor,
+} from "@/lib/craftImagery";
 
 /**
  * The full "Our people" roster on the About page: the principal featured
@@ -35,20 +40,14 @@ export function TeamRoster() {
         {/* Featured: the principal */}
         <Reveal className="mt-14">
           <div className="grid gap-8 rounded-2xl border border-[var(--hairline)] bg-[color-mix(in_srgb,var(--color-cream)_55%,transparent)] p-8 lg:grid-cols-[300px_1fr] lg:gap-12 lg:p-12">
-            <div>
-              <Monogram
-                initials={principal.initials}
-                name={principal.name}
-                photo={principal.photo}
-                ratio="portrait"
+            <div className="relative aspect-[4/5] max-w-[300px] overflow-hidden rounded-2xl ring-1 ring-inset ring-[var(--hairline)]">
+              <Image
+                src={PRINCIPAL_STUDY_IMAGE}
+                alt={PRINCIPAL_STUDY_ALT}
+                fill
                 sizes="(min-width: 1024px) 300px, 100vw"
-                className="max-w-[300px]"
+                className="object-cover"
               />
-              {!principal.photo && (
-                <p className="mt-3 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-clay">
-                  Portrait to follow
-                </p>
-              )}
             </div>
             <div className="flex flex-col justify-center">
               <h3 className="font-serif text-3xl text-espresso">{principal.name}</h3>
@@ -67,7 +66,7 @@ export function TeamRoster() {
 
         {/* The bench he hired */}
         <Stagger className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-[var(--hairline)] sm:grid-cols-2 lg:grid-cols-3">
-          {bench.map((member) => (
+          {bench.map((member, i) => (
             <article
               key={member.slug}
               className={cn(
@@ -77,13 +76,17 @@ export function TeamRoster() {
                 member.slug === "niroshi-rathnayakage" && "sm:col-span-2",
               )}
             >
-              <Monogram
-                initials={member.initials}
-                name={member.name}
-                photo={member.photo}
-                sizes="96px"
-                className="h-24 w-24"
-              />
+              {/* Conceptual craft still-life, paired to this member the same way
+                  as the homepage bench (decorative; the name/role carries it). */}
+              <div className="relative aspect-[4/3] overflow-hidden rounded-xl ring-1 ring-inset ring-[var(--hairline)]">
+                <Image
+                  src={craftTileFor(i)}
+                  alt=""
+                  fill
+                  sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
               <h3 className="mt-7 font-serif text-2xl text-espresso">{member.name}</h3>
               <p className="mt-1 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-brand-red">
                 {member.role}
