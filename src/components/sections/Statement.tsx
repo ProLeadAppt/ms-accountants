@@ -11,7 +11,6 @@ export function Statement() {
         <EyebrowTag>What we do</EyebrowTag>
         <SplitHeadline
           as="h2"
-          splitType="lines,words"
           className="mt-10 max-w-[20ch] font-display text-4xl leading-[1.08] text-clay sm:max-w-[24ch] sm:text-6xl lg:text-7xl"
           segments={[
             {

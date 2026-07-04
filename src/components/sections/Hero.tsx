@@ -46,7 +46,8 @@ export function Hero() {
                 </div>
                 <SplitHeadline
                   as="h1"
-                  splitType="lines"
+                  reveal="hero"
+                  underline
                   className="mt-8 max-w-[18ch] font-serif text-[2.7rem] leading-[0.98] text-cream sm:text-6xl lg:text-[5.5rem]"
                   emClassName="headline-em text-red-bright"
                   segments={[
