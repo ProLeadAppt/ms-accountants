@@ -1,6 +1,50 @@
 # Progress — MS Accountants Website v2
 
-## HANDOFF — READ FIRST (next session starts here)  [updated 2026-06-30i]
+## HANDOFF — READ FIRST  [updated 2026-07-04 — Ink reveal language + scroll fix]
+
+### INK REVEAL LANGUAGE (site-wide text-reveal) — DONE locally on redesign-v2, deploy HELD, NOT visually verified
+Tyson asked for an "incredible" text reveal. Brainstormed 4 options via a rendered
+Reveal-Lab artifact; he chose **Ink** — a variable-weight bloom (words press from
+hairline-thin 300 to full weight, exploiting Zodiak being a *variable* font) with
+Typeset's held-back move: the red "wrote the thesis" blooms LAST, alone, with a drawn
+underline.
+
+- **Engine:** the one shared `src/components/motion/SplitHeadline.tsx` gained
+  `reveal="hero"|"section"` + `underline`. Splits into words (SplitText), tweens
+  `fontWeight` (browser interpolates the variable axis). Hero runs on mount with the
+  held-back em beat; sections run on a ScrollTrigger (`top 82%`, once). Splits only
+  after `document.fonts.ready`; reduced-motion / no-JS fall through to the natural
+  full-weight heading (Tier 3, verified in prerendered HTML).
+- **Timing lives ONLY in `src/lib/motion/bloom.ts`** (tested, 4 unit tests). This is the
+  single tuning lever. Per-word 1.6s (hero) / 1.2s (section) is the operator-approved
+  SLOW-MO pace — he explicitly rejected the faster "normal" pace. To shorten the ~3.3s
+  hero, trim `stagger`/`gap` ONLY, never `wordDur` (that carries the press he liked).
+- **Rollout (every rendered heading):** hero + all 7 homepage acts + 4 inner-page heroes
+  (PageHero now takes `titleSegments`) + 404 + FinalCTA/PromiseBlock/PublishedThinking/
+  TeamRoster/about-origin. Repeated list/card/step items left to their existing Stagger
+  by design. ConversationAct + PromiseBlock keep the "get the expert" payoff composed
+  from `promiseCopy` (single source of truth).
+- **Verify gate green:** lint · vitest 27/27 · next build 16 · em-dash guard (1/page =
+  Header aria-label) · accent-phrase spacing checked in prerendered HTML.
+- Spec/plan: `docs/superpowers/{specs,plans}/2026-07-04-reveal-language-*`.
+
+### SCROLL-TO-TOP BUG — FIXED (same session)
+`src/components/motion/ScrollReset.tsx` (mounted in layout): ScrollSmoother owns the
+scroll position via a transform and persists across App Router navigations, so pages
+opened mid-scroll and "remembered" position on return. Now resets smoother + window +
+`ScrollTrigger.refresh()` on each pathname change; `#anchor` links left alone.
+
+➡️ **STILL OPEN before deploy:** the REAL-DESKTOP visual pass (this session's env
+throttles rAF so the motion itself is unconfirmable). Watch: hero held-back bloom +
+underline on load → a section blooming on scroll → emulate `prefers-reduced-motion` and
+confirm every heading degrades to static + native scrolling. Then tune `bloom.ts` if the
+hero drags, and confirm the scroll-to-top fix feels right on navigation. `npm run dev`
+→ localhost:3000. 8 commits, HEAD `e0344a3`, 7 ahead of last deploy `349c50c`, NOT
+pushed. Deploy only on Tyson's explicit go.
+
+---
+
+## HANDOFF (prior)  [updated 2026-06-30i]
 
 ### PASS 7 — PREMIUM MOTION PASS (2026-06-30i) — DONE locally, NOT yet redeployed (deploy held for Dr S sign-off)
 Executed the full plan (`docs/superpowers/plans/2026-06-30-premium-motion-pass.md`,
