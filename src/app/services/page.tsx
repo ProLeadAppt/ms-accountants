@@ -78,10 +78,15 @@ export default function ServicesPage() {
                     <p className="mt-4 max-w-2xl text-[0.97rem] leading-relaxed text-[var(--muted)]">
                       {s.teaserBlurb}
                     </p>
-                    <div className="relative z-10 mt-6">
+                    <div className="relative z-10 mt-6 inline-flex items-center gap-2">
                       <TextLink href={`/services/${s.slug}`} className="text-brand-red">
                         Explore {s.navTitle}
                       </TextLink>
+                      <Icon
+                        name="arrow"
+                        size={16}
+                        className="text-brand-red transition-transform duration-300 group-hover:translate-x-1"
+                      />
                     </div>
                   </div>
                 </div>
