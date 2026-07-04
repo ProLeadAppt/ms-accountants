@@ -28,9 +28,28 @@ export function ScrollReset() {
 
   useIsoLayoutEffect(() => {
     if (typeof window === "undefined") return;
-    if (window.location.hash) return; // preserve #anchor jumps
-
     const smoother = ScrollSmoother.get();
+    const hash = window.location.hash;
+
+    if (hash) {
+      // In-page anchor (e.g. /about#team). ScrollSmoother intercepts native
+      // anchor scrolling, so resolve the target ourselves — after a frame so
+      // the new page's layout is measured and triggers are refreshed.
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+        let el: Element | null = null;
+        try {
+          el = document.querySelector(hash);
+        } catch {
+          el = null;
+        }
+        if (!el) return;
+        if (smoother) smoother.scrollTo(el as HTMLElement, false);
+        else (el as HTMLElement).scrollIntoView();
+      });
+      return;
+    }
+
     if (smoother) {
       smoother.scrollTo(0, false); // instant jump, no smooth glide
     }
