@@ -81,7 +81,12 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');",
+              "document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');" +
+              // Decide before the overlay below paints: skip it if it already ran
+              // this session or the visitor prefers reduced motion. This runs
+              // ahead of the server-rendered #ms-preloader, so the skip case
+              // never flashes the loader.
+              "try{if(sessionStorage.getItem('ms-preloaded')==='1'||matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('preloader-done');}}catch(e){}",
           }}
         />
         <GoogleAnalytics />

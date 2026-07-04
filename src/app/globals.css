@@ -272,6 +272,20 @@ textarea {
   transform: none !important;
 }
 
+/* ----------------------------------------------------------------------------
+   Preloader first-paint gating.
+   The overlay is server-rendered so it covers the page from the very first
+   paint (loader first, page second, never the reverse). The body-top inline
+   script decides BEFORE paint whether to keep it: hidden with no JS (so it can
+   never become a permanent block) and hidden once it has already shown this
+   session or under reduced motion. Only a genuine first visit paints it, then
+   GSAP counts it up and lifts it away.
+---------------------------------------------------------------------------- */
+.no-js #ms-preloader,
+.preloader-done #ms-preloader {
+  display: none !important;
+}
+
 
 /* ----------------------------------------------------------------------------
    Atmosphere — warm film grain over the whole page for depth

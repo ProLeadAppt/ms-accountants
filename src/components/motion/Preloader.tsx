@@ -8,22 +8,31 @@ import { shouldShowPreloader, markPreloaded } from "@/lib/motion/preloader";
 
 export function Preloader({ heroSrc }: { heroSrc: string }) {
   const reduced = usePrefersReducedMotion();
-  const [show, setShow] = useState(false);
+  // Shown by DEFAULT so the overlay is in the server HTML and covers the page
+  // from the very first paint (loader first, page second). Server and first
+  // client render agree on `true`, so there is no hydration mismatch; the
+  // skip cases are hidden pre-paint by the body-top inline script (CSS) and
+  // then removed here after mount.
+  const [show, setShow] = useState(true);
   const rootRef = useRef<HTMLDivElement>(null);
   const numRef = useRef<HTMLSpanElement>(null);
   const barRef = useRef<HTMLSpanElement>(null);
 
-  // Decide on mount (client only) whether to show. This must run post-mount:
-  // it reads sessionStorage + the reduced-motion preference, and the initial
-  // SSR render must stay false to avoid a hydration mismatch.
+  // Decide on mount (client only) whether to KEEP the overlay. Remove it when
+  // it should not run this load: reduced motion, or it already ran this
+  // session. The inline head script has already hidden it via CSS in these
+  // cases, so this removal only cleans the DOM (no flash).
   useEffect(() => {
-    if (reduced) return;
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- client-only one-shot decision
-    if (shouldShowPreloader(window.sessionStorage)) setShow(true);
+    if (reduced || !shouldShowPreloader(window.sessionStorage)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- client-only one-shot decision
+      setShow(false);
+    }
   }, [reduced]);
 
   useEffect(() => {
     if (!show || !rootRef.current) return;
+    // Do not spin up GSAP on a load where the overlay is being removed.
+    if (reduced || !shouldShowPreloader(window.sessionStorage)) return;
     registerGsap();
 
     const progress = { p: 0 };
@@ -85,13 +94,14 @@ export function Preloader({ heroSrc }: { heroSrc: string }) {
       window.clearTimeout(cap);
       creep.kill();
     };
-  }, [show, heroSrc]);
+  }, [show, heroSrc, reduced]);
 
   if (!show) return null;
 
   return (
     <div
       ref={rootRef}
+      id="ms-preloader"
       aria-hidden="true"
       className="scheme-espresso fixed inset-0 z-[10000] flex flex-col items-center justify-center bg-espresso"
     >
