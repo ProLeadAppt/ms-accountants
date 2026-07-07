@@ -12,7 +12,7 @@ export const site = {
   cta: "Book a conversation with Dr Sridaran",
   ctaHref: "/contact",
   footerTrust:
-    "A boutique Sydney firm led by a chartered accountant and lawyer who also holds a doctorate in Australian tax law that has spent his career on the hardest tax questions. His team builds every file. He reviews every one.",
+    "A boutique Sydney firm led by a chartered accountant and lawyer who also holds a doctorate in Australian tax law and has spent his career on the hardest tax questions. His team builds every file. He reviews every one.",
   contact: {
     phone: "02 9739 4837",
     phoneHref: "tel:+61297394837",

@@ -22,7 +22,7 @@ export default function ContactPage() {
           { text: "When the tax question is hard," },
           { text: "start here.", em: true },
         ]}
-        lede="Tell us what you are weighing up. You will be speaking with the principal, not a call centre."
+        lede="Tell us what you are weighing up. You will be speaking with the director, not a call centre."
       />
 
       <section className="scheme-cream py-20 lg:py-28">
