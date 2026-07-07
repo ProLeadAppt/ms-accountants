@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
 import { Statement } from "@/components/sections/Statement";
+import { MissionPrinciples } from "@/components/sections/MissionPrinciples";
 import { ServiceList } from "@/components/sections/ServiceList";
 import { PeopleAct } from "@/components/sections/PeopleAct";
 import { ProofAct } from "@/components/sections/ProofAct";
@@ -13,6 +14,7 @@ export default function HomePage() {
     <>
       <Hero />
       <Statement />
+      <MissionPrinciples />
       <ServiceList />
       <PeopleAct />
       <ProofAct />

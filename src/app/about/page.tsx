@@ -10,7 +10,6 @@ import { HowItWorks } from "@/components/sections/HowItWorks";
 import { PublishedThinking } from "@/components/sections/PublishedThinking";
 import { TeamRoster } from "@/components/sections/TeamRoster";
 import { FinalCTA } from "@/components/sections/FinalCTA";
-import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Dr Maheswaran Sridaran",
@@ -23,13 +22,13 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="The principal"
+        eyebrow="The director"
         underline
         titleSegments={[
-          { text: "An accountant and lawyer who chose to" },
+          { text: "An accountant who is also a lawyer who chose to" },
           { text: "run a small firm.", em: true },
         ]}
-        lede={site.credentialLine}
+        lede="Led by Dr Maheswaran Sridaran, Chartered Accountant, lawyer, registered tax agent, PhD Australian tax law (Macquarie University)."
       />
 
       {/* Origin story */}
@@ -64,14 +63,12 @@ export default function AboutPage() {
                   Few people with Dr Sridaran&rsquo;s background end up running
                   a boutique firm. He is a chartered accountant and a
                   lawyer, with a doctorate in Australian tax law and over 45
-                  years across more than five countries, the early years with
+                  years across more than five countries, mostly with
                   two of the Big Four, the last 25 in Australia. The expected
                   path was a corner office at a global firm.
                 </p>
                 <p>
-                  He chose the opposite. A practice deliberately kept small,
-                  where the technical depth of a big firm meets an adviser who
-                  knows your business by name.
+                  He built the opposite: a practice deliberately kept small so he can find his voice, and so he can help others in his firm find their voice. The technical depth of a big firm meets an adviser who knows your business by name.
                 </p>
                 <p>
                   Being both an accountant and a lawyer, he can carry a tax

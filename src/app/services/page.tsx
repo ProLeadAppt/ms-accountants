@@ -31,10 +31,10 @@ export default function ServicesPage() {
         eyebrow="Services"
         titleSegments={[
           { text: "Five disciplines, one" },
-          { text: "principal", em: true },
+          { text: "director", em: true },
           { text: "on every file." },
         ]}
-        lede="The work spans planning; disputes, investigations and litigation; compliance; advisory; and audit. What does not change is who reviews it. Every engagement passes under Dr Sridaran personally, a chartered accountant who is also a lawyer."
+        lede="The work spans planning; disputes, investigations and litigation; compliance; advisory; and SMSF compliance. What does not change is who reviews it. Every engagement passes under Dr Sridaran personally, a chartered accountant who is also a lawyer that specialises in Australian tax law."
       />
 
       <section className="scheme-cream py-20 lg:py-28">

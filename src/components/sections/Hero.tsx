@@ -51,9 +51,9 @@ export function Hero() {
                   className="mt-8 max-w-[18ch] font-serif text-[2.7rem] leading-[0.98] text-cream sm:text-6xl lg:text-[5.5rem]"
                   emClassName="headline-em text-red-bright"
                   segments={[
-                    { text: "Your accountant should know tax. Ours" },
-                    { text: "wrote the thesis", em: true },
-                    { text: "on it, and is a lawyer too." },
+                    { text: "Your accountant should know tax. Ours not only" },
+                    { text: "wrote a doctoral thesis", em: true },
+                    { text: "on it, published a book on it, and is also a lawyer who specialises in it." },
                   ]}
                 />
                 <div data-hero="rise" className="mt-11">
@@ -68,12 +68,12 @@ export function Hero() {
               >
                 <div>
                   <div className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-cream/45">
-                    Principal
+                    Director
                   </div>
                   <p className="mt-2 text-base leading-relaxed text-cream/85">
                     Dr Maheswaran Sridaran
                     <br />
-                    PhD (tax law) &middot; Chartered Accountant &middot; Lawyer
+                    Chartered Accountant &middot; Lawyer &middot; Registered Tax Agent &middot; PhD Australian tax law (Macquarie University)
                   </p>
                 </div>
                 <div>
@@ -81,9 +81,9 @@ export function Hero() {
                     The practice
                   </div>
                   <p className="mt-2 text-base leading-relaxed text-cream/85">
-                    Over 45 years across more than five countries, the early
-                    years with two of the Big Four. Nothing leaves the firm
-                    without passing under his eye.
+                    Over 45 years, in more than five countries, mostly with two
+                    of the Big Four, the last 25 in Australia. Nothing leaves
+                    the firm without passing his eye.
                   </p>
                 </div>
                 <div>

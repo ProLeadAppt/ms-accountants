@@ -7,12 +7,12 @@
 export const site = {
   name: "MS Accountants",
   tagline: "A boutique Sydney tax & accounting firm.",
-  credentialLine: "Led by Dr Maheswaran Sridaran · Chartered Accountant · Lawyer · PhD in Australian tax law",
+  credentialLine: "Led by Dr Maheswaran Sridaran · Chartered Accountant · Lawyer · Registered Tax Agent · PhD in Australian tax law (Macquarie University)",
   url: "https://msaccountants.com.au",
   cta: "Book a conversation with Dr Sridaran",
   ctaHref: "/contact",
   footerTrust:
-    "A boutique Sydney firm led by a chartered accountant and lawyer who has spent his career on the hardest tax questions. His team builds every file. He reviews every one.",
+    "A boutique Sydney firm led by a chartered accountant and lawyer who also holds a doctorate in Australian tax law that has spent his career on the hardest tax questions. His team builds every file. He reviews every one.",
   contact: {
     phone: "02 9739 4837",
     phoneHref: "tel:+61297394837",
@@ -31,8 +31,22 @@ export const valueStats = [
   { figure: "PhD", unit: "in tax law", label: "Doctoral-level expertise in Australian tax law" },
   { figure: "CA", unit: "+ lawyer", label: "A chartered accountant who is also a lawyer" },
   { figure: "45+", unit: "years", label: "Across more than five countries, the last 25 in Australia" },
-  { figure: "1", unit: "principal", label: "Every file that leaves the firm passes across Dr Sridaran's desk" },
+  { figure: "1", unit: "director", label: "Every file that leaves the firm passes across Dr Sridaran's desk" },
 ] as const;
+
+export const missionPrinciples = {
+  eyebrow: "How the firm works",
+  heading: "Timely care, responsible judgement, and work the team can be proud of.",
+  body:
+    "MS Accountants was built around a simple standard: serve clients to the highest level, regardless of their station, while giving the people doing the work the resources, respect, and responsibility they need to do it properly. The firm treats clients and staff as its most important assets, acts constructively and respectfully, and never charges a fee a client cannot sustain.",
+  values: [
+    "Trustworthiness",
+    "Responsibility",
+    "Professionalism",
+    "Teamwork",
+    "Learning from the work",
+  ],
+} as const;
 
 export const nav = [
   { label: "Services", href: "/services" },
@@ -86,7 +100,7 @@ export const credentialCards = [
   },
   {
     title: "Over 45 years, across more than five countries.",
-    body: "The early years with two of the Big Four, the last 25 in Australia. You get that seniority applied to your file directly, without big-firm overhead, handoffs, or a rotating cast of account managers.",
+    body: "Mostly with two of the Big Four, the last 25 in Australia. You get that seniority applied to your file directly, without big-firm overhead, handoffs, or a rotating cast of account managers.",
   },
   {
     title: "Taught tax law. Published in the AFR and SMH. Wrote the book.",
@@ -199,7 +213,7 @@ export const services: Service[] = [
     tagline: "Every obligation, handled accurately and on time.",
     intro: [
       "Compliance is the part no one thanks you for, until it goes wrong. Late lodgements, missed obligations and small errors carry real cost. The job is to make all of it quiet and predictable, so you can stop thinking about it.",
-      "At MS Accountants, routine work still passes under the eye of a chartered accountant, lawyer and registered tax agent who has spent decades getting it right at the highest level. Even your compliance benefits from that standard.",
+      "At MS Accountants, routine work still passes under Dr Sridaran personally, a chartered accountant who is also a lawyer that specialises in Australian tax law. Even your compliance benefits from that standard.",
     ],
     helpHeading: "What we help with",
     help: [
@@ -258,21 +272,21 @@ export const services: Service[] = [
     slug: "self-managed-super",
     navTitle: "Self-Managed Super",
     teaserTitle: "Self-Managed Super",
-    teaserBlurb: "SMSF audits, done properly.",
+    teaserBlurb: "Your SMSF compliance work done properly.",
     title: "Self-Managed Superannuation",
-    tagline: "Your SMSF audit, done properly.",
+    tagline: "Your SMSF compliance work done properly.",
     intro: [
-      "A self-managed super fund gives you control, and a set of obligations that have to be met precisely. The annual audit isn't a formality; it's what keeps your fund compliant and your retirement savings protected.",
-      "MS Accountants conducts SMSF audits to the standard you'd expect from a firm led by a chartered accountant and lawyer with decades of audit and tax experience at the highest level.",
+      "A self-managed super fund gives you control, and a set of obligations that have to be met precisely. Contributions, pensions, records, lodgements, and tax positions all have to stand up to scrutiny.",
+      "MS Accountants handles SMSF compliance to the standard you'd expect from a firm led by a chartered accountant, lawyer, registered tax agent, and PhD in Australian tax law.",
     ],
     helpHeading: "What we help with",
     help: [
       {
-        term: "SMSF audits",
-        desc: "handled by people who understand both the audit standards and the tax consequences behind them.",
+        term: "SMSF compliance",
+        desc: "handled by people who understand both the superannuation rules and the tax consequences behind them.",
       },
     ],
-    why: "An SMSF audit is easy to treat as a formality, which is exactly why it is where funds get exposed. It sits where superannuation, tax and audit meet, three areas Dr Sridaran has worked across his entire career. Your fund is reviewed by someone who understands all three, not just one.",
+    why: "SMSF work is easy to treat as routine, which is exactly why funds get exposed. It sits where superannuation, tax and compliance meet, areas Dr Sridaran has worked across his entire career. Your fund is reviewed by someone who understands the whole position, not just one part of it.",
     image: "/generated/smsf-2.jpg",
   },
 ];
@@ -315,10 +329,10 @@ export const team: readonly TeamMember[] = [
     slug: "maheswaran-sridaran",
     name: "Dr Maheswaran Sridaran",
     shortName: "Dr Sridaran",
-    role: "Principal",
+    role: "Director",
     credentials: ["PhD (Tax), Macquarie University", "LLB, Macquarie University", "Master of Taxation, UNSW", "Chartered Accountant", "Lawyer (admitted in NSW)", "Registered Tax Agent"],
     credentialShort: "CA · Lawyer · PhD (Tax)",
-    bio: "A chartered accountant, lawyer and registered tax agent with over 45 years across more than five countries, the early years with two of the Big Four, the last 25 in Australia. His doctoral thesis examined Australian capital gains tax; his first book asked whether capital gains are taxed equitably in Australia. He founded MS Accountants in 2010 and remains its sole director. Ask him what the firm rests on and he will not point to his own credentials. He will tell you a firm is only as good as the people it hires, which is why he hires carefully, and why every engagement that leaves the practice is reviewed by him first.",
+    bio: "A chartered accountant, lawyer, registered tax agent, and the holder of a doctorate in Australian tax law, with over 45 years across more than five countries, mostly with two of the Big Four, the last 25 in Australia. His doctoral thesis examined Australian capital gains tax; his first book asked whether capital gains are taxed equitably in Australia. He founded MS Accountants in 2010 and remains its sole director. Ask him what the firm rests on and he will not point to his own credentials. He will tell you a firm is only as good as the people it hires, which is why he hires carefully, and why every engagement that leaves the practice is reviewed by him first.",
     initials: "MS",
     featured: true,
   },
@@ -368,7 +382,7 @@ export const team: readonly TeamMember[] = [
     role: "Assistant Accountant",
     credentials: ["Associate member, CPA Australia", "Master of Professional Accounting & Finance, Deakin University", "BSc Accounting & Finance (Special), Rajarata University, Sri Lanka"],
     credentialShort: "CPA Australia (Assoc.) · MPAF, Deakin",
-    bio: "An assistant accountant with the firm since 2024, a couple of years after arriving in Australia. Lakshika worked for nearly ten years as an accountant in Sri Lanka, in the commercial sector and in professional accounting firms including EY. Since arriving in Australia she has added a Master of Professional Accounting & Finance from Deakin University to her bachelor's degree in accounting and finance from Rajarata University, and is completing the CPA Australia program. She prepares compliance work for the firm's clients under Niroshi's supervision.",
+    bio: "An assistant accountant with the firm since 2024, a couple of years after arriving in Australia. Lakshika worked for nearly ten years as an accountant in Sri Lanka, in the commercial sector and in professional accounting firms including EY. Since arriving in Australia she has added a Master of Professional Accounting & Finance from Deakin University to her bachelor's degree in accounting and finance from Rajarata University, Sri Lanka, and is completing the CPA Australia program. She prepares compliance work for the firm's clients under Niroshi's supervision.",
     lineage: "EY, Sri Lanka",
     joined: "2024",
     initials: "LS",
@@ -467,14 +481,14 @@ export const promiseCopy = {
   headlineLead: "You hired the expert. You should",
   headlineEm: "get",
   headlineTail: "the expert",
-  body: "Elsewhere, a partner wins the work and a junior does it. Here, Dr Sridaran reviews the quality on every engagement himself. That is the whole point of a boutique. The person whose name is on the door is the person on your file.",
+  body: "Elsewhere, a partner wins the work and a junior does it. Here, Dr Sridaran reviews the quality on every engagement himself. That is the whole point of a boutique firm built on trustworthiness, responsibility, and professional care. The person whose name is on the door is the person on your file.",
 } as const;
 
 // Act VI "How it works" steps, single source of truth. Rendered by HowRail
 // (homepage, compressed to one rail) and HowItWorks (inner pages, full detail).
 export const howItWorksSteps = [
   {
-    title: "You speak with the principal.",
+    title: "You speak with the director.",
     body: "Not an account manager, and not a rotating cast. From the first conversation, you deal with Dr Sridaran.",
   },
   {

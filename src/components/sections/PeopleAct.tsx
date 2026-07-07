@@ -45,7 +45,7 @@ export function PeopleAct() {
           </Reveal>
 
           <Reveal className="flex flex-col items-start justify-center">
-            <EyebrowTag>The principal</EyebrowTag>
+            <EyebrowTag>The director</EyebrowTag>
             <SplitHeadline
               as="h2"
               className="mt-7 font-serif text-4xl leading-[1.06] sm:text-5xl"

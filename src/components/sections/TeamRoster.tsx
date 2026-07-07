@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { cn } from "@/lib/cn";
 import { Container } from "@/components/layout/Container";
 import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { Reveal } from "@/components/motion/Reveal";
@@ -37,7 +36,7 @@ export function TeamRoster() {
           </p>
         </Reveal>
 
-        {/* Featured: the principal */}
+        {/* Featured: the director */}
         <Reveal className="mt-14">
           <div className="grid gap-8 rounded-2xl border border-[var(--hairline)] bg-[color-mix(in_srgb,var(--color-cream)_55%,transparent)] p-8 lg:grid-cols-[300px_1fr] lg:gap-12 lg:p-12">
             <div className="relative aspect-[4/5] max-w-[300px] overflow-hidden rounded-2xl ring-1 ring-inset ring-[var(--hairline)]">
@@ -69,12 +68,7 @@ export function TeamRoster() {
           {bench.map((member, i) => (
             <article
               key={member.slug}
-              className={cn(
-                "flex flex-col bg-[color-mix(in_srgb,var(--color-cream)_55%,transparent)] p-8 lg:p-10",
-                // The senior accountant supervises the whole bench; her card is
-                // wider, which also keeps the 5-card grid full at 2 and 3 cols.
-                member.slug === "niroshi-rathnayakage" && "sm:col-span-2",
-              )}
+              className="flex flex-col bg-[color-mix(in_srgb,var(--color-cream)_55%,transparent)] p-8 lg:p-10"
             >
               {/* Conceptual craft still-life, paired to this member the same way
                   as the homepage bench (decorative; the name/role carries it). */}

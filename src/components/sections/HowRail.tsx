@@ -24,7 +24,7 @@ export function HowRail() {
             emClassName="text-brand-red"
             segments={[
               { text: "One" },
-              { text: "principal.", em: true },
+              { text: "director.", em: true },
               { text: "On your file, start to finish." },
             ]}
           />

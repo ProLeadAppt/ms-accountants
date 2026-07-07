@@ -20,7 +20,7 @@ export function ServiceList() {
               emClassName="text-brand-red"
               segments={[
                 { text: "Five disciplines, one" },
-                { text: "principal", em: true },
+                { text: "director", em: true },
                 { text: "on every file." },
               ]}
             />

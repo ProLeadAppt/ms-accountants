@@ -32,7 +32,7 @@ export function HowItWorks({
           <SplitHeadline
             as="h2"
             className="mt-7 font-serif text-4xl leading-[1.06] sm:text-5xl"
-            segments={[{ text: "One principal. On your file, start to finish." }]}
+            segments={[{ text: "One director. On your file, start to finish." }]}
           />
           <p className="mt-6 text-lg leading-relaxed text-[var(--muted)]">
             No handoffs, no rotating account managers. Here is what working with
