@@ -39,9 +39,11 @@ export function Header() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-[9999] transition-colors duration-300",
-        scrolled
-          ? "border-b border-lines bg-cream/95 text-espresso backdrop-blur-md"
-          : "text-cream",
+        open
+          ? "text-cream"
+          : scrolled
+            ? "border-b border-lines bg-cream/95 text-espresso backdrop-blur-md"
+            : "text-cream",
       )}
     >
       <Container className="flex items-center justify-between py-5">
@@ -89,7 +91,10 @@ export function Header() {
       </Container>
 
       {open && (
-        <div id="mobile-menu" className="scheme-espresso fixed inset-0 z-[10000] md:hidden">
+        <div
+          id="mobile-menu"
+          className="scheme-espresso fixed inset-0 z-[10000] min-h-[100dvh] overflow-y-auto bg-espresso md:hidden"
+        >
           <Container className="flex items-center justify-between py-5">
             <Logo className="text-xl text-cream" />
             <button type="button" onClick={() => setOpen(false)} aria-label="Close menu">
