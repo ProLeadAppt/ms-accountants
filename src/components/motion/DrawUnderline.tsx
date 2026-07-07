@@ -34,7 +34,7 @@ export function DrawUnderline({
   );
 
   return (
-    <span className="relative inline-block whitespace-nowrap pb-[0.12em]">
+    <span className="relative inline-block max-w-full whitespace-normal break-words pb-[0.12em] sm:whitespace-nowrap">
       {children}
       <svg
         className="pointer-events-none absolute inset-x-0 bottom-0 h-[0.22em] w-full overflow-visible"
