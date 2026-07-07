@@ -38,7 +38,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
+        "fixed inset-x-0 top-0 z-[9999] transition-colors duration-300",
         scrolled
           ? "border-b border-lines bg-cream/95 text-espresso backdrop-blur-md"
           : "text-cream",
@@ -78,16 +78,18 @@ export function Header() {
 
         <button
           type="button"
-          className="md:hidden"
+          className="relative z-[10000] inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-cream/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current md:hidden"
           onClick={() => setOpen(true)}
           aria-label="Open menu"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           <Icon name="menu" />
         </button>
       </Container>
 
       {open && (
-        <div className="scheme-espresso fixed inset-0 z-50 md:hidden">
+        <div id="mobile-menu" className="scheme-espresso fixed inset-0 z-[10000] md:hidden">
           <Container className="flex items-center justify-between py-5">
             <Logo className="text-xl text-cream" />
             <button type="button" onClick={() => setOpen(false)} aria-label="Close menu">

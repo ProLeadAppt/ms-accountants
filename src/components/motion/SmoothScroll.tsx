@@ -18,7 +18,13 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
 
   useGSAP(
     () => {
-      if (reduced) return;
+      const isTouchDevice =
+        typeof window !== "undefined" &&
+        (window.matchMedia("(pointer: coarse)").matches ||
+          "ontouchstart" in window ||
+          navigator.maxTouchPoints > 0);
+
+      if (reduced || isTouchDevice) return;
       registerGsap();
       const smoother = ScrollSmoother.create({
         wrapper: "#smooth-wrapper",
