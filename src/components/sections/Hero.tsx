@@ -1,10 +1,10 @@
 import { Container } from "@/components/layout/Container";
-import { Button } from "@/components/ui/Button";
+import { Button, TextLink } from "@/components/ui/Button";
 import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { HeroBackground } from "@/components/motion/HeroBackground";
 import { HeroTimeline } from "@/components/motion/HeroTimeline";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
-import { site, authorityItems } from "@/lib/site";
+import { site } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -13,7 +13,7 @@ export function Hero() {
           the load scale-in and the scroll parallax actually target it, while the
           z-0/z-10 split keeps the media behind the content. */}
       <HeroTimeline className="relative block min-h-[100svh]">
-        {/* Background — library study, drifting dust motes (fal.ai Kling i2v). */}
+        {/* Background — library study, quietened for a more private-room feel. */}
         <div
           data-hero="bg"
           data-speed="0.85"
@@ -21,104 +21,69 @@ export function Hero() {
           aria-hidden="true"
         >
           <HeroBackground />
-          {/* Dust + light layer, drifts faster than the still for depth. */}
           <div
             data-speed="1.12"
-            className="absolute inset-0 opacity-[0.5] mix-blend-screen [background-image:radial-gradient(circle,rgba(255,224,170,0.5)_1px,transparent_0)] [background-size:64px_64px]"
+            className="absolute inset-0 opacity-[0.22] mix-blend-screen [background-image:radial-gradient(circle,rgba(255,224,170,0.45)_1px,transparent_0)] [background-size:72px_72px]"
           />
-          {/* Top fade so the cream nav stays legible over the bright facade. */}
-          <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-espresso-deep/85 to-transparent" />
-          {/* Left-to-right espresso scrim: headline legibility, right third left to glow. */}
-          <div className="absolute inset-0 bg-gradient-to-r from-espresso-deep from-10% via-espresso-deep/62 via-58% to-transparent to-96%" />
-          <div className="absolute inset-0 bg-espresso-soft/10 mix-blend-multiply" />
-          {/* Fine dot grain (kept from v1). */}
-          <div className="absolute inset-0 opacity-[0.05] [background-image:radial-gradient(circle_at_1px_1px,#fff_1px,transparent_0)] [background-size:22px_22px]" />
-          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-espresso-soft to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-espresso-deep/90 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-espresso-deep from-8% via-espresso-deep/78 via-58% to-espresso-deep/18 to-100%" />
+          <div className="absolute inset-0 bg-gradient-to-b from-espresso-deep/12 via-transparent to-espresso-soft/92" />
+          <div className="absolute inset-0 bg-espresso-soft/18 mix-blend-multiply" />
+          <div className="absolute inset-0 opacity-[0.025] [background-image:radial-gradient(circle_at_1px_1px,#fff_1px,transparent_0)] [background-size:24px_24px]" />
         </div>
 
-        {/* Content — Quiet-Luxury split: claim left, credentials panel right. */}
-        <div className="relative z-10 flex min-h-[100svh] flex-col justify-center pt-28 pb-28">
+        {/* Content — one cinematic claim, then quiet proof. */}
+        <div className="relative z-10 flex min-h-[100svh] flex-col justify-center pt-24 pb-16 lg:min-h-[760px] lg:pt-28 lg:pb-24">
           <Container>
-            <div className="grid items-center gap-12 lg:grid-cols-[1.55fr_0.95fr] lg:gap-16">
-              <div>
+            <div className="relative max-w-6xl pt-[3vh] lg:pt-[4vh]">
+              <div className="max-w-5xl">
                 <div data-hero="rise">
-                  <EyebrowTag>Tax &middot; Advisory &middot; Disputes</EyebrowTag>
+                  <EyebrowTag>Sydney tax advisory</EyebrowTag>
                 </div>
                 <SplitHeadline
                   as="h1"
                   reveal="hero"
                   underline
-                  className="mt-8 max-w-[18ch] font-serif text-[2.7rem] leading-[0.98] text-cream sm:text-6xl lg:text-[5.5rem]"
+                  className="mt-6 max-w-[20ch] font-serif text-[2.55rem] leading-[0.95] tracking-[-0.03em] text-cream sm:text-[4.6rem] lg:text-[4.25rem] xl:text-[4.85rem]"
                   emClassName="headline-em text-red-bright"
                   segments={[
-                    { text: "Your accountant should know tax. Ours not only" },
-                    { text: "wrote a doctoral thesis", em: true },
-                    { text: "on it, published a book on it, and is also a lawyer who specialises in it." },
+                    { text: "Tax advice for decisions too important to treat as" },
+                    { text: "routine.", em: true },
                   ]}
                 />
-                <div data-hero="rise" className="mt-11">
-                  <Button href={site.ctaHref}>{site.cta}</Button>
+                <p
+                  data-hero="rise"
+                  className="mt-6 max-w-2xl text-base leading-relaxed text-cream/76 sm:text-lg lg:text-xl"
+                >
+                  Led by Dr Maheswaran Sridaran, Chartered Accountant, lawyer,
+                  registered tax agent, and PhD in Australian tax law.
+                </p>
+                <div
+                  data-hero="rise"
+                  className="mt-7 flex flex-col gap-5 sm:flex-row sm:items-center"
+                >
+                  <Button href={site.ctaHref}>Book a conversation</Button>
+                  <TextLink href="/about" className="text-cream/78 hover:text-cream">
+                    Read Dr Sridaran&apos;s story
+                  </TextLink>
                 </div>
               </div>
 
-              {/* Credentials hairline panel — fades in after the claim. */}
-              <div
-                data-hero="rise"
-                className="hidden flex-col gap-7 border-l border-cream/15 pl-8 lg:flex"
-              >
-                <div>
-                  <div className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-cream/45">
-                    Director
-                  </div>
-                  <p className="mt-2 text-base leading-relaxed text-cream/85">
-                    Dr Maheswaran Sridaran
-                    <br />
-                    Chartered Accountant &middot; Lawyer &middot; Registered Tax Agent &middot; PhD Australian tax law (Macquarie University)
-                  </p>
-                </div>
-                <div>
-                  <div className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-cream/45">
-                    The practice
-                  </div>
-                  <p className="mt-2 text-base leading-relaxed text-cream/85">
-                    Over 45 years, in more than five countries, mostly with two
-                    of the Big Four, the last 25 in Australia. Nothing leaves
-                    the firm without passing his eye.
-                  </p>
-                </div>
-                <div>
-                  <div className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-cream/45">
-                    Based
-                  </div>
-                  <p className="mt-2 text-base leading-relaxed text-cream/85">
-                    Sydney, servicing nationally
-                  </p>
-                </div>
+              <div data-hero="rise" className="mt-10 max-w-3xl border-t border-cream/14 pt-5">
+                <p className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-cream/45">
+                  Director-led review
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-cream/76">
+                  Chartered Accountant &middot; Lawyer &middot; Registered Tax Agent &middot;
+                  PhD Australian Tax Law
+                </p>
+                <p className="mt-4 text-sm leading-relaxed text-cream/60">
+                  The team prepares the work. Dr Sridaran personally reviews the
+                  quality on every engagement.
+                </p>
               </div>
             </div>
           </Container>
-
-          {/* Authority strip — replaces the AuthorityMarquee section. */}
-          <div data-hero="rise" className="absolute inset-x-0 bottom-0">
-            <Container>
-              <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-2 border-t border-cream/15 py-5">
-                <span className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-cream/45">
-                  As cited in
-                </span>
-                {authorityItems.slice(0, 3).map((item) => (
-                  <span
-                    key={item}
-                    className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-cream/55"
-                  >
-                    {item}
-                  </span>
-                ))}
-                <span className="hidden font-mono text-[0.62rem] uppercase tracking-[0.22em] text-cream/45 sm:inline">
-                  Sydney, Australia
-                </span>
-              </div>
-            </Container>
-          </div>
         </div>
       </HeroTimeline>
     </section>
