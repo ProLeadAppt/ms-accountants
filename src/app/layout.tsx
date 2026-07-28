@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { fontVariables } from "@/lib/fonts";
 import { site } from "@/lib/site";
+import { rootGraph } from "@/lib/schema";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
@@ -38,35 +39,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-const orgLd = {
-  "@context": "https://schema.org",
-  "@type": "AccountingService",
-  name: "MS Accountants",
-  description:
-    "Boutique Sydney tax and accounting firm led by Dr Maheswaran Sridaran, a chartered accountant and lawyer with a PhD in Australian tax law.",
-  url: site.url,
-  areaServed: "Sydney, Australia",
-  knowsAbout: [
-    "Tax law",
-    "Capital gains tax",
-    "Tax planning",
-    "Tax disputes",
-    "Tax-authority investigations",
-    "Tax litigation",
-    "ATO audits",
-    "Business advisory",
-    "Self-managed superannuation",
-  ],
-  founder: {
-    "@type": "Person",
-    name: "Dr Maheswaran Sridaran",
-    jobTitle: "Principal",
-    description:
-      "Chartered accountant, lawyer and registered tax agent. PhD in Australian tax law (Macquarie University), LLB (Macquarie University), Master of Taxation (UNSW). Over 45 years across more than five countries, the early years with two of the Big Four, the last 25 in Australia.",
-    alumniOf: ["Macquarie University", "UNSW"],
-  },
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -93,7 +65,7 @@ export default function RootLayout({
         <ConversionTracking />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(rootGraph) }}
         />
         <Preloader heroSrc={HERO_STILL} />
         <ScrollReset />

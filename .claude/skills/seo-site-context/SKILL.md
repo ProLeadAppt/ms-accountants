@@ -54,7 +54,10 @@ PO box. NAP consistency work in `/seo local` should treat these as canonical.
 | site config | `src/lib/site.ts` |
 | JSON-LD | 1 block |
 
-Schema types currently emitted: AccountingService, Person. That is all.
+Schema types currently emitted (from `src/lib/schema.ts`, one @id-linked
+graph): AccountingService, WebSite, Person, PostalAddress, ContactPoint,
+AdministrativeArea, OfferCatalog, Offer, EducationalOccupationalCredential,
+EducationalOrganization, plus Service and BreadcrumbList per service page.
 
 Indexable routes: `/`, `/about`, `/services`, `/contact`,
 `/services/[slug]` (slugs from `services` in `src/lib/site.ts`).
@@ -64,28 +67,47 @@ Indexable routes: `/`, `/about`, `/services`, `/contact`,
 This is the thinnest SEO surface of the seven repos. Highest leverage per
 hour of work.
 
-1. **No local schema.** Full NAP, geo-locatable office and opening context all
-   exist in `src/lib/site.ts` but none of it reaches structured data. There is
-   no `LocalBusiness` / `AccountingService` with `address`, `geo`,
-   `openingHoursSpecification`, `areaServed` or `telephone`. Start here.
-   `/seo schema` and `/seo local` are the relevant commands.
+1. **Facts still missing from the graph.** `src/lib/schema.ts` deliberately
+   omits `geo`, `openingHoursSpecification`, `priceRange`, `aggregateRating`
+   and `foundingDate` because the real values are not recorded anywhere in the
+   repo. Supply them in `src/lib/site.ts` and add them to the graph. Do not
+   guess: on a YMYL financial site a contradicted fact is a Trust defect,
+   which Google weights highest of the four E-E-A-T factors.
 
-2. **No BreadcrumbList** on `/services/[slug]`, despite a real hierarchy.
+2. **No `llms.txt`, no FAQ content, no article or insight surface.** There is
+   still no content layer for AI answer engines to cite. `/seo cluster` and
+   `/seo content-brief` are the tools for planning one. Note the `seo-geo`
+   evidence that llms.txt itself is not a citation lever, so build the content,
+   not the file.
 
-3. **No WebSite or Organization node**, so nothing ties the pages into a
-   single entity graph via `@id` references.
+3. **Minimal robots.** `src/app/robots.ts` is 9 lines, allow-all, with no AI
+   crawler directives and no disallow list. Compare with
+   `Aussie-Loan-Office/app/robots.ts`, which is the reference implementation
+   across this portfolio.
 
-4. **No Person credential markup.** `Dr Sridaran` has PhD, CA, lawyer and
-   registered tax agent credentials. `Person` with `hasCredential`
-   (`EducationalOccupationalCredential`), `alumniOf` and `knowsAbout` is the
-   single strongest E-E-A-T signal available on a YMYL site, and it is
-   currently absent.
+4. **NAP is not yet verified against live citations.** The schema now carries
+   the office address, but `/seo local` should check it matches Google
+   Business Profile and the major directories. The PO box is deliberately
+   excluded from the graph so it cannot split the NAP signal.
 
-5. **No `llms.txt`, no FAQ content, no article or insight surface.** There is
-   no content layer to be cited by AI answer engines. `/seo cluster` and
-   `/seo content-brief` are the tools for planning one.
+## Resolved 2026-07-28
 
-6. **Minimal robots.** No AI crawler directives, no disallow list.
+Built the entity graph in `src/lib/schema.ts`, replacing a single flat
+AccountingService block:
+
+- `AccountingService` (`#organization`) with structured PostalAddress, E.164
+  telephone, fax, email, areaServed, contactPoint and an OfferCatalog covering
+  all five services.
+- `Person` (`#sridaran`) with five explicit
+  `EducationalOccupationalCredential` entries (PhD, LLB, Master of Taxation,
+  Chartered Accountant, Registered Tax Agent), `alumniOf` as real
+  EducationalOrganization nodes, and `worksFor` linking back to the firm. This
+  is the strongest E-E-A-T signal available on a YMYL site and was previously
+  absent.
+- `WebSite` (`#website`) with publisher reference.
+- Per service page: `Service` with a provider reference, plus `BreadcrumbList`.
+- `src/lib/site.ts` gained `officeAddressParts` and E.164 phone forms so the
+  structured data and the visible NAP cannot drift apart.
 
 ## Verification
 

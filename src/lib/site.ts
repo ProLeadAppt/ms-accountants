@@ -23,6 +23,22 @@ export const site = {
     emailHref: "mailto:m.sridaran@msaccountants.com.au",
     officeAddress: "Suite 70, WOTSO WorkSpace, 5 George Street, North Strathfield NSW 2137",
     postalAddress: "P O Box 2194, Hornsby Westfield Post Office, Hornsby NSW 1635",
+    // Structured form of officeAddress above, for schema.org PostalAddress and
+    // for NAP consistency across directory citations. Must stay in step with
+    // officeAddress. The PO box is deliberately not modelled: Google matches
+    // citations on the physical premises, and a PO box in the address graph
+    // splits the NAP signal.
+    officeAddressParts: {
+      streetAddress: "Suite 70, WOTSO WorkSpace, 5 George Street",
+      addressLocality: "North Strathfield",
+      addressRegion: "NSW",
+      postalCode: "2137",
+      addressCountry: "AU",
+    },
+    // E.164 forms, taken from the tel: hrefs above. schema.org expects the
+    // international form even though the site displays the local one.
+    phoneE164: "+61297394837",
+    mobileE164: "+61410588536",
   },
 } as const;
 
