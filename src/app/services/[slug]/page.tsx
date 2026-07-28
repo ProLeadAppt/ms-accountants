@@ -14,6 +14,7 @@ import { CaseInPoint } from "@/components/sections/CaseInPoint";
 import { ServiceTestimonial } from "@/components/sections/ServiceTestimonial";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { services, getService } from "@/lib/services";
+import { serviceGraph } from "@/lib/schema";
 
 type Params = { slug: string };
 
@@ -49,6 +50,10 @@ export default async function ServiceDetailPage({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceGraph(service)) }}
+      />
       <PageHero
         eyebrow={service.flagship ? "Flagship service" : "Service"}
         titleSegments={[{ text: service.title }]}
