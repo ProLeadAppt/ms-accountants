@@ -334,8 +334,10 @@ export type TeamMember = {
   initials: string;
   /** Slug of the person they report to. */
   reportsTo?: string;
-  /** Path to a real portrait photograph. Never AI-generated. */
+  /** Path to an approved real portrait or client-authorised identity-preserving edit. */
   photo?: string;
+  /** Direct work contact shown on the About roster when supplied. */
+  email?: string;
   /** The principal's featured treatment on the roster. */
   featured?: boolean;
 };
@@ -350,11 +352,12 @@ export const team: readonly TeamMember[] = [
     credentialShort: "CA · Lawyer · PhD (Tax)",
     bio: "A chartered accountant, lawyer, registered tax agent, and the holder of a doctorate in Australian tax law, with over 45 years across more than five countries, mostly with two of the Big Four, the last 25 in Australia. His doctoral thesis examined Australian capital gains tax; his first book asked whether capital gains are taxed equitably in Australia. He founded MS Accountants in 2010 and remains its sole director. Ask him what the firm rests on and he will not point to his own credentials. He will tell you a firm is only as good as the people it hires, which is why he hires carefully, and why every engagement that leaves the practice is reviewed by him first.",
     initials: "MS",
+    photo: "/images/team/dr-maheswaran-sridaran-editorial.webp",
     featured: true,
   },
   {
     slug: "niroshi-rathnayakage",
-    name: "Ms Niroshi Rathnayakage",
+    name: "Ms Niroshi Sewwandika",
     shortName: "Niroshi",
     role: "Senior Accountant",
     credentials: ["CPA (Australia)", "Registered Tax Agent (Australia)", "BSc Management, University of Sri Jayewardenepura"],
@@ -364,6 +367,8 @@ export const team: readonly TeamMember[] = [
     joined: "2013",
     initials: "NR",
     reportsTo: "maheswaran-sridaran",
+    photo: "/images/team/niroshi-sewwandika-editorial.webp",
+    email: "nsewwandika0@gmail.com",
   },
   {
     slug: "lakshika-subramaniam",
@@ -377,6 +382,8 @@ export const team: readonly TeamMember[] = [
     joined: "2025",
     initials: "LS",
     reportsTo: "niroshi-rathnayakage",
+    photo: "/images/team/lakshika-subramaniam-editorial.webp",
+    email: "lakshikasp@gmail.com",
   },
   {
     slug: "eshani-rathnayake",
@@ -390,6 +397,7 @@ export const team: readonly TeamMember[] = [
     joined: "2024",
     initials: "ER",
     reportsTo: "niroshi-rathnayakage",
+    photo: "/images/team/eshani-rathnayake-editorial.webp",
   },
   {
     slug: "lakshika-senaviratne",
@@ -403,6 +411,8 @@ export const team: readonly TeamMember[] = [
     joined: "2024",
     initials: "LS",
     reportsTo: "niroshi-rathnayakage",
+    photo: "/images/team/lakshika-senaviratne-editorial.webp",
+    email: "lakshikasenaviratne@gmail.com",
   },
   {
     slug: "anne-tran",
@@ -415,6 +425,8 @@ export const team: readonly TeamMember[] = [
     joined: "2024",
     initials: "AT",
     reportsTo: "maheswaran-sridaran",
+    photo: "/images/team/anne-tran-editorial.webp",
+    email: "anne@quikstar.com.au",
   },
 ] as const;
 

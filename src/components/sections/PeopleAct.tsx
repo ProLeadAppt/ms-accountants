@@ -8,8 +8,8 @@ import { Stagger } from "@/components/motion/Stagger";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { team, teamCollective, credentialCards } from "@/lib/site";
 import {
-  PRINCIPAL_STUDY_IMAGE,
-  PRINCIPAL_STUDY_ALT,
+  PRINCIPAL_PORTRAIT_IMAGE,
+  PRINCIPAL_PORTRAIT_ALT,
   craftTileFor,
 } from "@/lib/craftImagery";
 
@@ -31,12 +31,12 @@ export function PeopleAct() {
       <Container>
         {/* The principal */}
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
-          {/* Conceptual study image (no headshots) evoking the principal's work. */}
+          {/* Dr Sridaran's approved editorial portrait. */}
           <Reveal>
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl ring-1 ring-inset ring-[var(--hairline)]">
               <Image
-                src={PRINCIPAL_STUDY_IMAGE}
-                alt={PRINCIPAL_STUDY_ALT}
+                src={PRINCIPAL_PORTRAIT_IMAGE}
+                alt={PRINCIPAL_PORTRAIT_ALT}
                 fill
                 sizes="(min-width: 1024px) 44vw, 100vw"
                 className="object-cover"
@@ -105,11 +105,11 @@ export function PeopleAct() {
             <div key={member.slug}>
               <div className="relative aspect-square overflow-hidden rounded-2xl ring-1 ring-inset ring-[var(--hairline)]">
                 <Image
-                  src={craftTileFor(i)}
-                  alt=""
+                  src={member.photo ?? craftTileFor(i)}
+                  alt={member.photo ? `${member.name}, ${member.role}` : ""}
                   fill
                   sizes="(min-width: 1024px) 18vw, 45vw"
-                  className="object-cover"
+                  className={member.photo ? "object-cover object-top" : "object-cover"}
                 />
               </div>
               <h4 className="mt-5 font-serif text-lg leading-snug">
