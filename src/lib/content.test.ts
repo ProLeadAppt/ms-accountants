@@ -113,6 +113,37 @@ describe("team", () => {
     expect(getTeamMember("nope")).toBeUndefined();
   });
 
+  it("publishes the approved Niroshi and Anne portraits with direct email contacts", () => {
+    const niroshi = getTeamMember("niroshi-rathnayakage");
+    expect(niroshi?.name).toBe("Ms Niroshi Sewwandika");
+    expect(niroshi?.email).toBe("nsewwandika0@gmail.com");
+    expect(niroshi?.photo).toBe("/images/team/niroshi-sewwandika-editorial.webp");
+
+    const anne = getTeamMember("anne-tran");
+    expect(anne?.name).toBe("Ms Anne Tran");
+    expect(anne?.email).toBe("anne@quikstar.com.au");
+    expect(anne?.photo).toBe("/images/team/anne-tran-editorial.webp");
+  });
+
+  it("publishes both confirmed Lakshika portraits with direct email contacts", () => {
+    const subramaniam = getTeamMember("lakshika-subramaniam");
+    expect(subramaniam?.name).toBe("Ms Lakshika Subramaniam");
+    expect(subramaniam?.email).toBe("lakshikasp@gmail.com");
+    expect(subramaniam?.photo).toBe("/images/team/lakshika-subramaniam-editorial.webp");
+
+    const senaviratne = getTeamMember("lakshika-senaviratne");
+    expect(senaviratne?.name).toBe("Ms Lakshika Senaviratne");
+    expect(senaviratne?.email).toBe("lakshikasenaviratne@gmail.com");
+    expect(senaviratne?.photo).toBe("/images/team/lakshika-senaviratne-editorial.webp");
+  });
+
+  it("publishes Eshani Rathnayake's approved portrait without inventing a contact email", () => {
+    const eshani = getTeamMember("eshani-rathnayake");
+    expect(eshani?.name).toBe("Ms Eshani Rathnayake");
+    expect(eshani?.photo).toBe("/images/team/eshani-rathnayake-editorial.webp");
+    expect(eshani?.email).toBeUndefined();
+  });
+
   it("bench strip content is complete", () => {
     expect(teamCollective.heading).toBeTruthy();
     expect(teamCollective.hooks.length).toBeGreaterThan(0);

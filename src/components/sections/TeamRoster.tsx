@@ -6,8 +6,8 @@ import { Stagger } from "@/components/motion/Stagger";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { team } from "@/lib/site";
 import {
-  PRINCIPAL_STUDY_IMAGE,
-  PRINCIPAL_STUDY_ALT,
+  PRINCIPAL_PORTRAIT_IMAGE,
+  PRINCIPAL_PORTRAIT_ALT,
   craftTileFor,
 } from "@/lib/craftImagery";
 
@@ -41,8 +41,8 @@ export function TeamRoster() {
           <div className="grid gap-8 rounded-2xl border border-[var(--hairline)] bg-[color-mix(in_srgb,var(--color-cream)_55%,transparent)] p-8 lg:grid-cols-[300px_1fr] lg:gap-12 lg:p-12">
             <div className="relative aspect-[4/5] max-w-[300px] overflow-hidden rounded-2xl ring-1 ring-inset ring-[var(--hairline)]">
               <Image
-                src={PRINCIPAL_STUDY_IMAGE}
-                alt={PRINCIPAL_STUDY_ALT}
+                src={PRINCIPAL_PORTRAIT_IMAGE}
+                alt={PRINCIPAL_PORTRAIT_ALT}
                 fill
                 sizes="(min-width: 1024px) 300px, 100vw"
                 className="object-cover"
@@ -70,19 +70,26 @@ export function TeamRoster() {
               key={member.slug}
               className="flex flex-col bg-[color-mix(in_srgb,var(--color-cream)_55%,transparent)] p-8 lg:p-10"
             >
-              {/* Conceptual craft still-life, paired to this member the same way
-                  as the homepage bench (decorative; the name/role carries it). */}
+              {/* Portrait when supplied; otherwise the member's stable craft still-life. */}
               <div className="relative aspect-[4/3] overflow-hidden rounded-xl ring-1 ring-inset ring-[var(--hairline)]">
                 <Image
-                  src={craftTileFor(i)}
-                  alt=""
+                  src={member.photo ?? craftTileFor(i)}
+                  alt={member.photo ? `${member.name}, ${member.role}` : ""}
                   fill
                   sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-                  className="object-cover"
+                  className={member.photo ? "object-cover object-top" : "object-cover"}
                 />
               </div>
               <h3 className="mt-7 font-serif text-2xl text-espresso">{member.name}</h3>
-              <p className="mt-1 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-brand-red">
+              {member.email && (
+                <a
+                  href={`mailto:${member.email}`}
+                  className="mt-2 w-fit break-all font-sans text-sm text-[var(--muted)] underline decoration-[var(--hairline)] underline-offset-4 transition-colors hover:text-brand-red focus-visible:text-brand-red"
+                >
+                  {member.email}
+                </a>
+              )}
+              <p className="mt-2 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-brand-red">
                 {member.role}
               </p>
               <p className="mt-1 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-[var(--muted)]">
