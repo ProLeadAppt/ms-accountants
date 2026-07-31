@@ -4,7 +4,11 @@ import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { Reveal } from "@/components/motion/Reveal";
 import { PageHero } from "@/components/sections/PageHero";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { ClientStoryCard } from "@/components/proof/ClientStoryCard";
 import { site } from "@/lib/site";
+import { getClientStory } from "@/lib/testimonials";
+
+const contactProof = getClientStory("virginia-stalenberg")!;
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -44,6 +48,11 @@ export default function ContactPage() {
               <p className="max-w-sm text-[var(--muted)]">
                 {site.footerTrust}
               </p>
+              <ClientStoryCard
+                story={contactProof}
+                variant="compact"
+                index="Client reference"
+              />
             </Reveal>
 
             {/* Form */}

@@ -5,20 +5,21 @@ import {
   valueStats,
   credentialCards,
   authorityItems,
-  testimonials,
-  relatedTestimonial,
-  getTestimonialForService,
   team,
   getTeamMember,
   teamCollective,
   publications,
   book,
   voiceQuote,
-  caseFrame,
   howItWorksSteps,
   promiseCopy,
 } from "./site";
 import { services, getService } from "./services";
+import {
+  clientStories,
+  serviceStoryIds,
+  getClientStoriesForService,
+} from "./testimonials";
 
 describe("content library", () => {
   it("has the verbatim primary CTA", () => {
@@ -60,7 +61,7 @@ describe("content library", () => {
   it("has no unresolved placeholders in user-facing site fields", () => {
     const blob = JSON.stringify({
       site, nav, valueStats, credentialCards, authorityItems, team, teamCollective,
-      voiceQuote, caseFrame, howItWorksSteps, promiseCopy,
+      voiceQuote, howItWorksSteps, promiseCopy,
     });
     expect(blob).not.toContain("[[");
   });
@@ -68,8 +69,8 @@ describe("content library", () => {
   it("contains no em-dashes anywhere in the content library (house rule)", () => {
     const blob = JSON.stringify({
       site, nav, valueStats, credentialCards, authorityItems,
-      team, teamCollective, services, testimonials, publications, book,
-      voiceQuote, caseFrame, howItWorksSteps, promiseCopy,
+      team, teamCollective, services, publications, book,
+      voiceQuote, howItWorksSteps, promiseCopy,
     });
     expect(blob).not.toContain("—");
   });
@@ -151,31 +152,30 @@ describe("team", () => {
   });
 });
 
-describe("service to testimonial mapping", () => {
+describe("service to client-proof mapping", () => {
   const slugs = new Set(services.map((s) => s.slug));
-  const names = new Set(testimonials.map((t) => t.name));
+  const storyIds = new Set(clientStories.map((story) => story.id));
 
   it("every mapping key is a real service slug", () => {
-    for (const slug of Object.keys(relatedTestimonial)) {
+    for (const slug of Object.keys(serviceStoryIds)) {
       expect(slugs.has(slug)).toBe(true);
     }
   });
 
-  it("every mapping value resolves to a real testimonial", () => {
-    for (const name of Object.values(relatedTestimonial)) {
-      expect(names.has(name)).toBe(true);
-      expect(getTestimonialForService(
-        Object.keys(relatedTestimonial).find((k) => relatedTestimonial[k] === name)!,
-      )?.name).toBe(name);
+  it("every mapping value resolves to an approved client story", () => {
+    for (const ids of Object.values(serviceStoryIds)) {
+      for (const id of ids) expect(storyIds.has(id)).toBe(true);
     }
   });
 
-  it("deliberately omits Tax Disputes (it carries the CaseInPoint band instead)", () => {
-    expect(relatedTestimonial["tax-disputes-ato"]).toBeUndefined();
-    expect(getTestimonialForService("tax-disputes-ato")).toBeUndefined();
+  it("maps two independently supplied ATO references to Tax Disputes", () => {
+    expect(getClientStoriesForService("tax-disputes-ato").map((story) => story.id)).toEqual([
+      "bianca-fletcher",
+      "priyantha-cooray",
+    ]);
   });
 
-  it("returns undefined for unknown slugs", () => {
-    expect(getTestimonialForService("nope")).toBeUndefined();
+  it("returns an empty collection for unknown slugs", () => {
+    expect(getClientStoriesForService("nope")).toEqual([]);
   });
 });

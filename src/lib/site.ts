@@ -66,6 +66,7 @@ export const missionPrinciples = {
 
 export const nav = [
   { label: "Services", href: "/services" },
+  { label: "Client stories", href: "/client-stories" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ] as const;
@@ -449,60 +450,8 @@ export const teamCollective = {
   ctaHref: "/about#team",
 } as const;
 
-// ---------------------------------------------------------------------------
-// Testimonials
-// ---------------------------------------------------------------------------
-
-export type Testimonial = {
-  quote: string;
-  name: string;
-  role: string;
-  company: string;
-};
-
-export const testimonials: Testimonial[] = [
-  {
-    quote: "Sri has, in the first half of 2010, assisted our group in a number of complex areas: tax (federal, as well as state), strategic management, financing, rationalisation of leases, and formulation of internal audit arrangements. In all that work, Sri has impressed us as a professional who has complete mastery over the theoretical aspects of his work who, at the same time, does not neglect properly addressing all practical tasks required to accomplish sound outcomes for us. We are convinced that his approach for serving us always had foremost regard for what was in the best interest of our group. We highly commend his reliability and his unfailing professional courtesy with which he has engaged with all our staff and other stakeholders he has worked with.",
-    name: "Mr Ambi Thind",
-    role: "Group CEO, Managing Director",
-    company: "The Education Group Pty Ltd",
-  },
-  {
-    quote: "Sridaran has assisted me with the accounting and tax affairs of my company, Visa Investments Portfolio Pty Ltd, ever since the company was incorporated. His assistance to me has always been most conscientious and patient. He has, on occasion, had to devote a lot of time to provide me that assistance. I have total confidence in Sridaran's professional competence, integrity and reliability.",
-    name: "Ms Araliya De Silva",
-    role: "Director",
-    company: "Visa Investments Portfolio Pty Ltd",
-  },
-  {
-    quote: "Sri has taken care of the tax work for our company, Quikstar Pty Ltd, for several years. He has always generously given us his time to address any concerns and has always advised us of what we should do; mindful of what is best for us. We have always had complete confidence of his professional competence and reliability and would highly recommend his services to any company.",
-    name: "Ms Anne Truong",
-    role: "",
-    company: "Quikstar Pty Ltd",
-  },
-  {
-    quote: "I have been a client of Maheswaran Sridaran for over seven years uninterrupted. I regard Sridaran as a completely reliable and competent professional, with a good mastery of all taxes that I, as a health care professional and property-company owner, am exposed to: income tax, Medicare levy, GST, and land tax. I highly commend the promptness, maturity, patience, and professional courtesy that have been consistent features of my professional relationship with Maheswaran Sridaran.",
-    name: "Ms Manya Scheftsik",
-    role: "Registered Psychologist",
-    company: "",
-  },
-  {
-    quote: "Sri assisted us to manage our dealings with the Australian Taxation Office and NSW Office of State Revenue in relation to audits they had initiated of our two colleges. Sri most competently oversaw the work required, providing comprehensive, appropriate and timely responses to both authorities. He also ensured that work was carried out in a manner that was cost-effective to us.",
-    name: "Ms Neda Morris",
-    role: "Principal Executive Officer, Director",
-    company: "Caprock International Pty Ltd",
-  },
-];
-
-export function getTestimonial(name: string): Testimonial | undefined {
-  return testimonials.find((t) => t.name === name);
-}
-
-// Act V case-in-point frame, single source of truth. Rendered by ProofAct
-// (homepage) and reused verbatim as CaseInPoint's default frame prop (inner
-// pages). Drawn strictly from Ms Neda Morris's own testimonial wording;
-// nothing is invented.
-export const caseFrame =
-  "When the ATO and the Office of State Revenue both opened audits, the response had to be comprehensive, correct, and cost-effective.";
+// The approved 2026 client-proof corpus lives in `testimonials.ts`. Keeping it
+// separate from general site copy makes verbatim references easy to audit.
 
 // Act VII promise headline + body, single source of truth. Rendered by
 // ConversationAct (homepage, red crescendo) and PromiseBlock (inner pages).
@@ -530,23 +479,4 @@ export const howItWorksSteps = [
   },
 ] as const;
 
-// ---------------------------------------------------------------------------
-// Service to testimonial mapping
-// One relevant, real testimonial surfaced on each service detail page, chosen
-// by genuine relevance. Honest by design:
-//  - tax-disputes-ato is intentionally absent: that page carries the Neda Morris
-//    "case in point" band, so a second quote from her would be redundant.
-//  - self-managed-super maps to a general competence/reliability quote that makes
-//    no SMSF-specific claim (no testimonial mentions SMSF; nothing is invented).
-// ---------------------------------------------------------------------------
-export const relatedTestimonial: Record<string, string> = {
-  "tax-advisory-planning": "Ms Manya Scheftsik",
-  "tax-compliance-returns": "Ms Araliya De Silva",
-  "business-cfo-advisory": "Mr Ambi Thind",
-  "self-managed-super": "Ms Anne Truong",
-};
 
-export function getTestimonialForService(slug: string): Testimonial | undefined {
-  const name = relatedTestimonial[slug];
-  return name ? getTestimonial(name) : undefined;
-}

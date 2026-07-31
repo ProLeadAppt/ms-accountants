@@ -10,8 +10,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Stagger } from "@/components/motion/Stagger";
 import { WordReveal } from "@/components/motion/WordReveal";
 import { PageHero } from "@/components/sections/PageHero";
-import { CaseInPoint } from "@/components/sections/CaseInPoint";
-import { ServiceTestimonial } from "@/components/sections/ServiceTestimonial";
+import { ServiceProof } from "@/components/proof/ServiceProof";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { services, getService } from "@/lib/services";
 import { serviceGraph } from "@/lib/schema";
@@ -149,10 +148,7 @@ export default async function ServiceDetailPage({
         </Container>
       </section>
 
-      {/* Decision-point proof: courage shown on Disputes, a relevant client
-          voice on the rest. Both render in the same slot; never both at once. */}
-      {service.slug === "tax-disputes-ato" && <CaseInPoint scheme="sand" />}
-      <ServiceTestimonial slug={service.slug} />
+      <ServiceProof slug={service.slug} />
 
       {/* Other services */}
       <section className="scheme-cream py-20 lg:py-28">
