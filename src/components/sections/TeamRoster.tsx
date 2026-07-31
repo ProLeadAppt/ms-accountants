@@ -64,20 +64,24 @@ export function TeamRoster() {
         </Reveal>
 
         {/* The bench he hired */}
-        <Stagger className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-[var(--hairline)] sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-[var(--hairline)] sm:grid-cols-2 xl:grid-cols-3">
           {bench.map((member, i) => (
             <article
               key={member.slug}
               className="flex flex-col bg-[color-mix(in_srgb,var(--color-cream)_55%,transparent)] p-8 lg:p-10"
             >
-              {/* Portrait when supplied; otherwise the member's stable craft still-life. */}
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl ring-1 ring-inset ring-[var(--hairline)]">
+              {/* Portraits keep their near-native 3:4 composition so faces and shoulders are not cut into a landscape crop. */}
+              <div
+                className={`relative overflow-hidden rounded-xl ring-1 ring-inset ring-[var(--hairline)] ${
+                  member.photo ? "aspect-[3/4]" : "aspect-[4/3]"
+                }`}
+              >
                 <Image
                   src={member.photo ?? craftTileFor(i)}
                   alt={member.photo ? `${member.name}, ${member.role}` : ""}
                   fill
-                  sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-                  className={member.photo ? "object-cover object-top" : "object-cover"}
+                  sizes="(min-width: 1280px) 30vw, (min-width: 640px) 45vw, 100vw"
+                  className={member.photo ? "object-cover object-center" : "object-cover"}
                 />
               </div>
               <h3 className="mt-7 font-serif text-2xl text-espresso">{member.name}</h3>
