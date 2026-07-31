@@ -38,14 +38,17 @@ function readWebPDimensions(buffer: Buffer) {
 
 describe("team portrait source quality", () => {
   it("keeps every published team portrait high-resolution and web-optimised", () => {
-    const portraits = team.filter((member) => member.photo);
+    const portraits = team.filter(
+      (member): member is (typeof team)[number] & { photo: string } =>
+        Boolean(member.photo),
+    );
     expect(portraits).toHaveLength(team.length);
 
     for (const member of portraits) {
       const portraitPath = join(
         process.cwd(),
         "public",
-        member.photo!.replace(/^\/+/, ""),
+        member.photo.replace(/^\/+/, ""),
       );
       const source = readFileSync(portraitPath);
       const { width, height } = readWebPDimensions(source);
