@@ -17,7 +17,7 @@ export function ContactForm() {
 
   useEffect(() => {
     if (!draftHref) return;
-    successCard.current?.scrollIntoView({ block: "center", behavior: "auto" });
+    successCard.current?.scrollIntoView({ block: "end", behavior: "auto" });
   }, [draftHref]);
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
