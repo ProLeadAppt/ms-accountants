@@ -17,8 +17,12 @@ import {
  * Niroshi supervising, the accountants building, Anne running the practice.
  */
 export function TeamRoster() {
-  const principal = team.find((m) => m.featured)!;
-  const bench = team.filter((m) => !m.featured);
+  const principal = team.find((member) => member.featured);
+  const bench = team.filter((member) => !member.featured);
+
+  if (!principal) {
+    throw new Error("Team roster requires one featured principal.");
+  }
 
   return (
     <section id="team" className="scheme-sand scroll-mt-24 py-24 lg:py-32">
