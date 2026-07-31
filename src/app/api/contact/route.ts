@@ -1,14 +1,12 @@
 import { NextResponse } from "next/server";
 
 // ---------------------------------------------------------------------------
-// Contact enquiry handler.
+// Contact enquiry compatibility endpoint.
 //
-// NOTE (build placeholder): this validates the submission and returns success.
-// To make enquiries actually deliver, wire ONE of the following here:
-//   - email via Resend / Postmark / SES, or
-//   - a CRM / Google Sheet / webhook, or
-//   - Calendly redirect (spec §9 item 7 — "Calendly-ready").
-// Add the provider key to an env var and send before returning.
+// The public form currently prepares a pre-addressed email in the visitor's
+// email app. Until a transactional email or CRM delivery provider is configured,
+// this endpoint must fail closed rather than report a successful delivery that
+// never occurred. Wire a verified provider before changing the response.
 // ---------------------------------------------------------------------------
 
 type Payload = {
@@ -48,16 +46,11 @@ export async function POST(request: Request) {
     );
   }
 
-  // Placeholder: log on the server so submissions are visible in dev/prod logs
-  // until a delivery provider is wired in.
-  console.log("[contact] new enquiry", {
-    name,
-    email,
-    phone: body.phone,
-    entity: body.entity,
-    topic: body.topic,
-    turnover: body.turnover,
-  });
-
-  return NextResponse.json({ ok: true });
+  return NextResponse.json(
+    {
+      error:
+        "Online form delivery is not configured. Please email m.sridaran@msaccountants.com.au or call 02 9739 4837.",
+    },
+    { status: 503 },
+  );
 }
