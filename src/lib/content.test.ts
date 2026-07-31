@@ -137,11 +137,11 @@ describe("team", () => {
     expect(senaviratne?.photo).toBe("/images/team/lakshika-senaviratne-editorial.webp");
   });
 
-  it("publishes Eshani Rathnayake's approved portrait without inventing a contact email", () => {
+  it("publishes Eshani Rathnayake's approved portrait with her supplied work email", () => {
     const eshani = getTeamMember("eshani-rathnayake");
     expect(eshani?.name).toBe("Ms Eshani Rathnayake");
     expect(eshani?.photo).toBe("/images/team/eshani-rathnayake-editorial.webp");
-    expect(eshani?.email).toBeUndefined();
+    expect(eshani?.email).toBe("eshani@msaccountants.com.au");
   });
 
   it("bench strip content is complete", () => {

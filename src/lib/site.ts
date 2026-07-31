@@ -398,6 +398,7 @@ export const team: readonly TeamMember[] = [
     initials: "ER",
     reportsTo: "niroshi-rathnayakage",
     photo: "/images/team/eshani-rathnayake-editorial.webp",
+    email: "eshani@msaccountants.com.au",
   },
   {
     slug: "lakshika-senaviratne",
