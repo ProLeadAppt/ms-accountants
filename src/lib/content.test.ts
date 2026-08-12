@@ -26,6 +26,10 @@ describe("content library", () => {
     expect(site.ctaHref).toBe("/contact");
   });
 
+  it("uses the indexed www origin as the canonical site URL", () => {
+    expect(site.url).toBe("https://www.msaccountants.com.au");
+  });
+
   it("exposes exactly five services with unique slugs", () => {
     expect(services).toHaveLength(5);
     const slugs = services.map((s) => s.slug);

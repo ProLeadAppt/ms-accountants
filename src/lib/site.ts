@@ -8,7 +8,7 @@ export const site = {
   name: "MS Accountants",
   tagline: "A boutique Sydney tax & accounting firm.",
   credentialLine: "Led by Dr Maheswaran Sridaran · Chartered Accountant · Lawyer · Registered Tax Agent · PhD in Australian tax law (Macquarie University)",
-  url: "https://msaccountants.com.au",
+  url: "https://www.msaccountants.com.au",
   cta: "Book a conversation with Dr Sridaran",
   ctaHref: "/contact",
   footerTrust:
