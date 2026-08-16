@@ -50,12 +50,16 @@ export function Header() {
         <Link
           href="/"
           aria-label="MS Accountants — home"
-          className={cn("transition-colors", scrolled && "text-brand-red")}
+          className="shrink-0"
         >
-          <Logo className="text-xl" />
+          <Logo
+            preload
+            sizes="(min-width: 1024px) 208px, (min-width: 768px) 184px, 200px"
+            className="w-[12.5rem] md:w-[11.5rem] lg:w-[13rem]"
+          />
         </Link>
 
-        <nav className="hidden items-center gap-9 md:flex">
+        <nav className="hidden items-center gap-9 lg:flex">
           {nav.map((item) => (
             <Link
               key={item.href}
@@ -67,7 +71,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Button
             href={site.contact.mobileHref}
             variant={scrolled ? "primary" : "secondary"}
@@ -80,7 +84,7 @@ export function Header() {
 
         <button
           type="button"
-          className="relative z-[10000] inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-cream/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current md:hidden"
+          className="relative z-[10000] inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors hover:bg-cream/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-current lg:hidden"
           onClick={() => setOpen(true)}
           aria-label="Open menu"
           aria-expanded={open}
@@ -93,10 +97,10 @@ export function Header() {
       {open && (
         <div
           id="mobile-menu"
-          className="scheme-espresso fixed inset-0 z-[10000] min-h-[100dvh] overflow-y-auto bg-espresso md:hidden"
+          className="scheme-espresso fixed inset-0 z-[10000] min-h-[100dvh] overflow-y-auto bg-espresso lg:hidden"
         >
           <Container className="flex items-center justify-between py-5">
-            <Logo className="text-xl text-cream" />
+            <Logo sizes="200px" className="w-[12.5rem]" />
             <button type="button" onClick={() => setOpen(false)} aria-label="Close menu">
               <Icon name="close" />
             </button>

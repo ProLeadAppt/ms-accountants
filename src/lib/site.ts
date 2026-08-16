@@ -337,8 +337,8 @@ export type TeamMember = {
   reportsTo?: string;
   /** Path to an approved real portrait or client-authorised identity-preserving edit. */
   photo?: string;
-  /** Direct work contact shown on the About roster when supplied. */
-  email?: string;
+  /** Client-approved work contact shown on the About roster. */
+  email: string;
   /** The principal's featured treatment on the roster. */
   featured?: boolean;
 };
@@ -354,6 +354,7 @@ export const team: readonly TeamMember[] = [
     bio: "A chartered accountant, lawyer, registered tax agent, and the holder of a doctorate in Australian tax law, with over 45 years across more than five countries, mostly with two of the Big Four, the last 25 in Australia. His doctoral thesis examined Australian capital gains tax; his first book asked whether capital gains are taxed equitably in Australia. He founded MS Accountants in 2010 and remains its sole director. Ask him what the firm rests on and he will not point to his own credentials. He will tell you a firm is only as good as the people it hires, which is why he hires carefully, and why every engagement that leaves the practice is reviewed by him first.",
     initials: "MS",
     photo: "/images/team/dr-maheswaran-sridaran-editorial.webp",
+    email: "m.sridaran@msaccountants.com.au",
     featured: true,
   },
   {
@@ -369,7 +370,7 @@ export const team: readonly TeamMember[] = [
       initials: "NR",
       reportsTo: "maheswaran-sridaran",
       photo: "/images/team/niroshi-sewwandika-editorial.webp",
-      email: "nsewwandika0@gmail.com",
+      email: "niroshi@msaccountants.com.au",
     },
     {
       slug: "anne-tran",
@@ -383,7 +384,7 @@ export const team: readonly TeamMember[] = [
       initials: "AT",
       reportsTo: "maheswaran-sridaran",
       photo: "/images/team/anne-tran-editorial.webp",
-      email: "anne@quikstar.com.au",
+      email: "anne@msaccountants.com.au",
     },
     {
       slug: "lakshika-subramaniam",
@@ -398,7 +399,7 @@ export const team: readonly TeamMember[] = [
       initials: "LS",
       reportsTo: "niroshi-rathnayakage",
       photo: "/images/team/lakshika-subramaniam-editorial.webp",
-      email: "lakshikasp@gmail.com",
+      email: "lakshika.subramaniam@msaccountants.com.au",
     },
     {
       slug: "eshani-rathnayake",
@@ -428,7 +429,7 @@ export const team: readonly TeamMember[] = [
       initials: "LS",
       reportsTo: "niroshi-rathnayakage",
       photo: "/images/team/lakshika-senaviratne-editorial.webp",
-      email: "lakshikasenaviratne@gmail.com",
+      email: "lakshika@msaccountants.com.au",
     },
 ] as const;
 
@@ -478,5 +479,4 @@ export const howItWorksSteps = [
     body: "The team prepares the work; he signs off on all of it. Even compliance-only clients receive senior time on the strategic issues each year.",
   },
 ] as const;
-
 

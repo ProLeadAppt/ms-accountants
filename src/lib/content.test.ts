@@ -81,6 +81,35 @@ describe("content library", () => {
 });
 
 describe("team", () => {
+  it("publishes the six client-approved MS Accountants work contacts", () => {
+    const approvedEmailBySlug = {
+      "maheswaran-sridaran": "m.sridaran@msaccountants.com.au",
+      "niroshi-rathnayakage": "niroshi@msaccountants.com.au",
+      "anne-tran": "anne@msaccountants.com.au",
+      "lakshika-subramaniam": "lakshika.subramaniam@msaccountants.com.au",
+      "eshani-rathnayake": "eshani@msaccountants.com.au",
+      "lakshika-senaviratne": "lakshika@msaccountants.com.au",
+    } as const;
+
+    expect(Object.fromEntries(team.map((member) => [member.slug, member.email]))).toEqual(
+      approvedEmailBySlug,
+    );
+    expect(new Set(team.map((member) => member.email)).size).toBe(team.length);
+    expect(team.every((member) => member.email.endsWith("@msaccountants.com.au"))).toBe(
+      true,
+    );
+
+    const publishedTeamContent = JSON.stringify(team);
+    for (const supersededPersonalAddress of [
+      "nsewwandika0@gmail.com",
+      "anne@quikstar.com.au",
+      "lakshikasp@gmail.com",
+      "lakshikasenaviratne@gmail.com",
+    ]) {
+      expect(publishedTeamContent).not.toContain(supersededPersonalAddress);
+    }
+  });
+
   it("has all six members with unique slugs and names", () => {
     expect(team).toHaveLength(6);
     expect(new Set(team.map((m) => m.slug)).size).toBe(6);
@@ -121,24 +150,24 @@ describe("team", () => {
   it("publishes the approved Niroshi and Anne portraits with direct email contacts", () => {
     const niroshi = getTeamMember("niroshi-rathnayakage");
     expect(niroshi?.name).toBe("Ms Niroshi Sewwandika");
-    expect(niroshi?.email).toBe("nsewwandika0@gmail.com");
+    expect(niroshi?.email).toBe("niroshi@msaccountants.com.au");
     expect(niroshi?.photo).toBe("/images/team/niroshi-sewwandika-editorial.webp");
 
     const anne = getTeamMember("anne-tran");
     expect(anne?.name).toBe("Ms Anne Tran");
-    expect(anne?.email).toBe("anne@quikstar.com.au");
+    expect(anne?.email).toBe("anne@msaccountants.com.au");
     expect(anne?.photo).toBe("/images/team/anne-tran-editorial.webp");
   });
 
   it("publishes both confirmed Lakshika portraits with direct email contacts", () => {
     const subramaniam = getTeamMember("lakshika-subramaniam");
     expect(subramaniam?.name).toBe("Ms Lakshika Subramaniam");
-    expect(subramaniam?.email).toBe("lakshikasp@gmail.com");
+    expect(subramaniam?.email).toBe("lakshika.subramaniam@msaccountants.com.au");
     expect(subramaniam?.photo).toBe("/images/team/lakshika-subramaniam-editorial.webp");
 
     const senaviratne = getTeamMember("lakshika-senaviratne");
     expect(senaviratne?.name).toBe("Ms Lakshika Senaviratne");
-    expect(senaviratne?.email).toBe("lakshikasenaviratne@gmail.com");
+    expect(senaviratne?.email).toBe("lakshika@msaccountants.com.au");
     expect(senaviratne?.photo).toBe("/images/team/lakshika-senaviratne-editorial.webp");
   });
 

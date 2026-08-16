@@ -1,22 +1,23 @@
+import Image from "next/image";
 import { cn } from "@/lib/cn";
 
-/**
- * MS Accountants wordmark — Option A (faithful+ heavy grotesque).
- * Colour inherits from the parent (use `text-brand-red`, `text-cream`, etc.)
- * so it recolours per section scheme. Size with a `text-*` class on the parent
- * or via `className`.
- */
-export function Logo({ className }: { className?: string }) {
+type LogoProps = {
+  className?: string;
+  preload?: boolean;
+  sizes?: string;
+};
+
+/** The client-approved signature wordmark, flattened to one solid red. */
+export function Logo({ className, preload = false, sizes }: LogoProps) {
   return (
-    <span
-      className={cn(
-        "font-logo inline-flex items-baseline leading-none tracking-[-0.018em] text-current",
-        className,
-      )}
-      aria-label="MS Accountants"
-    >
-      <span className="font-black">MS</span>
-      <span className="font-extrabold">&nbsp;Accountants</span>
-    </span>
+    <Image
+      src="/ms-accountants-logo.png"
+      alt="MS Accountants"
+      width={480}
+      height={135}
+      sizes={sizes}
+      preload={preload}
+      className={cn("h-auto object-contain", className)}
+    />
   );
 }
