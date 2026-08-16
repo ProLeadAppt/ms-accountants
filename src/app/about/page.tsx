@@ -10,6 +10,7 @@ import { HowItWorks } from "@/components/sections/HowItWorks";
 import { PublishedThinking } from "@/components/sections/PublishedThinking";
 import { TeamRoster } from "@/components/sections/TeamRoster";
 import { FinalCTA } from "@/components/sections/FinalCTA";
+import { ClientVoicesBand } from "@/components/proof/ClientVoicesBand";
 
 export const metadata: Metadata = {
   title: "About Dr Maheswaran Sridaran",
@@ -102,6 +103,14 @@ export default function AboutPage() {
           </div>
         </Container>
       </section>
+
+      <ClientVoicesBand
+        eyebrow="The long view"
+        title="Clients describe relationships measured in decades."
+        lede="The references below span businesses, countries, and different kinds of work. What repeats is the experience of having a senior adviser who remains involved."
+        storyIds={["kingsgrove-sports-centre", "araliya-de-silva", "logan-nirmalananda"]}
+        scheme="sand"
+      />
 
       <TeamRoster />
 

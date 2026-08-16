@@ -23,6 +23,7 @@
  *   {url}#sridaran      the principal (Person)
  */
 import { site, services, type Service } from "./site";
+import type { ClientStory } from "./testimonials";
 
 export const ORGANIZATION_ID = `${site.url}/#organization`;
 export const WEBSITE_ID = `${site.url}/#website`;
@@ -189,6 +190,54 @@ export function serviceGraph(service: Service) {
             item: `${site.url}/services`,
           },
           { "@type": "ListItem", position: 3, name: service.title, item: url },
+        ],
+      },
+    ],
+  };
+}
+
+/**
+ * First-party publication of client-authored references. Ratings are
+ * intentionally absent because no client supplied a star score and the site
+ * must not imply one. The collection records attributed words only.
+ */
+export function clientStoriesGraph(stories: ClientStory[]) {
+  const url = `${site.url}/client-stories`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${url}#page`,
+        url,
+        name: "Client Stories",
+        description:
+          "Attributed client references describing long-term accounting relationships, complex tax matters, ATO reviews, audit, compliance, and business advisory work.",
+        isPartOf: { "@id": WEBSITE_ID },
+        about: { "@id": ORGANIZATION_ID },
+        mainEntity: { "@id": `${url}#references` },
+      },
+      {
+        "@type": "ItemList",
+        "@id": `${url}#references`,
+        numberOfItems: stories.length,
+        itemListElement: stories.map((story, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          item: {
+            "@type": "Review",
+            name: `Client reference from ${story.name}`,
+            reviewBody: story.fullQuote,
+            author: { "@type": "Person", name: story.name },
+            itemReviewed: { "@id": ORGANIZATION_ID },
+          },
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+          { "@type": "ListItem", position: 2, name: "Client Stories", item: url },
         ],
       },
     ],

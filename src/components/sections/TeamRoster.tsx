@@ -54,6 +54,12 @@ export function TeamRoster() {
             </div>
             <div className="flex flex-col justify-center">
               <h3 className="font-serif text-3xl text-espresso">{principal.name}</h3>
+              <a
+                href={`mailto:${principal.email}`}
+                className="mt-2 w-fit break-all font-sans text-sm text-[var(--muted)] underline decoration-[var(--hairline)] underline-offset-4 transition-colors hover:text-brand-red focus-visible:text-brand-red"
+              >
+                {principal.email}
+              </a>
               <p className="mt-2 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-brand-red">
                 {principal.role}
               </p>
@@ -89,14 +95,12 @@ export function TeamRoster() {
                 />
               </div>
               <h3 className="mt-7 font-serif text-2xl text-espresso">{member.name}</h3>
-              {member.email && (
-                <a
-                  href={`mailto:${member.email}`}
-                  className="mt-2 w-fit break-all font-sans text-sm text-[var(--muted)] underline decoration-[var(--hairline)] underline-offset-4 transition-colors hover:text-brand-red focus-visible:text-brand-red"
-                >
-                  {member.email}
-                </a>
-              )}
+              <a
+                href={`mailto:${member.email}`}
+                className="mt-2 w-fit break-all font-sans text-sm text-[var(--muted)] underline decoration-[var(--hairline)] underline-offset-4 transition-colors hover:text-brand-red focus-visible:text-brand-red"
+              >
+                {member.email}
+              </a>
               <p className="mt-2 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-brand-red">
                 {member.role}
               </p>

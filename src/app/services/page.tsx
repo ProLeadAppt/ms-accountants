@@ -7,6 +7,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Stagger } from "@/components/motion/Stagger";
 import { PageHero } from "@/components/sections/PageHero";
 import { FinalCTA } from "@/components/sections/FinalCTA";
+import { ClientVoicesBand } from "@/components/proof/ClientVoicesBand";
 import { services } from "@/lib/services";
 
 export const metadata: Metadata = {
@@ -103,6 +104,14 @@ export default function ServicesPage() {
           </Reveal>
         </Container>
       </section>
+
+      <ClientVoicesBand
+        eyebrow="Across the work"
+        title="The service changes. The standard should not."
+        lede="Clients describe complex tax advice, audit and compliance, accounting, and practical business counsel. Each reference is shown with its attribution."
+        storyIds={["qing-ouyang", "krishnamoorthi-rangasamy", "murali-pitchai"]}
+        scheme="paper"
+      />
 
       <FinalCTA />
     </>

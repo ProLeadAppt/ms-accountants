@@ -3,7 +3,5 @@
 export {
   services,
   getService,
-  relatedTestimonial,
-  getTestimonialForService,
 } from "./site";
 export type { Service, HelpItem } from "./site";

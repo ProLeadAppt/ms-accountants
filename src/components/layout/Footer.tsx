@@ -10,7 +10,7 @@ export function Footer() {
       <Container className="py-16 lg:py-20">
         <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
           <div>
-            <Logo className="text-2xl text-cream" />
+            <Logo sizes="240px" className="w-[15rem] max-w-full" />
             <p className="mt-6 max-w-sm text-base leading-relaxed text-[var(--muted)]">
               {site.footerTrust}
             </p>

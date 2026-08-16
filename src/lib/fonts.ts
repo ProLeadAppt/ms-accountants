@@ -1,5 +1,4 @@
 import localFont from "next/font/local";
-import { Space_Mono, Archivo } from "next/font/google";
 
 // Display + headline serif — Zodiak (Indian Type Foundry via Fontshare).
 // Sharp, high-contrast; the barrister's serif. Variable weight + true italic.
@@ -25,16 +24,18 @@ export const generalSans = localFont({
 });
 
 // Eyebrows / mono labels — kept for tabular/footnote figures only.
-export const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
+export const spaceMono = localFont({
+  src: [
+    { path: "../fonts/SpaceMono-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/SpaceMono-Bold.woff2", weight: "700", style: "normal" },
+  ],
   variable: "--font-space-mono",
   display: "swap",
 });
 
-// Logo wordmark — heavy grotesque (unchanged).
-export const archivo = Archivo({
-  subsets: ["latin"],
+// Logo wordmark — heavy grotesque, vendored locally for deterministic builds.
+export const archivo = localFont({
+  src: [{ path: "../fonts/Archivo-Variable.woff2", weight: "100 900", style: "normal" }],
   variable: "--font-archivo",
   display: "swap",
 });

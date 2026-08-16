@@ -5,25 +5,30 @@ import {
   valueStats,
   credentialCards,
   authorityItems,
-  testimonials,
-  relatedTestimonial,
-  getTestimonialForService,
   team,
   getTeamMember,
   teamCollective,
   publications,
   book,
   voiceQuote,
-  caseFrame,
   howItWorksSteps,
   promiseCopy,
 } from "./site";
 import { services, getService } from "./services";
+import {
+  clientStories,
+  serviceStoryIds,
+  getClientStoriesForService,
+} from "./testimonials";
 
 describe("content library", () => {
   it("has the verbatim primary CTA", () => {
     expect(site.cta).toBe("Book a conversation with Dr Sridaran");
     expect(site.ctaHref).toBe("/contact");
+  });
+
+  it("uses the indexed www origin as the canonical site URL", () => {
+    expect(site.url).toBe("https://www.msaccountants.com.au");
   });
 
   it("exposes exactly five services with unique slugs", () => {
@@ -60,7 +65,7 @@ describe("content library", () => {
   it("has no unresolved placeholders in user-facing site fields", () => {
     const blob = JSON.stringify({
       site, nav, valueStats, credentialCards, authorityItems, team, teamCollective,
-      voiceQuote, caseFrame, howItWorksSteps, promiseCopy,
+      voiceQuote, howItWorksSteps, promiseCopy,
     });
     expect(blob).not.toContain("[[");
   });
@@ -68,14 +73,43 @@ describe("content library", () => {
   it("contains no em-dashes anywhere in the content library (house rule)", () => {
     const blob = JSON.stringify({
       site, nav, valueStats, credentialCards, authorityItems,
-      team, teamCollective, services, testimonials, publications, book,
-      voiceQuote, caseFrame, howItWorksSteps, promiseCopy,
+      team, teamCollective, services, publications, book,
+      voiceQuote, howItWorksSteps, promiseCopy,
     });
     expect(blob).not.toContain("—");
   });
 });
 
 describe("team", () => {
+  it("publishes the six client-approved MS Accountants work contacts", () => {
+    const approvedEmailBySlug = {
+      "maheswaran-sridaran": "m.sridaran@msaccountants.com.au",
+      "niroshi-rathnayakage": "niroshi@msaccountants.com.au",
+      "anne-tran": "anne@msaccountants.com.au",
+      "lakshika-subramaniam": "lakshika.subramaniam@msaccountants.com.au",
+      "eshani-rathnayake": "eshani@msaccountants.com.au",
+      "lakshika-senaviratne": "lakshika@msaccountants.com.au",
+    } as const;
+
+    expect(Object.fromEntries(team.map((member) => [member.slug, member.email]))).toEqual(
+      approvedEmailBySlug,
+    );
+    expect(new Set(team.map((member) => member.email)).size).toBe(team.length);
+    expect(team.every((member) => member.email.endsWith("@msaccountants.com.au"))).toBe(
+      true,
+    );
+
+    const publishedTeamContent = JSON.stringify(team);
+    for (const supersededPersonalAddress of [
+      "nsewwandika0@gmail.com",
+      "anne@quikstar.com.au",
+      "lakshikasp@gmail.com",
+      "lakshikasenaviratne@gmail.com",
+    ]) {
+      expect(publishedTeamContent).not.toContain(supersededPersonalAddress);
+    }
+  });
+
   it("has all six members with unique slugs and names", () => {
     expect(team).toHaveLength(6);
     expect(new Set(team.map((m) => m.slug)).size).toBe(6);
@@ -116,24 +150,24 @@ describe("team", () => {
   it("publishes the approved Niroshi and Anne portraits with direct email contacts", () => {
     const niroshi = getTeamMember("niroshi-rathnayakage");
     expect(niroshi?.name).toBe("Ms Niroshi Sewwandika");
-    expect(niroshi?.email).toBe("nsewwandika0@gmail.com");
+    expect(niroshi?.email).toBe("niroshi@msaccountants.com.au");
     expect(niroshi?.photo).toBe("/images/team/niroshi-sewwandika-editorial.webp");
 
     const anne = getTeamMember("anne-tran");
     expect(anne?.name).toBe("Ms Anne Tran");
-    expect(anne?.email).toBe("anne@quikstar.com.au");
+    expect(anne?.email).toBe("anne@msaccountants.com.au");
     expect(anne?.photo).toBe("/images/team/anne-tran-editorial.webp");
   });
 
   it("publishes both confirmed Lakshika portraits with direct email contacts", () => {
     const subramaniam = getTeamMember("lakshika-subramaniam");
     expect(subramaniam?.name).toBe("Ms Lakshika Subramaniam");
-    expect(subramaniam?.email).toBe("lakshikasp@gmail.com");
+    expect(subramaniam?.email).toBe("lakshika.subramaniam@msaccountants.com.au");
     expect(subramaniam?.photo).toBe("/images/team/lakshika-subramaniam-editorial.webp");
 
     const senaviratne = getTeamMember("lakshika-senaviratne");
     expect(senaviratne?.name).toBe("Ms Lakshika Senaviratne");
-    expect(senaviratne?.email).toBe("lakshikasenaviratne@gmail.com");
+    expect(senaviratne?.email).toBe("lakshika@msaccountants.com.au");
     expect(senaviratne?.photo).toBe("/images/team/lakshika-senaviratne-editorial.webp");
   });
 
@@ -151,31 +185,30 @@ describe("team", () => {
   });
 });
 
-describe("service to testimonial mapping", () => {
+describe("service to client-proof mapping", () => {
   const slugs = new Set(services.map((s) => s.slug));
-  const names = new Set(testimonials.map((t) => t.name));
+  const storyIds = new Set(clientStories.map((story) => story.id));
 
   it("every mapping key is a real service slug", () => {
-    for (const slug of Object.keys(relatedTestimonial)) {
+    for (const slug of Object.keys(serviceStoryIds)) {
       expect(slugs.has(slug)).toBe(true);
     }
   });
 
-  it("every mapping value resolves to a real testimonial", () => {
-    for (const name of Object.values(relatedTestimonial)) {
-      expect(names.has(name)).toBe(true);
-      expect(getTestimonialForService(
-        Object.keys(relatedTestimonial).find((k) => relatedTestimonial[k] === name)!,
-      )?.name).toBe(name);
+  it("every mapping value resolves to an approved client story", () => {
+    for (const ids of Object.values(serviceStoryIds)) {
+      for (const id of ids) expect(storyIds.has(id)).toBe(true);
     }
   });
 
-  it("deliberately omits Tax Disputes (it carries the CaseInPoint band instead)", () => {
-    expect(relatedTestimonial["tax-disputes-ato"]).toBeUndefined();
-    expect(getTestimonialForService("tax-disputes-ato")).toBeUndefined();
+  it("maps two independently supplied ATO references to Tax Disputes", () => {
+    expect(getClientStoriesForService("tax-disputes-ato").map((story) => story.id)).toEqual([
+      "bianca-fletcher",
+      "priyantha-cooray",
+    ]);
   });
 
-  it("returns undefined for unknown slugs", () => {
-    expect(getTestimonialForService("nope")).toBeUndefined();
+  it("returns an empty collection for unknown slugs", () => {
+    expect(getClientStoriesForService("nope")).toEqual([]);
   });
 });

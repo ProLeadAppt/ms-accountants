@@ -8,7 +8,7 @@ export const site = {
   name: "MS Accountants",
   tagline: "A boutique Sydney tax & accounting firm.",
   credentialLine: "Led by Dr Maheswaran Sridaran · Chartered Accountant · Lawyer · Registered Tax Agent · PhD in Australian tax law (Macquarie University)",
-  url: "https://msaccountants.com.au",
+  url: "https://www.msaccountants.com.au",
   cta: "Book a conversation with Dr Sridaran",
   ctaHref: "/contact",
   footerTrust:
@@ -66,6 +66,7 @@ export const missionPrinciples = {
 
 export const nav = [
   { label: "Services", href: "/services" },
+  { label: "Client stories", href: "/client-stories" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ] as const;
@@ -336,8 +337,8 @@ export type TeamMember = {
   reportsTo?: string;
   /** Path to an approved real portrait or client-authorised identity-preserving edit. */
   photo?: string;
-  /** Direct work contact shown on the About roster when supplied. */
-  email?: string;
+  /** Client-approved work contact shown on the About roster. */
+  email: string;
   /** The principal's featured treatment on the roster. */
   featured?: boolean;
 };
@@ -353,82 +354,83 @@ export const team: readonly TeamMember[] = [
     bio: "A chartered accountant, lawyer, registered tax agent, and the holder of a doctorate in Australian tax law, with over 45 years across more than five countries, mostly with two of the Big Four, the last 25 in Australia. His doctoral thesis examined Australian capital gains tax; his first book asked whether capital gains are taxed equitably in Australia. He founded MS Accountants in 2010 and remains its sole director. Ask him what the firm rests on and he will not point to his own credentials. He will tell you a firm is only as good as the people it hires, which is why he hires carefully, and why every engagement that leaves the practice is reviewed by him first.",
     initials: "MS",
     photo: "/images/team/dr-maheswaran-sridaran-editorial.webp",
+    email: "m.sridaran@msaccountants.com.au",
     featured: true,
   },
   {
-    slug: "niroshi-rathnayakage",
-    name: "Ms Niroshi Sewwandika",
-    shortName: "Niroshi",
-    role: "Senior Accountant",
-    credentials: ["CPA (Australia)", "Registered Tax Agent (Australia)", "BSc Management, University of Sri Jayewardenepura"],
-    credentialShort: "CPA (Aust) · Registered Tax Agent",
-    bio: "The senior accountant of the firm, with MS Accountants since 2013. Every accountant on the team works under Niroshi's direct supervision, and she reports only to Dr Sridaran. A CPA and a registered tax agent in her own right, she built her Australian tax experience across several firms after immigrating, on top of nearly a decade as an accountant in Sri Lanka, latterly with one of that country's largest fund managers. She began her career as an auditor at EY in Sri Lanka, holds a bachelor's degree in management from the University of Sri Jayewardenepura, and was formerly an associate member of the Institute of Chartered Accountants of Sri Lanka.",
-    lineage: "EY, Sri Lanka",
-    joined: "2013",
-    initials: "NR",
-    reportsTo: "maheswaran-sridaran",
-    photo: "/images/team/niroshi-sewwandika-editorial.webp",
-    email: "nsewwandika0@gmail.com",
-  },
-  {
-    slug: "lakshika-subramaniam",
-    name: "Ms Lakshika Subramaniam",
-    shortName: "Lakshika",
-    role: "Accountant",
-    credentials: ["CPA (Australia)", "ACMA, Chartered Institute of Management Accountants (UK)", "Advanced Diploma in Business Administration, Association of Business Executives (UK)"],
-    credentialShort: "CPA (Aust) · ACMA (UK)",
-    bio: "An accountant with the firm since 2025, bringing at least 15 years of working experience in Australia, preceded by many years in Sri Lanka in the commercial sector and in professional accounting firms, including EY. A CPA and an associate of the Chartered Institute of Management Accountants in the UK, Lakshika is currently studying to become a registered tax agent. She prepares compliance work for the firm's clients, largely independently, under Niroshi's supervision.",
-    lineage: "EY, Sri Lanka",
-    joined: "2025",
-    initials: "LS",
-    reportsTo: "niroshi-rathnayakage",
-    photo: "/images/team/lakshika-subramaniam-editorial.webp",
-    email: "lakshikasp@gmail.com",
-  },
-  {
-    slug: "eshani-rathnayake",
-    name: "Ms Eshani Rathnayake",
-    shortName: "Eshani",
-    role: "Assistant Accountant",
-    credentials: ["CPA (Australia)", "ACA, Institute of Chartered Accountants of Sri Lanka", "BSc Accounting (Special, First Class), University of Sri Jayewardenepura"],
-    credentialShort: "CPA (Aust) · ACA (Sri Lanka)",
-    bio: "An assistant accountant with the firm since 2024, joining soon after immigrating to Australia. Eshani spent nearly ten years as an accountant across Sri Lanka, Jamaica, where she worked for KPMG, and the United Kingdom. She graduated with first-class honours in accounting from the University of Sri Jayewardenepura, widely regarded as Sri Lanka's preeminent university for business education, and is an associate member of the Institute of Chartered Accountants of Sri Lanka. Since arriving in Australia she has gained membership of CPA Australia and is studying for the Chartered Tax Adviser credential conferred by The Tax Institute. She prepares compliance work for the firm's clients under Niroshi's supervision.",
-    lineage: "KPMG, Jamaica",
-    joined: "2024",
-    initials: "ER",
-    reportsTo: "niroshi-rathnayakage",
-    photo: "/images/team/eshani-rathnayake-editorial.webp",
-    email: "eshani@msaccountants.com.au",
-  },
-  {
-    slug: "lakshika-senaviratne",
-    name: "Ms Lakshika Senaviratne",
-    shortName: "Lakshika",
-    role: "Assistant Accountant",
-    credentials: ["Associate member, CPA Australia", "Master of Professional Accounting & Finance, Deakin University", "BSc Accounting & Finance (Special), Rajarata University, Sri Lanka"],
-    credentialShort: "CPA Australia (Assoc.) · MPAF, Deakin",
-    bio: "An assistant accountant with the firm since 2024, a couple of years after arriving in Australia. Lakshika worked for nearly ten years as an accountant in Sri Lanka, in the commercial sector and in professional accounting firms including EY. Since arriving in Australia she has added a Master of Professional Accounting & Finance from Deakin University to her bachelor's degree in accounting and finance from Rajarata University, Sri Lanka, and is completing the CPA Australia program. She prepares compliance work for the firm's clients under Niroshi's supervision.",
-    lineage: "EY, Sri Lanka",
-    joined: "2024",
-    initials: "LS",
-    reportsTo: "niroshi-rathnayakage",
-    photo: "/images/team/lakshika-senaviratne-editorial.webp",
-    email: "lakshikasenaviratne@gmail.com",
-  },
-  {
-    slug: "anne-tran",
-    name: "Ms Anne Tran",
-    shortName: "Anne",
-    role: "Practice Manager",
-    credentials: ["Bachelor of Commerce (Accounting), Macquarie University"],
-    credentialShort: "BCom (Accounting), Macquarie",
-    bio: "The practice manager of the firm since 2024, responsible for everything administrative so the accountants can stay on client work; by design she carries out none of the client engagements herself. Anne's working career began in 1999 and includes founding her own branded garments business in greater Sydney, so she runs the firm's operations with an owner's eye. She holds a Bachelor of Commerce in accounting from Macquarie University and reports directly to Dr Sridaran.",
-    joined: "2024",
-    initials: "AT",
-    reportsTo: "maheswaran-sridaran",
-    photo: "/images/team/anne-tran-editorial.webp",
-    email: "anne@quikstar.com.au",
-  },
+      slug: "niroshi-rathnayakage",
+      name: "Ms Niroshi Sewwandika",
+      shortName: "Niroshi",
+      role: "Senior Accountant",
+      credentials: ["CPA (Australia)", "Registered Tax Agent (Australia)", "BSc Management, University of Sri Jayewardenepura"],
+      credentialShort: "CPA (Aust) · Registered Tax Agent",
+      bio: "The senior accountant of the firm, with MS Accountants since 2013. Every accountant on the team works under Niroshi's direct supervision, and she reports only to Dr Sridaran. A CPA and a registered tax agent in her own right, she built her Australian tax experience across several firms after immigrating, on top of nearly a decade as an accountant in Sri Lanka, latterly with one of that country's largest fund managers. She began her career as an auditor at EY in Sri Lanka, holds a bachelor's degree in management from the University of Sri Jayewardenepura, and was formerly an associate member of the Institute of Chartered Accountants of Sri Lanka.",
+      lineage: "EY, Sri Lanka",
+      joined: "2013",
+      initials: "NR",
+      reportsTo: "maheswaran-sridaran",
+      photo: "/images/team/niroshi-sewwandika-editorial.webp",
+      email: "niroshi@msaccountants.com.au",
+    },
+    {
+      slug: "anne-tran",
+      name: "Ms Anne Tran",
+      shortName: "Anne",
+      role: "Practice Manager",
+      credentials: ["Bachelor of Commerce (Accounting), Macquarie University"],
+      credentialShort: "BCom (Accounting), Macquarie",
+      bio: "The practice manager of the firm since 2024, responsible for everything administrative so the accountants can stay on client work; by design she carries out none of the client engagements herself. Anne's working career began in 1999 and includes founding her own branded garments business in greater Sydney, so she runs the firm's operations with an owner's eye. She holds a Bachelor of Commerce in accounting from Macquarie University and reports directly to Dr Sridaran.",
+      joined: "2024",
+      initials: "AT",
+      reportsTo: "maheswaran-sridaran",
+      photo: "/images/team/anne-tran-editorial.webp",
+      email: "anne@msaccountants.com.au",
+    },
+    {
+      slug: "lakshika-subramaniam",
+      name: "Ms Lakshika Subramaniam",
+      shortName: "Lakshika",
+      role: "Accountant",
+      credentials: ["CPA (Australia)", "ACMA, Chartered Institute of Management Accountants (UK)", "Advanced Diploma in Business Administration, Association of Business Executives (UK)"],
+      credentialShort: "CPA (Aust) · ACMA (UK)",
+      bio: "An accountant with the firm since 2025, bringing at least 15 years of working experience in Australia, preceded by many years in Sri Lanka in the commercial sector and in professional accounting firms, including EY. A CPA and an associate of the Chartered Institute of Management Accountants in the UK, Lakshika is currently studying to become a registered tax agent. She prepares compliance work for the firm's clients, largely independently, under Niroshi's supervision.",
+      lineage: "EY, Sri Lanka",
+      joined: "2025",
+      initials: "LS",
+      reportsTo: "niroshi-rathnayakage",
+      photo: "/images/team/lakshika-subramaniam-editorial.webp",
+      email: "lakshika.subramaniam@msaccountants.com.au",
+    },
+    {
+      slug: "eshani-rathnayake",
+      name: "Ms Eshani Rathnayake",
+      shortName: "Eshani",
+      role: "Assistant Accountant",
+      credentials: ["CPA (Australia)", "ACA, Institute of Chartered Accountants of Sri Lanka", "BSc Accounting (Special, First Class), University of Sri Jayewardenepura"],
+      credentialShort: "CPA (Aust) · ACA (Sri Lanka)",
+      bio: "An assistant accountant with the firm since 2024, joining soon after immigrating to Australia. Eshani spent nearly ten years as an accountant across Sri Lanka, Jamaica, where she worked for KPMG, and the United Kingdom. She graduated with first-class honours in accounting from the University of Sri Jayewardenepura, widely regarded as Sri Lanka's preeminent university for business education, and is an associate member of the Institute of Chartered Accountants of Sri Lanka. Since arriving in Australia she has gained membership of CPA Australia and is studying for the Chartered Tax Adviser credential conferred by The Tax Institute. She prepares compliance work for the firm's clients under Niroshi's supervision.",
+      lineage: "KPMG, Jamaica",
+      joined: "2024",
+      initials: "ER",
+      reportsTo: "niroshi-rathnayakage",
+      photo: "/images/team/eshani-rathnayake-editorial.webp",
+      email: "eshani@msaccountants.com.au",
+    },
+    {
+      slug: "lakshika-senaviratne",
+      name: "Ms Lakshika Senaviratne",
+      shortName: "Lakshika",
+      role: "Assistant Accountant",
+      credentials: ["Associate member, CPA Australia", "Master of Professional Accounting & Finance, Deakin University", "BSc Accounting & Finance (Special), Rajarata University, Sri Lanka"],
+      credentialShort: "CPA Australia (Assoc.) · MPAF, Deakin",
+      bio: "An assistant accountant with the firm since 2024, a couple of years after arriving in Australia. Lakshika worked for nearly ten years as an accountant in Sri Lanka, in the commercial sector and in professional accounting firms including EY. Since arriving in Australia she has added a Master of Professional Accounting & Finance from Deakin University to her bachelor's degree in accounting and finance from Rajarata University, Sri Lanka, and is completing the CPA Australia program. She prepares compliance work for the firm's clients under Niroshi's supervision.",
+      lineage: "EY, Sri Lanka",
+      joined: "2024",
+      initials: "LS",
+      reportsTo: "niroshi-rathnayakage",
+      photo: "/images/team/lakshika-senaviratne-editorial.webp",
+      email: "lakshika@msaccountants.com.au",
+    },
 ] as const;
 
 export function getTeamMember(slug: string): TeamMember | undefined {
@@ -449,60 +451,8 @@ export const teamCollective = {
   ctaHref: "/about#team",
 } as const;
 
-// ---------------------------------------------------------------------------
-// Testimonials
-// ---------------------------------------------------------------------------
-
-export type Testimonial = {
-  quote: string;
-  name: string;
-  role: string;
-  company: string;
-};
-
-export const testimonials: Testimonial[] = [
-  {
-    quote: "Sri has, in the first half of 2010, assisted our group in a number of complex areas: tax (federal, as well as state), strategic management, financing, rationalisation of leases, and formulation of internal audit arrangements. In all that work, Sri has impressed us as a professional who has complete mastery over the theoretical aspects of his work who, at the same time, does not neglect properly addressing all practical tasks required to accomplish sound outcomes for us. We are convinced that his approach for serving us always had foremost regard for what was in the best interest of our group. We highly commend his reliability and his unfailing professional courtesy with which he has engaged with all our staff and other stakeholders he has worked with.",
-    name: "Mr Ambi Thind",
-    role: "Group CEO, Managing Director",
-    company: "The Education Group Pty Ltd",
-  },
-  {
-    quote: "Sridaran has assisted me with the accounting and tax affairs of my company, Visa Investments Portfolio Pty Ltd, ever since the company was incorporated. His assistance to me has always been most conscientious and patient. He has, on occasion, had to devote a lot of time to provide me that assistance. I have total confidence in Sridaran's professional competence, integrity and reliability.",
-    name: "Ms Araliya De Silva",
-    role: "Director",
-    company: "Visa Investments Portfolio Pty Ltd",
-  },
-  {
-    quote: "Sri has taken care of the tax work for our company, Quikstar Pty Ltd, for several years. He has always generously given us his time to address any concerns and has always advised us of what we should do; mindful of what is best for us. We have always had complete confidence of his professional competence and reliability and would highly recommend his services to any company.",
-    name: "Ms Anne Truong",
-    role: "",
-    company: "Quikstar Pty Ltd",
-  },
-  {
-    quote: "I have been a client of Maheswaran Sridaran for over seven years uninterrupted. I regard Sridaran as a completely reliable and competent professional, with a good mastery of all taxes that I, as a health care professional and property-company owner, am exposed to: income tax, Medicare levy, GST, and land tax. I highly commend the promptness, maturity, patience, and professional courtesy that have been consistent features of my professional relationship with Maheswaran Sridaran.",
-    name: "Ms Manya Scheftsik",
-    role: "Registered Psychologist",
-    company: "",
-  },
-  {
-    quote: "Sri assisted us to manage our dealings with the Australian Taxation Office and NSW Office of State Revenue in relation to audits they had initiated of our two colleges. Sri most competently oversaw the work required, providing comprehensive, appropriate and timely responses to both authorities. He also ensured that work was carried out in a manner that was cost-effective to us.",
-    name: "Ms Neda Morris",
-    role: "Principal Executive Officer, Director",
-    company: "Caprock International Pty Ltd",
-  },
-];
-
-export function getTestimonial(name: string): Testimonial | undefined {
-  return testimonials.find((t) => t.name === name);
-}
-
-// Act V case-in-point frame, single source of truth. Rendered by ProofAct
-// (homepage) and reused verbatim as CaseInPoint's default frame prop (inner
-// pages). Drawn strictly from Ms Neda Morris's own testimonial wording;
-// nothing is invented.
-export const caseFrame =
-  "When the ATO and the Office of State Revenue both opened audits, the response had to be comprehensive, correct, and cost-effective.";
+// The approved 2026 client-proof corpus lives in `testimonials.ts`. Keeping it
+// separate from general site copy makes verbatim references easy to audit.
 
 // Act VII promise headline + body, single source of truth. Rendered by
 // ConversationAct (homepage, red crescendo) and PromiseBlock (inner pages).
@@ -530,23 +480,3 @@ export const howItWorksSteps = [
   },
 ] as const;
 
-// ---------------------------------------------------------------------------
-// Service to testimonial mapping
-// One relevant, real testimonial surfaced on each service detail page, chosen
-// by genuine relevance. Honest by design:
-//  - tax-disputes-ato is intentionally absent: that page carries the Neda Morris
-//    "case in point" band, so a second quote from her would be redundant.
-//  - self-managed-super maps to a general competence/reliability quote that makes
-//    no SMSF-specific claim (no testimonial mentions SMSF; nothing is invented).
-// ---------------------------------------------------------------------------
-export const relatedTestimonial: Record<string, string> = {
-  "tax-advisory-planning": "Ms Manya Scheftsik",
-  "tax-compliance-returns": "Ms Araliya De Silva",
-  "business-cfo-advisory": "Mr Ambi Thind",
-  "self-managed-super": "Ms Anne Truong",
-};
-
-export function getTestimonialForService(slug: string): Testimonial | undefined {
-  const name = relatedTestimonial[slug];
-  return name ? getTestimonial(name) : undefined;
-}
