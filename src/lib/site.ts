@@ -42,6 +42,15 @@ export const site = {
   },
 } as const;
 
+export const directorProfile = {
+  homeCredential:
+    "Led by Dr Maheswaran Sridaran, chartered accountant, lawyer, registered tax agent, and PhD in Australian tax law.",
+  aboutCredential:
+    "Led by Dr Maheswaran Sridaran, chartered accountant, lawyer, registered tax agent, PhD Australian tax law (Macquarie University).",
+  teaching:
+    "He taught Australian tax law and commercial law at Macquarie University, Sydney, the third largest university in Sydney, where students chose him as “The most knowledgeable teacher in their chosen field”, an award made by the university.",
+} as const;
+
 // Quantified credential stats (spec §1), Quinn-style "value" band.
 export const valueStats = [
   { figure: "PhD", unit: "in tax law", label: "Doctoral-level expertise in Australian tax law" },
@@ -53,8 +62,10 @@ export const valueStats = [
 export const missionPrinciples = {
   eyebrow: "How the firm works",
   heading: "Timely care, responsible judgement, and work the team can be proud of.",
-  body:
-    "MS Accountants was built around a simple standard: serve clients to the highest level, regardless of their station, while giving the people doing the work the resources, respect, and responsibility they need to do it properly. The firm treats clients and staff as its most important assets, acts constructively and respectfully, and never charges a fee a client cannot sustain.",
+  paragraphs: [
+    "Ours is a professional services firm that seeks to always employ the best staff, staff who are committed to serving all our clients to the highest standard (irrespective of the stations of our clients). To provide our staff a working environment in which they have access to all the resources they need for optimally serving our clients, we must generate sufficient profits to fulfil the commitments we owe to all our stakeholders: all our clients, staff, suppliers, government, community, and owners.",
+    "Our clients and our staff are our most important assets. We will always do our utmost to provide our clients timely care, which is responsible, constructive, and respectful. We will never charge our clients a fee they cannot sustain. Through our unfailing adherence to these principles, we strive to ensure that all our staff can rightly feel proud of their work, and thereby find their voice.",
+  ],
   values: [
     "Trustworthiness",
     "Responsibility",
@@ -85,11 +96,36 @@ export const authorityItems = [
 // cited. Titles are verbatim and real (AFR/SMH op-eds + the book); ordered to
 // lead with fairness and the willingness to question the received view.
 export const publications = [
-  { title: "Tax reform for the best and fairest", outlet: "Australian Financial Review", year: "2008" },
-  { title: "High Court gets it right on GST", outlet: "Australian Financial Review", year: "2008" },
-  { title: "There's a different way to view takeover concerns", outlet: "Australian Financial Review", year: "2007" },
-  { title: "Tax agents deserve a better deal", outlet: "Australian Financial Review", year: "2007" },
-  { title: "Top universities serve students first", outlet: "The Sydney Morning Herald", year: "2008" },
+  {
+    title: "Tax reforms for the best and fairest",
+    outlet: "Australian Financial Review",
+    year: "2008",
+    href: "https://researchers.mq.edu.au/en/publications/tax-reforms-for-the-best-and-fairest/",
+  },
+  {
+    title: "High Court gets it right on GST",
+    outlet: "Australian Financial Review",
+    year: "2008",
+    href: "https://researchers.mq.edu.au/en/publications/high-court-gets-it-right-on-gst/",
+  },
+  {
+    title: "There's a different way to view takeover concerns",
+    outlet: "Australian Financial Review",
+    year: "2007",
+    href: "https://researchers.mq.edu.au/en/publications/theres-a-different-way-to-view-takeover-concerns/",
+  },
+  {
+    title: "Tax agents deserve a better deal",
+    outlet: "Australian Financial Review",
+    year: "2007",
+    href: "https://researchers.mq.edu.au/en/publications/tax-agents-deserve-a-better-deal/",
+  },
+  {
+    title: "Top universities serve students first",
+    outlet: "The Sydney Morning Herald",
+    year: "2008",
+    href: "https://researchers.mq.edu.au/en/publications/top-universities-serve-students-first/",
+  },
 ] as const;
 
 export const book = {
@@ -120,7 +156,7 @@ export const credentialCards = [
     body: "Mostly with two of the Big Four, the last 25 in Australia. You get that seniority applied to your file directly, without big-firm overhead, handoffs, or a rotating cast of account managers.",
   },
   {
-    title: "Taught tax law. Published in the AFR and SMH. Wrote the book.",
+    title: "Taught Australian tax law and commercial law. Published in the AFR and SMH. Wrote the book.",
     body: "If your accountant can teach the law, publish on it nationally, and argue it when it is tested, they can explain your position clearly enough for you to act, and defend it when it counts.",
   },
 ] as const;
@@ -142,6 +178,9 @@ export type Service = {
   why: string;
   image?: string;
 };
+
+export const servicesPageDescription =
+  "Tax advisory and planning; disputes, investigations and litigation; compliance; CFO advisory; and SMSF compliance. Five disciplines, led by a chartered accountant who is also a lawyer, with Dr Sridaran reviewing every engagement personally.";
 
 export const services: Service[] = [
   {
@@ -193,7 +232,7 @@ export const services: Service[] = [
     tagline: "When the tax authorities come knocking, your accountant being a lawyer is your best defence.",
     intro: [
       "An audit. A complex investigation. A disputed assessment you need to fight, and may have to litigate. These are the moments where it pays to have someone who knows the law cold and is qualified to argue your case all the way, not hand you off to a barrister at the first sign of a courtroom.",
-      "Dr Maheswaran Sridaran is a chartered accountant and a lawyer. He taught tax law at university and led a national tax practice before founding MS Accountants. He does not just know the rules; he understands the reasoning behind them, and where that reasoning is weaker than it looks. Because he is qualified on both sides, your matter can go from the first audit query to the courtroom in the same hands. He has represented clients in tax disputes before the Administrative Appeals Tribunal and, with leave, the New South Wales District Court. That is what it takes to push back on the tax authorities and be taken seriously.",
+      "Dr Maheswaran Sridaran is a chartered accountant and a lawyer. He taught Australian tax law and commercial law at Macquarie University and led a national tax practice before founding MS Accountants. He does not just know the rules; he understands the reasoning behind them, and where that reasoning is weaker than it looks. Because he is qualified on both sides, your matter can go from the first audit query to the courtroom in the same hands. He has represented clients in tax disputes before the Administrative Appeals Tribunal and, with leave, the New South Wales District Court. That is what it takes to push back on the tax authorities and be taken seriously.",
     ],
     helpHeading: "What we help with",
     help: [
@@ -270,8 +309,8 @@ export const services: Service[] = [
         desc: "knowing exactly what you're buying before you buy it.",
       },
       {
-        term: "Raising loan and equity finance",
-        desc: "structuring and supporting the case to lenders and investors.",
+        term: "Loan finance support and introductions",
+        desc: "preparing financial information and coordinating with established loans professionals and banking contacts when clients need finance.",
       },
       {
         term: "Financial statements and forecasts",
@@ -359,7 +398,7 @@ export const team: readonly TeamMember[] = [
   },
   {
       slug: "niroshi-rathnayakage",
-      name: "Ms Niroshi Sewwandika",
+      name: "Ms Niroshi Rathnayakage",
       shortName: "Niroshi",
       role: "Senior Accountant",
       credentials: ["CPA (Australia)", "Registered Tax Agent (Australia)", "BSc Management, University of Sri Jayewardenepura"],
@@ -391,11 +430,11 @@ export const team: readonly TeamMember[] = [
       name: "Ms Lakshika Subramaniam",
       shortName: "Lakshika",
       role: "Accountant",
-      credentials: ["CPA (Australia)", "ACMA, Chartered Institute of Management Accountants (UK)", "Advanced Diploma in Business Administration, Association of Business Executives (UK)"],
-      credentialShort: "CPA (Aust) · ACMA (UK)",
-      bio: "An accountant with the firm since 2025, bringing at least 15 years of working experience in Australia, preceded by many years in Sri Lanka in the commercial sector and in professional accounting firms, including EY. A CPA and an associate of the Chartered Institute of Management Accountants in the UK, Lakshika is currently studying to become a registered tax agent. She prepares compliance work for the firm's clients, largely independently, under Niroshi's supervision.",
+      credentials: ["CPA (Australia)", "ACMA, Chartered Institute of Management Accountants (UK)", "Registered BAS Agent", "Advanced Diploma in Business Administration, Association of Business Executives (UK)"],
+      credentialShort: "CPA (Aust) · ACMA (UK) · BAS Agent",
+      bio: "An accountant with the firm since 2024, bringing at least 15 years of working experience in Australia, preceded by many years in Sri Lanka in the commercial sector and in professional accounting firms, including EY. A CPA, an associate of the Chartered Institute of Management Accountants in the UK, and a registered BAS agent, Lakshika is currently studying to become a registered tax agent. She prepares compliance work for the firm's clients, largely independently, under Niroshi's supervision.",
       lineage: "EY, Sri Lanka",
-      joined: "2025",
+      joined: "2024",
       initials: "LS",
       reportsTo: "niroshi-rathnayakage",
       photo: "/images/team/lakshika-subramaniam-editorial.webp",
@@ -479,4 +518,3 @@ export const howItWorksSteps = [
     body: "The team prepares the work; he signs off on all of it. Even compliance-only clients receive senior time on the strategic issues each year.",
   },
 ] as const;
-

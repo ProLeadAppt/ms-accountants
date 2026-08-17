@@ -9,11 +9,11 @@ import { PageHero } from "@/components/sections/PageHero";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { ClientVoicesBand } from "@/components/proof/ClientVoicesBand";
 import { services } from "@/lib/services";
+import { servicesPageDescription } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Services",
-  description:
-    "Tax advisory and planning; disputes, investigations and litigation; compliance; CFO advisory; and SMSF audits. Five disciplines, led by a chartered accountant who is also a lawyer, with Dr Sridaran reviewing every engagement personally.",
+  description: servicesPageDescription,
   alternates: { canonical: "/services" },
 };
 
