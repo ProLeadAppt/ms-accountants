@@ -163,18 +163,18 @@
   {
     "id": "murali-pitchai",
     "name": "Mr Murali Pitchai",
-    "role": "CFO",
+    "role": "CFO - ROW (Rest of the world)",
     "company": "HTC Global Services",
     "location": "Chennai",
-    "date": "24 July 2026",
-    "fullQuote": "Dr Sridaran and his team at MS Accountants have served all our needs in Australasia (that is, Australia and New Zealand) for over 10 consecutive years, a service which we have found to be always entirely reliable and highly competent. Dr Sridaran and his team at MS Accountants work in coordination with our staff (mostly, based in Chennai, Tamil Nadu, India) so extremely well that we regard Dr Sridaran and his staff at MS Accountants to almost be part of our organisation, whose scope of operations covers nearly ten countries, including Australia, where we have a substantial subsidiary.",
-    "excerpt": "Dr Sridaran and his team at MS Accountants work in coordination with our staff (mostly, based in Chennai, Tamil Nadu, India) so extremely well that we regard Dr Sridaran and his staff at MS Accountants to almost be part of our organisation, whose scope of operations covers nearly ten countries, including Australia, where we have a substantial subsidiary.",
+    "date": "30 July 2026",
+    "fullQuote": "Dr. Sridaran and his team at MS Accountants have been our trusted advisors for all our accounting, taxation, and compliance requirements across Australasia (Australia and New Zealand) for more than ten consecutive years. Throughout this long-standing association, they have consistently delivered services of the highest professional standard, demonstrating exceptional reliability, technical expertise, and responsiveness. What distinguishes Dr. Sridaran and his team is their ability to work seamlessly with our finance and operations teams, most of whom are based in Chennai, India. Their proactive approach, clear communication, and deep understanding of our business have enabled them to integrate effortlessly with our organization. In many respects, we regard MS Accountants as an extension of our own team rather than an external professional firm. Dr. Sridaran and the team at MS Accountants have consistently exceeded our expectations. Best Wishes.",
+    "excerpt": "What distinguishes Dr. Sridaran and his team is their ability to work seamlessly with our finance and operations teams, most of whom are based in Chennai, India. Their proactive approach, clear communication, and deep understanding of our business have enabled them to integrate effortlessly with our organization. In many respects, we regard MS Accountants as an extension of our own team rather than an external professional firm.",
     "chapter": "long-view",
     "serviceSlugs": ["business-cfo-advisory"],
     "approvalStatus": "approved",
     "useLogo": false,
-    "sourceType": "client-reference",
-    "source": "MS Accountants - HTC Global Services Australia Pty Ltd - 24 July 2026.docx"
+    "sourceType": "client-email",
+    "source": "Murali Pitchai approval email - 30 July 2026"
   },
   {
     "id": "krishnamoorthi-rangasamy",

@@ -4,7 +4,7 @@ import { EyebrowTag } from "@/components/ui/EyebrowTag";
 import { HeroBackground } from "@/components/motion/HeroBackground";
 import { HeroTimeline } from "@/components/motion/HeroTimeline";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
-import { site } from "@/lib/site";
+import { directorProfile, site } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -55,8 +55,7 @@ export function Hero() {
                   data-hero="rise"
                   className="mt-6 max-w-2xl text-base leading-relaxed text-cream/76 sm:text-lg lg:text-xl"
                 >
-                  Led by Dr Maheswaran Sridaran, Chartered Accountant, lawyer,
-                  registered tax agent, and PhD in Australian tax law.
+                  {directorProfile.homeCredential}
                 </p>
                 <div
                   data-hero="rise"

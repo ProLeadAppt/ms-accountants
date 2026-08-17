@@ -11,6 +11,7 @@ import { PublishedThinking } from "@/components/sections/PublishedThinking";
 import { TeamRoster } from "@/components/sections/TeamRoster";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { ClientVoicesBand } from "@/components/proof/ClientVoicesBand";
+import { directorProfile } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Dr Maheswaran Sridaran",
@@ -29,7 +30,7 @@ export default function AboutPage() {
           { text: "An accountant who is also a lawyer who chose to" },
           { text: "run a small firm.", em: true },
         ]}
-        lede="Led by Dr Maheswaran Sridaran, Chartered Accountant, lawyer, registered tax agent, PhD Australian tax law (Macquarie University)."
+        lede={directorProfile.aboutCredential}
       />
 
       {/* Origin story */}
@@ -75,9 +76,7 @@ export default function AboutPage() {
                   Being both an accountant and a lawyer, he can carry a tax
                   problem the whole distance, from day-to-day advice through to
                   a tax-authority investigation and, where it must go that far,
-                  litigation. He taught tax law
-                  at Macquarie University, where the Faculty of Law named him its
-                  most knowledgeable teacher in his field, and has published in
+                  litigation. {directorProfile.teaching} He has published in
                   the Australian Financial Review and the Sydney Morning Herald.
                   His first book asked whether the rules are even fair:{" "}
                   <em>Are Capital Gains Equitably Taxed in Australia?</em>{" "}

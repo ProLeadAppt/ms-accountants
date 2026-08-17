@@ -42,7 +42,14 @@ export function PublishedThinking({
               className="flex flex-col gap-3 border-b border-[var(--hairline)] py-6 sm:flex-row sm:items-baseline sm:justify-between sm:gap-10"
             >
               <h3 className="font-serif text-2xl leading-snug sm:max-w-3xl sm:text-3xl">
-                &ldquo;{p.title}&rdquo;
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transition-colors hover:text-brand-red focus-visible:text-brand-red"
+                >
+                  &ldquo;{p.title}&rdquo;
+                </a>
               </h3>
               <div className="shrink-0 font-mono text-xs uppercase tracking-[0.16em] text-brand-red">
                 {p.outlet}{" "}

@@ -46,7 +46,15 @@ describe("client testimonial proof corpus", () => {
 
   it("preserves the approved identity corrections", () => {
     expect(getClientStory("amarjit-singh-thind")?.name).toBe("Mr Amarjit Singh Thind");
-    expect(getClientStory("murali-pitchai")?.company).toBe("HTC Global Services");
+    const murali = getClientStory("murali-pitchai");
+    expect(murali?.company).toBe("HTC Global Services");
+    expect(murali?.role).toBe("CFO - ROW (Rest of the world)");
+    expect(murali?.date).toBe("30 July 2026");
+    expect(murali?.sourceType).toBe("client-email");
+    expect(murali?.source).toBe("Murali Pitchai approval email - 30 July 2026");
+    expect(murali?.fullQuote).toBe(
+      "Dr. Sridaran and his team at MS Accountants have been our trusted advisors for all our accounting, taxation, and compliance requirements across Australasia (Australia and New Zealand) for more than ten consecutive years. Throughout this long-standing association, they have consistently delivered services of the highest professional standard, demonstrating exceptional reliability, technical expertise, and responsiveness. What distinguishes Dr. Sridaran and his team is their ability to work seamlessly with our finance and operations teams, most of whom are based in Chennai, India. Their proactive approach, clear communication, and deep understanding of our business have enabled them to integrate effortlessly with our organization. In many respects, we regard MS Accountants as an extension of our own team rather than an external professional firm. Dr. Sridaran and the team at MS Accountants have consistently exceeded our expectations. Best Wishes.",
+    );
 
     const facilio = getClientStory("krishnamoorthi-rangasamy");
     expect(facilio?.fullQuote).toContain("MS Accountants has been our trusted partner");

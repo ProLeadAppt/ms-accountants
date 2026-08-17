@@ -19,10 +19,12 @@ export function MissionPrinciples() {
             />
           </Reveal>
 
-          <Reveal className="flex flex-col justify-end">
-            <p className="text-lg leading-relaxed text-[var(--muted)]">
-              {missionPrinciples.body}
-            </p>
+          <Reveal className="flex flex-col justify-end gap-5">
+            {missionPrinciples.paragraphs.map((paragraph) => (
+              <p key={paragraph} className="text-lg leading-relaxed text-[var(--muted)]">
+                {paragraph}
+              </p>
+            ))}
           </Reveal>
         </div>
 
