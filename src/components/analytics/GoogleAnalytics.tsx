@@ -1,24 +1,7 @@
-import Script from "next/script";
+import { GoogleAnalytics as NextGoogleAnalytics } from "@next/third-parties/google";
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+export const GA_MEASUREMENT_ID = "G-B4EJMTDL7F";
 
 export function GoogleAnalytics() {
-  if (!GA_ID) return null;
-
-  return (
-    <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${GA_ID}', { anonymize_ip: true });
-        `}
-      </Script>
-    </>
-  );
+  return <NextGoogleAnalytics gaId={GA_MEASUREMENT_ID} />;
 }
