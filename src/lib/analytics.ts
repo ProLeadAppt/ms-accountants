@@ -18,5 +18,6 @@ export function trackConversion(eventName: string, params: Record<string, unknow
   }
 
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: eventName, ...params });
+  // gtag consumes queued commands, including clicks before its script is ready.
+  window.dataLayer.push(["event", eventName, params]);
 }
