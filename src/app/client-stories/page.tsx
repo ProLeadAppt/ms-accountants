@@ -16,8 +16,7 @@ import {
 
 export const metadata: Metadata = {
   title: "Client Stories",
-  description:
-    "Read 14 attributed client references for MS Accountants covering long-term accounting relationships, ATO reviews, complex tax matters, audit, compliance, and business advice.",
+  description: `Read ${clientStories.length} attributed client references for MS Accountants covering long-term accounting relationships, ATO reviews, complex tax matters, audit, compliance, and business advice.`,
   alternates: { canonical: "/client-stories" },
 };
 
@@ -32,7 +31,7 @@ const proofRules = [
   },
   {
     label: "No manufactured rating",
-    body: "The clients did not provide star scores, so this page does not turn their references into one. It also uses no client logos.",
+    body: "No rating is inferred or aggregated from these written references. This page also uses no client logos.",
   },
 ] as const;
 
@@ -41,7 +40,9 @@ export default function ClientStoriesPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(clientStoriesGraph(clientStories)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(clientStoriesGraph(clientStories)).replace(/</g, "\\u003c"),
+        }}
       />
 
       <PageHero
@@ -51,7 +52,7 @@ export default function ClientStoriesPage() {
           { text: "What clients say" },
           { text: "after the work is done.", em: true },
         ]}
-        lede="Fourteen attributed client references, published with permission. They describe long-standing advice, difficult ATO matters, audit and compliance, and what it was like to work with the people involved."
+        lede={`${clientStories.length} attributed client references, published with permission. They describe long-standing advice, difficult ATO matters, audit and compliance, and what it was like to work with the people involved.`}
       >
         <Button href="#the-references" variant="secondary" className="text-cream">
           Read the references

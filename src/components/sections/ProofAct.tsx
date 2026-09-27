@@ -4,7 +4,7 @@ import { Stagger } from "@/components/motion/Stagger";
 import { ClientStoryCard } from "@/components/proof/ClientStoryCard";
 import { TextLink } from "@/components/ui/Button";
 import { EyebrowTag } from "@/components/ui/EyebrowTag";
-import { getClientStory } from "@/lib/testimonials";
+import { clientStories, getClientStory } from "@/lib/testimonials";
 
 const feature = getClientStory("bianca-fletcher")!;
 const supporting = [getClientStory("murali-pitchai")!, getClientStory("qing-ouyang")!];
@@ -31,7 +31,7 @@ export function ProofAct() {
             </p>
             <div className="mt-6">
               <TextLink href="/client-stories" className="text-cream/80 hover:text-cream">
-                Explore all 14 references
+                Explore all {clientStories.length} references
               </TextLink>
             </div>
           </div>
@@ -56,9 +56,9 @@ export function ProofAct() {
 
         <Reveal className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-cream/12 bg-cream/12 sm:grid-cols-3">
           {[
-            ["14", "approved client references"],
+            [String(clientStories.length), "approved client references"],
             ["2010", "relationships documented from the firm's beginning"],
-            ["35+", "years in the longest client relationship described"],
+            ["35+", "years of personal and professional relationships described"],
           ].map(([figure, label]) => (
             <div key={figure} className="bg-espresso-deep px-7 py-7 sm:px-8">
               <p className="font-serif text-3xl text-red-bright">{figure}</p>

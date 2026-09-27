@@ -131,8 +131,8 @@
   {
     "id": "logan-nirmalananda",
     "name": "Mr Logan Nirmalananda",
-    "role": "Co-CEO and Chairman of the Jesmond Group and Live Well",
-    "company": "LSN Consulting Pty Ltd",
+    "role": "CEO",
+    "company": "AEQURA",
     "location": "Sydney",
     "date": "24 July 2026",
     "fullQuote": "I have known Sridaran for nearly 15 consecutive years, a period during which he has always served me, my family, and my family businesses (that I own and manage entirely on my own) as a highly sound, versatile source of counsel, and he and his team, functioning almost as a component of our operations, have attended to all our administrative needs in general, including accounting and tax. I have always found the reliability of Sridaran and his team to be of an exceptionally high order.",
@@ -204,5 +204,49 @@
     "useLogo": false,
     "sourceType": "client-supplied-text",
     "source": "Client testimonial supplied by Tyson Kaye on 31 July 2026"
+  },
+  {
+    "id": "shanthini-tambimuttu",
+    "name": "Dr Shanthini Tambimuttu",
+    "location": "Sydney",
+    "date": "26 September 2026",
+    "fullQuote": "Sridaran was a good friend of my late husband’s, and my late husband and I have known Sridaran for nearly 40 years, since 1988, when Sridaran, and my late husband and I, were living and working in Port Moresby, the capital of Papua New Guinea. Even as far back as then, my late husband considered Sridaran to be an accountant who displayed promise. Sridaran and his firm, MS Accountants, have served as my accountants from the very inception of his firm in February 2010, and, throughout that long period that they have served me, I have always found Sridaran to be highly reliable, professional, and respectful, and his team of staff at MS Accountants to bear those same attributes.",
+    "excerpt": "I have always found Sridaran to be highly reliable, professional, and respectful, and his team of staff at MS Accountants to bear those same attributes.",
+    "chapter": "long-view",
+    "serviceSlugs": [],
+    "approvalStatus": "approved",
+    "useLogo": false,
+    "sourceType": "client-reference",
+    "source": "Dr Shanthini Tambimuttu approved reference - 27 September 2026"
+  },
+  {
+    "id": "daniel-jones",
+    "name": "Daniel Jones",
+    "company": "The DAN JONES Label Pty Ltd",
+    "location": "Sydney",
+    "date": "28 July 2026",
+    "fullQuote": "For at least four consecutive years up to now, Sridaran has both been a friend and an adviser to me in relation to tax and legal matters applicable to myself personally and my businesses, even at times my businesses were facing some severe problems (during the Covid pandemic). During that same period, Sridaran’s firm, MS Accountants, has been the accountants of myself and my business, a responsibility which that firm, as has Sridaran, always discharged at a high standard. I have always found Sridaran and his team at MS Accountants to be professionals who are both “people” that one can very easily relate to and professionals whose competence that one can entirely rely on.",
+    "excerpt": "I have always found Sridaran and his team at MS Accountants to be professionals who are both “people” that one can very easily relate to and professionals whose competence that one can entirely rely on.",
+    "chapter": "business-side",
+    "serviceSlugs": ["tax-advisory-planning"],
+    "approvalStatus": "approved",
+    "useLogo": false,
+    "sourceType": "client-reference",
+    "source": "Daniel Jones approved reference - 7 September 2026"
+  },
+  {
+    "id": "dinah-eldridge",
+    "name": "Ms Dinah Eldridge",
+    "role": "Registered Nurse",
+    "location": "Crescent Head",
+    "date": "24 July 2026",
+    "fullQuote": "I am pleased to recommend Dr Sridaran whom I consulted regarding an accumulated income tax issue. His firm, MS Accountants, appointed as my accountants, managed this matter with exceptional expertise. This issue had been a significant concern for me over an extended period, and I have been thoroughly impressed by Dr Sridaran’s reliability, kindness and unwavering professionalism.",
+    "excerpt": "I have been thoroughly impressed by Dr Sridaran’s reliability, kindness and unwavering professionalism.",
+    "chapter": "difficult-matters",
+    "serviceSlugs": [],
+    "approvalStatus": "approved",
+    "useLogo": false,
+    "sourceType": "client-email",
+    "source": "Dinah Eldridge client-authored reference - 17 August 2026"
   }
 ]

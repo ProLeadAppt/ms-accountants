@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { clientStoriesGraph } from "./schema";
 import {
   clientStories,
   featuredStoryIds,
@@ -17,9 +18,10 @@ const retiredNames = [
 const normalise = (value: string) => value.replace(/\s+/g, " ").trim();
 
 describe("client testimonial proof corpus", () => {
-  it("contains exactly the 14 approved references with unique IDs", () => {
-    expect(clientStories).toHaveLength(14);
-    expect(new Set(clientStories.map((story) => story.id)).size).toBe(14);
+  it("contains the 17 approved references with unique IDs while Ken remains on hold", () => {
+    expect(clientStories).toHaveLength(17);
+    expect(new Set(clientStories.map((story) => story.id)).size).toBe(clientStories.length);
+    expect(getClientStory("ken-su")).toBeUndefined();
   });
 
   it("keeps every excerpt inside its approved full reference", () => {
@@ -63,6 +65,30 @@ describe("client testimonial proof corpus", () => {
     expect(facilio?.fullQuote).not.toContain("MS Accountant has");
     expect(facilio?.fullQuote).not.toContain("Sridharan");
     expect(facilio?.fullQuote).not.toContain("stand point");
+
+    const daniel = getClientStory("daniel-jones");
+    expect(daniel?.name).toBe("Daniel Jones");
+    expect(daniel?.company).toBe("The DAN JONES Label Pty Ltd");
+    expect(JSON.stringify(daniel)).not.toContain("Daniel Robert Jones");
+
+    const logan = getClientStory("logan-nirmalananda");
+    expect(logan?.role).toBe("CEO");
+    expect(logan?.company).toBe("AEQURA");
+  });
+
+  it("preserves the three new references without manufacturing a rating or outcome", () => {
+    expect(getClientStory("shanthini-tambimuttu")?.fullQuote).toBe(
+      "Sridaran was a good friend of my late husband’s, and my late husband and I have known Sridaran for nearly 40 years, since 1988, when Sridaran, and my late husband and I, were living and working in Port Moresby, the capital of Papua New Guinea. Even as far back as then, my late husband considered Sridaran to be an accountant who displayed promise. Sridaran and his firm, MS Accountants, have served as my accountants from the very inception of his firm in February 2010, and, throughout that long period that they have served me, I have always found Sridaran to be highly reliable, professional, and respectful, and his team of staff at MS Accountants to bear those same attributes.",
+    );
+    expect(getClientStory("daniel-jones")?.fullQuote).toBe(
+      "For at least four consecutive years up to now, Sridaran has both been a friend and an adviser to me in relation to tax and legal matters applicable to myself personally and my businesses, even at times my businesses were facing some severe problems (during the Covid pandemic). During that same period, Sridaran’s firm, MS Accountants, has been the accountants of myself and my business, a responsibility which that firm, as has Sridaran, always discharged at a high standard. I have always found Sridaran and his team at MS Accountants to be professionals who are both “people” that one can very easily relate to and professionals whose competence that one can entirely rely on.",
+    );
+    const dinah = getClientStory("dinah-eldridge");
+    expect(dinah?.fullQuote).toBe(
+      "I am pleased to recommend Dr Sridaran whom I consulted regarding an accumulated income tax issue. His firm, MS Accountants, appointed as my accountants, managed this matter with exceptional expertise. This issue had been a significant concern for me over an extended period, and I have been thoroughly impressed by Dr Sridaran’s reliability, kindness and unwavering professionalism.",
+    );
+    expect(dinah?.fullQuote).not.toContain("⭐");
+    expect(dinah?.fullQuote).not.toContain("Australian Taxation Office");
   });
 
   it("does not invent a date or location for Priyantha Cooray", () => {
@@ -81,8 +107,17 @@ describe("client testimonial proof corpus", () => {
       expect(chapter.storyIds.length).toBeGreaterThan(0);
       for (const id of chapter.storyIds) expect(storyIds.has(id)).toBe(true);
     }
-    expect(chapterIds).toHaveLength(14);
-    expect(new Set(chapterIds).size).toBe(14);
+    expect(chapterIds).toHaveLength(clientStories.length);
+    expect(new Set(chapterIds).size).toBe(clientStories.length);
+    expect(storyChapters.find((chapter) => chapter.id === "difficult-matters")?.storyIds).toContain(
+      "dinah-eldridge",
+    );
+    expect(storyChapters.find((chapter) => chapter.id === "long-view")?.storyIds).toContain(
+      "shanthini-tambimuttu",
+    );
+    expect(storyChapters.find((chapter) => chapter.id === "business-side")?.storyIds).toContain(
+      "daniel-jones",
+    );
   });
 
   it("maps relevant proof to every service without inventing service-specific claims", () => {
@@ -102,11 +137,26 @@ describe("client testimonial proof corpus", () => {
       "bianca-fletcher",
       "priyantha-cooray",
     ]);
+    expect(getClientStoriesForService("tax-advisory-planning").map((story) => story.id)).toEqual([
+      "qing-ouyang",
+      "daniel-jones",
+    ]);
   });
 
   it("has three distinct approved voices for the homepage proof rail", () => {
     expect(featuredStoryIds).toHaveLength(3);
     expect(new Set(featuredStoryIds).size).toBe(3);
     for (const id of featuredStoryIds) expect(getClientStory(id)).toBeDefined();
+    expect(featuredStoryIds).toContain("murali-pitchai");
+    expect(featuredStoryIds).toContain("daniel-jones");
+  });
+
+  it("publishes every reference as structured data without inferred ratings", () => {
+    const graph = JSON.stringify(clientStoriesGraph(clientStories));
+    expect(graph).toContain(`"numberOfItems":${clientStories.length}`);
+    expect(graph).toContain('"Client reference from Daniel Jones"');
+    expect(graph).not.toContain("reviewRating");
+    expect(graph).not.toContain("aggregateRating");
+    expect(graph).not.toContain("Ken Su");
   });
 });
