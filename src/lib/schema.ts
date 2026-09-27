@@ -198,8 +198,8 @@ export function serviceGraph(service: Service) {
 
 /**
  * First-party publication of client-authored references. Ratings are
- * intentionally absent because no client supplied a star score and the site
- * must not imply one. The collection records attributed words only.
+ * intentionally absent: the site does not infer or aggregate ratings from
+ * written references. The collection records attributed words only.
  */
 export function clientStoriesGraph(stories: ClientStory[]) {
   const url = `${site.url}/client-stories`;

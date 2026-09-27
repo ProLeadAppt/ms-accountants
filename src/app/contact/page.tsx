@@ -8,7 +8,7 @@ import { ClientStoryCard } from "@/components/proof/ClientStoryCard";
 import { site } from "@/lib/site";
 import { getClientStory } from "@/lib/testimonials";
 
-const contactProof = getClientStory("virginia-stalenberg")!;
+const contactProof = getClientStory("dinah-eldridge")!;
 
 export const metadata: Metadata = {
   title: "Contact",

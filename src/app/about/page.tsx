@@ -107,7 +107,7 @@ export default function AboutPage() {
         eyebrow="The long view"
         title="Clients describe relationships measured in decades."
         lede="The references below span businesses, countries, and different kinds of work. What repeats is the experience of having a senior adviser who remains involved."
-        storyIds={["kingsgrove-sports-centre", "araliya-de-silva", "logan-nirmalananda"]}
+        storyIds={["kingsgrove-sports-centre", "shanthini-tambimuttu", "logan-nirmalananda"]}
         scheme="sand"
       />
 

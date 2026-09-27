@@ -24,7 +24,7 @@ export const clientStories = storyData as ClientStory[];
 export const featuredStoryIds = [
   "murali-pitchai",
   "qing-ouyang",
-  "kingsgrove-sports-centre",
+  "daniel-jones",
 ] as const;
 
 export const storyChapters: Array<{
@@ -42,7 +42,7 @@ export const storyChapters: Array<{
     title: "Proof matters most when the answer is not obvious.",
     lede:
       "ATO reviews, complex tax positions, and decisions where technical judgement had to produce a defensible result.",
-    storyIds: ["bianca-fletcher", "priyantha-cooray", "qing-ouyang"],
+    storyIds: ["bianca-fletcher", "priyantha-cooray", "qing-ouyang", "dinah-eldridge"],
   },
   {
     id: "long-view",
@@ -58,6 +58,7 @@ export const storyChapters: Array<{
       "logan-nirmalananda",
       "arusha-cooray",
       "araliya-de-silva",
+      "shanthini-tambimuttu",
     ],
   },
   {
@@ -73,12 +74,13 @@ export const storyChapters: Array<{
       "laura-cristina-mathias",
       "virginia-stalenberg",
       "mahmoud-alahmad",
+      "daniel-jones",
     ],
   },
 ];
 
 export const serviceStoryIds: Record<string, string[]> = {
-  "tax-advisory-planning": ["qing-ouyang", "kingsgrove-sports-centre"],
+  "tax-advisory-planning": ["qing-ouyang", "daniel-jones"],
   "tax-disputes-ato": ["bianca-fletcher", "priyantha-cooray"],
   "tax-compliance-returns": ["krishnamoorthi-rangasamy", "araliya-de-silva"],
   "business-cfo-advisory": ["murali-pitchai", "amarjit-singh-thind"],
