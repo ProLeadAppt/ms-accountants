@@ -27,7 +27,9 @@ export function ServiceProof({ slug }: { slug: string }) {
             <p className="max-w-xl text-[var(--muted)]">
               {isDisputes
                 ? "Each reference describes a different business and a different ATO matter. Both are published in the client's own words."
-                : "The reference below is selected for its relevance to this service. It does not claim a service or outcome the client did not describe."}
+                : stories.length > 1
+                  ? "The references below are selected for their relevance to this service. They do not claim a service or outcome the clients did not describe."
+                  : "The reference below is selected for its relevance to this service. It does not claim a service or outcome the client did not describe."}
             </p>
             <div className="mt-5">
               <TextLink href="/client-stories" className="text-brand-red">

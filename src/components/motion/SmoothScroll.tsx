@@ -33,6 +33,12 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
         effects: true,
         normalizeScroll: true,
         smoothTouch: false,
+        // Anchor jumps can move transformed content without a window scroll event.
+        onUpdate: (self) => {
+          window.dispatchEvent(new CustomEvent("ms:scroll-position", {
+            detail: self.scrollTop(),
+          }));
+        },
       });
       return () => smoother.kill();
     },

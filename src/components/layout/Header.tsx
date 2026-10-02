@@ -15,17 +15,25 @@ export function Header() {
 
   useEffect(() => {
     let ticking = false;
-    const onScroll = () => {
+    let scrollPosition = window.scrollY || 0;
+    const onScroll = (event?: Event) => {
+      scrollPosition = event?.type === "ms:scroll-position"
+        ? (event as CustomEvent<number>).detail
+        : window.scrollY || 0;
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
-        setScrolled((window.scrollY || 0) > 80);
+        setScrolled(scrollPosition > 80);
         ticking = false;
       });
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("ms:scroll-position", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("ms:scroll-position", onScroll);
+    };
   }, []);
 
   useEffect(() => {
