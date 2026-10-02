@@ -14,26 +14,28 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    const marker = document.getElementById("header-scroll-marker");
+    if (marker && typeof IntersectionObserver !== "undefined") {
+      // Next's anchor navigation can scroll a nested wrapper while window.scrollY stays zero.
+      const observer = new IntersectionObserver(([entry]) => {
+        setScrolled(!entry.isIntersecting);
+      });
+      observer.observe(marker);
+      return () => observer.disconnect();
+    }
+
     let ticking = false;
-    let scrollPosition = window.scrollY || 0;
-    const onScroll = (event?: Event) => {
-      scrollPosition = event?.type === "ms:scroll-position"
-        ? (event as CustomEvent<number>).detail
-        : window.scrollY || 0;
+    const onScroll = () => {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
-        setScrolled(scrollPosition > 80);
+        setScrolled((window.scrollY || 0) > 80);
         ticking = false;
       });
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("ms:scroll-position", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("ms:scroll-position", onScroll);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {

@@ -31,6 +31,7 @@ describe("header contrast after reference anchor navigation", () => {
     cleanups = [];
     target = Object.assign(new EventTarget(), { scrollY: 0, matchMedia: () => ({ matches: false }) });
     vi.stubGlobal("window", target);
+    vi.stubGlobal("document", { getElementById: () => null });
     vi.stubGlobal("navigator", { maxTouchPoints: 0 });
     vi.stubGlobal("requestAnimationFrame", (frame: FrameRequestCallback) => { frames.push(frame); return frames.length; });
     Header();
@@ -41,14 +42,29 @@ describe("header contrast after reference anchor navigation", () => {
   });
   afterEach(() => { cleanups.forEach(cleanup => cleanup()); vi.unstubAllGlobals(); });
 
-  it("switches to the readable scrolled header when the smoother moves to an anchor without native scrolling", () => {
-    const config = harness.createSmoother.mock.calls[0][0];
-    config.onUpdate?.({ scrollTop: () => 1200 });
-    flush();
+  it("updates after an anchor click or initial fragment moves content without either scroll event", () => {
+    cleanups.forEach(cleanup => cleanup());
+    harness.effects = [];
+    const wrapper = { scrollTop: 1292 };
+    const marker = { getBoundingClientRect: () => ({ top: 79 - wrapper.scrollTop }) };
+    const observe = vi.fn();
+    let changed: IntersectionObserverCallback | undefined;
+    vi.stubGlobal("document", { getElementById: () => marker });
+    vi.stubGlobal("IntersectionObserver", class {
+      constructor(callback: IntersectionObserverCallback) { changed = callback; }
+      observe = observe;
+      disconnect = vi.fn();
+    });
+    Header();
+    const cleanup = harness.effects[0]();
+    if (cleanup) cleanups.push(cleanup);
+    expect(observe).toHaveBeenCalledWith(marker);
+    changed!([{ isIntersecting: false } as IntersectionObserverEntry], {} as IntersectionObserver);
     expect(target.scrollY).toBe(0);
+    expect(wrapper.scrollTop).toBe(1292);
+    expect(marker.getBoundingClientRect().top).toBeLessThan(0);
     expect(harness.setState).toHaveBeenLastCalledWith(true);
-    config.onUpdate?.({ scrollTop: () => 0 });
-    flush();
+    changed!([{ isIntersecting: true } as IntersectionObserverEntry], {} as IntersectionObserver);
     expect(harness.setState).toHaveBeenLastCalledWith(false);
   });
 
