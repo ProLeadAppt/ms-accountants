@@ -44,7 +44,9 @@ export function ScrollReset() {
           el = null;
         }
         if (!el) return;
-        if (smoother) smoother.scrollTo(el as HTMLElement, false);
+        // The smoother can initialize after this layout effect on a fresh fragment load.
+        const activeSmoother = ScrollSmoother.get();
+        if (activeSmoother) activeSmoother.scrollTo(el as HTMLElement, false);
         else (el as HTMLElement).scrollIntoView();
       });
       return;
