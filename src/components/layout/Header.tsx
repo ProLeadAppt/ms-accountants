@@ -14,6 +14,16 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    const marker = document.getElementById("header-scroll-marker");
+    if (marker && typeof IntersectionObserver !== "undefined") {
+      // Next's anchor navigation can scroll a nested wrapper while window.scrollY stays zero.
+      const observer = new IntersectionObserver(([entry]) => {
+        setScrolled(!entry.isIntersecting);
+      });
+      observer.observe(marker);
+      return () => observer.disconnect();
+    }
+
     let ticking = false;
     const onScroll = () => {
       if (ticking) return;
@@ -60,15 +70,18 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-9 lg:flex">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="link-underline font-sans text-base font-medium"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {nav.map((item) => {
+            const NavLink = item.href === "/client-stories" ? "a" : Link;
+            return (
+              <NavLink
+                key={item.href}
+                href={item.href}
+                className="link-underline font-sans text-base font-medium"
+              >
+                {item.label}
+              </NavLink>
+            );
+          })}
         </nav>
 
         <div className="hidden lg:block">
@@ -106,16 +119,19 @@ export function Header() {
             </button>
           </Container>
           <nav className="flex flex-col gap-7 px-8 pt-14">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="font-serif text-4xl"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {nav.map((item) => {
+              const NavLink = item.href === "/client-stories" ? "a" : Link;
+              return (
+                <NavLink
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="font-serif text-4xl"
+                >
+                  {item.label}
+                </NavLink>
+              );
+            })}
             <Button
               href={site.contact.mobileHref}
               arrow={false}

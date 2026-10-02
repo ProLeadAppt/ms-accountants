@@ -1,6 +1,6 @@
 import storyData from "@/data/testimonials.json";
 
-export type StoryChapterId = "difficult-matters" | "long-view" | "business-side";
+export type StoryChapterId = "difficult-matters" | "long-view" | "business-side" | "entity-establishment";
 
 export type ClientStory = {
   id: string;
@@ -42,7 +42,7 @@ export const storyChapters: Array<{
     title: "Proof matters most when the answer is not obvious.",
     lede:
       "ATO reviews, complex tax positions, and decisions where technical judgement had to produce a defensible result.",
-    storyIds: ["bianca-fletcher", "priyantha-cooray", "qing-ouyang", "dinah-eldridge"],
+    storyIds: ["bianca-fletcher", "priyantha-cooray", "qing-ouyang", "dinah-eldridge", "ken-su"],
   },
   {
     id: "long-view",
@@ -59,6 +59,7 @@ export const storyChapters: Array<{
       "arusha-cooray",
       "araliya-de-silva",
       "shanthini-tambimuttu",
+      "poomahal-kumar",
     ],
   },
   {
@@ -77,12 +78,20 @@ export const storyChapters: Array<{
       "daniel-jones",
     ],
   },
+  {
+    id: "entity-establishment",
+    index: "04",
+    eyebrow: "Establishing an Australian entity",
+    title: "Coordinating the legal work of establishment.",
+    lede: "This reference describes legal coordination for an Australian subsidiary and expressly excludes operational matters.",
+    storyIds: ["srinivasan-karunakaran"],
+  },
 ];
 
 export const serviceStoryIds: Record<string, string[]> = {
   "tax-advisory-planning": ["qing-ouyang", "daniel-jones"],
   "tax-disputes-ato": ["bianca-fletcher", "priyantha-cooray"],
-  "tax-compliance-returns": ["krishnamoorthi-rangasamy", "araliya-de-silva"],
+  "tax-compliance-returns": ["krishnamoorthi-rangasamy", "poomahal-kumar"],
   "business-cfo-advisory": ["murali-pitchai", "amarjit-singh-thind"],
   "self-managed-super": ["kingsgrove-sports-centre"],
 };
