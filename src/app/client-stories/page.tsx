@@ -54,7 +54,7 @@ export default function ClientStoriesPage() {
         ]}
         lede={`${clientStories.length} attributed client references, published with permission. They describe long-standing advice, difficult ATO matters, audit and compliance, and what it was like to work with the people involved.`}
       >
-        <Button href="#the-references" variant="secondary" className="text-cream">
+        <Button href="/client-stories#the-references" variant="secondary" className="text-cream">
           Read the references
         </Button>
       </PageHero>

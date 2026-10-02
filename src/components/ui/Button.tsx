@@ -87,7 +87,7 @@ export function Button({
     </>
   );
 
-  if (external) {
+  if (external || href.startsWith("/client-stories#")) {
     return (
       <a
         href={href}

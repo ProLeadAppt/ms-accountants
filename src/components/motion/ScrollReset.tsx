@@ -33,9 +33,11 @@ export function ScrollReset() {
 
     if (hash) {
       // In-page anchor (e.g. /about#team). ScrollSmoother intercepts native
-      // anchor scrolling, so resolve the target ourselves — after a frame so
-      // the new page's layout is measured and triggers are refreshed.
-      requestAnimationFrame(() => {
+      // anchor scrolling, so resolve the target after hydration and font layout.
+      // Respect the target's scroll margin so the fixed header does not hide it.
+      let cancelled = false;
+      const restoreFragment = () => {
+        if (cancelled || window.location.hash !== hash) return;
         ScrollTrigger.refresh();
         let el: Element | null = null;
         try {
@@ -46,10 +48,18 @@ export function ScrollReset() {
         if (!el) return;
         // The smoother can initialize after this layout effect on a fresh fragment load.
         const activeSmoother = ScrollSmoother.get();
-        if (activeSmoother) activeSmoother.scrollTo(el as HTMLElement, false);
-        else (el as HTMLElement).scrollIntoView();
+        if (activeSmoother) {
+          const margin = parseFloat(getComputedStyle(el).scrollMarginTop) || 0;
+          const headerHeight = document.querySelector("header")?.getBoundingClientRect().height || 0;
+          activeSmoother.scrollTo(el as HTMLElement, false, `top ${Math.max(margin, headerHeight + 12)}px`);
+        } else (el as HTMLElement).scrollIntoView();
+      };
+      requestAnimationFrame(() => {
+        if (document.fonts) {
+          document.fonts.ready.then(() => requestAnimationFrame(restoreFragment));
+        } else restoreFragment();
       });
-      return;
+      return () => { cancelled = true; };
     }
 
     if (smoother) {
