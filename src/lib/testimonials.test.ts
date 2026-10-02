@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import approvedBodies from "./approved-reference-bodies.json";
 import { clientStoriesGraph } from "./schema";
 import {
   clientStories,
@@ -18,10 +19,25 @@ const retiredNames = [
 const normalise = (value: string) => value.replace(/\s+/g, " ").trim();
 
 describe("client testimonial proof corpus", () => {
-  it("contains the 17 approved references with unique IDs while Ken remains on hold", () => {
-    expect(clientStories).toHaveLength(17);
+  it("matches all six approved source bodies, allowing only display whitespace", () => {
+    for (const [id, body] of Object.entries(approvedBodies)) {
+      expect(normalise(getClientStory(id)!.fullQuote)).toBe(normalise(body));
+    }
+  });
+
+  it("keeps Kanini legal coordination outside operational and CFO proof", () => {
+    const kanini = getClientStory("srinivasan-karunakaran")!;
+    expect(kanini.fullQuote).toContain("not at all with respect to any operational matters");
+    expect(kanini.excerpt).toContain("not at all with respect to any operational matters");
+    expect(kanini.serviceSlugs).toEqual([]);
+    expect(getClientStoriesForService("business-cfo-advisory")).not.toContain(kanini);
+    expect(kanini.chapter).toBe("entity-establishment");
+    expect(getClientStoriesForService("tax-compliance-returns").map(s => s.id)).toContain("poomahal-kumar");
+  });
+  it("contains the 20 approved references with unique IDs", () => {
+    expect(clientStories).toHaveLength(20);
     expect(new Set(clientStories.map((story) => story.id)).size).toBe(clientStories.length);
-    expect(getClientStory("ken-su")).toBeUndefined();
+    expect(getClientStory("ken-su")?.name).toBe("Ms Jian He Su (Ken)");
   });
 
   it("keeps every excerpt inside its approved full reference", () => {
@@ -77,7 +93,7 @@ describe("client testimonial proof corpus", () => {
   });
 
   it("preserves the three new references without manufacturing a rating or outcome", () => {
-    expect(getClientStory("shanthini-tambimuttu")?.fullQuote).toBe(
+    expect(normalise(getClientStory("shanthini-tambimuttu")!.fullQuote)).toBe(
       "Sridaran was a good friend of my late husband’s, and my late husband and I have known Sridaran for nearly 40 years, since 1988, when Sridaran, and my late husband and I, were living and working in Port Moresby, the capital of Papua New Guinea. Even as far back as then, my late husband considered Sridaran to be an accountant who displayed promise. Sridaran and his firm, MS Accountants, have served as my accountants from the very inception of his firm in February 2010, and, throughout that long period that they have served me, I have always found Sridaran to be highly reliable, professional, and respectful, and his team of staff at MS Accountants to bear those same attributes.",
     );
     expect(getClientStory("daniel-jones")?.fullQuote).toBe(
@@ -85,9 +101,9 @@ describe("client testimonial proof corpus", () => {
     );
     const dinah = getClientStory("dinah-eldridge");
     expect(dinah?.fullQuote).toBe(
-      "I am pleased to recommend Dr Sridaran whom I consulted regarding an accumulated income tax issue. His firm, MS Accountants, appointed as my accountants, managed this matter with exceptional expertise. This issue had been a significant concern for me over an extended period, and I have been thoroughly impressed by Dr Sridaran’s reliability, kindness and unwavering professionalism.",
+      "⭐⭐⭐⭐⭐\n\nI am pleased to recommend Dr Sridaran whom I consulted regarding an accumulated income tax issue. His firm, MS Accountants, appointed as my accountants, managed this matter with exceptional expertise. This issue had been a significant concern for me over an extended period, and I have been thoroughly impressed by Dr Sridaran’s reliability, kindness and unwavering professionalism.",
     );
-    expect(dinah?.fullQuote).not.toContain("⭐");
+    expect(dinah?.fullQuote).toContain("⭐⭐⭐⭐⭐");
     expect(dinah?.fullQuote).not.toContain("Australian Taxation Office");
   });
 
@@ -157,6 +173,6 @@ describe("client testimonial proof corpus", () => {
     expect(graph).toContain('"Client reference from Daniel Jones"');
     expect(graph).not.toContain("reviewRating");
     expect(graph).not.toContain("aggregateRating");
-    expect(graph).not.toContain("Ken Su");
+    expect(graph).toContain("Ms Jian He Su (Ken)");
   });
 });

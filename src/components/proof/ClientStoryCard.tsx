@@ -42,7 +42,7 @@ export function ClientStoryCard({
 
       <blockquote
         className={cn(
-          "mt-7 text-[var(--fg)]",
+          "mt-7 whitespace-pre-line text-[var(--fg)]",
           variant === "feature" && "font-display text-[1.9rem] leading-[1.28] sm:text-[2.35rem]",
           variant === "card" && "font-serif text-[1.3rem] leading-[1.5] sm:text-[1.45rem]",
           variant === "compact" && "font-serif text-lg leading-[1.55]",
