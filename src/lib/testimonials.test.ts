@@ -19,7 +19,7 @@ const retiredNames = [
 const normalise = (value: string) => value.replace(/\s+/g, " ").trim();
 
 describe("client testimonial proof corpus", () => {
-  it("matches all six approved source bodies, allowing only display whitespace", () => {
+  it("matches all approved source bodies, allowing only display whitespace", () => {
     for (const [id, body] of Object.entries(approvedBodies)) {
       expect(normalise(getClientStory(id)!.fullQuote)).toBe(normalise(body));
     }
@@ -34,10 +34,36 @@ describe("client testimonial proof corpus", () => {
     expect(kanini.chapter).toBe("entity-establishment");
     expect(getClientStoriesForService("tax-compliance-returns").map(s => s.id)).toContain("poomahal-kumar");
   });
-  it("contains the 20 approved references with unique IDs", () => {
-    expect(clientStories).toHaveLength(20);
+  it("contains the 22 approved references with unique IDs", () => {
+    expect(clientStories).toHaveLength(22);
     expect(new Set(clientStories.map((story) => story.id)).size).toBe(clientStories.length);
     expect(getClientStory("ken-su")?.name).toBe("Ms Jian He Su (Ken)");
+  });
+
+  it("preserves Jayne and Prashanthan's approved words and document-body dates", () => {
+    const jayne = getClientStory("jayne-hyde")!;
+    const prashanthan = getClientStory("prashanthan-ranjan")!;
+    expect(jayne).toMatchObject({ name: "Ms Jayne Hyde", location: "Sydney", date: "26 September 2026" });
+    expect(prashanthan).toMatchObject({ name: "Mr Prashanthan Ranjan", location: "Sydney", date: "28 July 2026" });
+    expect(jayne.fullQuote).toBe(approvedBodies["jayne-hyde"]);
+    expect(prashanthan.fullQuote).toBe(approvedBodies["prashanthan-ranjan"]);
+    expect(jayne.fullQuote).toContain("they should strives to serve their clients");
+    for (const story of [jayne, prashanthan]) {
+      expect(story.role).toBeUndefined();
+      expect(story.company).toBeUndefined();
+      expect(story.serviceSlugs).toEqual([]);
+      expect(story.chapter).toBe("personal-accounting-advice");
+      expect(featuredStoryIds).not.toContain(story.id);
+      expect(getClientStoriesForService("business-cfo-advisory")).not.toContain(story);
+      expect(getClientStoriesForService("self-managed-super")).not.toContain(story);
+    }
+    expect(storyChapters.find((chapter) => chapter.id === "personal-accounting-advice")?.storyIds).toEqual([
+      "jayne-hyde",
+      "prashanthan-ranjan",
+    ]);
+    const longView = storyChapters.find((chapter) => chapter.id === "long-view")!;
+    expect(longView.storyIds).not.toContain(jayne.id);
+    expect(longView.storyIds).not.toContain(prashanthan.id);
   });
 
   it("keeps every excerpt inside its approved full reference", () => {
@@ -174,5 +200,7 @@ describe("client testimonial proof corpus", () => {
     expect(graph).not.toContain("reviewRating");
     expect(graph).not.toContain("aggregateRating");
     expect(graph).toContain("Ms Jian He Su (Ken)");
+    expect(graph).toContain('"Client reference from Ms Jayne Hyde"');
+    expect(graph).toContain('"Client reference from Mr Prashanthan Ranjan"');
   });
 });

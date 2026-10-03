@@ -16,7 +16,7 @@ import {
 
 export const metadata: Metadata = {
   title: "Client Stories",
-  description: `Read ${clientStories.length} attributed client references for MS Accountants covering long-term accounting relationships, ATO reviews, complex tax matters, audit, compliance, and business advice.`,
+  description: `Read ${clientStories.length} attributed client references for MS Accountants covering long-term accounting relationships, ATO reviews, complex tax matters, audit, compliance, and personal and business advice.`,
   alternates: { canonical: "/client-stories" },
 };
 
