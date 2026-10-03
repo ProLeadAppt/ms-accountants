@@ -1,6 +1,6 @@
 import storyData from "@/data/testimonials.json";
 
-export type StoryChapterId = "difficult-matters" | "long-view" | "business-side" | "entity-establishment";
+export type StoryChapterId = "difficult-matters" | "long-view" | "business-side" | "entity-establishment" | "personal-accounting-advice";
 
 export type ClientStory = {
   id: string;
@@ -85,6 +85,15 @@ export const storyChapters: Array<{
     title: "Coordinating the legal work of establishment.",
     lede: "This reference describes legal coordination for an Australian subsidiary and expressly excludes operational matters.",
     storyIds: ["srinivasan-karunakaran"],
+  },
+  {
+    id: "personal-accounting-advice",
+    index: "05",
+    eyebrow: "Personal accounting and advice",
+    title: "Attention to the person behind the advice.",
+    lede:
+      "These references describe ongoing personal accounting services and clear advice informed by individual circumstances.",
+    storyIds: ["jayne-hyde", "prashanthan-ranjan"],
   },
 ];
 
