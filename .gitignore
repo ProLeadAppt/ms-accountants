@@ -56,3 +56,7 @@ next-env.d.ts
 
 # Brainstorm visual-companion mockups
 .superpowers/
+
+# IndexNow local state and generated public revision (never keys)
+/.indexnow/
+/public/.well-known/indexnow-release.json
