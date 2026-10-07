@@ -1,0 +1,54 @@
+name: IndexNow production changes
+on:
+  # Publication release has no deployment or manual event subscription.
+  pull_request:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test scripts/indexnow/*.spec-node.mjs
+  production:
+    needs: tests
+    # Source lock: no production/baseline/receipt job can run in this release.
+    if: ${{ false }}
+    concurrency:
+      group: indexnow-canonical-production
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      INDEXNOW_MODE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.operation || 'submit' }}
+      INDEXNOW_RELEASE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.release || github.event.deployment.sha }}
+      INDEXNOW_TEST_URL: ${{ github.event.inputs.test_url }}
+      INDEXNOW_ENABLED: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.operation == 'single-url' && 'true' || vars.INDEXNOW_ENABLED }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Restore last durable receipt or pending intent
+        run: node scripts/indexnow/restore-state.mjs
+      - name: Coalesce release events
+        if: github.event_name == 'deployment_status'
+        run: sleep 60
+      - name: Verify published SHA, select changes and execute approved mode
+        run: node scripts/indexnow/cli.mjs
+      - name: Preserve receipt ledger even after an ambiguous or failed POST
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: indexnow-state
+          path: .indexnow/state.json
+          include-hidden-files: true
+          if-no-files-found: ignore
+          retention-days: 90
