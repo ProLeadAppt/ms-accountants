@@ -321,5 +321,38 @@
     "useLogo": false,
     "sourceType": "client-reference",
     "source": "Sri-forwarded accepted reference - 3 October 2026"
+  },
+  {
+    "id": "vallipuram-satyendra",
+    "name": "Mr Vallipuram Satyendra",
+    "location": "Sydney and Colombo",
+    "date": "7 October 2026",
+    "fullQuote": "I first met Sridaran in 1992, when he was the head of the tax practice of Coopers & Lybrand (a firm which later became PriceWaterhouseCoopers “PwC”) in Colombo, and, since then to date, that is, for over 30 consecutive years, he and I have been good friends, and he has been my advisor on any matter that I had sought his advice on, a position that has thus obtained, without any interruption, in two countries: first, in Sri Lanka, and thereafter, in Australia, a country to which I and my family did immigrate in 2000, and Sridaran did perhaps a couple of years before me and my family. Since Sridaran established his firm, MS Accountants, which, as I recall, was around 2010, he and his firm have served as my accountants, a role which they have always performed at a high level of competence, in no small part due to Sridaran’s mastery of the practical workings of the tax and regulatory systems of both Australia and Sri Lanka, given that I have continued to own and manage considerable business interests in Sri Lanka even after I and my family immigrated to Australia. I, and all in my family, have always regarded Sridaran to be both a highly dependable friend and a highly dependable advisor.",
+    "excerpt": "I, and all in my family, have always regarded Sridaran to be both a highly dependable friend and a highly dependable advisor.",
+    "chapter": "long-view",
+    "serviceSlugs": [
+      "tax-advisory-planning"
+    ],
+    "approvalStatus": "approved",
+    "useLogo": false,
+    "sourceType": "client-reference",
+    "source": "Sri-forwarded accepted reference - 8 October 2026"
+  },
+  {
+    "id": "raguharan-kathiresu",
+    "name": "Dr Raguharan Kathiresu",
+    "company": "NQ Geriatrics Pty Ltd",
+    "location": "Townsville",
+    "date": "24 July 2026",
+    "fullQuote": "Serving us from Sydney, Dr Sridaran and his team serve us, even though we are based in Townsville, with such deep understanding of our locality, our industry, and our personal circumstances, we cannot think of any one apart them as a team of professionals whom we should turn to on almost any problem in relation to our taxes or any business problem in general, as Dr Sridaran’s team at MS Accountants serve as almost an integral part of our operations.",
+    "excerpt": "we cannot think of any one apart them as a team of professionals whom we should turn to on almost any problem in relation to our taxes or any business problem in general, as Dr Sridaran’s team at MS Accountants serve as almost an integral part of our operations.",
+    "chapter": "business-side",
+    "serviceSlugs": [
+      "tax-compliance-returns"
+    ],
+    "approvalStatus": "approved",
+    "useLogo": false,
+    "sourceType": "client-reference",
+    "source": "Sri-forwarded accepted reference - 8 October 2026"
   }
 ]

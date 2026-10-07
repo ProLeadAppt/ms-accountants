@@ -66,6 +66,17 @@ export function ServiceProof({ slug }: { slug: string }) {
               </p>
             </Reveal>
           )}
+          {stories.slice(2).map((story, index) => (
+            <Reveal key={story.id} className="lg:col-span-2">
+              <ClientStoryCard
+                story={story}
+                quote="excerpt"
+                variant="card"
+                index={`${String(index + 3).padStart(2, "0")} / Supporting voice`}
+                className="bg-cream/28"
+              />
+            </Reveal>
+          ))}
         </div>
       </Container>
     </section>

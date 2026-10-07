@@ -34,8 +34,8 @@ describe("client testimonial proof corpus", () => {
     expect(kanini.chapter).toBe("entity-establishment");
     expect(getClientStoriesForService("tax-compliance-returns").map(s => s.id)).toContain("poomahal-kumar");
   });
-  it("contains the 22 approved references with unique IDs", () => {
-    expect(clientStories).toHaveLength(22);
+  it("contains the 24 approved references with unique IDs", () => {
+    expect(clientStories).toHaveLength(24);
     expect(new Set(clientStories.map((story) => story.id)).size).toBe(clientStories.length);
     expect(getClientStory("ken-su")?.name).toBe("Ms Jian He Su (Ken)");
   });
@@ -71,6 +71,26 @@ describe("client testimonial proof corpus", () => {
       expect(normalise(story.fullQuote)).toContain(normalise(story.excerpt));
       expect(story.fullQuote.length).toBeGreaterThanOrEqual(story.excerpt.length);
     }
+  });
+
+  it("preserves Satyendra and Raguharan's approved bodies, attribution and limited service relevance", () => {
+    const satyendra = getClientStory("vallipuram-satyendra")!;
+    const raguharan = getClientStory("raguharan-kathiresu")!;
+    expect(satyendra).toMatchObject({ name: "Mr Vallipuram Satyendra", location: "Sydney and Colombo", date: "7 October 2026", chapter: "long-view" });
+    expect(raguharan).toMatchObject({ name: "Dr Raguharan Kathiresu", company: "NQ Geriatrics Pty Ltd", location: "Townsville", date: "24 July 2026", chapter: "business-side" });
+    expect(satyendra.fullQuote).toBe(approvedBodies["vallipuram-satyendra"]);
+    expect(raguharan.fullQuote).toBe(approvedBodies["raguharan-kathiresu"]);
+    expect(satyendra.fullQuote).toContain("Coopers & Lybrand");
+    expect(raguharan.fullQuote).toContain("any one apart them");
+    expect(satyendra.role).toBeUndefined();
+    expect(raguharan.role).toBeUndefined();
+    expect(satyendra.serviceSlugs).toEqual(["tax-advisory-planning"]);
+    expect(raguharan.serviceSlugs).toEqual(["tax-compliance-returns"]);
+    expect(getClientStoriesForService("tax-advisory-planning")).toContain(satyendra);
+    expect(getClientStoriesForService("tax-compliance-returns")).toContain(raguharan);
+    expect(getClientStoriesForService("business-cfo-advisory")).not.toContain(raguharan);
+    expect(featuredStoryIds).not.toContain(satyendra.id);
+    expect(featuredStoryIds).not.toContain(raguharan.id);
   });
 
   it("requires complete public attribution and forbids client logos", () => {
@@ -173,7 +193,7 @@ describe("client testimonial proof corpus", () => {
     for (const slug of slugs) {
       const stories = getClientStoriesForService(slug);
       expect(stories.length).toBeGreaterThan(0);
-      expect(stories.length).toBeLessThanOrEqual(2);
+      expect(stories.length).toBeLessThanOrEqual(3);
     }
     expect(getClientStoriesForService("tax-disputes-ato").map((story) => story.id)).toEqual([
       "bianca-fletcher",
@@ -182,6 +202,7 @@ describe("client testimonial proof corpus", () => {
     expect(getClientStoriesForService("tax-advisory-planning").map((story) => story.id)).toEqual([
       "qing-ouyang",
       "daniel-jones",
+      "vallipuram-satyendra",
     ]);
   });
 
