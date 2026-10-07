@@ -1,20 +1,7 @@
 name: IndexNow production changes
 on:
+  # Publication release has no deployment or manual event subscription.
   pull_request:
-  deployment_status:
-  workflow_dispatch:
-    inputs:
-      operation:
-        description: Approved operation (baseline stores observations without sending)
-        type: choice
-        options: [dry-run, baseline, single-url]
-        default: dry-run
-      release:
-        description: Exact published40-character source SHA
-        required: true
-      test_url:
-        description: Exact approved canonical URL; required for single-url
-        required: false
 
 permissions:
   contents: read
@@ -31,11 +18,8 @@ jobs:
       - run: node --test scripts/indexnow/*.spec-node.mjs
   production:
     needs: tests
-    if: >-
-      github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'deployment_status' && vars.INDEXNOW_ENABLED == 'true' &&
-      github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production' &&
-      github.event.deployment.production_environment == true)
+    # Source lock: no production/baseline/receipt job can run in this release.
+    if: ${{ false }}
     concurrency:
       group: indexnow-canonical-production
       cancel-in-progress: false

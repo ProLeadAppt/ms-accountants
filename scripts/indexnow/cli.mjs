@@ -1,9 +1,10 @@
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { loadState, saveState, snapshot, getText, run } from './core.mjs';
-import { host } from './site.mjs';
+import { host, publicationLocked } from './site.mjs';
 
 export async function execute({ env = process.env, fetcher = fetch } = {}) {
+  if (publicationLocked) return { skipped: 'Publication locked; separate operation approval required' };
   const mode = env.INDEXNOW_MODE || 'dry-run';
   if (!['dry-run', 'baseline', 'single-url', 'submit'].includes(mode)) throw new Error('Unsupported mode');
   if (['single-url', 'submit'].includes(mode) && env.INDEXNOW_ENABLED !== 'true') throw new Error('Live sender is disabled');
