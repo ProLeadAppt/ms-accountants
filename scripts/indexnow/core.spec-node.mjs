@@ -43,9 +43,8 @@ test('dry-run selects changed/added, holds removals, never POSTs or persists', a
   const result=await run({host,release,state:initial({[url('same')]:hash,[url('changed')]:hash,[url('gone')]:hash}),current:{[url('same')]:hash,[url('changed')]:'c'.repeat(64),[url('new')]:hash},fetcher:()=>{throw Error('No network');},persist:()=>{throw Error('No write');}});
   assert.deepEqual(result.changed,[url('changed'),url('new')]);assert.deepEqual(result.heldRemovals,[url('gone')]);assert.equal(result.notifications,0);
 });
-test('missing key or missing state stops before network', async () => {
+test('missing state stops before network', async () => {
   let calls=0;const fetcher=async()=>{calls++;};
-  await assert.rejects(run({host,release,state:initial({}),current:{},mode:'submit',fetcher}));
   await assert.rejects(run({host,release,current:{},mode:'submit',key,fetcher}));
   assert.equal(calls,0);
 });
@@ -75,12 +74,44 @@ test('verified404/410 removals included; redirects held; one-URL tests exclude a
   await run({host,release,state:initial({[url('gone')]:hash,[url('held')]:hash}),current:{[url('a')]:hash},mode:'submit',key,fetcher});assert.deepEqual(posted,[url('a'),url('gone')]);
   posted.length=0;await run({host,release,state:initial({[url('gone')]:hash}),current:{[url('a')]:hash,[url('b')]:hash},mode:'single-url',testUrl:url('a'),key,fetcher});assert.deepEqual(posted,[url('a')]);
 });
-test('keyfile HTML, redirects and content mismatch never POST',async()=>{
-  for(const [body,status,type] of [[key,200,'text/html'],[key,308,'text/plain'],['different',200,'text/plain']]){
+test('keyfile HTML, redirects and invalid content never POST',async()=>{
+  for(const [body,status,type] of [[key,200,'text/html'],[key,308,'text/plain'],['<invalid>',200,'text/plain']]){
     let posts=0;await assert.rejects(run({host,release,state:initial({}),current:{[url('a')]:hash},mode:'submit',key,fetcher:async(_a,i)=>{if(i?.method==='POST')posts++;return response(body,status,type);}}));assert.equal(posts,0);
   }
 });
 test('state survives process restart with atomic file write and host validation',async()=>{
   const directory=await mkdtemp(join(tmpdir(),'indexnow-state-test-'));
   try{const path=join(directory,'state.json');const state=initial({[url('a')]:hash});await saveState(path,state);assert.deepEqual(await loadState(path,host),state);assert.ok((await readFile(path,'utf8')).includes(host));await assert.rejects(loadState(path,'other.example'));}finally{await rm(directory,{recursive:true});}
+});
+
+// Verification source is deliberately public; no environment key or key-file placeholder.
+test('strict public key reader accepts only allowlisted path and bounded plain ASCII content', async () => {
+  const { readPublicKey } = await import('./core.mjs');
+  for (const ending of ['', '\n', '\r\n']) {
+    const result = await readPublicKey(host, async (address, options) => {
+      assert.equal(address, `https://${host}/indexnow-key.txt`); assert.equal(options.redirect, 'manual');
+      return response(key + ending, 200, 'text/plain; charset=utf-8');
+    });
+    assert.equal(result.key, key); assert.equal(result.keyLocation, `https://${host}/indexnow-key.txt`);
+  }
+  await assert.rejects(readPublicKey('other.example', () => { throw Error('No network'); }), /Unapproved/);
+  for (const body of ['', 'short', ' leading-key-1234', key + '\n\n', 'x'.repeat(129), '\ufeff' + key, 'placeholder123', '<html>key12345</html>']) {
+    await assert.rejects(readPublicKey(host, async () => response(body)), /verification|Placeholder/);
+  }
+  for (const type of ['text/html', 'text/plain; charset=iso-8859-1', 'application/octet-stream']) {
+    await assert.rejects(readPublicKey(host, async () => response(key, 200, type)), /response/);
+  }
+  await assert.rejects(readPublicKey(host, async () => new Response(new Uint8Array([255]), {headers:{'content-type':'text/plain'}})));
+  await assert.rejects(readPublicKey(host, async () => new Response(key, {headers:{'content-type':'text/plain','content-length':'131'}})), /large/);
+});
+
+test('approved draft file is the sole public key source; supplied configuration cannot override it', async () => {
+  const actual = await readFile(new URL('../../public/indexnow-key.txt', import.meta.url), 'utf8');
+  assert.match(actual, /^[a-f0-9]{64}\n$/);
+  let posts = 0;
+  await run({host, release, state:initial({}), current:{[url('a')]:hash}, mode:'single-url', testUrl:url('a'), key:'ignored-configuration-1234', fetcher:async(address, options) => {
+    if (options?.method === 'POST') { posts++; const body = JSON.parse(options.body); assert.equal(body.key, actual.trim()); assert.equal(body.keyLocation, `https://${host}/indexnow-key.txt`); return response('', 202); }
+    assert.equal(address, `https://${host}/indexnow-key.txt`); return response(actual);
+  }});
+  assert.equal(posts, 1);
 });

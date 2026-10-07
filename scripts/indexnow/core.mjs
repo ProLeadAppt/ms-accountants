@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { readFile, writeFile, rename, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
+import { host as canonicalHost } from './site.mjs';
 
 export const digest = (text) => createHash('sha256').update(text).digest('hex');
 export function canonical(raw, host) {
@@ -80,12 +81,31 @@ export function selectDelta(state, current, host) {
   const changed = Object.keys(current).filter(url => state.pages[url] !== current[url]);
   return { changed, removed: Object.keys(state.pages).filter(url => !Object.hasOwn(current, url)) };
 }
-export async function verifyKey(host, key, fetcher = fetch) {
-  if (!key || !/^[a-zA-Z0-9-]{8,128}$/.test(key) || /placeholder|example|your.?key|test.?key/i.test(key)) throw new Error('Missing or invalid public verification key');
+export async function readPublicKey(host, fetcher = fetch) {
+  if (host !== canonicalHost) throw new Error('Unapproved verification host');
   const keyLocation = `https://${host}/indexnow-key.txt`;
-  const { text, type } = await getText(keyLocation, fetcher);
-  if (!/text\/plain/i.test(type) || text.trim() !== key) throw new Error('Public verification file mismatch');
-  return keyLocation;
+  const response = await fetcher(keyLocation, { redirect: 'manual', signal: AbortSignal.timeout(20000) });
+  const type = response.headers.get('content-type') || '';
+  if (response.status !== 200 || (response.url && response.url !== keyLocation) || !/^text\/plain(?:\s*;\s*charset=utf-8)?\s*$/i.test(type)) throw new Error('Invalid public verification response');
+  const declared = response.headers.get('content-length');
+  if (declared && (!/^\d+$/.test(declared) || Number(declared) > 130)) throw new Error('Public verification file too large');
+  if (!response.body) throw new Error('Empty public verification file');
+  const reader = response.body.getReader();
+  let bytes = new Uint8Array(0);
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      if (bytes.length + value.length > 130) throw new Error('Public verification file too large');
+      const next = new Uint8Array(bytes.length + value.length); next.set(bytes); next.set(value, bytes.length); bytes = next;
+    }
+  } finally { await reader.cancel(); }
+  const text = new TextDecoder('utf-8', { fatal: true, ignoreBOM: true }).decode(bytes);
+  // One ASCII key, optionally followed by a single LF/CRLF. No HTML, BOM or whitespace trimming.
+  if (!/^[a-zA-Z0-9-]{8,128}(?:\r?\n)?$/.test(text)) throw new Error('Invalid public verification file content');
+  const key = text.replace(/\r?\n$/, '');
+  if (/placeholder|example|your.?key|test.?key/i.test(key)) throw new Error('Placeholder verification key rejected');
+  return { key, keyLocation };
 }
 export async function sendBatch({ host, key, keyLocation, urls, fetcher = fetch }) {
   if (keyLocation !== `https://${host}/indexnow-key.txt` || !key || !/^[a-zA-Z0-9-]{8,128}$/.test(key)) throw new Error('Invalid key configuration');
@@ -103,11 +123,9 @@ export async function saveState(path, state) {
 }
 export async function loadState(path, host) { return validateState(JSON.parse(await readFile(path, 'utf8')), host); }
 
-export async function run({ host, release, state, current, mode = 'dry-run', key, testUrl, fetcher = fetch, persist = async () => {} }) {
+export async function run({ host, release, state, current, mode = 'dry-run', testUrl, fetcher = fetch, persist = async () => {} }) {
   if (!/^[a-f0-9]{40}$/.test(release)) throw new Error('Exact production SHA required');
   validateState({ version: 1, host, pages: current, receipts: [] }, host);
-  // Key absence stops before any network in live modes; dry-run needs no key.
-  if (mode !== 'dry-run' && mode !== 'baseline' && (!key || !/^[a-zA-Z0-9-]{8,128}$/.test(key))) throw new Error('Missing public verification key');
   if (mode === 'baseline') {
     if (state) throw new Error('Baseline already exists; cannot silently overwrite');
     const seeded = { version: 1, host, release, pages: current, receipts: [] };
@@ -117,6 +135,8 @@ export async function run({ host, release, state, current, mode = 'dry-run', key
   if (!state) throw new Error('Accepted baseline missing; explicit baseline approval required');
   validateState(state, host);
   const { changed, removed } = selectDelta(state, current, host);
+  if (!['dry-run', 'submit', 'single-url'].includes(mode)) throw new Error('Unsupported mode');
+  const proof = mode === 'dry-run' ? null : await readPublicKey(host, fetcher);
   const verifiedRemoved = [], heldRemovals = [];
   for (const url of mode === 'single-url' ? [] : removed) {
     if (mode === 'dry-run') { heldRemovals.push(url); continue; }
@@ -128,7 +148,7 @@ export async function run({ host, release, state, current, mode = 'dry-run', key
   if (mode === 'single-url' && !Object.hasOwn(current, candidates[0])) throw new Error('Single test URL is not in current canonical snapshot');
   if (mode === 'dry-run') return { mode, changed, heldRemovals, notifications: 0 };
   if (!['submit', 'single-url'].includes(mode)) throw new Error('Unsupported mode');
-  const keyLocation = await verifyKey(host, key, fetcher);
+  const { key, keyLocation } = proof;
   const next = structuredClone(state);
   let submitted = 0;
   for (let offset = 0; offset < candidates.length; offset += 500) {

@@ -46,7 +46,6 @@ jobs:
       INDEXNOW_MODE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.operation || 'submit' }}
       INDEXNOW_RELEASE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.release || github.event.deployment.sha }}
       INDEXNOW_TEST_URL: ${{ github.event.inputs.test_url }}
-      INDEXNOW_PUBLIC_KEY: ${{ secrets.INDEXNOW_PUBLIC_KEY }}
       INDEXNOW_ENABLED: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.operation == 'single-url' && 'true' || vars.INDEXNOW_ENABLED }}
     steps:
       - uses: actions/checkout@v4

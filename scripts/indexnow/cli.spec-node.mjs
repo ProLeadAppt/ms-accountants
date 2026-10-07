@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execute } from './cli.mjs';
-test('live CLI rejects disabled/missing-key before all requests',async()=>{
+test('live CLI rejects disabled before all requests',async()=>{
   let requests=0;const fetcher=async()=>{requests++;throw Error('unexpected');};
-  for(const env of [{INDEXNOW_MODE:'submit'},{INDEXNOW_MODE:'single-url',INDEXNOW_ENABLED:'true'}])await assert.rejects(execute({env,fetcher}),/disabled|missing/);
+  for(const env of [{INDEXNOW_MODE:'submit'},{INDEXNOW_MODE:'single-url'}])await assert.rejects(execute({env,fetcher}),/disabled|missing/);
   assert.equal(requests,0);
 });
 test('CLI rejects missing release and mismatched public release marker',async()=>{
