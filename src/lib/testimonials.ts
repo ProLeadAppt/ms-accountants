@@ -60,6 +60,7 @@ export const storyChapters: Array<{
       "araliya-de-silva",
       "shanthini-tambimuttu",
       "poomahal-kumar",
+      "vallipuram-satyendra",
     ],
   },
   {
@@ -76,6 +77,7 @@ export const storyChapters: Array<{
       "virginia-stalenberg",
       "mahmoud-alahmad",
       "daniel-jones",
+      "raguharan-kathiresu",
     ],
   },
   {
@@ -98,9 +100,9 @@ export const storyChapters: Array<{
 ];
 
 export const serviceStoryIds: Record<string, string[]> = {
-  "tax-advisory-planning": ["qing-ouyang", "daniel-jones"],
+  "tax-advisory-planning": ["qing-ouyang", "daniel-jones", "vallipuram-satyendra"],
   "tax-disputes-ato": ["bianca-fletcher", "priyantha-cooray"],
-  "tax-compliance-returns": ["krishnamoorthi-rangasamy", "poomahal-kumar"],
+  "tax-compliance-returns": ["krishnamoorthi-rangasamy", "poomahal-kumar", "raguharan-kathiresu"],
   "business-cfo-advisory": ["murali-pitchai", "amarjit-singh-thind"],
   "self-managed-super": ["kingsgrove-sports-centre"],
 };
