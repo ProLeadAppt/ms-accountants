@@ -19,14 +19,14 @@ export function ServiceProof({ slug }: { slug: string }) {
             <EyebrowTag>{isDisputes ? "Proof under pressure" : "Relevant client proof"}</EyebrowTag>
             <h2 id={`proof-${slug}`} className="mt-6 max-w-[15ch] font-serif text-4xl leading-[1.08] sm:text-5xl">
               {isDisputes
-                ? "Two ATO matters. Two independently described outcomes."
+                ? "Three ATO matters. Three independently described outcomes."
                 : "What the working relationship feels like."}
             </h2>
           </div>
           <div className="lg:pb-2">
             <p className="max-w-xl text-[var(--muted)]">
               {isDisputes
-                ? "Each reference describes a different business and a different ATO matter. Both are published in the client's own words."
+                ? "Each reference describes a different business and a different ATO matter. All are published in the client's own words."
                 : stories.length > 1
                   ? "The references below are selected for their relevance to this service. They do not claim a service or outcome the clients did not describe."
                   : "The reference below is selected for its relevance to this service. It does not claim a service or outcome the client did not describe."}

@@ -282,10 +282,11 @@ describe("service to client-proof mapping", () => {
     }
   });
 
-  it("maps two independently supplied ATO references to Tax Disputes", () => {
+  it("maps three independently supplied ATO references to Tax Disputes", () => {
     expect(getClientStoriesForService("tax-disputes-ato").map((story) => story.id)).toEqual([
       "bianca-fletcher",
       "priyantha-cooray",
+      "subramaniam-nirmalananda",
     ]);
   });
 
