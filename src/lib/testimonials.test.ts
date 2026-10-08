@@ -34,8 +34,8 @@ describe("client testimonial proof corpus", () => {
     expect(kanini.chapter).toBe("entity-establishment");
     expect(getClientStoriesForService("tax-compliance-returns").map(s => s.id)).toContain("poomahal-kumar");
   });
-  it("contains the 24 approved references with unique IDs", () => {
-    expect(clientStories).toHaveLength(24);
+  it("contains the 25 approved references with unique IDs", () => {
+    expect(clientStories).toHaveLength(25);
     expect(new Set(clientStories.map((story) => story.id)).size).toBe(clientStories.length);
     expect(getClientStory("ken-su")?.name).toBe("Ms Jian He Su (Ken)");
   });
@@ -101,6 +101,24 @@ describe("client testimonial proof corpus", () => {
       expect(story.source).toBeTruthy();
       expect(story.sourceType).toMatch(/client-reference|client-email|client-supplied-text/);
     }
+  });
+
+  it("keeps Subramaniam distinct from Logan and retains the quote date and personal/professional distinction", () => {
+    const story = getClientStory("subramaniam-nirmalananda")!;
+    const logan = getClientStory("logan-nirmalananda")!;
+    expect(story).toMatchObject({ name: "Dr Subramaniam Nirmalananda", location: "Strathfield", date: "6 October 2026", chapter: "difficult-matters" });
+    expect(story).not.toBe(logan);
+    expect(story.fullQuote).toBe(approvedBodies["subramaniam-nirmalananda"]);
+    expect(story.fullQuote.split("\n\n")).toHaveLength(3);
+    expect(story.fullQuote).toContain("in the capacity of a friend (not in any professional capacity of his)");
+    expect(story.fullQuote).toContain("I appointed Sridaran, and his firm, MS Accountants, as my accountants about five years ago");
+    expect(story.excerpt).toBe("an appointment which Sridaran discharged at a very high level of proficiency, ensuring that audit did not result in a single finding by the ATO that was adverse to me or any of the businesses in which I had a controlling ownership interest");
+    expect(story.serviceSlugs).toEqual(["tax-disputes-ato"]);
+    expect(story.role).toBeUndefined();
+    expect(story.company).toBeUndefined();
+    expect(getClientStoriesForService("tax-disputes-ato")).toContain(story);
+    expect(featuredStoryIds).not.toContain(story.id);
+    expect(storyChapters.find(chapter => chapter.id === "long-view")?.storyIds).not.toContain(story.id);
   });
 
   it("contains no retired website testimonials", () => {
@@ -198,6 +216,7 @@ describe("client testimonial proof corpus", () => {
     expect(getClientStoriesForService("tax-disputes-ato").map((story) => story.id)).toEqual([
       "bianca-fletcher",
       "priyantha-cooray",
+      "subramaniam-nirmalananda",
     ]);
     expect(getClientStoriesForService("tax-advisory-planning").map((story) => story.id)).toEqual([
       "qing-ouyang",

@@ -42,7 +42,7 @@ export const storyChapters: Array<{
     title: "Proof matters most when the answer is not obvious.",
     lede:
       "ATO reviews, complex tax positions, and decisions where technical judgement had to produce a defensible result.",
-    storyIds: ["bianca-fletcher", "priyantha-cooray", "qing-ouyang", "dinah-eldridge", "ken-su"],
+    storyIds: ["bianca-fletcher", "priyantha-cooray", "qing-ouyang", "dinah-eldridge", "ken-su", "subramaniam-nirmalananda"],
   },
   {
     id: "long-view",
@@ -101,7 +101,7 @@ export const storyChapters: Array<{
 
 export const serviceStoryIds: Record<string, string[]> = {
   "tax-advisory-planning": ["qing-ouyang", "daniel-jones", "vallipuram-satyendra"],
-  "tax-disputes-ato": ["bianca-fletcher", "priyantha-cooray"],
+  "tax-disputes-ato": ["bianca-fletcher", "priyantha-cooray", "subramaniam-nirmalananda"],
   "tax-compliance-returns": ["krishnamoorthi-rangasamy", "poomahal-kumar", "raguharan-kathiresu"],
   "business-cfo-advisory": ["murali-pitchai", "amarjit-singh-thind"],
   "self-managed-super": ["kingsgrove-sports-centre"],
