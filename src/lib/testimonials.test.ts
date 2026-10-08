@@ -81,7 +81,7 @@ describe("client testimonial proof corpus", () => {
     expect(satyendra.fullQuote).toBe(approvedBodies["vallipuram-satyendra"]);
     expect(raguharan.fullQuote).toBe(approvedBodies["raguharan-kathiresu"]);
     expect(satyendra.fullQuote).toContain("Coopers & Lybrand");
-    expect(raguharan.fullQuote).toContain("any one apart them");
+    expect(raguharan.fullQuote).toContain("anyone apart them");
     expect(satyendra.role).toBeUndefined();
     expect(raguharan.role).toBeUndefined();
     expect(satyendra.serviceSlugs).toEqual(["tax-advisory-planning"]);
@@ -100,6 +100,18 @@ describe("client testimonial proof corpus", () => {
       expect(story.useLogo).toBe(false);
       expect(story.source).toBeTruthy();
       expect(story.sourceType).toMatch(/client-reference|client-email|client-supplied-text/);
+    }
+  });
+
+  it("applies Sri's three editorial corrections to full references and relevant excerpts", () => {
+    const subramaniam = getClientStory("subramaniam-nirmalananda")!;
+    expect(subramaniam.fullQuote).toContain("his own firm, MS Accountants, which as I remember happened around early 2010, at North Strathfield");
+    const raguharan = getClientStory("raguharan-kathiresu")!;
+    for (const copy of [raguharan.fullQuote, raguharan.excerpt]) {
+      expect(copy).toContain("anyone apart them");
+      expect(copy).toContain("Sridaran’s team at MS Accountants serves as almost an");
+      expect(copy).not.toContain("any one apart them");
+      expect(copy).not.toContain("Sridaran’s team at MS Accountants serve as almost an");
     }
   });
 
