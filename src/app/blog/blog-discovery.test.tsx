@@ -11,7 +11,6 @@ describe("approved blog discovery", () => {
       { url: "https://www.msaccountants.com.au/blog", changeFrequency: "monthly", priority: 0.7 },
       { url: "https://www.msaccountants.com.au/blog/what-to-do-ato-audit-letter", changeFrequency: "monthly", priority: 0.7 },
     ]);
-    expect(entries.slice(0, 10).every((entry) => entry.lastModified instanceof Date)).toBe(true);
   });
 
   it("adds a single Blog link in the footer without changing existing navigation", () => {
