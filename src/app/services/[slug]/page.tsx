@@ -150,6 +150,17 @@ export default async function ServiceDetailPage({
 
       <ServiceProof slug={service.slug} />
 
+      {service.slug === "tax-disputes-ato" && (
+        <section className="scheme-sand py-12">
+          <Container size="narrow">
+            <p className="eyebrow">A practical starting point</p>
+            <h2 className="mt-4 font-serif text-3xl leading-snug">Received an ATO letter?</h2>
+            <p className="mt-4 leading-relaxed">Read our general guide to checking the request, gathering records and understanding your next step.</p>
+            <TextLink href="/blog/what-to-do-ato-audit-letter" className="mt-6 text-brand-red">What to do when ATO correspondence arrives</TextLink>
+          </Container>
+        </section>
+      )}
+
       {/* Other services */}
       <section className="scheme-cream py-20 lg:py-28">
         <Container>

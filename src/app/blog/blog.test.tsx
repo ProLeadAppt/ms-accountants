@@ -14,7 +14,10 @@ describe("blog routes", () => {
   it("renders the complete educational article with existing service and contact links", () => {
     const html = renderToStaticMarkup(<Article />);
     expect(html.match(/<h1\b/g)).toHaveLength(1);
-    expect(html.match(/<h2\b/g)).toHaveLength(8);
+    for (const id of ["verify-contact", "understand-request", "gather-records", "more-time", "speak-to-adviser", "disagree-with-ato", "common-questions", "sources"]) {
+      expect(html).toContain(`id="${id}"`);
+      expect(html).toContain(`href="#${id}"`);
+    }
     expect(html).toContain('href="/services/tax-disputes-ato"');
     expect(html).toContain('href="/contact"');
     expect(html).toContain("By MS Accountants");
@@ -23,7 +26,19 @@ describe("blog routes", () => {
     expect(html).toContain("our-formal-notice-powers");
     expect(html).not.toContain("in-detail/privacy-and-information-gathering");
     expect(html).not.toContain("PiT=20240503000001");
-    expect(html).not.toContain('"@type":"Article"');
+    const graph = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/)?.[1] ?? "{}");
+    expect(graph["@graph"][0]).toMatchObject({
+      "@type": "BlogPosting",
+      headline: "What should you do if you receive an ATO audit letter?",
+      author: { "@type": "Organization", name: "MS Accountants" },
+      datePublished: "2026-10-12",
+      mainEntityOfPage: "https://www.msaccountants.com.au/blog/what-to-do-ato-audit-letter",
+    });
+    expect(graph["@graph"][0]).not.toHaveProperty("dateModified");
+    expect(graph["@graph"][0].citation).toHaveLength(4);
+    expect(graph["@graph"][1]).toMatchObject({ "@type": "BreadcrumbList" });
+    expect(graph["@graph"][1].itemListElement.map(({ name }: { name: string }) => name)).toEqual(["Home", "Blog", "ATO correspondence"]);
+    expect(html).not.toContain('"@type":"FAQPage"');
   });
 
   it("uses the article canonical, business author and approved release date", () => {

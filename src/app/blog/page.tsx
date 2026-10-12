@@ -3,30 +3,55 @@ import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { site } from "@/lib/site";
-import { PageHero } from "@/components/sections/PageHero";
+import { guide } from "./guide";
+import styles from "./blog.module.css";
 
 export const metadata: Metadata = {
-  title: "Blog", description: "Practical tax guides from MS Accountants in Sydney.",
+  title: { absolute: "Tax Insights & Practical Guides | MS Accountants" }, description: "Practical tax guides from MS Accountants in Sydney.",
   alternates: { canonical: "/blog" },
-  openGraph: { title: "Blog · MS Accountants", description: "Practical tax guides from MS Accountants in Sydney.",
+  openGraph: { title: "Tax Insights & Practical Guides | MS Accountants", description: "Practical tax guides from MS Accountants in Sydney.",
     url: `${site.url}/blog`, type: "website", siteName: "MS Accountants", locale: "en_AU" },
 };
 
 export default function BlogPage() {
   return (
     <>
-    <PageHero eyebrow="MS Accountants blog" titleSegments={[{ text: "Practical tax guides" }]} lede="General information to help you understand the next step. For advice on your circumstances, speak with an adviser." />
-    <section className="scheme-cream py-12 sm:py-16">
-      <Container>
-        <article className="max-w-3xl">
-          <Image src="/images/blog/ato-letter.png" width={1600} height={1200} sizes="(max-width: 768px) 100vw, 768px" alt="An ATO letter? Start here. Check the request. Gather your records." className="rounded-xl" />
-          <p className="eyebrow mt-6">Tax disputes</p>
-          <h2 className="mt-3 font-serif text-3xl"><Link href="/blog/what-to-do-ato-audit-letter" className="link-underline">What should you do if you receive an ATO audit letter?</Link></h2>
-          <p className="mt-4 leading-relaxed">Check the contact, understand the request and organise your records before responding.</p>
-          <p className="mt-4">By MS Accountants</p>
-        </article>
-      </Container>
-    </section>
+      <section className={`scheme-espresso ${styles.hero}`}>
+        <Container>
+          <p className={styles.kicker}>MS Accountants / The blog</p>
+          <div className={styles.indexIntro}>
+            <h1>Tax insights.<br /><em>Practical guides.</em></h1>
+            <p>Practical guidance to help you check the facts and understand your next step.</p>
+          </div>
+          <a href="#guides" className={styles.heroLink}>Explore the guide <span aria-hidden="true">↓</span></a>
+        </Container>
+      </section>
+      <section id="guides" className={`scheme-cream ${styles.indexSection}`}>
+        <Container>
+          <div className={styles.sectionLabel}><h2>Start with your question</h2><span>01 published guide</span></div>
+          <article className={styles.feature}>
+            <Link href={guide.path} className={styles.featureImage} tabIndex={-1} aria-hidden="true">
+              <Image src={guide.image} width={1600} height={1200} sizes="(max-width: 767px) 100vw, 44vw" alt="" />
+            </Link>
+            <div className={styles.featureCopy}>
+              <p className={styles.topic}>Tax disputes / ATO correspondence</p>
+              <h3><Link href={guide.path}>{guide.title}</Link></h3>
+              <p>{guide.summary}</p>
+              <p className={styles.meta}><time dateTime={guide.published}>12 October 2026</time><span aria-hidden="true"> · </span>Approx. {guide.readingMinutes} min read</p>
+              <Link href={guide.path} className={styles.readLink}>Read the guide <span aria-hidden="true">↗</span></Link>
+            </div>
+          </article>
+          <nav className={styles.questionLinks} aria-label="Jump into the ATO-letter guide">
+            <p className={styles.topic}>Jump into this guide</p>
+            <div>
+              <Link href={`${guide.path}#verify-contact`}><span>01</span>Is the contact genuine?<span aria-hidden="true">↗</span></Link>
+              <Link href={`${guide.path}#gather-records`}><span>02</span>Which records should I gather?<span aria-hidden="true">↗</span></Link>
+              <Link href={`${guide.path}#response-deadline`}><span>03</span>How long do I have to respond?<span aria-hidden="true">↗</span></Link>
+            </div>
+          </nav>
+          <p className={styles.indexNote}>General information, not advice for your circumstances. <Link href="/contact">Speak with MS Accountants</Link> if you need help understanding your next step.</p>
+        </Container>
+      </section>
     </>
   );
 }

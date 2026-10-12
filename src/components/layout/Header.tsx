@@ -69,7 +69,7 @@ export function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-9 lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
           {nav.map((item) => {
             const NavLink = item.href === "/client-stories" ? "a" : Link;
             return (
@@ -118,7 +118,7 @@ export function Header() {
               <Icon name="close" />
             </button>
           </Container>
-          <nav className="flex flex-col gap-7 px-8 pt-14">
+          <nav aria-label="Mobile primary" className="flex flex-col gap-7 px-8 pt-14">
             {nav.map((item) => {
               const NavLink = item.href === "/client-stories" ? "a" : Link;
               return (
