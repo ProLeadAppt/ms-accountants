@@ -26,6 +26,9 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/blog" className="link-underline">Blog</Link>
+              </li>
             </ul>
           </div>
 

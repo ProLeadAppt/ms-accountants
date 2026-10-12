@@ -16,5 +16,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: s.flagship ? 0.9 : 0.7,
   }));
 
-  return [...routes, ...serviceRoutes];
+  const blogRoutes = ["/blog", "/blog/what-to-do-ato-audit-letter"].map((path) => ({
+    url: `${site.url}${path}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...routes, ...serviceRoutes, ...blogRoutes];
 }

@@ -1,0 +1,15 @@
+.article { max-width: 48rem; margin-inline: auto; overflow-wrap: anywhere; }
+.article h1 { font-family: var(--font-serif); font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.12; margin-block: 1.5rem; }
+.article h2 { font-family: var(--font-serif); font-size: clamp(1.6rem, 4vw, 2rem); line-height: 1.25; margin-block: 3rem 1rem; }
+.article h3 { font-size: 1.2rem; font-weight: 600; margin-block: 2rem 0.75rem; }
+.article p, .article li { line-height: 1.8; font-size: 1.0625rem; }
+.article p { margin-block: 1.1rem; }
+.article ul, .article ol { padding-left: 1.5rem; margin-block: 1.25rem; }
+.article ul { list-style: disc; }
+.article ol { list-style: decimal; }
+.article li { padding-left: 0.25rem; margin-block: 0.5rem; }
+.article a { text-decoration: underline; text-underline-offset: 0.2em; }
+.article a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.article figure { margin-block: 2rem; }
+.article figure img { width: 100%; height: auto; border-radius: 0.75rem; }
+.article figcaption, .article .byline { font-size: 0.875rem; }
