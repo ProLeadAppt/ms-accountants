@@ -1,3 +1,4 @@
+import { withPageSocial } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
@@ -11,11 +12,11 @@ import { ClientVoicesBand } from "@/components/proof/ClientVoicesBand";
 import { services } from "@/lib/services";
 import { servicesPageDescription } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageSocial({
   title: "Services",
   description: servicesPageDescription,
   alternates: { canonical: "/services" },
-};
+}, "/services");
 
 const ICONS: Record<string, IconName> = {
   "tax-advisory-planning": "advisory",

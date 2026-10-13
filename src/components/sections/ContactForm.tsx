@@ -80,7 +80,7 @@ export function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="phone" className={LABEL}>
-            Phone <span className="normal-case text-espresso/40">(optional)</span>
+            Phone <span className="normal-case text-clay">(optional)</span>
           </label>
           <input
             id="phone"

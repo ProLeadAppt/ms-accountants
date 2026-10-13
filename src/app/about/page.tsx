@@ -1,3 +1,4 @@
+import { withPageSocial } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
@@ -13,12 +14,12 @@ import { FinalCTA } from "@/components/sections/FinalCTA";
 import { ClientVoicesBand } from "@/components/proof/ClientVoicesBand";
 import { directorProfile } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageSocial({
   title: "About Dr Maheswaran Sridaran",
   description:
     "A chartered accountant and lawyer with a doctorate in Australian tax law and over 45 years across more than five countries. Meet Dr Maheswaran Sridaran and the team he hired at MS Accountants, a boutique Sydney firm.",
   alternates: { canonical: "/about" },
-};
+}, "/about");
 
 export default function AboutPage() {
   return (

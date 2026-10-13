@@ -1,3 +1,4 @@
+import { withPageSocial } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
 import { Reveal } from "@/components/motion/Reveal";
@@ -14,11 +15,11 @@ import {
   storyChapters,
 } from "@/lib/testimonials";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageSocial({
   title: "Client Stories",
   description: `Read ${clientStories.length} attributed client references for MS Accountants covering long-term accounting relationships, ATO reviews, complex tax matters, audit, compliance, and personal and business advice.`,
   alternates: { canonical: "/client-stories" },
-};
+}, "/client-stories");
 
 const proofRules = [
   {

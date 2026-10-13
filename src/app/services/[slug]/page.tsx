@@ -1,3 +1,4 @@
+import { withPageSocial } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -29,11 +30,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = getService(slug);
   if (!service) return {};
-  return {
+  return withPageSocial({
     title: service.title,
     description: service.tagline,
     alternates: { canonical: `/services/${service.slug}` },
-  };
+  }, `/services/${service.slug}`);
 }
 
 export default async function ServiceDetailPage({
@@ -98,7 +99,7 @@ export default async function ServiceDetailPage({
       <section className="scheme-sand py-20 lg:py-28">
         <Container>
           <Reveal>
-            <EyebrowTag>{service.helpHeading}</EyebrowTag>
+            <h2><EyebrowTag>{service.helpHeading}</EyebrowTag></h2>
           </Reveal>
           <Stagger className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-[var(--hairline)] sm:grid-cols-2">
             {service.help.map((item, i) => {
@@ -165,7 +166,7 @@ export default async function ServiceDetailPage({
       <section className="scheme-cream py-20 lg:py-28">
         <Container>
           <Reveal>
-            <EyebrowTag>Other services</EyebrowTag>
+            <h2><EyebrowTag>Other services</EyebrowTag></h2>
           </Reveal>
           <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-[var(--hairline)] sm:grid-cols-2 lg:grid-cols-4">
             {others.map((s) => (

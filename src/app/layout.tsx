@@ -1,3 +1,4 @@
+import { withPageSocial } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import "./globals.css";
 import { fontVariables } from "@/lib/fonts";
@@ -14,7 +15,7 @@ import { ConversionTracking } from "@/components/analytics/ConversionTracking";
 
 const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageSocial({
   metadataBase: new URL(site.url),
   title: {
     default:
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     ? { google: googleSiteVerification }
     : undefined,
   alternates: { canonical: "/" },
-};
+}, "");
 
 export default function RootLayout({
   children,

@@ -110,6 +110,7 @@ export const organizationSchema = {
   "@type": "AccountingService",
   "@id": ORGANIZATION_ID,
   name: site.name,
+  logo: `${site.url}/ms-accountants-logo.png`,
   description:
     "Boutique Sydney tax and accounting firm led by Dr Maheswaran Sridaran, a chartered accountant and lawyer with a PhD in Australian tax law.",
   url: site.url,

@@ -1,3 +1,4 @@
+import { withPageSocial } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,7 +7,7 @@ import { site } from "@/lib/site";
 import { guide, sections, sources, articleGraph } from "../guide";
 import styles from "../blog.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageSocial({
   title: { absolute: "Received an ATO Audit Letter? First Steps | MS Accountants" },
   description: "Received ATO audit correspondence? Learn what to check, which records to gather and when to seek advice. A practical guide from MS Accountants in Sydney.",
   alternates: { canonical: "/blog/what-to-do-ato-audit-letter" },
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     images: [{ url: "/images/blog/ato-letter.png", width: 1600, height: 1200,
       alt: "An ATO letter? Start here. Check the request. Gather your records." }],
   },
-};
+}, "/blog/what-to-do-ato-audit-letter");
 
 export default function AtoLetterArticle() {
   return (

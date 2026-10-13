@@ -1,3 +1,4 @@
+import { withPageSocial } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -6,12 +7,12 @@ import { site } from "@/lib/site";
 import { guide } from "./guide";
 import styles from "./blog.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageSocial({
   title: { absolute: "Tax Insights & Practical Guides | MS Accountants" }, description: "Practical tax guides from MS Accountants in Sydney.",
   alternates: { canonical: "/blog" },
   openGraph: { title: "Tax Insights & Practical Guides | MS Accountants", description: "Practical tax guides from MS Accountants in Sydney.",
     url: `${site.url}/blog`, type: "website", siteName: "MS Accountants", locale: "en_AU" },
-};
+}, "/blog");
 
 export default function BlogPage() {
   return (

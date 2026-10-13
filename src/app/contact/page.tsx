@@ -1,3 +1,4 @@
+import { withPageSocial } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
 import { EyebrowTag } from "@/components/ui/EyebrowTag";
@@ -10,12 +11,12 @@ import { getClientStory } from "@/lib/testimonials";
 
 const contactProof = getClientStory("dinah-eldridge")!;
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageSocial({
   title: "Contact",
   description:
     "Book a conversation with Dr Sridaran. A boutique Sydney tax firm where the principal does the work.",
   alternates: { canonical: "/contact" },
-};
+}, "/contact");
 
 export default function ContactPage() {
   return (
