@@ -81,6 +81,8 @@ describe("client testimonial proof corpus", () => {
     expect(satyendra.fullQuote).toBe(approvedBodies["vallipuram-satyendra"]);
     expect(raguharan.fullQuote).toBe(approvedBodies["raguharan-kathiresu"]);
     expect(satyendra.fullQuote).toContain("Coopers & Lybrand");
+    expect(satyendra.fullQuote).toContain("PricewaterhouseCoopers “PwC”");
+    expect(satyendra.fullQuote).not.toContain("PriceWaterhouseCoopers");
     expect(raguharan.fullQuote).toContain("anyone apart them");
     expect(satyendra.role).toBeUndefined();
     expect(raguharan.role).toBeUndefined();
@@ -170,7 +172,7 @@ describe("client testimonial proof corpus", () => {
 
   it("preserves the three new references without manufacturing a rating or outcome", () => {
     expect(normalise(getClientStory("shanthini-tambimuttu")!.fullQuote)).toBe(
-      "Sridaran was a good friend of my late husband’s, and my late husband and I have known Sridaran for nearly 40 years, since 1988, when Sridaran, and my late husband and I, were living and working in Port Moresby, the capital of Papua New Guinea. Even as far back as then, my late husband considered Sridaran to be an accountant who displayed promise. Sridaran and his firm, MS Accountants, have served as my accountants from the very inception of his firm in February 2010, and, throughout that long period that they have served me, I have always found Sridaran to be highly reliable, professional, and respectful, and his team of staff at MS Accountants to bear those same attributes.",
+      "Sridaran was a good friend of my late husband’s, and my late husband and I have known Sridaran for nearly 40 years, since 1987, when Sridaran, and my late husband and I, were living and working in Port Moresby, the capital of Papua New Guinea. Even as far back as then, my late husband considered Sridaran to be an accountant who displayed promise. Sridaran and his firm, MS Accountants, have served as my accountants from the very inception of his firm in February 2010, and, throughout that long period that they have served me, I have always found Sridaran to be highly reliable, professional, and respectful, and his team of staff at MS Accountants to bear those same attributes.",
     );
     expect(getClientStory("daniel-jones")?.fullQuote).toBe(
       "For at least four consecutive years up to now, Sridaran has both been a friend and an adviser to me in relation to tax and legal matters applicable to myself personally and my businesses, even at times my businesses were facing some severe problems (during the Covid pandemic). During that same period, Sridaran’s firm, MS Accountants, has been the accountants of myself and my business, a responsibility which that firm, as has Sridaran, always discharged at a high standard. I have always found Sridaran and his team at MS Accountants to be professionals who are both “people” that one can very easily relate to and professionals whose competence that one can entirely rely on.",
