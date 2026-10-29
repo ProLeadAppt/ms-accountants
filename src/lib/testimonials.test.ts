@@ -34,8 +34,8 @@ describe("client testimonial proof corpus", () => {
     expect(kanini.chapter).toBe("entity-establishment");
     expect(getClientStoriesForService("tax-compliance-returns").map(s => s.id)).toContain("poomahal-kumar");
   });
-  it("contains the 25 approved references with unique IDs", () => {
-    expect(clientStories).toHaveLength(25);
+  it("contains the 26 approved references with unique IDs", () => {
+    expect(clientStories).toHaveLength(26);
     expect(new Set(clientStories.map((story) => story.id)).size).toBe(clientStories.length);
     expect(getClientStory("ken-su")?.name).toBe("Ms Jian He Su (Ken)");
   });
@@ -60,10 +60,27 @@ describe("client testimonial proof corpus", () => {
     expect(storyChapters.find((chapter) => chapter.id === "personal-accounting-advice")?.storyIds).toEqual([
       "jayne-hyde",
       "prashanthan-ranjan",
+      "leonard-david-pauling",
     ]);
     const longView = storyChapters.find((chapter) => chapter.id === "long-view")!;
     expect(longView.storyIds).not.toContain(jayne.id);
     expect(longView.storyIds).not.toContain(prashanthan.id);
+  });
+
+  it("publishes Leonard's original approved reference with his sole attribution and document-body date", () => {
+    const leonard = getClientStory("leonard-david-pauling")!;
+    expect(leonard).toMatchObject({
+      name: "Mr Leonard David Pauling",
+      location: "Sydney",
+      date: "28 July 2026",
+      chapter: "personal-accounting-advice",
+      serviceSlugs: [],
+    });
+    expect(leonard.fullQuote).toBe(approvedBodies["leonard-david-pauling"]);
+    expect(leonard.role).toBeUndefined();
+    expect(leonard.company).toBeUndefined();
+    expect(JSON.stringify(leonard)).not.toContain("Danielle");
+    expect(featuredStoryIds).not.toContain(leonard.id);
   });
 
   it("keeps every excerpt inside its approved full reference", () => {
