@@ -72,9 +72,13 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col gap-3 border-t border-[var(--hairline)] pt-7 text-xs text-[var(--muted)] sm:flex-row sm:justify-between">
           <span>© {year} MS Accountants. All rights reserved.</span>
-          <span>{site.credentialLine}</span>
+          <div className="flex flex-col gap-2 sm:items-end">
+            <span>{site.credentialLine}</span>
+            <a href="https://munyal.com.au" target="_blank" rel="noopener noreferrer" className="link-underline inline-flex min-h-11 items-center">Built by Munyal · Personally crafted by Tyson Kaye</a>
+          </div>
         </div>
       </Container>
     </footer>
   );
 }
+
