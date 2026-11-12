@@ -95,7 +95,7 @@ export const storyChapters: Array<{
     title: "Attention to the person behind the advice.",
     lede:
       "These references describe ongoing personal accounting services and clear advice informed by individual circumstances.",
-    storyIds: ["jayne-hyde", "prashanthan-ranjan"],
+    storyIds: ["jayne-hyde", "prashanthan-ranjan", "leonard-david-pauling"],
   },
 ];
 

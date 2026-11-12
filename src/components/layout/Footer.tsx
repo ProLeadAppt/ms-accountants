@@ -70,11 +70,25 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-[var(--hairline)] pt-7 text-xs text-[var(--muted)] sm:flex-row sm:justify-between">
-          <span>© {year} MS Accountants. All rights reserved.</span>
-          <span>{site.credentialLine}</span>
+        <div className="mt-14 flex min-w-0 flex-col gap-7 border-t border-[var(--hairline)] pt-8 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
+          <div className="flex min-w-0 flex-col gap-2 text-xs leading-5 text-[var(--muted)]">
+            <span>© {year} MS Accountants. All rights reserved.</span>
+            <span>{site.credentialLine}</span>
+          </div>
+          <a
+            href="https://munyal.com.au"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Built by Munyal · Personally crafted by Tyson Kaye"
+            className="group inline-flex min-h-11 min-w-0 max-w-full flex-col items-start self-start py-1 text-[var(--fg)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--fg)] lg:max-w-sm"
+          >
+            <span aria-hidden="true" className="mb-2 block h-px w-10 bg-[var(--accent)] transition-colors group-hover:bg-[var(--fg)]" />
+            <span className="font-serif text-base leading-6">Built by <strong className="font-medium">Munyal</strong></span>
+            <span className="mt-1 text-[13px] leading-5 text-[var(--muted)]">· Personally crafted by <span className="font-medium text-[var(--fg)]">Tyson Kaye</span></span>
+          </a>
         </div>
       </Container>
     </footer>
   );
 }
+
