@@ -384,5 +384,19 @@
     "useLogo": false,
     "sourceType": "client-reference",
     "source": "Leonard David Pauling approved client reference - 28 July 2026"
+  },
+  {
+    "id": "p-rogers",
+    "name": "P Rogers",
+    "location": "NSW",
+    "date": "23 November 2026",
+    "fullQuote": "A friend of ours recommended that we consult Dr Sridaran for advice on the best course that we should take on a complex tax issue that we had encountered (largely, involving capital gains), advice which Dr Sridaran provided to us, both at a meeting that he had with us in person and subsequently by e-mail, with remarkable promptness and clarity, with a thorough assessment by him of all relevant factual and legal implications, always mindful that we should find his advice to be constructive. We, therefore, did form the view that Dr Sridaran is clearly a professional that we can recommend to others facing complex tax issues of the kind that we did.",
+    "excerpt": "We, therefore, did form the view that Dr Sridaran is clearly a professional that we can recommend to others facing complex tax issues of the kind that we did.",
+    "chapter": "difficult-matters",
+    "serviceSlugs": [],
+    "approvalStatus": "approved",
+    "useLogo": false,
+    "sourceType": "client-reference",
+    "source": "P Rogers approved third draft - 23 November 2026"
   }
 ]
