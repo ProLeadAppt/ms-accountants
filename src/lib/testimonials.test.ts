@@ -34,8 +34,8 @@ describe("client testimonial proof corpus", () => {
     expect(kanini.chapter).toBe("entity-establishment");
     expect(getClientStoriesForService("tax-compliance-returns").map(s => s.id)).toContain("poomahal-kumar");
   });
-  it("contains the 26 approved references with unique IDs", () => {
-    expect(clientStories).toHaveLength(26);
+  it("contains the 27 approved references with unique IDs", () => {
+    expect(clientStories).toHaveLength(27);
     expect(new Set(clientStories.map((story) => story.id)).size).toBe(clientStories.length);
     expect(getClientStory("ken-su")?.name).toBe("Ms Jian He Su (Ken)");
   });
@@ -81,6 +81,20 @@ describe("client testimonial proof corpus", () => {
     expect(leonard.company).toBeUndefined();
     expect(JSON.stringify(leonard)).not.toContain("Danielle");
     expect(featuredStoryIds).not.toContain(leonard.id);
+  });
+
+  it("publishes P Rogers in Chapter 01 with approved attribution and no extra identifiers", () => {
+    const rogers = getClientStory("p-rogers")!;
+    expect(rogers).toMatchObject({ name: "P Rogers", location: "NSW", date: "23 November 2026", chapter: "difficult-matters", serviceSlugs: [] });
+    expect(rogers.fullQuote).toBe(approvedBodies["p-rogers"]);
+    expect(rogers.role).toBeUndefined();
+    expect(rogers.company).toBeUndefined();
+    expect(featuredStoryIds).not.toContain(rogers.id);
+    const chapter = storyChapters.find(c => c.id === "difficult-matters")!;
+    expect(chapter.storyIds).toHaveLength(7);
+    expect(chapter.storyIds.at(-1)).toBe(rogers.id);
+    const graph = JSON.stringify(clientStoriesGraph(clientStories));
+    expect(graph).toContain("Client reference from P Rogers");
   });
 
   it("keeps every excerpt inside its approved full reference", () => {
