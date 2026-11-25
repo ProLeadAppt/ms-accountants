@@ -42,7 +42,7 @@ export const storyChapters: Array<{
     title: "Proof matters most when the answer is not obvious.",
     lede:
       "ATO reviews, complex tax positions, and decisions where technical judgement had to produce a defensible result.",
-    storyIds: ["bianca-fletcher", "priyantha-cooray", "qing-ouyang", "dinah-eldridge", "ken-su", "subramaniam-nirmalananda"],
+    storyIds: ["bianca-fletcher", "priyantha-cooray", "qing-ouyang", "dinah-eldridge", "ken-su", "subramaniam-nirmalananda", "p-rogers"],
   },
   {
     id: "long-view",
