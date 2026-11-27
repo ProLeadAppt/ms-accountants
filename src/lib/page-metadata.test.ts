@@ -34,3 +34,21 @@ describe("page sharing metadata", () => {
     expect(metadata.openGraph).toMatchObject({ url: "https://www.msaccountants.com.au", title: "Approved title", description: "Approved social description" });
   });
 });
+
+describe("search descriptions", () => {
+  it("supplies specific, unique 120–160 character search summaries for the audited routes without changing sharing copy", () => {
+    const paths = ["", "/services", "/client-stories", "/about", "/contact", "/blog", "/services/tax-disputes-ato", "/services/business-cfo-advisory", "/services/self-managed-super", "/services/tax-compliance-returns", "/services/tax-advisory-planning"];
+    const descriptions = paths.map((path) => {
+      const metadata = withPageSocial({ title: "Title", description: "Approved social wording" }, path);
+      expect(metadata.openGraph?.description).toBe("Approved social wording");
+      expect(metadata.twitter?.description).toBe("Approved social wording");
+      expect(metadata.description?.length).toBeGreaterThanOrEqual(120);
+      expect(metadata.description?.length).toBeLessThanOrEqual(160);
+      return metadata.description;
+    });
+    expect(new Set(descriptions).size).toBe(paths.length);
+  });
+  it("preserves the description of pages outside the audited set", () => {
+    expect(withPageSocial({ description: "Approved existing article" }, "/blog/what-to-do-ato-audit-letter").description).toBe("Approved existing article");
+  });
+});
