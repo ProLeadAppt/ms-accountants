@@ -76,7 +76,7 @@ export function Footer() {
             <span>{site.credentialLine}</span>
           </div>
           <a
-            href="https://munyal.com.au"
+            href="https://www.munyal.com.au/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Built by Munyal · Personally crafted by Tyson Kaye"

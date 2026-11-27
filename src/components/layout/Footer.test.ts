@@ -6,9 +6,9 @@ const source = readFileSync(resolve(process.cwd(), "src/components/layout/Footer
 
 describe("footer maker signature", () => {
   it("preserves one exact accessible credit, destination and client credentials", () => {
-    expect(source.match(/href="https:\/\/munyal\.com\.au"/g)).toHaveLength(1);
+    expect(source.match(/href="https:\/\/www\.munyal\.com\.au\/"/g)).toHaveLength(1);
     expect(source).toContain('aria-label="Built by Munyal · Personally crafted by Tyson Kaye"');
-    expect(source).toMatch(/href="https:\/\/munyal\.com\.au"\s+target="_blank"\s+rel="noopener noreferrer"/);
+    expect(source).toMatch(/href="https:\/\/www\.munyal\.com\.au\/"\s+target="_blank"\s+rel="noopener noreferrer"/);
     expect(source).toContain("· Personally crafted by");
     expect(source).toContain("{site.credentialLine}");
   });
